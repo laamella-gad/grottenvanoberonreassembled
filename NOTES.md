@@ -17,8 +17,8 @@ tanks, find the way out before the fuel runs out or the damage reaches 100 %.
 | `grotten_de.prg`, `grotten_en.prg` | the German and English games made the same way: memory at the jump to $1000, $0801-$0bff replaced by the same `10 SYS4096` |
 | `grotten.flo` | the Deflower annotations (Dutch version): every routine, variable and table |
 | `out/` | Deflower's output (`make disasm`), not edited by hand |
-| `src/grotten.asm` | the source of all three versions, from `out/grotten.asm`: edit code here |
-| `src/nl/`, `src/de/`, `src/en/` | each language's files, see below |
+| `src/grotten.asm` | the source of all four versions, from `out/grotten.asm`: edit code here |
+| `src/nl/`, `src/de/`, `src/en/`, `src/fr/` | each language's files, see below |
 | `tools/puzzles.py` | puzzle bank <-> text |
 | `tools/playfield.py` | cave <-> CharPad project, and a picture of the cave |
 | `tools/sprites.py` | sprites <-> SpritePad project |
@@ -35,19 +35,20 @@ Each language directory holds:
 | `fixes.cmp` | (de, en) the bytes the fixes below change, as `cmp -l` lists them: `make check` allows those differences and no others |
 
 `src/grotten.asm` was copied from `out/` once and has since been changed for
-the three languages (texts moved out, `.if language == "en"` blocks). Running
+the languages (texts moved out, `.if fast_engine` blocks). Running
 Deflower again doesn't touch it; copy over by hand only what changed in the
 annotations, or edits get lost.
 
 ## Building
 
 ```
-make            # build/nl.prg, build/de.prg, build/en.prg: load at $0801, RUN starts them
+make            # build/nl.prg, build/de.prg, build/en.prg, build/fr.prg: load at $0801,
+                # RUN starts them
 make en         # one of them
 make check      # each byte-identical to its original while src/ is unchanged,
                 # apart from the fixes in src/<language>/fixes.cmp
 make release    # grotten_van_oberon.prg, grotten_von_oberon.prg, caves_of_oberon.prg,
-                # crunched with pucrunch (start $1000)
+                # grottes_d_oberon.prg, crunched with pucrunch (start $1000)
 make disasm     # Deflower: 0 differ, 0 gaps
 ```
 
@@ -82,16 +83,16 @@ then a trainer menu at $0800 (cursor keys and RETURN); its options poke the
 of the fuel ($2112). `grotten_en.prg` is taken with the options off, so those
 are the original `jsr`s.
 
-## The three versions
+## The versions
 
-`src/grotten.asm` builds all three; `make check` compares each with its
-original.
+`src/grotten.asm` builds all four; `make check` compares the first three with
+their originals.
 
 - Dutch and German: the same code. Only the texts, the data and the leftovers
   differ, and the texts' addresses follow from their lengths (all pointers to
   them are labels).
 - English: the same game code ($1000 on), but its engine was sped up, in
-  `.if language == "en"` blocks:
+  `.if fast_engine` blocks:
   - `start` writes 1000 `lda $ccxx / sta $d8xx` pairs and an `rts` to $6000,
     over the map image it just copied (`colour_copy_write`). `show_screen`
     jumps there instead of running its copy loop.
@@ -102,6 +103,13 @@ original.
     instead of the buffer into itself.
   - The barrier animation (`barrier_code`, the same code) sits after the game
     code ($23ef) instead of at the end of the engine.
+- French: new, not from Radarsoft. Made from the English version (its
+  engine, graphics, cave and start values); `text.asm`, the puzzle banks and
+  the texts in the cave tiles (title, subtitle, credits, congratulations,
+  the unused "FAUSSE ROUTE!" sign) are translated. No accents: the fonts have
+  none. Words in the puzzles are translated, sums and number rows kept, and
+  the keyboard rows (QWERTY..., the C64's own keyboard) too. The leftovers
+  are zeros.
 - What some variables held when the version was saved differs too (the status
   scroller's position, the sound effect, the switch, ...): `saved.asm` starts
   them with those values, so each build is identical.
@@ -188,7 +196,7 @@ guess, up to 219 per bank; see `tools/puzzles.py`. `make` converts them.
 tools/playfield.py export     # playfield.ctm + playfield_copies.txt for CharPad
 tools/playfield.py import     # back into src/nl/map.bin, tile_chars.bin, tile_colours.bin, charset.bin
 tools/playfield.py png        # cave.png, the whole cave (8192 x 4096)
-tools/playfield.py en export  # the same for another language (de, en)
+tools/playfield.py en export  # the same for another language (de, en, fr)
 ```
 
 CharPad colours per character but the game per tile cell, so characters in
@@ -201,7 +209,7 @@ position $e432 (`engine_init`): tile row 8, column 50.
 ```
 tools/sprites.py export     # sprites.spd, a SpritePad 1.8 project
 tools/sprites.py import     # back into src/nl/sprites.bin
-tools/sprites.py de export  # another language (de, en)
+tools/sprites.py de export  # another language (de, en, fr)
 ```
 
 16 sprites from $0c00, pointers $30-$3f: $30-$34 the ship (multicolour, $34

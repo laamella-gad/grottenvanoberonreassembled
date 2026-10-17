@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Converts the cave (map, tiles, characters) to a CharPad project and a picture.
 
-    tools/playfield.py [nl|de|en] export [playfield.ctm]   src/<language>/ -> CharPad project
-    tools/playfield.py [nl|de|en] import [playfield.ctm]   CharPad project -> src/<language>/
-    tools/playfield.py [nl|de|en] png [cave.png]           src/<language>/ -> picture of the whole cave
+    tools/playfield.py [nl|de|en|fr] export [playfield.ctm]   src/<language>/ -> CharPad project
+    tools/playfield.py [nl|de|en|fr] import [playfield.ctm]   CharPad project -> src/<language>/
+    tools/playfield.py [nl|de|en|fr] png [cave.png]           src/<language>/ -> picture of the whole cave
 
 The language is nl when left out. The cave is 128 x 64 tiles (map.bin, a byte
 per tile), each tile 8 x 8 characters (tile_chars.bin) with a colour per
@@ -46,7 +46,7 @@ GLOBAL, PER_TILE, PER_CHAR = 0, 1, 2
 PALETTE = [0x000000, 0xffffff, 0x68372b, 0x70a4b2, 0x6f3d86, 0x588d43, 0x352879, 0xb8c76f,
            0x6f4f25, 0x433900, 0x9a6759, 0x444444, 0x6c6c6c, 0x9ad284, 0x6c5eb5, 0x959595]
 
-LANGUAGES = ('nl', 'de', 'en')
+LANGUAGES = ('nl', 'de', 'en', 'fr')
 
 # src/<language>, set from the command line
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')

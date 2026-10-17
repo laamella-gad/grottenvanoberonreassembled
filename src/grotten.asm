@@ -1,5 +1,9 @@
-; the language's texts (src/nl, src/de or src/en, chosen by the Makefile)
+; the language's texts (src/nl, src/de, src/en or src/fr, chosen by the
+; Makefile)
 		.include "text.asm"
+; the English engine (sped up, see NOTES.md) or the Dutch and German one; the
+; French version, made later, uses the English engine
+fast_engine = language in ["en", "fr"]
 ; what some variables held when the version was saved (kept, so that each
 ; build is identical to its original)
 		.include "saved.asm"
@@ -219,7 +223,7 @@ start_copy_store:
 		inc start_copy_store + 2
 		dex
 		bne start_copy_loop
-.if language == "en"
+.if fast_engine
 ; The English version writes the colour copy out as 1000 lda/sta pairs, then
 ; rts, over the map image (copied already); show_screen jumps to it. Faster
 ; than show_screen's loop.
@@ -2152,7 +2156,7 @@ radar_mask:		.byte	$00
 ; read by: radar_add_column
 bit_masks:
 		.byte	$80, $40, $20, $10, $08, $04, $02, $01
-.if language == "en"
+.if fast_engine
 ; the English version has the barrier animation here, after the game
 		#barrier_code
 .endif
@@ -2936,7 +2940,7 @@ show_screen:
 		lda vic_memory_setup
 		eor #$30
 		sta vic_memory_setup
-.if language == "en"
+.if fast_engine
 		jmp colour_copy
 .else
 		ldy #$00
@@ -2990,7 +2994,7 @@ scroll_shift_screen:
 		sta scroll_shift_step
 		lda scroll_end_index, x
 		sta scroll_shift_compare + 1
-.if language == "en"
+.if fast_engine
 ; the English version: the copy loop is unrolled to 4 copies (the 4 parts),
 ; set up for up or down by scroll_shift_up / scroll_shift_down
 		lda scroll_carry_opcode, x
@@ -3214,7 +3218,7 @@ scroll_end_index:
 		.byte	$fa, $ff, $fa, $01, $fa, $ff, $ff, $01, $fa, $ff
 ; read by: scroll_shift_screen
 scroll_carry_opcode:
-.if language == "en"
+.if fast_engine
 		.byte	$00, $38, $00, $01, $00, $38, $38, $01, $00, $38	; up: 0
 .else
 		.byte	$18, $38, $18, $01, $18, $38, $38, $01, $18, $38
@@ -3229,7 +3233,7 @@ scroll_latch_direction:
 
 ; jumped to by: scroll_phase_3
 scroll_shift_colours:
-.if language == "en"
+.if fast_engine
 ; the English version shifts colour RAM into the buffer
 		lda #>color_ram
 		sta copy_source_high
@@ -4046,7 +4050,7 @@ frame_engine_down_check:
 		dec engine_noise_rate
 		jmp frame_set_direction
 
-.if language != "en"
+.if !fast_engine
 		#barrier_code
 .endif
 ; leftovers of an earlier memory image: the language's leftovers_2.bin, cut

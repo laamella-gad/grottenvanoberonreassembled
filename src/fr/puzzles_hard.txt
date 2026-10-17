@@ -1,0 +1,442 @@
+# 14 characters a puzzle, ^ marks a hidden one; see tools/puzzles.py
+
+|  2 4 16 256  |
+|      ^^      |
+|45 * 56 = 2520|
+|            ^ |
+| 34 * 21 =714 |
+|           ^  |
+|X*X=1369 X=37 |
+|            ^ |
+|81 100 121 144|
+|        ^     |
+| 422-289=133  |
+|      ^       |
+|33 * 33 =1089 |
+|           ^  |
+| OBSTINATION  |
+|    ^^        |
+|   ARMOIRE    |
+|      ^^^     |
+|   CRENEAU    |
+|    ^ ^  ^    |
+|  COMMANDANT  |
+|   ^^         |
+|  AUTREFOIS   |
+|        ^ ^   |
+| INDISCRETION |
+|        ^^    |
+|    CARTON    |
+|     ^   ^    |
+| IDENTIFIABLE |
+|   ^^      ^  |
+|  CERAMIQUE   |
+|    ^   ^     |
+| 111+435= 546 |
+|     ^^^      |
+| 211+546=757  |
+|  ^    ^ ^    |
+|  3.1415927   |
+|     ^^       |
+|   5! = 120   |
+|         ^    |
+| FALCON CREST |
+|         ^^^  |
+|  JAMES BOND  |
+|    ^^^       |
+|  VI+VI=XII   |
+|        ^     |
+|TRAVAIL=LABEUR|
+|^ ^           |
+| LOIN=DISTANT |
+| ^       ^    |
+|   AMBNCOD    |
+|        ^     |
+| MECHANT=VIL  |
+| ^ ^          |
+|  TOURBILLON  |
+|      ^ ^     |
+|   VIN=WINE   |
+|   ^ ^        |
+| 408/12 = 34  |
+|      ^       |
+|  8! = 40320  |
+|        ^     |
+|13 17 19 23 29|
+|          ^   |
+|   HABITUDE   |
+|   ^  ^       |
+|  COLERE=IRE  |
+|   ^^         |
+|  STOP=HALTE  |
+|  ^  ^        |
+|TOURNER=VIRER |
+|^^            |
+|RESERVE=EXTRA |
+|^    ^        |
+|   SAUVAGE    |
+|   ^    ^     |
+|    GAGNER    |
+|    ^  ^      |
+| INTIMIDATION |
+|   ^ ^        |
+| VIPERE=ASPIC |
+|   ^^         |
+|   ARBITRE    |
+|   ^ ^        |
+| AC GI FH KM  |
+|          ^   |
+|   RUSE=ART   |
+|    ^^        |
+|A1 B2 E5 D4 C3|
+|       ^      |
+|  B O N U S   |
+|              |
+|   BARRAGE    |
+|   ^ ^        |
+| PAS=ENJAMBEE |
+| ^ ^          |
+| VISAGE=FACE  |
+|     ^  ^     |
+|REGARDER=VOIR |
+|         ^^   |
+|  ZSE4 VGY7   |
+|        ^     |
+| PIEGE=TRAPPE |
+|       ^ ^    |
+|  B O N U S   |
+|              |
+| 10*3*2=62-2  |
+|           ^  |
+|  CARACTERE   |
+|  ^    ^      |
+|METIER=EMPLOI |
+|^ ^           |
+|  ETIQUETTE   |
+|  ^   ^       |
+|   FRINGUES   |
+|   ^          |
+| A<B B<C C>A  |
+|          ^   |
+| MOTIF=RAISON |
+|       ^   ^  |
+|   PANNEAU    |
+|   ^^         |
+|SEMER=PLANTER |
+|^ ^           |
+| LATERAL=COTE |
+|       ^ ^    |
+|    TOURBE    |
+|    ^  ^      |
+|  886*7=6202  |
+|   ^          |
+|    EFFORT    |
+|    ^^        |
+| POSTURE=POSE |
+|         ^ ^  |
+|POURRIR=GATER |
+|^  ^          |
+|  COURAMMENT  |
+|  ^     ^     |
+| INCONVENIENT |
+|   ^     ^    |
+| BIBLIOTHEQUE |
+| ^  ^         |
+|CALMER=BERCER |
+|^^            |
+|  3812/4=953  |
+|   ^          |
+| OBLIGATOIRE  |
+| ^      ^     |
+|  MONITRICE   |
+|       ^ ^    |
+| LENTICULAIRE |
+|    ^^        |
+|  MAITRESSE   |
+|  ^ ^         |
+| LIBERALISTE  |
+| ^      ^     |
+|  EN FLAMMES  |
+|     ^    ^   |
+|  UN MENTEUR  |
+|     ^     ^  |
+|   LIMONADE   |
+|   ^    ^     |
+|  CORPULENT   |
+|  ^           |
+|   A GAUCHE   |
+|     ^   ^    |
+|  DECROCHER   |
+|  ^^          |
+|   FAINEANT   |
+|   ^    ^     |
+|   SOTTISE    |
+|   ^  ^       |
+|FAIRE DU STOP |
+|         ^  ^ |
+|    LEGUME    |
+|    ^ ^       |
+|  ESCAMOTER   |
+|  ^     ^     |
+|  TAUPINIERE  |
+|     ^    ^   |
+|  FLATTERIE   |
+|     ^^       |
+|  MORALISER   |
+|    ^^        |
+|  MYSTERIEUX  |
+|  ^    ^      |
+|  NERVOSITE   |
+|  ^      ^    |
+|   URGENCE    |
+|   ^ ^        |
+| OCCASIONNEL  |
+| ^^           |
+|29 * 32 = 928 |
+|     ^        |
+| 6*4*8*3=576  |
+|     ^        |
+| 223-98=120+5 |
+|     ^^       |
+|  TOURNOYER   |
+|  ^   ^       |
+|  VOISINAGE   |
+|  ^^      ^   |
+|  INRECLAME   |
+|  ^ ^         |
+|3*3*3*3*5=405 |
+|      ^       |
+| INACCESSIBLE |
+|  ^^          |
+| INEQUITABLE  |
+|    ^^        |
+| RESIGNATION  |
+| ^ ^          |
+|  DISSIMULER  |
+|  ^  ^        |
+| NON CHAUFFE  |
+|     ^^       |
+| BENIR=SACRER |
+| ^ ^          |
+| XXY3E=XXY3E  |
+|    ^  ^      |
+| VENDRE=CEDER |
+| ^^           |
+|    LA-BAS    |
+|    ^  ^      |
+| CHIPER=VOLER |
+| ^^           |
+|MEGERE=HARPIE |
+|^ ^           |
+|  INACCOMPLI  |
+|        ^^    |
+|  IMPREPARE   |
+|    ^^        |
+| 753+439=1192 |
+|  ^    ^      |
+|EPICE=MUSCADE |
+|       ^ ^    |
+|  B O N U S   |
+|              |
+| 962-134=828  |
+|       ^ ^    |
+| MARIONNETTE  |
+| ^ ^          |
+|VACARME=BRUIT |
+|   ^^         |
+|LICHEN=MOUSSE |
+|^^            |
+|PRES DE=A COTE|
+|^ ^           |
+|  457*3=1371  |
+|      ^  ^    |
+|  MOT A MOT   |
+|        ^ ^   |
+|  MJU7 VFR4   |
+|    ^         |
+|CREUSER=FOUIR |
+|^^            |
+| PAREIL=MEME  |
+| ^ ^          |
+| INFLAMMABLE  |
+|   ^^         |
+|   INEPUISE   |
+|    ^  ^      |
+| 1050=759+291 |
+|   ^    ^     |
+| AVERSE=PLUIE |
+| ^^           |
+|  ESSAI=TEST  |
+|   ^^         |
+|   TREMBLER   |
+|       ^  ^   |
+|EPOUSER=MARIER|
+|^ ^           |
+|  BLOC-NOTES  |
+|  ^^          |
+|ISOLER=ECARTER|
+|^^            |
+| SATAN=DIABLE |
+|       ^  ^   |
+|  LUNA=LUNE   |
+|       ^^     |
+|  B O N U S   |
+|              |
+| SUIF=GRAISSE |
+| ^ ^          |
+|COLLER=ADHERER|
+|^^            |
+| EN DESACCORD |
+|    ^^        |
+|  2368/64=37  |
+|     ^ ^      |
+| LANCE=PIQUE  |
+| ^^           |
+|   AUBERGE    |
+|   ^^         |
+| QETUO ADGJL  |
+| ^            |
+|    ABDGKP    |
+|         ^    |
+|REPOS=DETENTE |
+|^^            |
+|LAVER=NETTOYER|
+|^^            |
+|  CRUEL=DUR   |
+|  ^^          |
+|ONGUENT=BAUME |
+|    ^^        |
+| PISTE=TRACE  |
+|       ^^     |
+|  VASE=URNE   |
+|    ^^        |
+| FLANER=ERRER |
+|         ^^   |
+|23 * 18 = 414 |
+|      ^       |
+| POMME=FRUIT  |
+| ^^           |
+| 76 * 7 = 532 |
+|  ^           |
+|  B O N U S   |
+|              |
+|567 - 389 =178|
+|            ^ |
+| TEST=EPREUVE |
+|      ^    ^  |
+|54 * 13 = 702 |
+|           ^  |
+| 78 * 6 = 468 |
+|  ^           |
+|345 + 232 =577|
+| ^    ^      ^|
+|23% + 54%=77% |
+|          ^^  |
+|  LYNX=FELIN  |
+|  ^^          |
+| MANTEAU=CAPE |
+|    ^^        |
+|  REVEILLER   |
+|  ^^          |
+|  ORIENT=EST  |
+|         ^^   |
+|LUGUBRE=MORNE |
+|    ^ ^       |
+|  APATHIQUE   |
+|   ^^         |
+|  CREMATION   |
+|   ^^         |
+| PRESERVATION |
+|      ^^      |
+|  ADMIRABLE   |
+|   ^^         |
+|   CENTAINE   |
+|   ^^         |
+|  OCCUPATION  |
+|  ^^          |
+|  SUBORDONNE  |
+|   ^^         |
+|  COMPROMIS   |
+|     ^^       |
+| MONSTRUOSITE |
+|     ^   ^    |
+| DURCISSEMENT |
+| ^ ^          |
+|  PERPETUER   |
+|        ^^    |
+|  SALE TYPE   |
+|       ^^     |
+| IL TIENT BON |
+|        ^ ^   |
+|PLEINE VITESSE|
+|     ^ ^      |
+| RAZ-DE-MAREE |
+|         ^^   |
+| COMMENTATEUR |
+|   ^^         |
+| SERRER FORT  |
+| ^^           |
+| STATISTIQUE  |
+|      ^^      |
+|  SUSPENSION  |
+|    ^^        |
+|  FORMIDABLE  |
+|  ^  ^        |
+| MESQUINERIE  |
+|    ^^        |
+|  MONETAIRE   |
+|      ^^      |
+| ENTHOUSIASME |
+|   ^^         |
+|   GEOMETRE   |
+|     ^^       |
+|   AILLEURS   |
+|    ^^        |
+| PARTENARIAT  |
+| ^^           |
+|   BAPTEME    |
+|     ^        |
+|    CREVE     |
+|    ^^        |
+|   IMMEDIAT   |
+|    ^    ^    |
+| 4*5*6*7=840  |
+|          ^   |
+|1/1000 = 0.1% |
+|           ^  |
+|1/2000 = 0.05%|
+|            ^ |
+| 789+546=1335 |
+|          ^   |
+| 65 * 7 = 455 |
+|          ^   |
+|  4*X=36 X=9  |
+|           ^  |
+| 55/11 = 10/2 |
+|    ^^        |
+| 22/4 = 5.50  |
+|           ^  |
+|  B O N U S   |
+|              |
+| COUPLE=PAIRE |
+|        ^^    |
+| MORTEL=FATAL |
+|        ^^    |
+|  B O N U S   |
+|              |
+| HEROS=IDOLE  |
+|        ^^    |
+|  EMOTIONNEL  |
+|   ^     ^    |
+|    ANIER     |
+|     ^^       |
+|   FABULEUX   |
+|      ^       |
+| CONSOMMATION |
+|  ^      ^    |
+|  ETRE ALITE  |
+|       ^   ^  |
+|   GESTION    |
+|     ^^       |
+
+free ff 30 40 ff ff

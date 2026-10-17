@@ -1,0 +1,442 @@
+# 14 characters a puzzle, ^ marks a hidden one; see tools/puzzles.py
+
+|    2+2=4     |
+|      ^       |
+|    5-2=3     |
+|      ^       |
+|   1+2+2=5    |
+|     ^        |
+|  IL MARCHE   |
+|          ^   |
+|  ORDINATEUR  |
+|         ^    |
+|1 2 3 4 5 6 7 |
+|        ^     |
+|  2 4 6 8 10  |
+|        ^     |
+|    CRAYON    |
+|        ^     |
+| 17=DIX-SEPT  |
+|      ^       |
+|   MEMOIRE    |
+|         ^    |
+|  5 + 7 = 12  |
+|      ^       |
+|  RADARSOFT   |
+|        ^     |
+|  AN=12 MOIS  |
+|      ^       |
+| DOUZAINE=12  |
+|           ^  |
+|   8+17=25    |
+|      ^       |
+|  MAGNIFIQUE  |
+|     ^        |
+|  6 - 3 = 3   |
+|      ^       |
+|   ENSEMBLE   |
+|         ^    |
+|     CAFE     |
+|        ^     |
+|5 + 5 + 5 =15 |
+|           ^  |
+|   AUTOMNE    |
+|        ^     |
+|  GRAND-PERE  |
+|   ^          |
+| ABCDEFGHIJK  |
+|       ^      |
+|7 FOIS 9 = 63 |
+|            ^ |
+| QUART=15 MIN |
+|        ^     |
+| PAR EXEMPLE  |
+|        ^     |
+| SEMAINE=7 J  |
+|         ^    |
+| 1 JOUR=24 H  |
+|         ^    |
+|  1 H=60 MIN  |
+|      ^       |
+|   AMOUREUX   |
+|          ^   |
+| 1+2+3+4+5=15 |
+|            ^ |
+|   ELEPHANT   |
+|       ^      |
+|   PRATIQUE   |
+|          ^   |
+|  25 +15 =40  |
+|           ^  |
+|    OBERON    |
+|        ^     |
+| PAR C KRAMER |
+|           ^  |
+|1+1+1+1+1+1=6 |
+|            ^ |
+|  SECRETAIRE  |
+|        ^     |
+|  DIFFERENCE  |
+|          ^   |
+| BIEN JOUE !  |
+|       ^      |
+|   BIOLOGIE   |
+|       ^      |
+|1+2+3+3+2+1=12|
+|            ^ |
+| EXPLORATION  |
+|        ^     |
+|  COMMODORE   |
+|       ^      |
+|   JOYSTICK   |
+|         ^    |
+|  TELEVISION  |
+|        ^     |
+| 23 = 10 + 13 |
+|            ^ |
+|  1/4 = 25 %  |
+|         ^    |
+|   AVENTURE   |
+|        ^     |
+|   MONSIEUR   |
+|       ^      |
+|   DIX = 10   |
+|          ^   |
+| TASSE DE THE |
+|           ^  |
+|   AMUSANT    |
+|      ^       |
+|CHAT ET SOURIS|
+|   ^          |
+| 34 = 17 +17  |
+|          ^   |
+|    FIGURE    |
+|        ^     |
+| DONALD DUCK  |
+|      ^       |
+| MICKEY MOUSE |
+|        ^     |
+|   NEW YORK   |
+|          ^   |
+|   ABRAHAM    |
+|       ^      |
+| 24 + 12 =36  |
+|      ^       |
+| BRAVE GARCON |
+|         ^    |
+| LES BEATLES  |
+|           ^  |
+|   DISTANCE   |
+|         ^    |
+|    MARDI     |
+|       ^      |
+|    JEUDI     |
+|      ^       |
+|    SAMEDI    |
+|       ^      |
+|  PRESIDENT   |
+|          ^   |
+|5 FOIS 5 = 25 |
+|       ^      |
+| 80 = 50 + 30 |
+|           ^  |
+|    FLEUR     |
+|       ^      |
+|    BLOCUS    |
+|        ^     |
+|INTERNATIONAL |
+|         ^    |
+|  1/5 = 20 %  |
+|        ^     |
+|56 = 7 FOIS 8 |
+|            ^ |
+|  BAIN CHAUD  |
+|        ^     |
+|   IVANHOE    |
+|         ^    |
+|   AGREABLE   |
+|      ^       |
+| 34 + 11 =45  |
+|  ^           |
+|  ROI ARTHUR  |
+|         ^    |
+| HEURE DU THE |
+|           ^  |
+|   DEJEUNER   |
+|      ^       |
+|LAIT ET SUCRE |
+|          ^   |
+|  B O N U S   |
+|              |
+|10 * 34 = 340 |
+|     ^        |
+|    MILLE     |
+|      ^       |
+|    PIGEON    |
+|      ^       |
+| MER DU NORD  |
+|           ^  |
+|  ANGLETERRE  |
+|       ^      |
+|   PLANETE    |
+|       ^      |
+| CREME GLACEE |
+|         ^    |
+|5 + 9 + 6 = 20|
+|        ^     |
+|   PRESENCE   |
+|         ^    |
+|8 - 6 + 4 = 6 |
+|            ^ |
+|   CRIMINEL   |
+|         ^    |
+|  COPYRIGHT   |
+|    ^         |
+|  PETER PAN   |
+|        ^     |
+|  REDEMPTION  |
+|      ^       |
+|   PAPILLON   |
+|       ^      |
+|REFRIGERATEUR |
+|       ^      |
+| 3 FOIS 3 = 9 |
+|            ^ |
+|  INTRODUIRE  |
+|        ^     |
+|  INDIVIDUEL  |
+|         ^    |
+|  INDUSTRIE   |
+|       ^      |
+|  ASSISTANT   |
+|       ^      |
+|   PASSION    |
+|         ^    |
+|   RELIGION   |
+|        ^     |
+| 99 = 100 - 1 |
+|            ^ |
+|    FRANCE    |
+|         ^    |
+|   DISPENSE   |
+|      ^       |
+| EXPLICATION  |
+|     ^        |
+|  REPUTATION  |
+|      ^       |
+|  10 8 6 4 2  |
+|         ^    |
+|    EPUISE    |
+|       ^      |
+| JOURNALISTE  |
+| ^            |
+|  OLYMPIADES  |
+|    ^         |
+| ROI ET REINE |
+|         ^    |
+|   FACTEUR    |
+|         ^    |
+|4 FOIS 5 = 20 |
+|       ^      |
+|  1/2 = 50 %  |
+|        ^     |
+|   IL PLEUT   |
+|         ^    |
+|  INCENDIER   |
+|       ^      |
+|  CONSEILLER  |
+|           ^  |
+| ENTREPRENEUR |
+|           ^  |
+|FAIRE FORTUNE |
+|          ^   |
+|  DETOURNER   |
+|        ^     |
+|  AMSTERDAM   |
+|        ^     |
+|SALLE DE BAIN |
+|          ^   |
+|    REMISE    |
+|         ^    |
+|    ACCORD    |
+|        ^     |
+|    DROIT     |
+|      ^       |
+|10 FOIS 2 =20 |
+|        ^     |
+|6 + 6 + 6 = 18|
+|    ^         |
+| 90 + 14 =104 |
+|      ^       |
+|11111111111111|
+|      ^       |
+|2 1 2 1 2 1 2 |
+|        ^     |
+|    RESOLU    |
+|         ^    |
+|   BOUSSOLE   |
+|         ^    |
+|    REMISE    |
+|        ^     |
+| JAMBE CASSEE |
+|         ^    |
+|   MIGRAINE   |
+|       ^      |
+| EXTREMEMENT  |
+|     ^        |
+|   CASANIER   |
+|        ^     |
+|   HONGROIS   |
+|       ^      |
+|   OURAGAN    |
+|      ^       |
+|   ALPHABET   |
+|    ^         |
+|   ALLERGIE   |
+|    ^         |
+| 2 FOIS 7 =14 |
+| ^            |
+|100 - 40 = 60 |
+|           ^  |
+|  EN PUBLIC   |
+|          ^   |
+|TOUTES CHOSES |
+|    ^         |
+|  WASHINGTON  |
+|       ^      |
+|2 + 2 + 2 = 6 |
+|        ^     |
+|   WESTERN    |
+|        ^     |
+|  GROSSE=144  |
+|  ^           |
+|  FONDATION   |
+|    ^         |
+|    MALIN     |
+|      ^       |
+|  CONFESSION  |
+|       ^      |
+|   CONTENU    |
+|     ^        |
+| FABRICATION  |
+|        ^     |
+|   FACULTE    |
+|      ^       |
+|   FAMILLE    |
+|    ^         |
+|  SQUELETTE   |
+|     ^        |
+| RESPECTABLE  |
+|     ^        |
+|6 FOIS 6 = 36 |
+|       ^      |
+| 1/10 = 10 %  |
+|        ^     |
+|3 FOIS 13 =39 |
+|        ^     |
+|   PERSONNE   |
+|     ^        |
+|   CAPACITE   |
+|        ^     |
+| MONT EVEREST |
+|        ^     |
+|    CADEAU    |
+|        ^     |
+|   ORPHELIN   |
+|       ^      |
+|  RESISTANCE  |
+|     ^        |
+|    METEO     |
+|       ^      |
+| JUS D'ORANGE |
+|         ^    |
+|  SARDAIGNE   |
+|     ^        |
+|  COLLECTION  |
+|       ^      |
+|12312312312312|
+|      ^       |
+| 23 + 7 = 30  |
+|      ^       |
+| GRILLE-PAIN  |
+|        ^     |
+|  COMMISSION  |
+|    ^         |
+|   SENATEUR   |
+|    ^         |
+|    CARRE     |
+|        ^     |
+|5 + 6 + 7 = 18|
+|        ^     |
+|   VAGABOND   |
+|         ^    |
+|   PARESSE    |
+|       ^      |
+|INTERMEDIAIRE |
+|        ^     |
+|   TEMPLIER   |
+|      ^       |
+|  ADVERSAIRE  |
+|        ^     |
+|7 FOIS 7 = 49 |
+|           ^  |
+| DEBORDEMENT  |
+|      ^       |
+|  STUPIDITE   |
+|         ^    |
+| 13 + 31 = 44 |
+|      ^       |
+| DERANGEMENT  |
+|      ^       |
+|   POSITIF    |
+|    ^         |
+|  B O N U S   |
+|              |
+|    NEIGE     |
+|     ^        |
+|DROLE D'OISEAU|
+|           ^  |
+| 24 + 42 = 66 |
+|       ^      |
+|  MOUSTACHE   |
+|       ^      |
+|200 - 10 = 190|
+|       ^      |
+|TOPOGRAPHIQUE |
+|        ^     |
+|  PERE NOEL   |
+|         ^    |
+|30+30+30 = 90 |
+|           ^  |
+|VOTRE MAJESTE |
+|        ^     |
+| TRANSPARENT  |
+|         ^    |
+|VIEUX MENSONGE|
+|         ^    |
+|33= 11 FOIS 3 |
+|            ^ |
+|RONALD REAGAN |
+|^             |
+|  CARACTERE   |
+|       ^      |
+| INDIGESTION  |
+|           ^  |
+|    RARETE    |
+|        ^     |
+|  IMMIGRANT   |
+|        ^     |
+|   OFFICIEL   |
+|      ^       |
+|12345677654321|
+|          ^   |
+|   VERGLAS    |
+|      ^       |
+|    AMENDE    |
+|       ^      |
+|   HORRIBLE   |
+|        ^     |
+|3 FOIS 4 = 12 |
+|       ^      |
+
+free c9 20 c8 20 8a

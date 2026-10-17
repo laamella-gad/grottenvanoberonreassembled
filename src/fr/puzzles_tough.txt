@@ -1,0 +1,442 @@
+# 14 characters a puzzle, ^ marks a hidden one; see tools/puzzles.py
+
+|   SCARABEE   |
+|   ^  ^       |
+|HUMEUR=NATURE |
+|^  ^          |
+|FOURMI=INSECTE|
+|        ^   ^ |
+|  852-87=765  |
+|      ^       |
+| ELAN=FOUGUE  |
+| ^  ^         |
+|   ALPE=PIC   |
+|        ^     |
+|APAISER=CALMER|
+|          ^   |
+|PUMA=COUGOUAR |
+|        ^ ^   |
+|BATTE=RAQUETTE|
+|       ^    ^ |
+|  DON=OCTROI  |
+|         ^    |
+|   AJUSTER    |
+|   ^          |
+|   ILOT=ILE   |
+|         ^    |
+| PARMI=ENTRE  |
+|   ^          |
+|  BIERE=ALE   |
+|    ^^        |
+| FRANC=OUVERT |
+| ^  ^         |
+| VOEU=ESPOIR  |
+|       ^      |
+|AFFAIRE=MARCHE|
+|   ^          |
+|  B O N U S   |
+|              |
+|BOUTON=TOUCHE |
+|       ^      |
+| PLAGE=RIVAGE |
+|       ^   ^  |
+|LE LONG=A COTE|
+|            ^ |
+| NOIR=SOMBRE  |
+|      ^       |
+|OSSEUX=MAIGRE |
+|         ^    |
+|  ACTE=FAIT   |
+|         ^    |
+|  AVION=JET   |
+|   ^  ^       |
+|  ET NON=NI   |
+|     ^ ^      |
+|  PROCESSION  |
+|     ^        |
+| PERSONNALITE |
+|         ^    |
+| MEMORIALISTE |
+|        ^  ^  |
+| PHILANTHROPE |
+|  ^         ^ |
+|  PERVERSITE  |
+|     ^        |
+|  FRATERNITE  |
+|        ^     |
+|   PEDICURE   |
+|       ^      |
+|  PESSIMISME  |
+|     ^    ^   |
+| PERFORMANCE  |
+|       ^      |
+|   VANTARD    |
+|    ^         |
+|  CONGESTION  |
+|       ^      |
+| EFFERVESCENT |
+|  ^      ^    |
+|  MONUMENTAL  |
+|        ^     |
+|  MORALISER   |
+|      ^       |
+| MUSICOLOGIE  |
+|   ^          |
+|   DECHARGE   |
+|     ^        |
+|   VENTILER   |
+|        ^     |
+| PROMONTOIRE  |
+|    ^         |
+| CELEBRATION  |
+|   ^      ^   |
+| ASSOCIATION  |
+|      ^    ^  |
+|  DISCRETION  |
+|     ^        |
+|  BON ENFANT  |
+|       ^   ^  |
+|  PENTECOTE   |
+|     ^   ^    |
+|   PYRAMIDE   |
+|       ^^     |
+|  SECRETAIRE  |
+|       ^      |
+|  EQUIPEMENT  |
+|   ^          |
+|   EMBELLIR   |
+|     ^        |
+|   ALLEZ-Y    |
+|   ^ ^        |
+|  ENGLOUTIR   |
+|   ^    ^     |
+| PLUS VITE !  |
+|      ^  ^    |
+| FURTIVEMENT  |
+|  ^        ^  |
+| INCIDEMMENT  |
+|   ^       ^  |
+|   A PEINE    |
+|     ^        |
+|  SUSPENSION  |
+|    ^    ^    |
+| DAME-JEANNE  |
+|       ^  ^   |
+| PURE BETISE  |
+|      ^ ^     |
+|INTROSPECTION |
+|      ^       |
+|  164*4=656   |
+|  ^ ^         |
+|  GRANDIOSE   |
+|     ^        |
+| EFFONDREMENT |
+|  ^           |
+|3 4 8 9 13 14 |
+|            ^ |
+|1 8 27 64 125 |
+|            ^ |
+|1 2 4 7 11 16 |
+|         ^    |
+|3 6 9 12 15 18|
+|       ^      |
+| 4 8 12 16 20 |
+|        ^     |
+|23 32 23 32 23|
+|      ^       |
+| 1/8 = 0.125  |
+|          ^   |
+| 1/25 = 0.04  |
+|          ^   |
+| 1/20 = 0.05  |
+|           ^  |
+| 1/50 = 0.02  |
+|          ^   |
+|  1/4 = 0.25  |
+|          ^   |
+|25% + 43%= 68%|
+|      ^       |
+|  2 4 16 256  |
+|           ^  |
+| A D G J M P  |
+|         ^    |
+|234 + 456 =690|
+|            ^ |
+|12 * 11 = 132 |
+|      ^       |
+|13 * 13 = 169 |
+|     ^        |
+|11 * 11 = 121 |
+|           ^  |
+| 4*4*4*4=256  |
+|         ^    |
+|5 * (3+5) = 40|
+|     ^        |
+| 78 * 5 = 390 |
+| ^            |
+| 43 * 5 = 215 |
+|           ^  |
+|234 + 532 =766|
+| ^      ^     |
+| !"#$%&'()0[  |
+|       ^      |
+|10 18 27 37 48|
+|          ^   |
+|  B O N U S   |
+|              |
+|   DELICAT    |
+|    ^    ^    |
+| TORTIONNAIRE |
+|    ^         |
+|   LANTERNE   |
+|         ^    |
+| DESINFECTION |
+|     ^    ^   |
+| A1 C3 B2 E5  |
+|        ^     |
+|  RELAXATION  |
+|    ^      ^  |
+|   DISGRACE   |
+|     ^        |
+|    BERGER    |
+|       ^^     |
+|  IDEM=MEME   |
+|        ^ ^   |
+| S'ENVENIMER  |
+|   ^      ^   |
+|   PHARAON    |
+|      ^       |
+|LUMIERE=LAMPE |
+|    ^^        |
+|POSTE=COURRIER|
+|        ^ ^   |
+| ORNER=PARER  |
+|         ^    |
+|VESTE=JAQUETTE|
+|  ^^          |
+|CONDUIT=TUYAU |
+|   ^          |
+|  COIN=ANGLE  |
+|   ^^         |
+| FESTIN=REGAL |
+|          ^^  |
+|SAISIR=PRENDRE|
+|  ^^          |
+|   THEATRE    |
+|    ^    ^    |
+|   ARRACHER   |
+|        ^     |
+|REHABILITATION|
+|  ^        ^  |
+|    VOYAGE    |
+|      ^       |
+|32 * 11 = 352 |
+|           ^  |
+|21 * 11 = 231 |
+|           ^  |
+|    HELICE    |
+|     ^^       |
+|   FAISABLE   |
+|       ^      |
+|  SENSATION   |
+|    ^    ^    |
+| VENTILATEUR  |
+|      ^  ^    |
+|   ILLUSION   |
+|     ^        |
+|22 * 22 = 484 |
+|           ^  |
+|333 - 144 =189|
+|            ^ |
+| 23 = 48 - 25 |
+|           ^^ |
+|547 + 324 =871|
+|            ^ |
+| 65+65+66=196 |
+|        ^     |
+| SOMBRE=NOIR  |
+|  ^^          |
+|GRAVIER=SABLE |
+|^             |
+|   GOELAND    |
+|   ^          |
+|    SALUER    |
+|      ^^      |
+|  PSALMODIER  |
+|      ^^      |
+|IRONIE=SATIRE |
+|         ^ ^  |
+| JUIF=SEMITE  |
+|         ^^   |
+|   CLE=CLEF   |
+|   ^          |
+|KISMET=DESTIN |
+|            ^ |
+|   LAMPROIE   |
+|      ^       |
+|   HAMBOURG   |
+|       ^      |
+|    ENTETE    |
+|      ^^      |
+|  J'AI PERDU  |
+|       ^ ^    |
+|   FERMETE    |
+|      ^ ^     |
+|  BASSE-COUR  |
+|          ^   |
+|   MAITRISE   |
+|      ^       |
+| 1100-450=650 |
+|  ^           |
+| 1024/8 = 128 |
+|      ^       |
+| 2*3*2*0 = 0  |
+|       ^      |
+|23 * 23 = 529 |
+|           ^  |
+|60+67+5 = 132 |
+|      ^       |
+|  MELBOURNE   |
+|         ^    |
+|  B O N U S   |
+|              |
+| JULES VERNE  |
+| ^^           |
+|AFRIQUE DU SUD|
+|    ^^        |
+|   GRANITE    |
+|     ^        |
+|  COURAGEUX   |
+|       ^ ^    |
+| SALLE DE BAL |
+|          ^^  |
+|   MEDECIN    |
+|     ^        |
+|   DELIRANT   |
+|    ^   ^     |
+| BRUME=VAPEUR |
+| ^^           |
+|   GLISSER    |
+|      ^^      |
+|RANCUNE=DEPIT |
+|   ^^         |
+| GOSIER=JABOT |
+|    ^         |
+| FAUCON=MILAN |
+|        ^     |
+|   HEROIQUE   |
+|    ^^        |
+|   UNANIME    |
+|    ^   ^     |
+|  SOLITAIRE   |
+|       ^^     |
+|   EFFICACE   |
+|    ^    ^    |
+|INSUPPORTABLE |
+| ^         ^  |
+|  CLANDESTIN  |
+|     ^     ^  |
+|  SUFFOQUER   |
+|    ^     ^   |
+| PERSECUTION  |
+|    ^   ^     |
+|  ALIENABLE   |
+|      ^^      |
+|   ATTENTE    |
+|     ^^       |
+| SE REPAITRE  |
+|    ^   ^     |
+|  EXPEDITION  |
+|      ^    ^  |
+|65 - 45 + 5=25|
+|             ^|
+|44 * 40 = 1760|
+|            ^ |
+| OBLIGATOIRE  |
+| ^   ^        |
+|50 * 51 = 2550|
+|          ^   |
+|55 * 55 = 3025|
+|           ^  |
+| 100-23-38=39 |
+|      ^       |
+|20 * (8-5)= 60|
+|      ^       |
+|21 * 19 = 399 |
+|           ^  |
+|   RATURER    |
+|   ^^         |
+|PRONONCIATION |
+|      ^     ^ |
+| UTILISATION  |
+|    ^^        |
+|  MOUVEMENT   |
+|       ^^     |
+|    ADIEU     |
+|     ^^       |
+|    FORGER    |
+|     ^^       |
+|ROBE DE MARIEE|
+|        ^   ^ |
+|    ZXVTR     |
+|       ^      |
+|  MODEREMENT  |
+|       ^^     |
+|PIERRE A FUSIL|
+|           ^^ |
+| DERAISONNER  |
+|   ^  ^       |
+| INSURRECTION |
+|      ^^      |
+|  ABSORPTION  |
+|      ^^      |
+| INDUBITABLE  |
+|       ^  ^   |
+| MAL=DOULEUR  |
+|     ^        |
+| POSER=METTRE |
+|       ^      |
+|LITURGIE=RITE |
+|  ^^          |
+|  MAT=ESPAR   |
+|   ^^         |
+|  SEULEMENT   |
+|     ^^       |
+| INTOLERABLE  |
+|      ^^      |
+|NARRER=CONTER |
+|    ^^        |
+|  NET=PROPRE  |
+|      ^^      |
+|  888=925-37  |
+|   ^  ^       |
+|  VIEUX=AGE   |
+|         ^^   |
+|DEFILE=PARADE |
+|  ^^          |
+|PASTEL=TEINTE |
+|   ^^         |
+| ROSE=COULEUR |
+|          ^   |
+|POUVOIR=FORCE |
+|    ^^        |
+|  PYTHON=BOA  |
+|   ^^         |
+| RAPIDE=VITE  |
+|   ^^         |
+|CALME=PAISIBLE|
+|^  ^          |
+|17 * 18 = 306 |
+|           ^  |
+|3*3*4*4=12*12 |
+|         ^    |
+|  72/12 = 6   |
+|      ^       |
+|   PLAINTE    |
+|   ^    ^     |
+|  FUMISTERIE  |
+|     ^        |
+|SERVICE FEODAL|
+|     ^     ^  |
+
+free ff 30 40 ef ff
