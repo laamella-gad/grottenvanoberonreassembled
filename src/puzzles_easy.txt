@@ -1,0 +1,442 @@
+# 14 characters a puzzle, ^ marks a hidden one; see tools/puzzles.py
+
+|  2 + 2 = 4   |
+|      ^       |
+|  5 - 2 = 3   |
+|          ^   |
+|1 + 2 + 3 = 6 |
+|        ^     |
+|  JAN LOOPT   |
+|          ^   |
+|   COMPUTER   |
+|       ^      |
+|1 2 3 4 5 6 7 |
+|          ^   |
+|  2 4 6 8 10  |
+|        ^     |
+|   POTLOOD    |
+|         ^    |
+|17 = ZEVENTIEN|
+|           ^  |
+|   CASSETTE   |
+|      ^       |
+|  5 + 7 = 12  |
+|      ^       |
+|  RADARSOFT   |
+|      ^       |
+|JAAR=365 DAGEN|
+|       ^      |
+| DOZIJN = 12  |
+|          ^   |
+| 8 + 17 = 25  |
+|     ^        |
+|   MATROOS    |
+|         ^    |
+|  6 - 3 = 3   |
+|      ^       |
+|  KILOMETER   |
+|      ^       |
+|  HOOFDSTAD   |
+|      ^       |
+|5 + 5 + 5 = 15|
+|            ^ |
+|    HERFST    |
+|         ^    |
+|  GROOTVADER  |
+|       ^      |
+| ABCDEFGHIJKL |
+|       ^      |
+|9 MAAL 7 = 63 |
+|            ^ |
+|KWARTIER=15MIN|
+|          ^   |
+|  VOORBEELD   |
+|      ^       |
+|7DAGEN = 1WEEK|
+|^             |
+| DAG = 24 UUR |
+|       ^      |
+|UUR = 60 MIN. |
+|      ^       |
+|   VERLIEFD   |
+|          ^   |
+|KILO=1000GRAM |
+|         ^    |
+|   OLIFANT    |
+|      ^       |
+|   LICHAAM    |
+|     ^        |
+| 25 + 15 = 40 |
+| ^            |
+|    OBERON    |
+|       ^      |
+|DOOR C.KRAMER |
+|       ^      |
+|1+1+1+1+1+1=6 |
+|            ^ |
+|   SCHRIFT    |
+|     ^        |
+|   GRASVELD   |
+|        ^     |
+|  GOED ZO !   |
+|     ^        |
+|   BIOLOGIE   |
+|        ^     |
+|1+2+3+4+5+6=21|
+|            ^ |
+|   ROEIBOOT   |
+|      ^       |
+|  COMMODORE   |
+|     ^        |
+|   JOYSTICK   |
+|     ^        |
+|  GLOEILAMP   |
+|          ^   |
+| 23 = 10 + 13 |
+|      ^       |
+|  1/4 = 25%   |
+|        ^     |
+|     AUTO     |
+|      ^       |
+| GROOT-KLEIN  |
+|         ^    |
+| TWAALF = 12  |
+|          ^   |
+|PEN EN PAPIER |
+|          ^   |
+|BLIK EN VEGER |
+|^             |
+| KAT EN MUIS  |
+|        ^     |
+| 34 = 17 + 17 |
+|      ^       |
+|  APPELMOES   |
+|         ^    |
+| DONALD DUCK  |
+|          ^   |
+|  ROODKAPJE   |
+|     ^        |
+| BROER EN ZUS |
+|     ^        |
+|   TWEELING   |
+|          ^   |
+| 24 + 12 = 36 |
+|      ^       |
+|STUIVER=5CENT |
+|        ^     |
+| 12 KILOMETER |
+|     ^        |
+|   AFSTAND    |
+|         ^    |
+|   MAANDAG    |
+|       ^      |
+|   YOGHURT    |
+|      ^       |
+| SINTERKLAAS  |
+|        ^     |
+|  TOPOGRAFIE  |
+|          ^   |
+|  PRESIDENT   |
+|     ^        |
+| 80 = 50 + 30 |
+|           ^  |
+|   MOEILIJK   |
+|         ^    |
+|  PROGRAMMA   |
+|     ^        |
+|   WISKUNDE   |
+|      ^       |
+|   REKENING   |
+|        ^     |
+|56 = 7 MAAL 8 |
+|     ^        |
+|PEPER EN ZOUT |
+|         ^    |
+|WATER EN ZEEP |
+|^             |
+|100.000= 1 TON|
+|           ^  |
+| 34 + 11 = 45 |
+|      ^       |
+|KAREL DE GROTE|
+|         ^    |
+|TUSSEN HAAKJES|
+|       ^      |
+|MELK EN SUIKER|
+|           ^  |
+|TANDEN POETSEN|
+|         ^    |
+|   CELCIUS    |
+|      ^       |
+|VIDEORECORDER |
+|    ^         |
+|   DUIZEND    |
+|         ^    |
+| BIJENHONING  |
+|      ^       |
+|   NOORDZEE   |
+|       ^      |
+|    ATLAS     |
+|        ^     |
+|   PLANEET    |
+|      ^       |
+|   SCHOENEN   |
+|     ^        |
+|5 + 9 + 6 = 20|
+|             ^|
+|   STICKER    |
+|      ^       |
+|8 - 6 + 4 = 6 |
+|            ^ |
+|   DIPLOMA    |
+|        ^     |
+|  COPYRIGHT   |
+|         ^    |
+|   JOURNAAL   |
+|     ^        |
+| ONVOLDOENDE  |
+|         ^    |
+| STRIJKIJZER  |
+|       ^      |
+|    MADRID    |
+|        ^     |
+| 74 = 53 + 21 |
+| ^            |
+|  KOFFIEKAN   |
+|        ^     |
+|   FORMULE    |
+|       ^      |
+|   KAARSEN    |
+|       ^      |
+|HET IS GEBEURD|
+|             ^|
+| REKENWONDER  |
+|   ^          |
+|   POSTBUS    |
+|      ^       |
+| 99 = 100 - 1 |
+|            ^ |
+|  FRANKRIJK   |
+|     ^        |
+|   HORLOGE    |
+|      ^       |
+|  SCHEMERING  |
+|     ^        |
+|   MELKWEG    |
+|      ^       |
+|   STENCIL    |
+|       ^      |
+|   GRAFIEK    |
+|    ^         |
+|   MONOPOLY   |
+|       ^      |
+|6 12 18 24 30 |
+|     ^        |
+|  BRANDWOND   |
+|      ^       |
+| SCHOENVETER  |
+|       ^      |
+|  HET REGENT  |
+|           ^  |
+|   NEGATIEF   |
+|     ^        |
+|   VOETBAL    |
+|        ^     |
+|  VERPAKKING  |
+|     ^        |
+|  OVENSCHAAL  |
+|   ^          |
+|   FIETSERS   |
+|   ^          |
+|  BRANDWEER   |
+|       ^      |
+|  AMBULANCE   |
+|         ^    |
+|  NEDERLAND   |
+|       ^      |
+|  MARGARINE   |
+|    ^         |
+|   BIOSCOOP   |
+|       ^      |
+|TOREN VAN PISA|
+|          ^   |
+|   ECONOMIE   |
+|        ^     |
+|    AFVAL     |
+|      ^       |
+| 59 - 34 = 25 |
+|      ^       |
+|90 + 14 = 104 |
+|     ^        |
+|  DUBBELTJE   |
+|       ^      |
+|  TELEVISIE   |
+|      ^       |
+|11111111111111|
+|      ^       |
+|  HOOFDPIJN   |
+|     ^        |
+| BLINDE DARM  |
+|         ^    |
+|GEBROKEN BEEN |
+|       ^      |
+|  DOORSNEDE   |
+|     ^        |
+|   ONTBIJT    |
+|         ^    |
+|   NOODWEER   |
+|      ^       |
+|  ERWTENSOEP  |
+|    ^         |
+|   BIOLOGIE   |
+|        ^     |
+|   ALFABET    |
+|         ^    |
+|2 MAAL 9 = 18 |
+|       ^      |
+|  9 * 7 = 63  |
+|      ^       |
+|100 - 40 = 60 |
+|      ^       |
+|   PUBLIEK    |
+|    ^         |
+|    CIRKEL    |
+|    ^         |
+|   ASOCIAAL   |
+|      ^       |
+|  NEUSHOORN   |
+|  ^           |
+|   RAADSEL    |
+|      ^       |
+|12 * 12 = 144 |
+|           ^  |
+|    EXTRA     |
+|     ^        |
+|     SLIM     |
+|       ^      |
+|  NOORDPOOL   |
+|      ^       |
+|    INHOUD    |
+|         ^    |
+|  VLEERMUIS   |
+|   ^          |
+|   OOIEVAAR   |
+|     ^        |
+|   WIJNGLAS   |
+|     ^        |
+|   ABRIKOOS   |
+|       ^      |
+|   ADVOCAAT   |
+|       ^      |
+|    ANANAS    |
+|        ^     |
+|   BUSKRUIT   |
+|       ^      |
+| 3 * 13 = 39  |
+|           ^  |
+|   NIEMAND    |
+|     ^        |
+|  BEUKEBOOM   |
+|      ^       |
+|   VERSCHIL   |
+|     ^        |
+|   OLIFANT    |
+|      ^       |
+|    PIANO     |
+|     ^        |
+|    KEIZER    |
+|       ^      |
+| 12 = TWAALF  |
+|       ^      |
+|    SIROOP    |
+|     ^        |
+| SINAASAPPEL  |
+|     ^        |
+|   JALOEZIE   |
+|       ^      |
+| 23 + 7 = 30  |
+|           ^  |
+|  VERWARRING  |
+|       ^      |
+|   GERANIUM   |
+|         ^    |
+|  GORINCHEM   |
+|      ^       |
+|  TELESCOOP   |
+|       ^      |
+|   ATENEUM    |
+|        ^     |
+|5 + 6 + 7 = 18|
+|    ^         |
+| ONDERWIJZER  |
+|   ^          |
+|    DOUCHE    |
+|      ^       |
+|  KLETSKOUS   |
+|        ^     |
+|   RACEBAAN   |
+|      ^       |
+|  POPPENKAST  |
+|       ^      |
+|   TELEFOON   |
+|      ^       |
+|  INTERIEUR   |
+|       ^      |
+| HALLUCINATIE |
+|      ^       |
+|   ANONIEM    |
+|     ^        |
+|     QUIZ     |
+|      ^       |
+| SPECTACULAIR |
+|    ^         |
+|   SPIEGEL    |
+|       ^      |
+|  TROMMELAAR  |
+|      ^       |
+|  2*2*2*2=16  |
+|          ^   |
+| HAVER=KOREN  |
+|       ^      |
+| HEDEN=THANS  |
+|        ^     |
+| HAVIK(VOGEL) |
+| ^            |
+|  GRABBELTON  |
+|      ^       |
+|  GRAF=TOMBE  |
+|       ^      |
+|  BAAI=GOLF   |
+|  ^           |
+|    DYNAMO    |
+|     ^        |
+| GELUK=MAZZEL |
+|       ^      |
+| KROM=GEBOGEN |
+| ^            |
+|  AUTOMOBIEL  |
+|  ^           |
+|  KASTELEIN   |
+|        ^     |
+|    LAWAAI    |
+|         ^    |
+|     ACCU     |
+|       ^      |
+|  PATROUILLE  |
+|         ^    |
+|   PENALTY    |
+|         ^    |
+|PRIK=INJECTIE |
+| ^            |
+| RUSLAND=USSR |
+|         ^    |
+| SPIJL=TRALIE |
+| ^            |
+| CLANDESTIEN  |
+|       ^      |
+| VAT/KUIP/TON |
+| ^            |
+|BLIK EN VEGER |
+|        ^     |
+
+free c9 20 c8 20 8a

@@ -1,0 +1,442 @@
+# 14 characters a puzzle, ^ marks a hidden one; see tools/puzzles.py
+
+| NAAR=AKELIG  |
+|       ^ ^    |
+| 23 * 2 = 46  |
+|           ^  |
+|OCTAAF=8TONEN |
+|       ^      |
+| 2 4 8 16 32  |
+|          ^   |
+|   ZZMDWDV    |
+|       ^      |
+| JFMAMJJASOND |
+|       ^      |
+|  QWERTYUIOP  |
+|       ^      |
+|   SCALPEL    |
+|       ^      |
+|    OPIUM     |
+|      ^       |
+|  TELESCOOP   |
+|       ^      |
+|   OPTICIEN   |
+|       ^      |
+|   ADVOCAAT   |
+|     ^        |
+| 1 4 9 16 25  |
+|          ^   |
+|A C E G I K M |
+|          ^   |
+|  PROMOVEREN  |
+|      ^       |
+|  KATASTROFE  |
+|          ^   |
+| 12 + 21 = 33 |
+| ^    ^       |
+|   FLAMINGO   |
+|       ^      |
+|671 - 642 = 29|
+|       ^      |
+|  SANATORIUM  |
+|         ^    |
+|   CYNICUS    |
+|    ^         |
+|    JEANS     |
+|      ^       |
+|   ABRIKOOS   |
+|       ^      |
+|A S D F G H J |
+|    ^         |
+|  24 12 8 6   |
+|        ^     |
+| %10=2 %100=4 |
+|            ^ |
+|   PLUMEAU    |
+|        ^     |
+| WATER = H2O  |
+|          ^   |
+| NIEUWSGIERIG |
+|       ^      |
+| ACTIERADIUS  |
+|         ^    |
+|  9483720561  |
+|      ^       |
+|    U.S.A.    |
+|        ^     |
+|   WROEGING   |
+|   ^          |
+|   XYLOFOON   |
+|    ^         |
+|  MINUSCUUL   |
+|      ^^      |
+| $A=10 $B=11  |
+|        ^     |
+|   THRILLER   |
+|       ^^     |
+|  AFTERSHAVE  |
+|       ^^     |
+|    BASIC     |
+|      ^       |
+|    TYFOON    |
+|      ^       |
+|  SURSEANCE   |
+|       ^      |
+|    UTOPIA    |
+|        ^     |
+|   WRATTEN    |
+|    ^         |
+|    FARAO     |
+|      ^       |
+|  DOMICILIE   |
+|      ^       |
+|  APHRODITE   |
+|   ^^         |
+| 123+321=444  |
+|  ^  ^        |
+| BIBLIOTHEEK  |
+|       ^^     |
+|   DELIRIUM   |
+|     ^        |
+|   K.N.M.I.   |
+|       ^      |
+|   PARADOX    |
+|         ^    |
+|  ALUMINIUM   |
+|     ^        |
+|NAR/PIAS/CLOWN|
+|         ^^   |
+| ALSOF=QUASI  |
+|       ^^     |
+|  ERWTENSOEP  |
+|    ^^        |
+| GEBAK=VLAAI  |
+|       ^      |
+|  VITA=LEVEN  |
+|  ^           |
+| FUIK=VISNET  |
+| ^  ^         |
+| VOCHTIG=KLAM |
+|         ^    |
+|   LAS=NAAD   |
+|   ^          |
+|  VLUG=VIEF   |
+|       ^      |
+|  VOLK=NATIE  |
+|  ^  ^        |
+|  DAMP=WASEM  |
+|       ^ ^    |
+| WARMTE=HITTE |
+|        ^^    |
+| 34 + 43 = 77 |
+| ^            |
+| 67 + 21 = 88 |
+|      ^       |
+|SCHIJF=DISCUS |
+|       ^  ^   |
+| WIEG=KRIBBE  |
+|      ^    ^  |
+|  WET=REGEL   |
+|      ^ ^     |
+|   WOUD=BOS   |
+|   ^^         |
+| MELODIE=WIJS |
+|   ^ ^        |
+| SNOR=KNEVEL  |
+|      ^^      |
+|  SALDO=REST  |
+|  ^           |
+|  NAT=VOCHT   |
+|  ^           |
+|  BANK=DIVAN  |
+|        ^^    |
+|BEWIND=REGIME |
+|       ^ ^    |
+|   REE=HERT   |
+|   ^          |
+| PRESENT=GIFT |
+|          ^^  |
+| DEKEN=PLAID  |
+|        ^ ^   |
+| PLATZAK=BLUT |
+|         ^^   |
+|  PART=MOOT   |
+|       ^  ^   |
+|  BEURS=ROT   |
+|  ^   ^       |
+|   PAAR=DUO   |
+|        ^ ^   |
+|  PAARD=KNOL  |
+|        ^     |
+|ABSURD=IDIOOT |
+| ^  ^         |
+|LEGIO=TALLOOS |
+|^   ^         |
+| 56 * 3 = 168 |
+| ^            |
+| OMEGA=EINDE  |
+| ^^           |
+|  NORS=BOOS   |
+|  ^  ^        |
+|   NUK=GRIL   |
+|       ^^     |
+|  NETZO=IDEM  |
+|         ^    |
+|SPIJKER=NAGEL |
+|        ^     |
+| MODE=GEBRUIK |
+| ^^           |
+|  KLIT=KNOOP  |
+|   ^^         |
+|  KEET=TROEP  |
+|  ^  ^        |
+|  GOZER=VENT  |
+|   ^^         |
+|KABAAL=RUMOER |
+|       ^ ^    |
+|  JAM=GELEI   |
+|   ^^         |
+|34 + 72 = 106 |
+|      ^    ^  |
+|  FUIF=PARTY  |
+|  ^^          |
+| IMMER=ALTIJD |
+| ^^           |
+|   IEL=TEER   |
+|   ^^         |
+| HORIZON=KIM  |
+|         ^^   |
+| HEVIG=INTENS |
+|       ^ ^    |
+|  KRAS=FLINK  |
+|  ^  ^        |
+| AARDIG=LIEF  |
+|        ^ ^   |
+|LUCHTEN=UITEN |
+|        ^ ^   |
+|   LUIM=BUI   |
+|   ^^         |
+|  PROPER=NET  |
+|  ^  ^        |
+|  NEP=NAMAAK  |
+|      ^    ^  |
+| ENORM=IMMENS |
+|       ^^     |
+| PARFUM=ODEUR |
+|        ^^    |
+| POLKA (DANS) |
+| ^  ^         |
+|  POP=COCON   |
+|      ^^      |
+|SEPIA=INKTVIS |
+|^             |
+|  MOOT=STUK   |
+|  ^  ^        |
+|VOEDSEL=SPIJS |
+|        ^  ^  |
+| KOPPEL=PAAR  |
+| ^  ^         |
+| NADIEN=LATER |
+| ^  ^         |
+|NESTOR=OUDSTE |
+|^             |
+|  NERF=ZENUW  |
+|   ^^         |
+|  KNIK=GROET  |
+|   ^^         |
+|  OGEN=TONEN  |
+|   ^          |
+|  FRUIT=OOFT  |
+|          ^   |
+| OPHEF=TAMTAM |
+|       ^    ^ |
+|OVERSTE=DEKEN |
+|         ^^   |
+| BIET=WORTEL  |
+| ^ ^          |
+| PASSIE=DRIFT |
+| ^ ^          |
+| PLAATS=OORD  |
+|          ^^  |
+|QUITTE=GELIJK |
+|  ^^          |
+|  PIJP=BUIS   |
+|       ^^     |
+|DISPUUT=DEBAT |
+|        ^   ^ |
+| SCHEMA=PLAN  |
+|  ^^ ^        |
+|SCHROOM=VREES |
+|   ^  ^       |
+|  SIFON=FLES  |
+|  ^^          |
+| SINTEL=SLAK  |
+| ^   ^        |
+|  SLUIS=SPUI  |
+|        ^^    |
+| OBER=KELNER  |
+| ^^           |
+| ONGAAR=KLEF  |
+|        ^^    |
+| 123+456=579  |
+|  ^  ^        |
+|   LOR=PRUL   |
+|       ^^     |
+|LOYAAL=EERLIJK|
+|^ ^           |
+|  ORDNER=MAP  |
+|   ^^         |
+| PORTIE=PART  |
+| ^ ^          |
+| PREUTS=PRUDE |
+|         ^^   |
+| REIN=PROPER  |
+| ^^           |
+| ONMIN=BREUK  |
+|  ^^          |
+|  RUS=KOZAK   |
+|      ^ ^     |
+|  ROOK=WALM   |
+|       ^  ^   |
+| STILETTO=MES |
+|  ^   ^^      |
+|  RANG=TITEL  |
+|  ^  ^        |
+| TIMBRE=TOON  |
+|   ^^         |
+| AFVOER=RIOOL |
+|        ^^  ^ |
+|STOFFER=VEGER |
+|^   ^         |
+|  ABUIS=FOUT  |
+|  ^^          |
+|  DANDY=FAT   |
+|    ^^        |
+| BAAT=PROFIJT |
+|      ^  ^    |
+| VUURTJE=FIK  |
+|         ^^   |
+| IJDEL=KOKET  |
+|       ^^     |
+|  ZAAD=KIEM   |
+|       ^  ^   |
+| DEVIES=MOTTO |
+| ^ ^          |
+| NEGUS=KONING |
+| ^            |
+|NEVELIG=HEIIG |
+|         ^^   |
+|62 + 78 = 140 |
+|     ^^       |
+|113 * 4 = 452 |
+| ^    ^       |
+|BLOOT = NAAKT |
+|^             |
+| SUKKEL = SUL |
+|           ^^ |
+|IDEAAL=UTOPIE |
+|^ ^           |
+|ONWEER=BLIKSEM|
+| ^^           |
+|  OPLOOP=REL  |
+|   ^^         |
+|BEZOEK=VISITE |
+|       ^^   ^ |
+| ORDER=BEVEL  |
+| ^^^          |
+|OUTCAST=PARIA |
+|        ^     |
+| POSE=HOUDING |
+| ^ ^          |
+|ROLPRENT=FILM |
+|         ^  ^ |
+|  REPOS=RUST  |
+|  ^ ^         |
+| FOBIE=ANGST  |
+| ^ ^          |
+|  SCHOK=BONS  |
+|        ^  ^  |
+| SINDS=SEDERT |
+|       ^ ^    |
+| SIAM=TAILAND |
+|      ^       |
+| SILO=PAKHUIS |
+| ^^           |
+|FOXTROT (DANS)|
+|^ ^^          |
+|SPRAAK=TONGVAL|
+|          ^^  |
+|SPUUG=SPEEKSEL|
+|^      ^      |
+| SWEATER=TRUI |
+| ^  ^         |
+| TEER=SUBTIEL |
+|      ^  ^    |
+|TIRAN=DESPOOT |
+|      ^  ^    |
+| TOOG=TAPKAST |
+| ^            |
+|   TON=BOEI   |
+|     ^        |
+| INERT=TRAAG  |
+| ^            |
+|  TREK=LUST   |
+|       ^^     |
+|  GAARD=TUIN  |
+|  ^   ^       |
+| TWIST=BONJE  |
+|       ^^     |
+| GAVE=TALENT  |
+|      ^ ^     |
+|  EIS=CLAIM   |
+|      ^^      |
+|   MOP=WITZ   |
+|       ^^     |
+|ACNE=PUISTJES |
+| ^^           |
+| ALSOF=QUASI  |
+|       ^ ^    |
+|  AMBER=HARS  |
+|   ^^         |
+| AMPUL=BUISJE |
+|  ^^          |
+| BED=LEDIKANT |
+|     ^   ^    |
+| KOOI=VOLIERE |
+|      ^  ^    |
+|  SCHEL=BEL   |
+|     ^^       |
+| BESTE=ELITE  |
+|        ^ ^   |
+|ROERLOOS=STAR |
+|         ^^   |
+|BLEU=VERLEGEN |
+| ^ ^          |
+| BLEIN=BLAAR  |
+|  ^ ^         |
+|  DOS=GEWAAD  |
+|  ^           |
+| DRAW=REMISE  |
+| ^            |
+|  DRIL=GELEI  |
+|       ^^     |
+|EDITIE=OPLAGE |
+|^  ^          |
+|  FAAM=ROEP   |
+|       ^  ^   |
+|FACTOR=ELEMENT|
+|^             |
+| FASE=STADIUM |
+| ^  ^         |
+|FATUM=NOODLOT |
+|^ ^           |
+|  LAAK=BLAAM  |
+|  ^           |
+|  VERNIS=LAK  |
+|  ^  ^        |
+| LAPIS=STEEN  |
+|   ^          |
+| LICHAAM=BAST |
+|         ^ ^  |
+
+free 77 00 77 88 67

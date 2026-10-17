@@ -1,0 +1,442 @@
+# 14 characters a puzzle, ^ marks a hidden one; see tools/puzzles.py
+
+|  SLOK=TEUG   |
+|       ^^     |
+|LOPER=SLEUTEL |
+|^^            |
+|  SLEUF=VOOR  |
+|        ^  ^  |
+| SNEU=JAMMER  |
+|  ^ ^         |
+|  SPEK=BACON  |
+|       ^      |
+|  TAP=KRAAN   |
+|  ^^          |
+| TAKEL=TALIE  |
+|       ^^     |
+|  TEAM=PLOEG  |
+|  ^^          |
+|ZEDE=GEWOONTE |
+|^ ^           |
+|   IJK=KEUR   |
+|    ^         |
+| STRUIS=KLOEK |
+|        ^ ^   |
+|34 41 48 55 62|
+|       ^      |
+|1 8 27 64 125 |
+|    ^         |
+|  RIJZEL=TAK  |
+|  ^           |
+| RETORT=KOLF  |
+| ^            |
+|REFLEX=REACTIE|
+|  ^  ^        |
+|REDE=VERSTAND |
+|^             |
+|  PREI=LOOK   |
+|          ^   |
+|PRELUDE=BEGIN |
+|^    ^        |
+| PAROOL=LEUS  |
+| ^ ^          |
+|PERSOON=SUJET |
+|        ^ ^   |
+| PLAID=TARTAN |
+|         ^^   |
+| LIJM=GLUTON  |
+|      ^  ^    |
+| PLEIT=PROCES |
+|       ^      |
+|  PONT=FERRY  |
+|       ^^     |
+|   NAR=PIAS   |
+|       ^^     |
+|   VOOR=PRE   |
+|   ^  ^       |
+|3 4 8 9 13 14 |
+|            ^ |
+|PRECIES=STIPT |
+|        ^ ^   |
+|  KONING=REX  |
+|         ^    |
+|  REU=REKEL   |
+|      ^       |
+| STEG=VOETPAD |
+|  ^           |
+|  TOP=VERTEX  |
+|      ^       |
+|TREK=APPETIJT |
+|          ^^  |
+|  IJF=TAXUS   |
+|      ^       |
+|  ZAK=BUIDEL  |
+|      ^  ^    |
+| BALSEM=ZALF  |
+| ^  ^         |
+| ZEKER=GEWIS  |
+|         ^^   |
+|GEBIT=DENTUUR |
+|      ^  ^    |
+| AUBADE=HULDE |
+|  ^^          |
+|AFKEER=AVERSIE|
+|        ^ ^   |
+|  KLEUN=SLAG  |
+|  ^^          |
+|KRANS=AUREOOL |
+|       ^^^    |
+| MEIVIS=ELFT  |
+|         ^    |
+|METIER=BEROEP |
+|^ ^           |
+| MIELIE=MAIS  |
+| ^^           |
+|  MANIE=RAGE  |
+|  ^^          |
+| NICHT=KOZIJN |
+| ^            |
+|  OIR=KROOST  |
+|  ^^          |
+|PRO DEO=GRATIS|
+|^     ^       |
+|PROOST=CHEERS |
+|       ^^     |
+|  SAFE=KLUIS  |
+|  ^           |
+|48 + 77 = 125 |
+|^     ^   ^   |
+|  STOMP=BOT   |
+|        ^ ^   |
+| VAPEUR=DAMP  |
+| ^^           |
+| VARING=STIER |
+| ^^           |
+|  NIS=HOLTE   |
+|  ^^          |
+| NUCLEUS=KERN |
+|  ^^          |
+| OBSCEEN=VIES |
+|  ^ ^         |
+|  OLIJK=LEUK  |
+|  ^^          |
+|  SLOOT=RIJT  |
+|        ^     |
+|  SAS=DREVEL  |
+|  ^           |
+|   JUS=SAUS   |
+|   ^^         |
+| SCHANDE=SMET |
+|         ^^   |
+|  TWIJG=TEEN  |
+|        ^     |
+|  TYPE=MODEL  |
+|  ^^          |
+|  DONG=MEST   |
+|  ^           |
+|  FUIK=SERO   |
+|       ^      |
+| FRONS=PLOOI  |
+| ^^           |
+|KLAPPER=INDEX |
+|        ^^    |
+|  KOOL=CARBO  |
+|         ^^   |
+|  LEF=BRANIE  |
+|      ^^      |
+| AA AB BA BB  |
+|        ^     |
+| LERK=LARIKS  |
+| ^            |
+|  LEP=ZEELT   |
+|  ^           |
+| LIER=WINDAS  |
+| ^            |
+| DUIVEL=SATAN |
+|        ^ ^   |
+|  LUI=VADSIG  |
+|      ^ ^     |
+| MANK=KREUPEL |
+|    ^  ^      |
+|   POEL=VEN   |
+|        ^^    |
+|  MISE=INLEG  |
+|  ^           |
+| MITRA=MIJTER |
+|   ^^         |
+|  NAJA=COBRA  |
+|  ^           |
+| NAJADE=NIMF  |
+|   ^ ^        |
+| OMA=GROOTJE  |
+|     ^    ^   |
+|  SUB=ONDER   |
+|      ^^      |
+|  ONKIES=CRU  |
+|         ^    |
+| OVERJAS=DEMI |
+|         ^    |
+|  PLUG=BOUT   |
+|       ^  ^   |
+| PLUISJE=NOP  |
+|         ^    |
+|  RATS=ANGST  |
+|  ^  ^        |
+| RESINE=HARS  |
+| ^            |
+|SPIJK=LAVENDEL|
+|^^            |
+|  TUCHT=ORDE  |
+|  ^  ^        |
+| TUTEUR=VOOGD |
+| ^^           |
+|GEBLUF=GEPOCH |
+|         ^  ^ |
+|HANDPALM=MUIS |
+|         ^^   |
+| HANGAR=LOODS |
+| ^  ^         |
+|HEITJE=KWARTJE|
+|^^            |
+|HEUL=BIJSTAND |
+| ^^           |
+| 1 2 6 24 120 |
+|           ^  |
+| LEB=STREMSEL |
+| ^            |
+| BESCHUT=LUW  |
+|         ^    |
+| MAAGD=VIRGO  |
+|       ^^     |
+|   MAAL=DIS   |
+|        ^^    |
+| MAND=KARBIES |
+|        ^     |
+| PASSIE=DRIFT |
+| ^  ^         |
+|   PEG=SPIE   |
+|        ^     |
+|SPECIE=MORTEL |
+|       ^^     |
+| STOEP=BORDES |
+|       ^    ^ |
+|  STROT=KEEL  |
+|   ^^         |
+| VACANT=LEEG  |
+| ^ ^          |
+| NETTO=SCHOON |
+| ^  ^         |
+|  MYTHE=SAGE  |
+|        ^ ^   |
+|MOTIE=VOORSTEL|
+|^  ^          |
+|19 28 37 46 55|
+|      ^^      |
+|  MELIS=BUIK  |
+|  ^           |
+| KLEUTER=PUK  |
+| ^   ^        |
+|KLING=BAJONET |
+|^             |
+| GARCON=OBER  |
+| ^   ^        |
+|  HEEF=GIST   |
+|  ^           |
+|FURORE=BIJVAL |
+|^^            |
+| GUICH=GRIMAS |
+|  ^^          |
+| HAAF=VISNET  |
+| ^            |
+| HARPIJ=FEEKS |
+|        ^     |
+| MAZZEL=VEINE |
+|        ^     |
+|  NAAF=SPIL   |
+|  ^  ^        |
+| OMEGA=EINDE  |
+| ^^           |
+| PERCEEL=PAND |
+| ^  ^         |
+|PRIES=SNUIFJE |
+|    ^         |
+| REEKS=SERIE  |
+|       ^ ^    |
+|10 18 27 37 48|
+|             ^|
+|TAATS=AANBEELD|
+|^             |
+| NOOD=KOMMER  |
+|      ^       |
+|KALIBER=SOORT |
+|^   ^         |
+| FRIGIDE=KOUD |
+| ^  ^         |
+| OCULAIR=LENS |
+|  ^           |
+| 123 132 213  |
+|          ^   |
+|BRONS (METAAL)|
+|^   ^         |
+|  KAJAK=KANO  |
+|  ^ ^         |
+|  VLIES=VEL   |
+|  ^^          |
+| VERS=COUPLET |
+|      ^  ^    |
+|  ZODE=PLAG   |
+|       ^^     |
+|  DOLCE=ZOET  |
+|  ^^          |
+|SCHRIEL=KARIG |
+|        ^^    |
+| SLINKS=SLUW  |
+|        ^  ^  |
+|  GLAD=SLUIK  |
+|        ^  ^  |
+|  TEUGJE=NIP  |
+|         ^ ^  |
+| KILTE=GUURTE |
+|       ^  ^   |
+| ELLIPS=OVAAL |
+| ^  ^ ^       |
+|  B O N U S   |
+|              |
+|LEIBAND=TEUGEL|
+| ^^  ^        |
+|  PSALM=LIED  |
+|  ^   ^       |
+| ADDITIE=SOM  |
+| ^  ^         |
+|SENIOR=OUDSTE |
+|^    ^        |
+| PACT=VERDRAG |
+| ^ ^          |
+| FASE=STADIUM |
+| ^  ^         |
+| FACIE=TRONIE |
+|       ^ ^    |
+|HONNET=BELEEFD|
+|^^            |
+|  POLY=VEEL   |
+|  ^  ^        |
+| POF=CREDIET  |
+| ^ ^          |
+|  UNI=GELIJK  |
+|  ^ ^         |
+| WADUW=SLUIER |
+| ^            |
+|  AG=ZILVER   |
+|   ^          |
+| ZIEL=PSYCHE  |
+|      ^^      |
+|BISCUIT=KAAKJE|
+|^  ^          |
+| MUITER=REBEL |
+| ^ ^          |
+| REUTER=ZEEF  |
+| ^            |
+|  IJZEL=RIJP  |
+|        ^  ^  |
+|  JONG=PRIL   |
+|       ^ ^    |
+| LEE=HENGSEL  |
+| ^            |
+|  GNOOM=TROL  |
+|  ^^          |
+|  JAKKES=BAH  |
+|  ^    ^      |
+| IKKER=DUIVEL |
+| ^            |
+|HEELAL=KOSMOS |
+|        ^ ^   |
+|  HEES=SCHOR  |
+|          ^^  |
+|  VREK=KRENT  |
+|  ^     ^     |
+| GANNEF=DIEF  |
+| ^            |
+| FORT=CITADEL |
+|      ^ ^     |
+| FORUM=MARKT  |
+| ^            |
+| FLORET=DEGEN |
+| ^  ^         |
+|   APEX=TOP   |
+|    ^         |
+|   ARC=BOOG   |
+|   ^^         |
+|SUITE=VERTREK |
+|^^            |
+|  B O N U S   |
+|              |
+| KRAS=STREEP  |
+| ^  ^         |
+| RUN=TOELOOP  |
+| ^^           |
+|PATOIS=DIALECT|
+|^             |
+|  PELS=BONT   |
+|  ^ ^         |
+| ONGAAR=TETS  |
+|        ^     |
+|  KLENS=ZEEF  |
+|  ^           |
+|  GIJN=TAKEL  |
+|   ^^         |
+|  GUST=VAAR   |
+|  ^           |
+|234 + 532 =766|
+| ^      ^     |
+| 78 * 5 = 390 |
+|  ^         ^ |
+| TERRINE=KOM  |
+| ^   ^        |
+|  TROTS=PRAT  |
+|        ^     |
+| ESSAY=OPSTEL |
+| ^   ^        |
+| ZEEKOE (VIS) |
+| ^  ^         |
+| KLIP=KORAAL  |
+|      ^ ^     |
+|  FOUT=ABUIS  |
+|       ^^     |
+| DONK=MOERAS  |
+| ^            |
+|  AALT=GIER   |
+|    ^         |
+| ALTAAR=OUTER |
+|          ^   |
+|  FLETS=VAAL  |
+|  ^^          |
+| KANAAL=VAART |
+|        ^  ^  |
+|  B O N U S   |
+|              |
+| ZUIL=PILAAR  |
+| ^^           |
+|STAAL=MONSTER |
+|^^            |
+|  ZWAK=BROOS  |
+|       ^^     |
+|ZWAVEL=SULFER |
+|       ^^     |
+|TERTS=INTERVAL|
+|^             |
+|OBLAAT=HOSTIE |
+| ^^           |
+|  ODIUM=HAAT  |
+|   ^          |
+|BOEKET=RUIKER |
+|^  ^          |
+|SCHIK=PLEZIER |
+|   ^^         |
+| SCHERM=SCHOT |
+|        ^  ^  |
+|RAZZIA=OVERVAL|
+|^   ^         |
+|  NASI=RIJST  |
+|  ^^          |
+
+free 45 43 4f 4f 20

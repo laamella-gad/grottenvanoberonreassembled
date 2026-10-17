@@ -1,0 +1,442 @@
+# 14 characters a puzzle, ^ marks a hidden one; see tools/puzzles.py
+
+|  2 4 16 256  |
+|      ^^      |
+| 4 16 64 256  |
+|      ^^      |
+|  A E I O U   |
+|      ^       |
+|A D G J M P S |
+|      ^       |
+|3 5 7 11 13 17|
+|      ^^      |
+|  171 = $AB   |
+|         ^    |
+|  FE = IJZER  |
+|       ^^^    |
+| ZOUT = NACL  |
+| ^^           |
+|  GROTE BEER  |
+|    ^^        |
+|  50+12%=56   |
+|     ^^       |
+|  Y=YPSILON   |
+|      ^^      |
+|   WIER=ALG   |
+|    ^^        |
+|   SATURNUS   |
+|      ^^      |
+|  NET=ZOPAS   |
+|   ^^         |
+|1 2 4 7 11 16 |
+|        ^^    |
+|KERS (VRUCHT) |
+| ^^           |
+|APPEL (VRUCHT)|
+| ^^^          |
+| WOLF (DIER)  |
+|  ^^          |
+| ESP (PLAATS) |
+|  ^           |
+| ADAM (NAAM)  |
+|  ^^          |
+| BISON (DIER) |
+|  ^^          |
+| BIJ (INSEKT) |
+|  ^^          |
+|ROBIJN (STEEN)|
+| ^ ^^         |
+|VIOOL (BLOEM) |
+|  ^^^         |
+|SMID (BEROEP) |
+| ^^           |
+|WAARD (BEROEP)|
+|  ^^          |
+|WESP (INSEKT) |
+| ^^^          |
+|AGAAT (STEEN) |
+| ^  ^         |
+|SIRIUS (STER) |
+|  ^^          |
+|81 100 121 144|
+|       ^^     |
+|  CHR$(147)   |
+|    ^         |
+|  LEO=LEEUW   |
+|      ^^^     |
+| PRET=PLEZIER |
+|      ^^      |
+|  NIEUW=NEO   |
+|         ^    |
+|    ASIMOV    |
+|         ^    |
+|   #$%&'()    |
+|      ^       |
+|   ZXCVBNM    |
+|       ^      |
+| 6*X+7=31 X=4 |
+|            ^ |
+| ZWAK=FRAGIEL |
+|      ^^      |
+|  ZILT=BRAK   |
+|        ^     |
+|MANGO (VRUCHT)|
+|^             |
+| WEZEL (DIER) |
+| ^^           |
+|    NOREBO    |
+|    ^         |
+|   A1 B2 E5   |
+|       ^      |
+|  9 63 45 18  |
+|       ^      |
+|    5!=120    |
+|        ^     |
+| 12 APOSTELEN |
+|  ^           |
+|  PIJN=SMART  |
+|       ^^     |
+|  LIED=ARIA   |
+|       ^^     |
+|  HULS=ETUI   |
+|         ^^   |
+|  LA LE LES   |
+|         ^    |
+|   BEATLES    |
+|       ^      |
+| TIJDREIZIGER |
+|    ^^        |
+|1930=HALF ACHT|
+| ^            |
+|  JAMES BOND  |
+|        ^^    |
+|   XVII=17    |
+|    ^         |
+|  456+78=534  |
+|  ^       ^^  |
+| KOOT EN BIE  |
+|  ^^     ^    |
+|  KRUIK=URN   |
+|         ^^   |
+| JULES VERNE  |
+|         ^^   |
+|  3 9 27 81   |
+|  ^           |
+|  3.1415927   |
+|     ^^       |
+| IJSHUT=IGLO  |
+|         ^^   |
+| ADAM EN EVA  |
+| ^    ^  ^    |
+| PIRANA (VIS) |
+|  ^^  ^       |
+| 2.50 = RIKS  |
+|          ^^  |
+| ZUIVER=REIN  |
+|          ^^  |
+|   2.71828    |
+|     ^        |
+|X*X=1369 X=37 |
+|            ^ |
+|DADEL (VRUCHT)|
+|^^            |
+|DRUIF (VRUCHT)|
+| ^  ^         |
+|  TEER = PEK  |
+|  ^  ^        |
+| STROOK=MARGE |
+|          ^^  |
+|  STUIP=KUUR  |
+|  ^^          |
+|  HULP=STEUN  |
+|       ^  ^   |
+| TEKORT=MANCO |
+|        ^  ^  |
+|   TIP=HINT   |
+|       ^  ^   |
+| SPIJL=TRALIE |
+|       ^  ^   |
+|   ALP=BERG   |
+|   ^ ^        |
+| STUURS=BARS  |
+|        ^  ^  |
+| ACCIJNS=BTW  |
+|         ^^   |
+|  BONT=PELS   |
+|       ^ ^    |
+| A+4=2*A A=4  |
+|           ^  |
+|PETER & METER |
+|^             |
+|   WAL=DIJK   |
+|    ^^        |
+| HULDE=OVATIE |
+| ^      ^     |
+|  JAHWEH=GOD  |
+|  ^  ^   ^    |
+|   BEN HUR    |
+|   ^   ^      |
+|  ROBIN HOOD  |
+|  ^     ^     |
+|   PAS=STAP   |
+|    ^    ^    |
+|  GOOR=VIES   |
+|  ^  ^        |
+|  TETRA=VIER  |
+|  ^   ^       |
+|1QAZ 2WSX 3EDC|
+|       ^      |
+|  TEIL=TOBBE  |
+|  ^    ^      |
+| 1! 3# 8( 4$  |
+|     ^        |
+|   21436587   |
+|       ^      |
+|  FEEKS=TANG  |
+|  ^  ^        |
+|DEBAT=GESCHIL |
+|^ ^           |
+| CORRUPT=VEIL |
+|           ^^ |
+|IMKER (BEROEP)|
+|^ ^           |
+|LAKEI (BEROEP)|
+|^   ^         |
+|SPION (BEROEP)|
+|^ ^           |
+|TABAK (PLANT) |
+|^ ^           |
+| 789AB A+4=14 |
+|            ^ |
+|  RIJSTEBRIJ  |
+|          ^^  |
+|   NOCHTANS   |
+|       ^      |
+|    ECZEEM    |
+|     ^        |
+|    PYJAMA    |
+|      ^       |
+|  RINOCEROS   |
+|  ^           |
+|  ETIQUETTE   |
+|     ^^       |
+| ONKIES = CRU |
+|          ^   |
+|PROZA & POEZIE|
+|^       ^     |
+|   DURF=LEF   |
+|    ^   ^     |
+|  SIJS=KWANT  |
+|        ^     |
+|TABEE=GEGROET |
+|^     ^       |
+| TABLET=PLAK  |
+| ^ ^          |
+| MANCO=TEKORT |
+| ^       ^    |
+| TERRA=AARDE  |
+| ^       ^    |
+|  TERING=TBC  |
+|  ^      ^    |
+| TERRINE=KOM  |
+|         ^    |
+|THESE=STELLING|
+|^^            |
+|  TIEN=DECA   |
+|  ^    ^      |
+|  TOILET=WC   |
+|  ^ ^    ^    |
+|    AD HOC    |
+|       ^      |
+|   HEKS=KOL   |
+|        ^     |
+| TRUC=FOEFJE  |
+|    ^ ^  ^    |
+| TUBE=BUISJE  |
+| ^    ^       |
+|LUSTRUM=5 JAAR|
+|^       ^     |
+| TIJGEN=GAAN  |
+|  ^^          |
+|  UIT=BASTA   |
+|    ^  ^      |
+|  SLIM=KIEN   |
+|  ^    ^      |
+|  TEKEN=SEIN  |
+|  ^     ^     |
+|   UT = DO    |
+|        ^^    |
+| ULCUS=ZWEER  |
+|       ^^     |
+|VACCIN=ENTSTOF|
+|  ^^   ^      |
+|VACUUM=LACUNE |
+|^ ^           |
+|  VAAT=AFWAS  |
+|   ^^  ^  ^   |
+|VANEEL=DAKPAN |
+|^^            |
+|GEWIS=STELLIG |
+|^     ^       |
+|   TIP=FOOI   |
+|   ^   ^      |
+|  TOEF=PLUK   |
+|  ^  ^        |
+| TOISE=VADEM  |
+| ^ ^          |
+| TROLL=DEMON  |
+| ^     ^      |
+|  GIF=VENIJN  |
+|  ^     ^     |
+|  LENS=LOEP   |
+|  ^    ^      |
+|  VLAK=PLAT   |
+|  ^       ^   |
+| GROOT=WEIDS  |
+|        ^^    |
+| VENSTER=RAAM |
+| ^ ^     ^    |
+|SFINX (INSEKT)|
+|^   ^         |
+|SATER (INSEKT)|
+|^ ^           |
+|ZAAIER =VRUCHT|
+|^  ^          |
+|LINZE (VRUCHT)|
+|^  ^          |
+| MAP=DOSSIER  |
+| ^     ^^     |
+| MARENE=ZALM  |
+| ^            |
+| MAREL=GRUTTO |
+|       ^      |
+|  MANIE=RAGE  |
+|  ^     ^     |
+|  MAND=KORF   |
+|  ^    ^      |
+| LATEX=RUBBER |
+| ^   ^ ^      |
+| STREMSEL=LEB |
+| ^        ^   |
+|  LAVA=MAGMA  |
+|  ^ ^         |
+| LEI=WATERING |
+| ^   ^        |
+|  LATUW=SLA   |
+|  ^   ^       |
+| LAPIS=STEEN  |
+| ^ ^          |
+| LASTEN=ONERA |
+|        ^   ^ |
+| LANCET=VLIJM |
+|        ^   ^ |
+|  LAKS=INERT  |
+|  ^^          |
+| KUNNE=SEKSE  |
+| ^     ^      |
+|   KWAB=LOB   |
+|   ^  ^       |
+|  DOLK=KRIS   |
+|       ^^     |
+|  KROEG=SOOS  |
+|  ^     ^     |
+|   KRAP=ENG   |
+|      ^ ^     |
+|  KOUD=GUUR   |
+|  ^    ^      |
+|  KLIEK=CLAN  |
+|  ^     ^     |
+|   RIF=KLIP   |
+|   ^   ^      |
+| KAPEN=ROVEN  |
+| ^     ^      |
+| KAPER=PIRAAT |
+| ^     ^      |
+| KADER=LIJST  |
+| ^     ^      |
+|   LOF=ROEM   |
+|   ^   ^      |
+|  MEST=GIER   |
+|  ^    ^      |
+| DEVOOT=VROOM |
+| ^      ^     |
+| VARKEN=ZWIJN |
+| ^ ^    ^     |
+| VAAN=WIMPEL  |
+| ^    ^^      |
+| VALS=PSEUDO  |
+| ^    ^^      |
+| VALE=GEGROET |
+| ^            |
+| PAF=PERPLEX  |
+|   ^ ^     ^  |
+| VERBOND=LIGA |
+|         ^^   |
+| VETER=NESTEL |
+| ^   ^        |
+|VIEF=LEVENDIG |
+|^    ^        |
+| REDE=VERNUFT |
+| ^       ^^   |
+|TERTS=INTERVAL|
+|^  ^^         |
+| VEIL=TE KOOP |
+| ^  ^         |
+|TEKORT=DEFICIT|
+|          ^^  |
+| TEMET=WELDRA |
+| ^ ^          |
+|STREEK=CONTREI|
+|       ^    ^^|
+| SPALK=FERULA |
+| ^     ^      |
+|SPEELS=DARTEL |
+| ^     ^ ^    |
+|  SPANT=RIB   |
+|  ^^          |
+| REKEL=VLEGEL |
+| ^     ^^     |
+|MAMMOET (DIER)|
+|^ ^^  ^       |
+| PORTRET=FOTO |
+| ^  ^    ^    |
+|PLEIDOOI=PLEIT|
+|^   ^    ^    |
+|ONLEDIG=BEZIG |
+|  ^ ^         |
+|IMPAIR=ONEVEN |
+|^^            |
+| ONEER=SMAAD  |
+|  ^    ^      |
+|  MONO=ENKEL  |
+|  ^ ^         |
+|  MOM=MASKER  |
+|  ^   ^^      |
+|MIHRAB=BIDNIS |
+|  ^^          |
+|  MIL=GIERST  |
+|  ^           |
+|  MIKRON=MU   |
+|   ^     ^    |
+| MILAAN=WOUW  |
+| ^      ^     |
+|MINSTREEL=BARD|
+|          ^  ^|
+|  KURK=STOP   |
+|    ^^        |
+| CRISIS=ONTIJ |
+| ^^           |
+|KRYPT=SPELONK |
+|  ^^          |
+| KUI=KOEKALF  |
+|  ^^          |
+| KRISSIE=DROP |
+|    ^^        |
+| KROON=TIARA  |
+|       ^^     |
+| KRUIF=KWAST  |
+| ^^           |
+| KRUIK=AMFORA |
+|       ^^     |
+
+free 48 45 54 20 49

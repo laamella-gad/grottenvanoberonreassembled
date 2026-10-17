@@ -1,0 +1,676 @@
+; De grotten van Oberon, (c) 1985 Radarsoft, by C. Kramer.
+; grotten.prg is the game as it is in memory when it starts at $1000: the crack's
+; two RLE depackers unpacked it from GROTTEN.T64 (see NOTES.md). $0801-$0bff held
+; the crack's tape loader leftovers; it is the game's second screen, so it was
+; replaced by a BASIC line 'SYS 4096'.
+deflower grotten.prg
+include c64.flo
+
+; ---------------------------------------------------------------- ROM
+; IOINIT: CIA set up, SID volume off
+$fda3 banked kernal_ioinit
+; the second half of CINT's VIC set up: the VIC registers from the KERNAL's table
+$e5aa banked kernal_init_vic
+; CINT after the VIC: screen editor variables, clear screen
+$e51b banked kernal_init_editor
+; the end of the KERNAL's NMI handler: restore the registers, rti
+$fe72 banked kernal_nmi_return
+; part of UDTIM: reads the keyboard row of the STOP key into STKEY ($91)
+$f6bc banked kernal_scan_stop
+
+; ---------------------------------------------------------------- zero page and system
+; pointer to the digits of a counter (counter_increment, counter_decrement)
+$fb virtual word counter_ptr
+; current device number and input device, set like the KERNAL's reset does
+$9a virtual byte output_device
+$99 virtual byte input_device
+; KERNAL message mode: 0 = no messages
+$9d virtual byte kernal_message_mode
+; SHFLAG mode: $80 = shift/commodore doesn't switch character sets
+$0291 virtual byte shift_mode
+
+; ---------------------------------------------------------------- sprites and second screen
+; The BASIC line that starts the game: 10 SYS4096
+$0801-$080d byte basic_sys
+$0800 screen_2
+$080d-$0c00 byte screen_2_unused
+; VIC: screen 1 at $0400, screen 2 at $0800 (double buffered scrolling), charset $2800.
+; The sprite pointers on screen 2 are written next to those on screen 1.
+$0bf8 screen_2_sprite_pointers
+$0bfc screen_2_sprite_4
+$0bfe screen_2_sprite_6
+$0bff screen_2_sprite_7
+; 16 sprites, pointers $30-$3f:
+;   $30-$33 ship hull (sprites 2-5, multicolour), $34/$35 status-line scroller
+;   halves (sprites 0/1, the text is shifted into rows 6-12 of $35 and $36),
+;   $37-$3a probe arm (sprite 6) frames, $3c-$3f guardian (sprite 7) frames.
+$0c00-$1000 byte sprites export sprites.bin
+; the status line's text is rotated through rows 6-12 of sprites $35 and $36
+$0d40 status_sprites
+$0d52 status_sprite_left_row_6
+$0d92 status_sprite_right_row_6
+
+; ---------------------------------------------------------------- start and title
+; Entry point: copies the map to the RAM under the KERNAL, hides the scroll
+; tables there too, then shows the title.
+$1000 code start
+$1007 code start_copy_loop
+$1007 selfmod map_image
+$100a selfmod map
+$100a code start_copy_store
+$101b code start_copy_tables
+; resets the KERNAL I/O, VIC and screen editor, puts back the KERNAL IRQ,
+; silences the SID; charset: upper/lower case
+$102c code reset_system
+$1029 code restart
+$1062 code reset_system_sid
+; title screen: no RUN/STOP, RESTORE goes back to the title
+$1069 code title
+; prints the text at print_text + 1 up to a 0 byte via CHROUT
+$1090 code print_text
+$1096 code print_text_char
+; next background colour of the title's colour cycle
+$10a4 code cycle_background
+; never called: a GETIN left over
+$10b4 code unused_getin
+; waits for F1, F3, F5 or F7
+$10b7 code title_wait_key
+$10d2 code title_f1
+$10db code title_f3
+$10e4 code title_f5
+$10ed code title_f7
+; A/X: puzzle bank, Y: the difficulty digit (reversed '1'-'4') shown in the cave
+$10f3 code start_difficulty
+$1108-$1110 byte title_colours
+$1110 byte title_colour_index
+; title text, PETSCII: clear, upper/lower case off, colours, F-keys menu
+$1111-$11e9 ascii[until $00] title_text
+
+; ---------------------------------------------------------------- end of game: won
+; "proficiat": the end text and a random beeping tune until a key is pressed
+$11e9 code game_won
+$121a code game_won_loop
+$124d word won_tone
+; black screen of reversed spaces in black
+$124f code clear_screen_black
+$1259 code clear_screen_black_loop
+$1279-$13ad ascii[until $00] won_text
+; Copied to $fd30 (RAM under the KERNAL) at the start and cleared here, read by
+; scroll_shift_screen: per scroll direction the start index and the low byte
+; of the source of the 4 x 250 byte screen copy.
+$13ad-$13b7 byte scroll_copy_start_init
+$13b7-$13c1 byte scroll_copy_source_init
+
+; ---------------------------------------------------------------- puzzle terminal
+; The probe touched a terminal (char $eb): solve the puzzle. puzzle_state:
+; 1 = wait for the fire button to be pressed, 2 = edit (left/right move the
+; cursor, up/down change a hidden character), fire again = check.
+$13c1 code puzzle_terminal
+$13d2 code puzzle_terminal_reset_cursor
+$13dd code puzzle_terminal_edit
+$13e4 code puzzle_terminal_editing
+$13f1 code puzzle_terminal_cursor_wait
+$13f9 code puzzle_terminal_move
+$1414 code puzzle_cursor_moved_right
+$1417 code puzzle_terminal_left
+$1428 code puzzle_cursor_moved_left
+; up/down only change a hidden character
+$1444 code puzzle_terminal_change
+; joystick down: the previous letter
+$1451 code puzzle_letter_previous
+$1467 code puzzle_letter_previous_set
+; joystick up: the next letter
+$146d code puzzle_letter_next
+$1483 code puzzle_letter_next_set
+$1489 code puzzle_draw_cursor
+$149d code puzzle_draw_changed
+$14bf code puzzle_terminal_done
+$14c2 code puzzle_terminal_check
+$14cc code puzzle_terminal_compare
+$14d3 code puzzle_check_loop
+$142b word puzzle_bank
+$142d byte puzzle_skip
+; wrong answers left before the next puzzle
+$142e byte puzzle_tries
+; A = character Y of the current puzzle; the pointer wraps to puzzle_bank at a 0
+$142f code puzzle_char
+$1435 code puzzle_wrap
+; skips 1-8 puzzles (a random count from the TOD clock's tenths) and gives 3 tries
+$14e7 code puzzle_next
+$14ef code puzzle_next_loop
+$14fd code puzzle_next_check
+; right: the door opens for a while
+$150d code puzzle_solved
+$1525 code puzzle_solved_open_door
+$152b code puzzle_terminal_exit
+; wrong: unless it is already there, the guardian (sprite 7) comes in from the
+; left or the right, chosen by bit 0 of the map position. Only coming from the
+; left costs a try: from the right puzzle_tries isn't counted down (a bug?).
+$1531 code puzzle_wrong
+$1555 code guardian_from_right
+$1564 code guardian_start
+; clears the puzzle display (chars $db-$e8) and the switch char $f3
+$1590 code puzzle_display_clear
+$1594 code puzzle_display_clear_light
+$159c code puzzle_display_clear_loop
+
+; ---------------------------------------------------------------- fuel tank
+; The probe touched a fuel tank (char $ef): while the fire button is held, the
+; fuel goes up by one and the tank counter is shown in the puzzle display.
+$15a3 code fuel_tank
+$15b5 code fuel_tank_fill
+$15fb code fuel_tank_show
+$15fd code fuel_tank_show_loop
+; fuel 1000 or more: show "VOL!" and set the fuel to 1000
+$1609 code fuel_tank_full
+$160b code fuel_tank_full_loop
+
+; ---------------------------------------------------------------- radar
+; The probe touched a radar screen (char $f0): while fire is held, the ship's
+; position on the map blinks as a dot in the puzzle display.
+$1622 code radar
+$1634 code radar_blink
+$166b code radar_done
+
+; ---------------------------------------------------------------- ship destroyed
+; frame handler after the end of the game: ship explosion, then a new game
+$166e code ship_explode
+$1682 code ship_explode_step
+$16bd code ship_explode_move
+$16ca code ship_explode_done
+
+; ---------------------------------------------------------------- game variables and status line
+; the tank counter's last digit when the fill sound was last started
+$16cd byte tank_last_digit
+$16ce byte radar_blink_timer
+; 1 while the probe is out
+$16cf byte probe_out
+; the cursor in the puzzle (0-13) and where it was
+$16d0 byte puzzle_cursor
+$16d1 byte puzzle_cursor_old
+; eor between the probe's two animation frames
+$16d2 byte probe_frame_eor
+; high byte of the font address for puzzle_draw_char (0: chars $80-$bf)
+$16d3 byte glyph_high
+; $ff draws the character reversed (the cursor)
+$16d4 byte glyph_reverse
+; The status line, 91 characters scrolled through the status sprites:
+; fuel, time, damage, then the current message (54 characters, damage first).
+$16d5-$16e0 ascii status_line
+$16e0-$16e4 ascii status_fuel
+$16e4-$16ea ascii status_time_label
+$16ea-$16ec ascii status_hours
+$16ec-$16ed ascii status_colon_1
+$16ed-$16ef ascii status_minutes
+$16ef-$16f0 ascii status_colon_2
+$16f0-$16f2 ascii status_seconds
+$16f2-$16fa ascii status_damage_label
+$16fa-$1730 ascii status_message
+; pixel column (7-0) of the status scroller and its character index (0-$5a)
+$1730 byte status_pixel
+$1731 byte status_index
+; The messages, 54 characters each, copied to status_message by show_message.
+; The first is the normal status: the damage in two digits (counted here) and
+; the crack's credits.
+$1732-$1734 ascii damage
+$1734-$1768 ascii message_default
+; never shown: the fuel warning
+$1768-$179e ascii message_fuel_low
+$179e-$17d4 ascii message_damage_top
+$17d4-$1809 ascii message_damage_bottom
+$1809-$183f ascii message_damage_right
+$183f-$1875 ascii message_damage_left
+$1875-$18ab ascii message_damage_all
+$18ab-$18e1 ascii message_switch
+$18e1-$1917 ascii message_door_open
+$1917-$194d ascii message_puzzle
+$194d-$1983 ascii message_fuel_tank
+$1983-$19b8 ascii message_radar
+$19b8-$19ee ascii message_solved
+$19ee-$1a24 ascii message_out_of_fuel
+$1a24-$1a5a ascii message_destroyed
+; shown in the puzzle display when the fuel is 1000 or more
+$1a5a-$1a5e ascii fuel_full_text
+; the introduction, scrolled through the puzzle display until fire is pressed
+$1a5e-$1cf7 ascii[until $00] intro_text
+$1cf7 byte last_frame
+; damage bits seen ($c781 bits 2-5) and 1 when its message is shown
+$1cf8 byte damage_seen
+$1cf9 byte damage_message_shown
+; a character's glyph while it is shifted into the scroller
+$1cfa-$1d0e byte glyph_buffer
+; the player's answer, 14 screen codes
+$1d0e-$1d1c byte answer
+; a test bank of puzzles, puzzle_bank's value before a difficulty is chosen
+$1d1c-$1d54 byte puzzles_test
+
+; ---------------------------------------------------------------- new game
+; From the engine set up: reset the clock, fuel 1000, damage 0, first puzzle.
+; The first time the introduction scrolls through the puzzle display.
+$1d54 code new_game
+$1d5d code new_game_close_door
+$1d63 code new_game_reset
+$1dd4 byte intro_shown
+$1dd5 code intro
+$1de4 code intro_loop
+$1dee code intro_frame
+$1e03 code intro_next_char
+$1e03 selfmod intro_text
+$1e15 code intro_glyph
+$1e1d code intro_glyph_address
+$1e43 code intro_copy_glyph
+; rotates the glyph into the puzzle display, chars $db-$e8
+$1e4e code intro_shift
+$1e50 code intro_shift_loop
+; frames until the next repair
+$1e83 word repair_delay
+
+; ---------------------------------------------------------------- main loop
+; Once a frame (frame_counter changes): the guardian, the sound effect, the
+; door timer, the damage, the probe and the terminals, the clock, fuel and damage,
+; the messages and the status scroller.
+$1e85 code main_loop
+$1ea6 code guardian_right
+$1eb4 code guardian_animate
+$1ebf code guardian_follow_scroll
+$1ec9 code guardian_follow_right
+$1ed3 code sound_effect
+$1ee8 code sound_effect_step
+$1f07 code sound_effect_off
+$1f0f code door_timer
+$1f1d code door_close_loop
+; every 1024 frames the damage goes down by one, while it is 10 % or more
+$1f23 code damage_repair
+$1f4e code probe
+$1f67 code probe_direction
+$1f8a code probe_none
+$1f76 code probe_check_left
+$1f80 code probe_check_right
+; NMI (RESTORE): RUN/STOP + RESTORE goes back to the title
+$1f8d code nmi_restore_game
+$1fa5 code nmi_kernal
+$1fa8 code nmi_rti
+$1fa9 code probe_active
+$1fc0 code probe_check_fuel_tank
+$1fc8 code probe_check_radar
+$1fd0 code probe_check_touch
+; reads the character at the probe's tip (screen position probe_screen_pos)
+$1fd8 code probe_touch
+$1ff2 code probe_read_char
+; the switch (char $ed) toggles the chars $fe/$ff: open or closed
+$201b code switch_on
+$2033 code switch_set
+$2035 code switch_set_open
+$203e code switch_set_closed
+$205e code probe_check_terminal
+$206a code probe_check_tank
+$2076 code probe_check_radar_screen
+; char $c0: the way out of the caves
+$2082 code probe_check_goal
+$2089 code probe_goal
+; the sound effect on voice 2: frequency, step per frame, frames left
+$208c word sfx_frequency
+$208e word sfx_step
+$2090 word sfx_time
+$2092 byte fuel_timer
+$2093 byte damage_timer
+; a rising tone
+$2094 code sound_solved
+; A/Y: screen position of the probe's tip
+$20b4 code probe_extend
+$20ca code probe_retract
+; the clock (also drawn in the cave's tiles), fuel, damage and messages
+$20da code update_status
+$2154 code update_fuel
+$217a code update_damage_message
+$218f code show_damage_message
+$219f code damage_message_bottom
+$21aa code damage_message_right
+$21b5 code damage_message_left
+$21c0 code damage_message_all
+$21c7 code probe_message
+$21e2 code probe_check_door
+$21f6 code probe_open_door
+$2204 code status_scroll
+$221b code status_scroll_char
+; back to the normal status message
+$221e code show_default_message
+$2233 code status_next_glyph
+$225f code status_copy_glyph
+$225f selfmod font
+$226d code status_shift
+$226f code status_shift_loop
+$228c code probe_up
+$22aa code probe_left
+$22c8 code probe_right
+; the end of the frame handler
+$22e6 code frame_done
+$22e9 byte probe_char
+$22ea byte switch_state
+; 1 when the probe's character was handled
+$22eb byte probe_handled
+; frames until the door closes again
+$22ec byte door_timer_count
+; the terminal modes: puzzle (1, 2), fuel tank and radar
+$22ed byte puzzle_state
+$22ee byte fuel_tank_active
+$22ef byte radar_active
+$22f0 byte cursor_delay
+; X/Y: the message, A: its colour (sprites 0 and 1)
+$22f1 code show_message
+$2309 code show_message_copy
+$2313 code status_sprites_clear
+$2317 code status_sprites_clear_loop
+; A (BCD) -> X ones digit, Y tens digit, as PETSCII
+$231e code bcd_to_digits
+; adds one to the decimal counter at (counter_ptr) + A; carry set on overflow
+$2331 code counter_increment
+$2336 code counter_increment_digit
+$2345 code counter_increment_done
+; subtracts one; carry set on underflow
+$234c code counter_decrement
+$2351 code counter_decrement_digit
+$2360 code counter_decrement_done
+; puzzle terminal: show the puzzle with '?' for the hidden characters
+$2367 code puzzle_show
+$2377 code puzzle_show_light
+$2387 code puzzle_show_loop
+; the bit $xxxx trick: $2c hides the lda #'?' below when the character isn't hidden
+$2391 byte bit_skip_2391
+$2392 code puzzle_show_hidden
+; draws character A (screen code) at position Y of the puzzle display:
+; the font glyph eor glyph_reverse into chars $db-$e8
+$23a0 code puzzle_draw_char
+$23d8 code puzzle_draw_char_loop
+$23de code puzzle_glyph_store
+$23e5 code fuel_tank_start
+$2402-$2406 ascii tank_counter
+$2406 code radar_start
+$2421 code radar_add_column
+; offset of the radar dot in the puzzle display's chars and its bit
+$2437 byte radar_offset
+$2438 byte radar_mask
+$2439-$2441 byte bit_masks
+; leftovers of an earlier memory image
+$2441-$2800 byte unused_2441
+
+; ---------------------------------------------------------------- character set
+; $2800-$2bff, chars $00-$7f: barrier characters, set up and animated at run time
+; $2c00-$2dff, chars $80-$bf: the font (screen code order), also used by the
+; scrollers; $2e00-$2fff, chars $c0-$ff: cave graphics. Chars $db-$e8 are the
+; puzzle display, $ee the door, $f3 the switch light, $fe/$ff the switch.
+$2800-$3000 byte charset export charset.bin
+$2c00 font
+$2ed8 puzzle_display
+$2f70 door_char
+$2f98 switch_light_char
+$2ff0 switch_chars
+
+; ---------------------------------------------------------------- puzzles
+; Four banks of up to 219 puzzles of 14 screen codes, ended by a 0. Bit 7
+; marks a character the player has to find. See tools/puzzles.py.
+; F1 eenvoudige (easy), F3 normale, F5 pittige (tough), F7 moeilijke (hard)
+$3000-$3c00 byte puzzles_easy export puzzles_easy.bin
+$3c00-$4800 byte puzzles_normal export puzzles_normal.bin
+$4800-$5400 byte puzzles_tough export puzzles_tough.bin
+$5400-$6000 byte puzzles_hard export puzzles_hard.bin
+
+; ---------------------------------------------------------------- playfield
+; The map: 128 x 64 tiles, a byte each (bits 0-6: the tile). Copied to $e000.
+$6000-$8000 byte map_image export map.bin
+; 128 tiles of 8 x 8 characters: character (x, y) of tile t is at
+; $8000 + ((t >> 5) * 8 + y) * 256 + (t & 31) * 8 + x, its colour at $2000 more.
+$8000-$a000 byte tile_chars export tile_chars.bin
+$a000-$c000 byte tile_colours export tile_colours.bin
+; the clock's digits (reversed) in a tile
+$9de1 clock_tile_hours
+$9de2 clock_tile_hours_2
+$9de3 clock_tile_minutes
+$9de4 clock_tile_minutes_2
+$9de5 clock_tile_seconds
+$9de6 clock_tile_seconds_2
+; the difficulty digit (reversed) in a tile
+$9ee3 difficulty_tile
+$9ee4 difficulty_tile_2
+
+; ---------------------------------------------------------------- engine
+$c000 code engine_start
+; draws the whole screen (25 rows) from the map, with the KERNAL banked out,
+; then shows it; also starts the raster IRQ
+$c003 code draw_screen
+$c031 code draw_screen_row
+$c053 code draw_screen_next
+$c067 code draw_screen_call
+$c07c byte draw_rows
+; two raster IRQs, at lines $fa and $ff: both set the scroll registers and the
+; background colour, every other one also runs the scroll phase and chains to
+; the frame handler
+$c07d byte raster_index
+$c07e-$c080 byte raster_lines
+$c080 byte scroll_x
+$c081 byte scroll_y
+$c082 byte background_flash
+; the scroll direction, joystick bits (0 = up, 1 = down, 2 = left, 3 = right;
+; a 0 bit moves), latched at phase 7
+$c083 byte scroll_direction
+$c084 byte unused_c084
+; counts down 8-1 each frame: the scroll phase
+$c085 byte frame_counter
+; 1: the fine scroll wrapped, show the other screen
+$c086 byte swap_screens
+; high bytes of the screen copy's source and destination
+$c087 byte copy_source_high
+$c088 byte unused_c088
+$c089 byte copy_dest_high
+$c08a byte unused_c08a
+; the next scroll direction, from the joystick and the collisions
+$c08b byte next_direction
+; 1: the guardian moves left
+$c08c byte guardian_left
+; the map position of the top left of the screen ($e000-$ffff)
+$c08d word map_position
+$c08f word map_row
+$c091 byte draw_screen_low
+$c092 byte draw_screen_page
+$c093 word draw_offset
+; the character within the tile at the top left
+$c095 byte tile_x
+$c096 byte tile_y
+$c097 byte column_tile_x
+$c098 byte row_tile_y
+; bytes per map row
+$c099 word map_width
+$c09b code raster_irq
+$c0af code raster_irq_split
+$c0d2 code irq_return
+; the scroll phase: fine scroll y/x, set swap_screens when it wraps
+$c0d8 code scroll_fine
+$c0f3 code scroll_fine_down
+$c0fb code scroll_fine_down_set
+$c10b code scroll_fine_up_check
+$c120 code scroll_fine_up
+$c12a code scroll_fine_up_set
+$c13a code scroll_fine_left_check
+$c14f code scroll_fine_left
+$c159 code scroll_fine_left_set
+$c164 code guardian_move_left
+$c176 code guardian_move_left_wrap
+$c17b code guardian_move_left_step
+$c17f code scroll_fine_right_check
+$c192 code scroll_fine_right
+$c19a code scroll_fine_right_set
+; 1 = the screen scrolled left, 2 = right: the guardian moves along
+$c1a5 byte guardian_follow
+$c1a6 code guardian_move_right
+$c1b6 code guardian_move_right_high
+$c1c5 code guardian_move_right_done
+$c1c6 code guardian_move_right_step
+$c1ca code scroll_phase
+$c1d2 code scroll_phase_select
+$c1df code scroll_phase_7
+$c1e6 code scroll_phase_5_3_1
+$c1f4 code scroll_phase_3
+$c1fb code scroll_phase_1
+; the KERNAL IRQ until the engine starts, then frame_handler
+$c202 code scroll_phase_done
+$c202 selfmod kernal_irq
+; shows the other screen and copies the colour buffer to the colour RAM
+$c205 code show_screen
+$c210 code show_screen_colours_1
+$c21f code show_screen_colours_2
+; copies the screen (or the colour buffer) shifted by one character in the
+; scroll direction, in 4 parts of 250 bytes; the loop's index direction and
+; carry are patched per direction
+$c22f code scroll_shift_screen
+$c27b code scroll_shift_part
+$c27d code scroll_shift_loop
+$c280 code scroll_shift_store
+$c299 code scroll_shift_next_dest_up
+$c283 code scroll_shift_step
+$c284 code scroll_shift_compare
+$c288 code scroll_shift_carry
+$c2a6 code scroll_shift_next_part
+$c2aa code scroll_shift_down
+$c2b8 code scroll_shift_down_dest
+$c2c5 code scroll_shift_down_next
+; by direction (joystick bits): the index into the tables below
+$c2c9-$c2d9 byte scroll_direction_index
+$c2d9-$c2e3 byte scroll_source_high
+$c2e3-$c2ed byte scroll_dest_low
+$c2ed-$c2f7 byte scroll_dest_high
+; dey or iny, the end index and clc or sec of the copy loop
+$c2f7-$c301 byte scroll_index_opcode
+$c301-$c30b byte scroll_end_index
+$c30b-$c315 byte scroll_carry_opcode
+$c315 code scroll_latch_direction
+$c320 code scroll_shift_colours
+$c32e code scroll_shift_chars
+$c341 code scroll_shift_chars_2
+$c34b code scroll_move_map
+$c374 code scroll_move_map_down
+$c39f code scroll_move_map_left
+$c3c3 code scroll_move_map_right
+$c3ec code scroll_move_map_done
+$c3ef code scroll_draw_rows
+$c3ff code scroll_draw_rows_bottom
+$c409 code scroll_draw_rows_done
+$c413 code scroll_draw_columns
+$c423 code scroll_draw_columns_right
+$c42d code scroll_draw_columns_done
+; draws the top row into the hidden screen
+$c437 code draw_top_row
+$c45d byte bit_skip_c45d
+$c45e code draw_row_screen_1
+; draws a row of 40 characters and their colours: A = the screen page
+$c463 code draw_row
+$c46e code draw_row_pass
+$c47f code draw_row_tile
+$c4ad code draw_row_page
+$c4b2 code draw_row_char
+$c4b5 code draw_row_store
+$c4cc code draw_row_next_tile
+$c4d6 code draw_row_colours
+$c4f3 code draw_row_done
+; draws the bottom row (row 24)
+$c4f4 code draw_bottom_row
+$c51e byte bit_skip_c51e
+$c51f code draw_bottom_row_screen_1
+; draws the left column into the hidden screen
+$c524 code draw_left_column
+$c547 byte bit_skip_c547
+$c548 code draw_left_column_screen_1
+; draws a column of 25 characters and their colours: A = the screen page
+$c54a code draw_column
+$c555 code draw_column_pass
+$c566 code draw_column_tile
+$c595 code draw_column_tile_row
+$c5a7 code draw_column_page
+$c5ac code draw_column_char
+$c5af code draw_column_store
+$c5c5 code draw_column_next
+$c5e6 code draw_column_colours
+$c603 code draw_column_done
+; draws the right column (column 39)
+$c604 code draw_right_column
+$c630 code draw_right_column_tile
+$c633 code draw_right_column_wrap
+$c638 code draw_right_column_screen
+$c641 byte bit_skip_c641
+$c642 code draw_right_column_screen_1
+; map offset of the bottom row: 24 / 8 = 3 rows of tiles down
+$c647 word bottom_row_offset
+; Sets up the VIC, the SID, the sprites, the barrier characters and the screen,
+; then a new game
+$c649 code engine_init
+$c686 code engine_clear_screens
+$c6a5 code engine_clear_sid
+$c6d3 code engine_init_sprites
+$c732 code engine_init_barrier
+; engine sound: frequency added to the noise, and voice 3's frequency (the
+; random source)
+$c764 word engine_pitch
+$c766 word engine_tone
+$c768 byte engine_noise_rate
+$c769-$c771 byte sprite_colours_init
+$c771-$c779 byte sprite_pointers_init
+$c779-$c781 byte sprite_coords_init
+; sprite collisions: background bits 2-5 (the hull's sides), $ff when the
+; guardian touched the ship
+$c781 byte collisions
+$c782-$c78a byte sprite_coords_init_2
+; Once a frame from the raster IRQ: the engine sound, collisions and damage,
+; the joystick and the barrier animation
+$c78a code frame_handler
+$c798 code frame_flame_colour
+$c7a0 code frame_flame_dark
+$c7a2 code frame_engine_sound
+$c7de code frame_collisions
+$c7ed code frame_background_collision
+$c7f3 code frame_hit
+$c81a code frame_hit_bottom
+$c823 code frame_hit_sides
+$c836 code frame_hit_right
+; the end of the game: flash, then explode after 256 frames
+$c842 code frame_destroyed
+$c852 code frame_destroyed_sound
+$c85a byte destroyed_timer
+$c85b byte game_over
+$c85c byte explode_step
+$c85d code frame_joystick
+$c894 code frame_engine_up
+$c8a4 code frame_set_direction
+$c8a5 code frame_set_direction_a
+$c8a8 code frame_joystick_done
+$c8ab code frame_engine_down
+$c8ad code frame_engine_down_check
+; every other frame: flame animation (sprite 4) and the barrier animation
+$c8ca code animate
+$c8d4 code animate_barrier
+$c8e8 code barrier_close
+$c9f3 code barrier_close_next
+$ca19 code barrier_close_done
+$ca1c code barrier_open_next
+$ca29 code barrier_open_step
+$ca54 code barrier_open_done
+$ca57 code barrier_open
+$cb58-$cb61 byte barrier_left_masks
+$cb61-$cb69 byte barrier_left_masks_open
+$cb69-$cb71 byte barrier_right_masks
+$cb71-$cb79 byte barrier_right_masks_open
+$cb79 byte barrier_left
+$cb7a byte barrier_right
+$cb7b byte barrier_left_char
+$cb7c byte barrier_right_char
+; 1 while the barrier closes
+$cb7d byte barrier_closing
+$cb7e byte barrier_mask_index
+$cb7f-$cc00 byte unused_cb7f
+; the colour buffer: drawn with the hidden screen, copied to the colour RAM
+; when the screens swap
+$cc00-$d000 byte colour_buffer
+
+; ---------------------------------------------------------------- RAM under the KERNAL
+; the map at run time
+$e000-$10000 virtual byte map
+$fd30-$fd3a virtual byte scroll_copy_start
+$fd3a-$fd44 virtual byte scroll_copy_source
