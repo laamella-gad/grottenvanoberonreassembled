@@ -5,7 +5,8 @@
 #   make nl       one language (also de, en)
 #   make check    each build is byte-identical to its original (grotten.prg,
 #                 grotten_de.prg, grotten_en.prg) as long as nothing in src/
-#                 was changed
+#                 was changed, apart from the fixes listed (cmp -l) in
+#                 src/<language>/fixes.cmp
 #   make release  the builds crunched into one file each:
 #                 grotten_van_oberon.prg, grotten_von_oberon.prg,
 #                 caves_of_oberon.prg
@@ -42,10 +43,16 @@ build/$(1).prg: src/grotten.asm $(wildcard src/$(1)/*) $(call puzzles,$(1))
 endef
 $(foreach l,$(LANGUAGES),$(eval $(call language,$(l))))
 
+original_nl := grotten.prg
+original_de := grotten_de.prg
+original_en := grotten_en.prg
+
+# Differences from the original other than these fixes fail the check
+fixes = $(or $(wildcard src/$(1)/fixes.cmp),/dev/null)
+
 check: $(LANGUAGES:%=build/%.prg)
-	cmp build/nl.prg grotten.prg && echo "build/nl.prg is identical to grotten.prg"
-	cmp build/de.prg grotten_de.prg && echo "build/de.prg is identical to grotten_de.prg"
-	cmp build/en.prg grotten_en.prg && echo "build/en.prg is identical to grotten_en.prg"
+	@$(foreach l,$(LANGUAGES),cmp -l build/$(l).prg $(original_$(l)) | diff $(call fixes,$(l)) - \
+		&& echo "build/$(l).prg is identical to $(original_$(l))$(if $(wildcard src/$(l)/fixes.cmp), apart from src/$(l)/fixes.cmp)" &&) true
 
 # Each starts at $1000 once unpacked
 release: grotten_van_oberon.prg grotten_von_oberon.prg caves_of_oberon.prg

@@ -8,7 +8,8 @@ Oberon*, whose engine was sped up).
 
 The versions come from cracks (`GROTTEN.T64`, `GROTTENO.T64`, `CAVESOFO.T64`, not included),
 with the cracks' depackers, intros and trainer left out; the Dutch crack's
-credits in the status line are still there.
+credits in the status line are still there. The German and English versions
+get the Dutch version's cave wall tile $44, which had a few stray pixels in them.
 
 ## Building
 
@@ -16,7 +17,7 @@ Needs 64tass, Python 3, and pucrunch for the release.
 
 ```
 make            # build/nl.prg, build/de.prg, build/en.prg
-make check      # compare with the originals
+make check      # compare with the originals (apart from the fixes in NOTES.md)
 make release    # grotten_van_oberon.prg, grotten_von_oberon.prg, caves_of_oberon.prg, crunched
 ```
 

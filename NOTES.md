@@ -32,6 +32,7 @@ Each language directory holds:
 | `sprites.bin`, `charset.bin`, `map.bin`, `tile_chars.bin`, `tile_colours.bin` | the graphics and the cave |
 | `puzzles_*.txt` | the four puzzle banks as text |
 | `leftovers_1.bin`, `leftovers_2.bin`, `colour_buffer.bin` | what was in memory after the game code, the engine, and in the colour buffer |
+| `fixes.cmp` | (de, en) the bytes the fixes below change, as `cmp -l` lists them: `make check` allows those differences and no others |
 
 `src/grotten.asm` was copied from `out/` once and has since been changed for
 the three languages (texts moved out, `.if language == "en"` blocks). Running
@@ -43,7 +44,8 @@ annotations, or edits get lost.
 ```
 make            # build/nl.prg, build/de.prg, build/en.prg: load at $0801, RUN starts them
 make en         # one of them
-make check      # each byte-identical to its original while src/ is unchanged
+make check      # each byte-identical to its original while src/ is unchanged,
+                # apart from the fixes in src/<language>/fixes.cmp
 make release    # grotten_van_oberon.prg, grotten_von_oberon.prg, caves_of_oberon.prg,
                 # crunched with pucrunch (start $1000)
 make disasm     # Deflower: 0 differ, 0 gaps
@@ -208,6 +210,17 @@ scrolled text, drawn at run time), $37/$38 and $39/$3a the probe arm, $3b an
 unused probe frame, $3c-$3f the guardian (a big screw, 4 frames of it turning). The colours and modes are set by the
 code (`sprite_colours_init`, `engine_init_sprites`); export shows them in the
 project, import only takes the pixels.
+
+## Differences from the original
+
+- Tile $44 (a piece of cave wall, used all over the cave): in the German and
+  English versions two cells of its row 6 hold characters $31 $30 in colour 0
+  instead of spaces in colour $0a, a few stray pixels. They now hold what the
+  Dutch version has (`tile_chars.bin` and `tile_colours.bin`, offsets
+  $1624/$1625).
+
+When changing a language's build on purpose, write its new differences to
+`fixes.cmp`: `cmp -l build/de.prg grotten_de.prg > src/de/fixes.cmp`.
 
 ## Bugs and leftovers found
 
