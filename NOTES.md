@@ -149,7 +149,7 @@ tools/sprites.py import     # back into src/sprites.bin
 16 sprites from $0c00, pointers $30-$3f: $30-$34 the ship (multicolour, $34
 is sprite 4's other frame), $35/$36 the status line (rows 6-12 are the
 scrolled text, drawn at run time), $37/$38 and $39/$3a the probe arm, $3b an
-unused probe frame, $3c-$3f the guardian. The colours and modes are set by the
+unused probe frame, $3c-$3f the guardian (a big screw, 4 frames of it turning). The colours and modes are set by the
 code (`sprite_colours_init`, `engine_init_sprites`); export shows them in the
 project, import only takes the pixels.
 

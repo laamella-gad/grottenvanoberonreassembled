@@ -40,7 +40,7 @@ ATTRIBUTES = [
     0x01,  # $39 probe arm up/down
     0x01,  # $3a its other frame
     0x01,  # $3b not used (another probe arm frame)
-    0x09,  # $3c guardian, 4 frames, expanded
+    0x09,  # $3c guardian, a big screw: 4 frames of it turning, expanded
     0x09,  # $3d
     0x09,  # $3e
     0x09,  # $3f
