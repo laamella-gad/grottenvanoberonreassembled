@@ -6,7 +6,7 @@ texts, puzzles, cave, tiles and graphics editable. One source builds all three
 versions: Dutch, German (*Die Grotten von Oberon*) and English (*The Caves of
 Oberon*, whose engine was sped up).
 
-The versions come from cracks (`GROTTEN.T64`, `GROTTENO.T64`, `CAVESOFO.T64`),
+The versions come from cracks (`GROTTEN.T64`, `GROTTENO.T64`, `CAVESOFO.T64`, not included),
 with the cracks' depackers, intros and trainer left out; the Dutch crack's
 credits in the status line are still there.
 

@@ -8,7 +8,7 @@ tanks, find the way out before the fuel runs out or the damage reaches 100 %.
 
 | File | What |
 | --- | --- |
-| `GROTTEN.T64` | the Dutch tape image (one file, "OBERON", the "ABC" crack) |
+| `GROTTEN.T64` | the Dutch tape image, not in the repository like the other two (one file, "OBERON", the "ABC" crack) |
 | `GROTTENO.T64` | the German version, "GROTTEN V.OBERON" (and a picture file) |
 | `CAVESOFO.T64` | the English version, "CAVES OF OBERON+" (and "CAVES OF OB. DOX", the instructions) |
 | `original/oberon_packed.prg` | the Dutch file, $0801-$b2cf, packed |
