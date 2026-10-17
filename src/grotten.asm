@@ -1,11 +1,8 @@
 ; the language's texts (src/nl, src/de, src/en or src/fr, chosen by the
 ; Makefile)
 		.include "text.asm"
-; the English engine (sped up, see NOTES.md) or the Dutch and German one; the
-; French version, made later, uses the English engine
-fast_engine = language in ["en", "fr"]
-; what some variables held when the version was saved (kept, so that each
-; build is identical to its original)
+; what some variables held when the version was saved (kept as in the
+; originals)
 		.include "saved.asm"
 
 ; CINT after the VIC: screen editor variables, clear screen
@@ -223,10 +220,9 @@ start_copy_store:
 		inc start_copy_store + 2
 		dex
 		bne start_copy_loop
-.if fast_engine
-; The English version writes the colour copy out as 1000 lda/sta pairs, then
-; rts, over the map image (copied already); show_screen jumps to it. Faster
-; than show_screen's loop.
+; Writes the colour copy out as 1000 lda/sta pairs, then rts, over the map
+; image (copied already); show_screen jumps to it. The English version's
+; engine: the Dutch and German originals copied with a loop in show_screen.
 colour_copy_write:
 		lda #$ad	; lda abs
 		jsr colour_copy_put
@@ -274,7 +270,6 @@ colour_copy_low:
 		.byte	$00
 start_tables:
 colour_copy = map_image
-.endif
 		ldy #$13
 start_copy_tables:
 		lda scroll_copy_start_init, y
@@ -2156,20 +2151,8 @@ radar_mask:		.byte	$00
 ; read by: radar_add_column
 bit_masks:
 		.byte	$80, $40, $20, $10, $08, $04, $02, $01
-.if fast_engine
-; the English version has the barrier animation here, after the game
-		#barrier_code
-.endif
-; leftovers of an earlier memory image: the language's leftovers_1.bin, cut
-; or padded to fit
-leftovers_1:
-		.binary	"leftovers_1.bin", 0, $2800 - *
-		.fill	$2800 - *, 0
-		.cerror	* != $2800, "the code and texts don't fit below the character set"
-
-; the barrier animation and its variables: at the end of the engine, or (the
-; English version) after the game
-barrier_code .segment
+; the barrier animation and its variables, after the game (in the Dutch and
+; German originals they were at the end of the engine)
 ; every other frame: flame animation (sprite 4) and the barrier animation
 ; jumped to by: ship_explode_done, frame_destroyed_sound, frame_joystick_done
 animate:
@@ -2461,7 +2444,12 @@ barrier_closing:		.byte	$00
 ; written by: engine_init_barrier, barrier_close_next, barrier_open_step
 ; modified by: barrier_close_next, barrier_open_step
 barrier_mask_index:		.byte	$07
-.endsegment
+; leftovers of an earlier memory image: the language's leftovers_1.bin, cut
+; or padded to fit
+leftovers_1:
+		.binary	"leftovers_1.bin", 0, $2800 - *
+		.fill	$2800 - *, 0
+		.cerror	* != $2800, "the code and texts don't fit below the character set"
 
 ; ---------------------------------------------------------------- character set
 ; $2800-$2bff, chars $00-$7f: barrier characters, set up and animated at run time
@@ -2940,26 +2928,7 @@ show_screen:
 		lda vic_memory_setup
 		eor #$30
 		sta vic_memory_setup
-.if fast_engine
 		jmp colour_copy
-.else
-		ldy #$00
-show_screen_colours_1:
-		lda colour_buffer - 1, y
-		sta $d7ff, y
-		lda colour_buffer + $ff, y
-		sta color_ram + $ff, y
-		iny 
-		bne show_screen_colours_1
-show_screen_colours_2:
-		lda colour_buffer + $1ff, y
-		sta color_ram + $1ff, y
-		lda colour_buffer + $2ff, y
-		sta color_ram + $2ff, y
-		iny 
-		bne show_screen_colours_2
-		rts 
-.endif
 
 ; copies the screen (or the colour buffer) shifted by one character in the
 ; scroll direction, in 4 parts of 250 bytes; the loop's index direction and
@@ -2994,8 +2963,7 @@ scroll_shift_screen:
 		sta scroll_shift_step
 		lda scroll_end_index, x
 		sta scroll_shift_compare + 1
-.if fast_engine
-; the English version: the copy loop is unrolled to 4 copies (the 4 parts),
+; the copy loop is unrolled to 4 copies (the 4 parts),
 ; set up for up or down by scroll_shift_up / scroll_shift_down
 		lda scroll_carry_opcode, x
 		beq +
@@ -3125,76 +3093,6 @@ scroll_shift_down:
 +		stx scroll_shift_store_4 + 2
 		jmp scroll_shift_part
 
-.else
-		lda scroll_carry_opcode, x
-		sta scroll_shift_carry
-		ldx #$04
-; jumped to by: scroll_shift_next_part, scroll_shift_down_next
-; written by: scroll_shift_screen
-scroll_shift_part:
-		ldy #$fa	; operand set by scroll_shift_screen
-; jumped to by: scroll_shift_compare
-; read by: scroll_shift_carry, scroll_shift_down
-; written by: scroll_shift_screen, scroll_shift_carry, scroll_shift_down
-; modified by: scroll_shift_carry, scroll_shift_down
-scroll_shift_loop:
-		lda $ffff, y	; operand set by scroll_shift_screen, scroll_shift_carry, scroll_shift_down
-; read by: scroll_shift_next_dest_up, scroll_shift_down_dest
-; written by: scroll_shift_screen, scroll_shift_next_dest_up, scroll_shift_down_dest
-; modified by: scroll_shift_next_dest_up, scroll_shift_down_dest
-scroll_shift_store:
-		sta $ffff, y	; operand set by scroll_shift_screen, scroll_shift_next_dest_up, scroll_shift_down_dest
-; written by: scroll_shift_screen
-scroll_shift_step:
-		dey 
-; written by: scroll_shift_screen
-scroll_shift_compare:
-		cpy #$ff	; operand set by scroll_shift_screen
-		bne scroll_shift_loop
-; written by: scroll_shift_screen
-scroll_shift_carry:
-		clc 
-		bcs scroll_shift_down
-		lda scroll_shift_loop + 1
-		adc #$fa
-		sta scroll_shift_loop + 1
-		bcc scroll_shift_next_dest_up
-		inc scroll_shift_loop + 2
-		clc 
-; jumped to by: scroll_shift_carry
-scroll_shift_next_dest_up:
-		lda scroll_shift_store + 1
-		adc #$fa
-		sta scroll_shift_store + 1
-		bcc scroll_shift_next_part
-		inc scroll_shift_store + 2
-; jumped to by: scroll_shift_next_dest_up
-scroll_shift_next_part:
-		dex 
-		bne scroll_shift_part
-		rts 
-
-; jumped to by: scroll_shift_carry
-scroll_shift_down:
-		lda scroll_shift_loop + 1
-		sbc #$fa
-		sta scroll_shift_loop + 1
-		bcs scroll_shift_down_dest
-		dec scroll_shift_loop + 2
-		sec 
-; jumped to by: scroll_shift_down
-scroll_shift_down_dest:
-		lda scroll_shift_store + 1
-		sbc #$fa
-		sta scroll_shift_store + 1
-		bcs scroll_shift_down_next
-		dec scroll_shift_store + 2
-; jumped to by: scroll_shift_down_dest
-scroll_shift_down_next:
-		dex 
-		bne scroll_shift_part
-		rts 
-.endif
 
 ; by direction (joystick bits): the index into the tables below
 ; read by: scroll_shift_screen
@@ -3218,11 +3116,7 @@ scroll_end_index:
 		.byte	$fa, $ff, $fa, $01, $fa, $ff, $ff, $01, $fa, $ff
 ; read by: scroll_shift_screen
 scroll_carry_opcode:
-.if fast_engine
 		.byte	$00, $38, $00, $01, $00, $38, $38, $01, $00, $38	; up: 0
-.else
-		.byte	$18, $38, $18, $01, $18, $38, $38, $01, $18, $38
-.endif
 
 ; jumped to by: scroll_phase_7
 scroll_latch_direction:
@@ -3233,15 +3127,10 @@ scroll_latch_direction:
 
 ; jumped to by: scroll_phase_3
 scroll_shift_colours:
-.if fast_engine
-; the English version shifts colour RAM into the buffer
+; shifts the colour RAM into the buffer
 		lda #>color_ram
 		sta copy_source_high
 		lda #>colour_buffer
-.else
-		lda #>colour_buffer
-		sta copy_source_high
-.endif
 		sta copy_dest_high
 		jsr scroll_shift_screen
 		jmp scroll_phase_done
@@ -4050,9 +3939,6 @@ frame_engine_down_check:
 		dec engine_noise_rate
 		jmp frame_set_direction
 
-.if !fast_engine
-		#barrier_code
-.endif
 ; leftovers of an earlier memory image: the language's leftovers_2.bin, cut
 ; or padded to fit
 leftovers_2:

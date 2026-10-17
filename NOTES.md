@@ -32,10 +32,10 @@ Each language directory holds:
 | `sprites.bin`, `charset.bin`, `map.bin`, `tile_chars.bin`, `tile_colours.bin` | the graphics and the cave |
 | `puzzles_*.txt` | the four puzzle banks as text |
 | `leftovers_1.bin`, `leftovers_2.bin`, `colour_buffer.bin` | what was in memory after the game code, the engine, and in the colour buffer |
-| `fixes.cmp` | (de, en) the bytes the fixes below change, as `cmp -l` lists them: `make check` allows those differences and no others |
+| `fixes.cmp` | (en) the bytes the fixes below change, as `cmp -l` lists them: `make check` allows those differences and no others |
 
 `src/grotten.asm` was copied from `out/` once and has since been changed for
-the languages (texts moved out, `.if fast_engine` blocks). Running
+the languages (texts moved out) and the English engine (see below). Running
 Deflower again doesn't touch it; copy over by hand only what changed in the
 annotations, or edits get lost.
 
@@ -45,8 +45,8 @@ annotations, or edits get lost.
 make            # build/nl.prg, build/de.prg, build/en.prg, build/fr.prg: load at $0801,
                 # RUN starts them
 make en         # one of them
-make check      # each byte-identical to its original while src/ is unchanged,
-                # apart from the fixes in src/<language>/fixes.cmp
+make check      # build/en.prg byte-identical to grotten_en.prg while src/ is
+                # unchanged, apart from the fixes in src/en/fixes.cmp
 make release    # grotten_van_oberon.prg, grotten_von_oberon.prg, caves_of_oberon.prg,
                 # grottes_d_oberon.prg, crunched with pucrunch (start $1000)
 make disasm     # Deflower: 0 differ, 0 gaps
@@ -56,6 +56,11 @@ make disasm     # Deflower: 0 differ, 0 gaps
 with the include path: `-I src/<language> -I build/<language>`, so
 `.include "text.asm"` and `.binary "map.bin"` find that language's files, and
 the puzzle banks made from its text files.
+
+All four builds use the English engine, so only the English build can be
+compared with its original. The Dutch and German builds were last checked
+byte-identical with their own engine in the commit before the old engine was
+taken out (git history).
 
 The unpacked build fills $0801-$cfff, which the KERNAL loads fine; the crunched
 release is one file that unpacks itself.
@@ -85,24 +90,24 @@ are the original `jsr`s.
 
 ## The versions
 
-`src/grotten.asm` builds all four; `make check` compares the first three with
-their originals.
+`src/grotten.asm` builds all four, all with the English engine; `make check`
+compares the English one with its original.
 
 - Dutch and German: the same code. Only the texts, the data and the leftovers
   differ, and the texts' addresses follow from their lengths (all pointers to
   them are labels).
-- English: the same game code ($1000 on), but its engine was sped up, in
-  `.if fast_engine` blocks:
+- English: the same game code ($1000 on), but its engine was sped up. The
+  source now only has this engine; the Dutch and German originals had:
   - `start` writes 1000 `lda $ccxx / sta $d8xx` pairs and an `rts` to $6000,
     over the map image it just copied (`colour_copy_write`). `show_screen`
-    jumps there instead of running its copy loop.
+    jumps there; the originals ran a copy loop.
   - `scroll_shift_screen`'s loop is unrolled to the 4 parts at once
     (`scroll_shift_up` / `scroll_shift_down` set up parts 2-4);
     `scroll_carry_opcode` holds 0 instead of `clc` for up.
   - `scroll_shift_colours` shifts the colour RAM into the colour buffer
     instead of the buffer into itself.
-  - The barrier animation (`barrier_code`, the same code) sits after the game
-    code ($23ef) instead of at the end of the engine.
+  - The barrier animation (the same code) sits after the game code ($23ef)
+    instead of at the end of the engine.
 - French: new, not from Radarsoft. Made from the English version (its
   engine, graphics, cave and start values); `text.asm`, the puzzle banks and
   the texts in the cave tiles (title, subtitle, credits, congratulations,
@@ -121,7 +126,7 @@ their originals.
 | $0400 / $0800 | the two screens, swapped (`$d018` eor $30) when the scroll wraps; sprite pointers at $07f8 / $0bf8 |
 | $0c00-$0fff | 16 sprites, pointers $30-$3f (`sprites.bin`) |
 | $1000-$2440 | game: title, puzzles, terminals, main loop, status line, texts (Dutch; the others end elsewhere) |
-| $2441-$27ff | leftovers (English: the barrier animation first) |
+| $2441-$27ff | leftovers (English, and now every build: the barrier animation first) |
 | $2800-$2fff | charset (`charset.bin`), `$d018` = $1a |
 | $3000-$5fff | four puzzle banks of $c00 |
 | $6000-$7fff | the map image, copied to $e000-$ffff (RAM under the KERNAL) at the start |
@@ -221,6 +226,14 @@ project, import only takes the pixels.
 
 ## Differences from the original
 
+- The Dutch and German versions use the English version's faster engine (see
+  "The versions"): the colour copy written out as `lda`/`sta` pairs, the
+  unrolled screen shift, the barrier animation after the game code. Their
+  `leftovers_1.bin` is cut short by the barrier code, and the space the
+  barrier code left at the end of the engine is padded with zeros. The faster
+  colour copy stays well ahead of the beam; the old loop only just did, with
+  less margin on NTSC (shorter border).
+
 - Tile $44 (a piece of cave wall, used all over the cave): in the German and
   English versions two cells of its row 6 hold characters $31 $30 in colour 0
   instead of spaces in colour $0a, a few stray pixels. They now hold what the
@@ -228,7 +241,7 @@ project, import only takes the pixels.
   $1624/$1625).
 
 When changing a language's build on purpose, write its new differences to
-`fixes.cmp`: `cmp -l build/de.prg grotten_de.prg > src/de/fixes.cmp`.
+`fixes.cmp`: `cmp -l build/en.prg grotten_en.prg > src/en/fixes.cmp`.
 
 ## Bugs and leftovers found
 

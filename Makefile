@@ -3,11 +3,11 @@
 #   make          build/nl.prg, build/de.prg, build/en.prg and build/fr.prg
 #                 (load at $0801, RUN starts them)
 #   make nl       one language (also de, en, fr)
-#   make check    each build is byte-identical to its original (grotten.prg,
-#                 grotten_de.prg, grotten_en.prg) as long as nothing in src/
-#                 was changed, apart from the fixes listed (cmp -l) in
-#                 src/<language>/fixes.cmp; the French version is new and has
-#                 no original
+#   make check    build/en.prg is byte-identical to grotten_en.prg as long as
+#                 nothing in src/ was changed, apart from the fixes listed
+#                 (cmp -l) in src/en/fixes.cmp; the Dutch and German builds
+#                 have the English engine and so can't match their originals
+#                 any more, the French version is new
 #   make release  the builds crunched into one file each:
 #                 grotten_van_oberon.prg, grotten_von_oberon.prg,
 #                 caves_of_oberon.prg, grottes_d_oberon.prg
@@ -24,8 +24,9 @@ X64 ?= x64sc
 PYTHON ?= python3
 
 LANGUAGES := nl de en fr
-# the languages with an original to compare with
-ORIGINALS := nl de en
+# the languages whose build can be compared with an original: the others use
+# the English engine
+ORIGINALS := en
 
 all: $(LANGUAGES)
 
@@ -46,8 +47,6 @@ build/$(1).prg: src/grotten.asm $(wildcard src/$(1)/*) $(call puzzles,$(1))
 endef
 $(foreach l,$(LANGUAGES),$(eval $(call language,$(l))))
 
-original_nl := grotten.prg
-original_de := grotten_de.prg
 original_en := grotten_en.prg
 
 # Differences from the original other than these fixes fail the check
