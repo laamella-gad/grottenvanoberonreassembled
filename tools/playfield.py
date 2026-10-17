@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """Converts the cave (map, tiles, characters) to a CharPad project and a picture.
 
-    tools/playfield.py export [playfield.ctm]   src/ -> CharPad project
-    tools/playfield.py import [playfield.ctm]   CharPad project -> src/
-    tools/playfield.py png [cave.png]           src/ -> picture of the whole cave
+    tools/playfield.py [nl|de|en] export [playfield.ctm]   src/<language>/ -> CharPad project
+    tools/playfield.py [nl|de|en] import [playfield.ctm]   CharPad project -> src/<language>/
+    tools/playfield.py [nl|de|en] png [cave.png]           src/<language>/ -> picture of the whole cave
 
-The cave is 128 x 64 tiles (src/map.bin, a byte per tile), each tile 8 x 8
-characters (src/tile_chars.bin) with a colour per character (src/tile_colours.bin);
-the characters are src/charset.bin, in multicolour mode.
+The language is nl when left out. The cave is 128 x 64 tiles (map.bin, a byte
+per tile), each tile 8 x 8 characters (tile_chars.bin) with a colour per
+character (tile_colours.bin); the characters are charset.bin, in multicolour
+mode.
 
 CharPad colours a character, not a tile cell, so export gives each character
 used in more than one colour a copy per extra colour after character 255, and
@@ -45,7 +46,11 @@ GLOBAL, PER_TILE, PER_CHAR = 0, 1, 2
 PALETTE = [0x000000, 0xffffff, 0x68372b, 0x70a4b2, 0x6f3d86, 0x588d43, 0x352879, 0xb8c76f,
            0x6f4f25, 0x433900, 0x9a6759, 0x444444, 0x6c6c6c, 0x9ad284, 0x6c5eb5, 0x959595]
 
-SRC = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'src')
+LANGUAGES = ('nl', 'de', 'en')
+
+# src/<language>, set from the command line
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
+SRC = None
 
 
 def src(name):
@@ -282,7 +287,7 @@ def import_(ctm_path):
     for name, data in (('map.bin', level), ('tile_chars.bin', chars),
                        ('tile_colours.bin', colours), ('charset.bin', new_charset)):
         open(src(name), 'wb').write(data)
-        print(f'src/{name}: written')
+        print(f'{os.path.relpath(src(name), ROOT)}: written')
 
 
 def png(png_path):
@@ -328,7 +333,10 @@ def png(png_path):
 
 
 if __name__ == '__main__':
-    command, args = (sys.argv[1], sys.argv[2:]) if len(sys.argv) > 1 else (None, [])
+    args = sys.argv[1:]
+    language = args.pop(0) if args and args[0] in LANGUAGES else 'nl'
+    SRC = os.path.join(ROOT, 'src', language)
+    command = args.pop(0) if args else None
     if command == 'export' and len(args) <= 1:
         export(args[0] if args else 'playfield.ctm')
     elif command == 'import' and len(args) <= 1:

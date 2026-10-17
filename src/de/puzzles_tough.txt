@@ -1,0 +1,442 @@
+# 14 characters a puzzle, ^ marks a hidden one; see tools/puzzles.py
+
+| SCHLUCK=ZUG  |
+|         ^    |
+| PESEN=EILEN  |
+| ^^           |
+| LAUFEN=GEHEN |
+|        ^     |
+|PETZE=ANGEBER |
+|  ^^          |
+|SPECK=SCHWARTE|
+| ^            |
+|DUNKEL=FINSTER|
+|       ^      |
+|  BOT=SCHIFF  |
+|  ^^          |
+| TEAM=GRUPPE  |
+|         ^^   |
+|SITTE=GEBRAUCH|
+| ^^           |
+| HENKEL=GRIFF |
+|        ^     |
+|POLIZIST=BULLE|
+|         ^ ^  |
+|34 41 48 55 62|
+|       ^      |
+|1 8 27 64 125 |
+|    ^         |
+|BRUNST=PAARUNG|
+|  ^           |
+|RETORTE=KOLBE |
+| ^ ^          |
+|RETOUR=ZURUECK|
+|   ^ ^        |
+|STERBE=SEUCHE |
+| ^            |
+|STIPPEN=TUNKEN|
+|         ^^   |
+|ANFANG=BEGINN |
+|  ^  ^        |
+|  STOPP=HALT  |
+|         ^    |
+|PERSON=MENSCH |
+|  ^  ^        |
+|  WUST=UNRAT  |
+|         ^    |
+| MIEF=GESTANK |
+|    ^         |
+|  DERMA=HAUT  |
+|   ^          |
+| VAG=UNGEWISS |
+|     ^   ^    |
+|NARR=HANSWURST|
+|^  ^          |
+|  EHE=BEVOR   |
+|       ^      |
+|3 4 8 9 13 14 |
+|            ^ |
+|GENAU=PRAEZIS |
+|      ^     ^ |
+|KRISSE=WENDUNG|
+|        ^  ^  |
+|  BUBE=KNABE  |
+|   ^ ^        |
+|STRASSE=ALLEE |
+|^    ^        |
+|KROSS=SPROEDE |
+|   ^^         |
+|  RILLE=KEEP  |
+|        ^     |
+|PISTON=KOLBEN |
+|        ^  ^  |
+|TASCHE=BEUTEL |
+|       ^    ^ |
+| SALBE=BALSAM |
+| ^            |
+|SICHER=GEWISS |
+|         ^ ^  |
+|EPILOG=NACHRUF|
+|^   ^         |
+|  SAUM=RAND   |
+|        ^     |
+|  WEISE=KLUG  |
+|           ^  |
+| KORDE=SCHNUR |
+|  ^           |
+| COUP=SCHLAG  |
+| ^  ^         |
+|DALLI=SCHNELL |
+| ^  ^         |
+| METIER=BERUF |
+|        ^  ^  |
+|DEGEN=KRIEGER |
+|  ^           |
+|HORROR=ABSCHEU|
+|       ^     ^|
+|  NIE=NIMMER  |
+|       ^  ^   |
+| ITEM=EBENSO  |
+| ^            |
+| GRATIS=FREI  |
+|         ^    |
+| PROST=PROSIT |
+|  ^  ^        |
+| LEGION=MENGE |
+|   ^  ^       |
+|48 + 77 = 125 |
+|     ^        |
+|  QUITT=WETT  |
+|         ^ ^  |
+|RACKER=SCHELM |
+|^  ^          |
+| RADAU=LAERM  |
+|  ^ ^         |
+|AUFBAU=SYSTEM |
+|        ^   ^ |
+|SEIDEL=GEFAESS|
+| ^  ^         |
+|OBSKUR=DUNKEL |
+|        ^  ^  |
+| LIBIDO=TRIEB |
+|            ^ |
+|HEITER=MUNTER |
+|^    ^        |
+|STALL=STANDORT|
+|^   ^         |
+|VERBOTEN=TABU |
+|          ^ ^ |
+| ALBERN=BLOED |
+|   ^          |
+|  KOPF=HAUPT  |
+|   ^          |
+|MARKE=ZEICHEN |
+| ^^           |
+| GRENZE=MARK  |
+|        ^  ^  |
+|NICKI=PULLOVER|
+|  ^^          |
+|  NOCH=WEDER  |
+|         ^^   |
+| ORKAN=STURM  |
+| ^            |
+|  ORT=PLATZ   |
+|       ^  ^   |
+|IDIOT=DUMMKOPF|
+|^  ^          |
+| AA AB BA BB  |
+|        ^     |
+| IDOL=ABGOTT  |
+|       ^  ^   |
+| EINFALL=IDEE |
+|  ^  ^        |
+| DWARS=SELTEN |
+|        ^  ^  |
+| TEUFEL=SATAN |
+|  ^^          |
+|FIGUR=GESTALT |
+|       ^  ^   |
+| DUSLIG=DOOF  |
+|        ^^    |
+|KOLDERN=ZANKEN|
+|^   ^         |
+| LIBERAL=FREI |
+|           ^^ |
+|FEIGLING=MEMME|
+|           ^^ |
+|   SEE=MEER   |
+|   ^          |
+|  CUP=POKAL   |
+|        ^ ^   |
+|   HOF=COUR   |
+|    ^         |
+|AUSSERDEM=DAZU|
+|             ^|
+| MUSTER=DEKOR |
+|  ^  ^        |
+|DELIKAT=LECKER|
+|         ^^   |
+| GENF=GENERE  |
+|   ^          |
+| KRAUS=LOCKIG |
+|   ^          |
+|GESICHT=MIENE |
+|         ^  ^ |
+|  INSEL=HOLM  |
+|  ^           |
+| KAVAL=RITTER |
+|  ^ ^         |
+| OBER=KELLNER |
+| ^  ^         |
+|GROTTE=HOEHLE |
+|           ^^ |
+| DICHTER=POET |
+|         ^  ^ |
+|POCHEN=PRAHLEN|
+| ^   ^        |
+| POECKEL=LAKE |
+|          ^ ^ |
+|  ERGO=ALLSO  |
+|     ^        |
+| HUELLE=ETUI  |
+|        ^  ^  |
+|  LEBLOS=TOT  |
+|  ^   ^       |
+|AMEISSE=MIERE |
+|         ^^   |
+| 1 2 6 24 120 |
+|           ^  |
+| CHET=LEITER  |
+|  ^           |
+|GESTE=GEBAERDE|
+|       ^     ^|
+|  KABEL=TAU   |
+|   ^          |
+|WELTALL=KOSMOS|
+|        ^     |
+| STREIT=KRACH |
+|    ^         |
+| DRAHT=FADEN  |
+|        ^  ^  |
+| LAX=LAESSIG  |
+|   ^          |
+|  PLUS=MEHR   |
+|    ^         |
+| LEER=VAKANT  |
+|       ^ ^    |
+| STAUB=DUNST  |
+|     ^        |
+| SAGA=LEGENDE |
+| ^            |
+|MINE=BERGWERK |
+| ^            |
+|19 28 37 46 55|
+|      ^^      |
+|  ART=WEISE   |
+|   ^          |
+|QUATSCH=UNSIN |
+|^  ^          |
+|NUTZTIER=VIEH |
+|          ^^  |
+| ABSOLUT=REIN |
+|  ^   ^       |
+| RAUM=ABTEIL  |
+|      ^  ^    |
+|LEBEWOHL=ADIEU|
+| ^   ^        |
+|NATURGEIST=ELF|
+|  ^^          |
+| AUSSEHEN=AIR |
+|          ^   |
+|AKKORD=VERTRAG|
+|        ^   ^ |
+| TAETIG=AKTIV |
+|            ^ |
+| HEFTIG=AKUT  |
+|  ^  ^        |
+| VORGANG=AKT  |
+|         ^    |
+|AKZENT=TONFALL|
+|^ ^           |
+| SCHEIN=MACHE |
+|         ^    |
+|MAGAZIN=ABLAGE|
+|^     ^       |
+|10 18 27 37 48|
+|             ^|
+| FEHLER=MAKEL |
+|         ^    |
+| MAL=ZEICHEN  |
+|  ^           |
+|  NOT=KUMMER  |
+|       ^      |
+|FRIGIDE=KUEHL |
+|           ^  |
+| ALBERN=MALL  |
+| ^            |
+|SCHADE=JAMMER |
+|    ^         |
+| 123 132 213  |
+|          ^   |
+|  KANU=KAJAK  |
+|     ^        |
+|  PELLE=FELL  |
+|  ^           |
+|  HECKE=HAG   |
+|         ^    |
+| FERSE=HACKE  |
+|  ^           |
+| BITTER=HERB  |
+|         ^    |
+| KARG=FILZIG  |
+|  ^           |
+|SCHRAEG=SCHIEF|
+|             ^|
+|SCHRAL=SCHWACH|
+|    ^         |
+| LATSCH=SCHUH |
+|           ^  |
+| NOTA=AUFTRAG |
+|    ^         |
+|  B O N U S   |
+|              |
+|  B O N U S   |
+|              |
+| AUSZUG=LAUGE |
+|     ^        |
+|  PSALM=LIED  |
+|          ^   |
+| BETRAG=SUMME |
+|         ^  ^ |
+| DUMM=STUPID  |
+|          ^^  |
+|DACKEL=TECKEL |
+|        ^  ^  |
+|FECHTHIEB=TERZ|
+|           ^  |
+| FRIST=TERMIN |
+|   ^          |
+|HOEFLICH=NETT |
+|          ^^  |
+|POLITURE=GLANZ|
+|           ^  |
+|BORGEN=LEIHEN |
+| ^  ^         |
+|SOFORT=GLEICH |
+|^    ^        |
+|PORTION=ANTEIL|
+|        ^     |
+|  TOPF=POTT   |
+|   ^          |
+|ZENTRUM=MITTE |
+|         ^^   |
+| BROT=STULLE  |
+|        ^     |
+|RECHT=PASSEND |
+| ^            |
+|PFROPFEN=KORK |
+|            ^ |
+|ZUSTAND=PHASE |
+|         ^^   |
+|  ZART=SANFT  |
+|   ^          |
+|PLUNDER=PRASS |
+|          ^   |
+|PRIMAT=VORGANG|
+|  ^           |
+|PROFIL=UMRISS |
+|       ^  ^   |
+| STARK=PROFUS |
+|   ^          |
+| WITZ=SCHERZ  |
+|        ^^    |
+| HEISER=RAUCH |
+|   ^^         |
+|SAEUGLING=BABY|
+|           ^ ^|
+|EHESTENS=BALD |
+|          ^   |
+|  FADE=BANAL  |
+|   ^          |
+| RAEUBER=DIEB |
+| ^     ^      |
+| LARVE=MASKE  |
+|        ^  ^  |
+|  RAHM=SAHNE  |
+|   ^          |
+|JACKETT=SAKKO |
+|         ^    |
+|DISPENS=URLAUB|
+|  ^   ^       |
+|  B O N U S   |
+|              |
+| SPRUNG=SALTO |
+|    ^         |
+|GESICHT=VISAGE|
+|           ^ ^|
+| SICHT=VISTA  |
+|  ^  ^        |
+|TANZFEST=BALL |
+|          ^^  |
+|  B O N U S   |
+|              |
+|TRINKSTUBE=BAR|
+|            ^ |
+|BARBAR=ROHLING|
+|          ^^  |
+|KLAGEN=JAMMERN|
+|  ^ ^         |
+|234 + 532 =766|
+| ^      ^     |
+| 78 * 5 = 390 |
+|  ^           |
+| RAUH=BARSCH  |
+|       ^  ^   |
+| GENUG=BASTA  |
+|  ^ ^         |
+|  B O N U S   |
+|              |
+| JAWOHL=DOCH  |
+|         ^    |
+|  STELLE=JOB  |
+|    ^  ^      |
+| JUX=STREICH  |
+|   ^          |
+|KLAPPER=RAFFEL|
+|    ^ ^       |
+|RAMPE=AUFFAHRT|
+| ^ ^          |
+|  B O N U S   |
+|              |
+|  SELTEN=RAR  |
+|          ^   |
+|WIRKLICH=WAHR |
+|         ^ ^  |
+|  B O N U S   |
+|              |
+|WALKEN=KNETEN |
+|         ^ ^  |
+|AUFWAND=WIRBEL|
+|         ^  ^ |
+|GRASLAND=WEIDE|
+|^  ^          |
+| ABGABE=ZINS  |
+|         ^    |
+|TRAENE=ZAEHRE |
+|          ^   |
+| SCHULD=DEBET |
+|         ^ ^  |
+|MANGEL=DEFEKT |
+| ^   ^        |
+|  DEPP=DUSEL  |
+|        ^     |
+|HUTRAND=KREMPE|
+|          ^  ^|
+|  DOLCH=KRIS  |
+|   ^  ^       |
+|FREUND=KUMPEL |
+|        ^  ^  |
+|UNSICHER=LABIL|
+|            ^ |
+
+free ff 30 40 ef ff

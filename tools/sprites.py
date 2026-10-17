@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Converts the sprites to and from a SpritePad project.
 
-    tools/sprites.py export [sprites.spd]   src/sprites.bin -> SpritePad project
-    tools/sprites.py import [sprites.spd]   SpritePad project -> src/sprites.bin
+    tools/sprites.py [nl|de|en] export [sprites.spd]   src/<language>/sprites.bin -> SpritePad project
+    tools/sprites.py [nl|de|en] import [sprites.spd]   SpritePad project -> src/<language>/sprites.bin
 
-src/sprites.bin is the 16 sprites at $0c00-$0fff, pointers $30-$3f, 64 bytes
+The language is nl when left out. sprites.bin is the 16 sprites at $0c00-$0fff, pointers $30-$3f, 64 bytes
 each. The project is in SpritePad 1.8's format: background, sprite
 multicolour 1 and 2, then the sprites, 64 bytes each, the 64th holding the
 colour (bits 0-3), overlay (bit 4) and multicolour (bit 7).
@@ -46,13 +46,17 @@ ATTRIBUTES = [
     0x09,  # $3f
 ]
 
-SRC = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', 'src', 'sprites.bin')
+LANGUAGES = ('nl', 'de', 'en')
+
+# src/<language>/sprites.bin, set from the command line
+ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
+SRC = None
 
 
 def load():
     data = open(SRC, 'rb').read()
     if len(data) != COUNT * SIZE:
-        sys.exit(f'sprites: src/sprites.bin is {len(data)} bytes, not {COUNT * SIZE}')
+        sys.exit(f'sprites: {os.path.relpath(SRC, ROOT)} is {len(data)} bytes, not {COUNT * SIZE}')
     return data
 
 
@@ -84,11 +88,14 @@ def import_(spd_path):
     if project[:3] != bytes([BACKGROUND, MULTICOLOUR1, MULTICOLOUR2]):
         print('sprites: background or multicolours changed: ignored, the game sets them')
     open(SRC, 'wb').write(data)
-    print('src/sprites.bin: written')
+    print(f'{os.path.relpath(SRC, ROOT)}: written')
 
 
 if __name__ == '__main__':
-    command, args = (sys.argv[1], sys.argv[2:]) if len(sys.argv) > 1 else (None, [])
+    args = sys.argv[1:]
+    language = args.pop(0) if args and args[0] in LANGUAGES else 'nl'
+    SRC = os.path.join(ROOT, 'src', language, 'sprites.bin')
+    command = args.pop(0) if args else None
     if command == 'export' and len(args) <= 1:
         export(args[0] if args else 'sprites.spd')
     elif command == 'import' and len(args) <= 1:

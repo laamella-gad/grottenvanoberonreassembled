@@ -1,0 +1,442 @@
+# 14 characters a puzzle, ^ marks a hidden one; see tools/puzzles.py
+
+|BEETLE=SCARAB |
+|       ^  ^   |
+|TEMPER=NATURE |
+|^  ^          |
+|  ANT=EMMET   |
+|       ^  ^   |
+|  852-87=765  |
+|      ^       |
+|  DASH=ELAN   |
+|       ^  ^   |
+|   ALP=PEAK   |
+|       ^      |
+|  ALLAY=CALM  |
+|          ^   |
+| PUMA=PANTHER |
+|         ^  ^ |
+|  BAT=RACKET  |
+|       ^   ^  |
+| ALLOT=GRANT  |
+|        ^     |
+|  ADAPT=FIT   |
+|        ^     |
+|   AIT=ISLE   |
+|        ^     |
+|   AMONG=IN   |
+|      ^       |
+|   BEER=ALE   |
+|     ^^       |
+| CANDID=OPEN  |
+| ^  ^         |
+| ASPIRE=HOPE  |
+|          ^   |
+| BARGAIN=DEAL |
+|      ^       |
+|  B O N U S   |
+|              |
+| BUTTON=STUD  |
+|         ^    |
+| BEACH=STRAND |
+|        ^  ^  |
+| ALONG=BESIDE |
+|         ^    |
+|  BLACK=INKY  |
+|         ^    |
+| BONY=OSTEAL  |
+|       ^      |
+|   ACT=DEED   |
+|         ^    |
+| AIRPLANE=JET |
+|  ^     ^     |
+| AND NOT=NOR  |
+|   ^  ^       |
+|  PROCESSION  |
+|     ^        |
+| PERSONALITY  |
+|        ^     |
+| MEMORIALIST  |
+|   ^       ^  |
+|PHILANTHROPIST|
+| ^         ^  |
+|  PERVERSITY  |
+|     ^        |
+|  FRATERNITY  |
+|        ^     |
+|   PEDICURE   |
+|       ^      |
+|  PESSIMISM   |
+|     ^    ^   |
+| PERFORMANCE  |
+|       ^      |
+|   BRAGGERT   |
+|    ^         |
+|  CONGESTION  |
+|       ^      |
+| EFFERVESCENT |
+|  ^      ^    |
+|  MONUMENTAL  |
+|        ^     |
+|   MORALIZE   |
+|       ^      |
+|  MUSICOLOGY  |
+|    ^         |
+|  DISCHARGE   |
+|    ^         |
+|  VENTILATE   |
+|       ^      |
+|  PROMONTORY  |
+|     ^        |
+| CELEBRATION  |
+|   ^      ^   |
+| ASSOCIATION  |
+|      ^    ^  |
+|  DISCRETION  |
+|     ^        |
+| GOOD-NATURED |
+|       ^    ^ |
+| WHITSUNTIDE  |
+|     ^    ^   |
+|   PYRAMID    |
+|       ^^     |
+|  SECRETARY   |
+|       ^      |
+|  EQUIPMENT   |
+|   ^          |
+|  EMBELLISH   |
+|    ^         |
+|   GO AHEAD   |
+|        ^ ^   |
+|  GOBBLE UP   |
+|   ^      ^   |
+|  LIVELY NOW  |
+|    ^  ^      |
+|  STEALTHILY  |
+|   ^      ^   |
+| INCIDENTALLY |
+|   ^    ^     |
+|   SCARCELY   |
+|      ^       |
+|  SUSPENSION  |
+|    ^    ^    |
+|WICKER BOTTLE |
+|   ^        ^ |
+|GIDDY NONSENCE|
+|       ^   ^  |
+|INTROSPECTION |
+|      ^       |
+|  164*4=656   |
+|  ^ ^         |
+|  GRANDIOSE   |
+|     ^        |
+|   COLLAPSE   |
+|        ^     |
+|3 4 8 9 13 14 |
+|            ^ |
+|1 8 27 64 125 |
+|            ^ |
+|1 2 4 7 11 16 |
+|         ^    |
+|3 6 9 12 15 18|
+|       ^      |
+| 4 8 12 16 20 |
+|        ^     |
+|23 32 23 32 23|
+|      ^       |
+| 1/8 = 0.125  |
+|          ^   |
+| 1/25 = 0.04  |
+|          ^   |
+| 1/20 = 0.05  |
+|           ^  |
+| 1/50 = 0.02  |
+|          ^   |
+|  1/4 = 0.25  |
+|          ^   |
+|25% + 43%= 68%|
+|      ^       |
+|  2 4 16 256  |
+|           ^  |
+| A D G J M P  |
+|         ^    |
+|234 + 456 =690|
+|            ^ |
+|12 * 11 = 132 |
+|      ^       |
+|13 * 13 = 169 |
+|     ^        |
+|11 * 11 = 121 |
+|           ^  |
+| 4*4*4*4=256  |
+|         ^    |
+|5 * (3+5) = 40|
+|     ^        |
+| 78 * 5 = 390 |
+| ^            |
+| 43 * 5 = 215 |
+|           ^  |
+|234 + 532 =766|
+| ^      ^     |
+| !"#$%&'()0[  |
+|       ^      |
+|10 18 27 37 48|
+|          ^   |
+|  B O N U S   |
+|              |
+|   DELICATE   |
+|    ^    ^    |
+|   TORTURER   |
+|      ^       |
+|   LANTERN    |
+|         ^    |
+| DISINFECTION |
+|     ^    ^   |
+| A1 C3 B2 E5  |
+|        ^     |
+|  RELAXATION  |
+|    ^      ^  |
+|   DISGRACE   |
+|     ^        |
+|   SHEPHERD   |
+|         ^^   |
+|  DITTO=SAME  |
+|         ^ ^  |
+|FESTER=RANKLE |
+|       ^   ^  |
+|    FARAO     |
+|      ^       |
+|  LIGHT=LAMP  |
+|    ^^        |
+|  POST=MAIL   |
+|        ^ ^   |
+| GRACE=ADORN  |
+|        ^     |
+| JACKET=JUPE  |
+|   ^^         |
+| CONDUIT=MAIN |
+|    ^         |
+| CORNER=ANGLE |
+|  ^^          |
+| FEAST=REGALE |
+|         ^^   |
+| GRASP=SEIZE  |
+|    ^^        |
+|   THEATRE    |
+|    ^    ^    |
+|    SNATCH    |
+|         ^    |
+|REHABILITATION|
+|  ^        ^  |
+|   JOURNEY    |
+|     ^        |
+|32 * 11 = 352 |
+|           ^  |
+|21 * 11 = 231 |
+|           ^  |
+|  PROPELLER   |
+|       ^^     |
+|   WORKABLE   |
+|        ^     |
+|  SENSATION   |
+|    ^    ^    |
+|  VENTILATE   |
+|       ^  ^   |
+|   ILLUSION   |
+|     ^        |
+|22 * 22 = 484 |
+|           ^  |
+|333 - 144 =189|
+|            ^ |
+| 23 = 48 - 25 |
+|           ^^ |
+|547 + 324 =871|
+|            ^ |
+| 65+65+66=196 |
+|        ^     |
+| GLOOMY=DARK  |
+|    ^^        |
+|  GRIT=SAND   |
+|  ^           |
+|   GULL=MEW   |
+|        ^     |
+|  HAIL=GREET  |
+|          ^^  |
+| INTONE=CHANT |
+|           ^^ |
+| IRONY=SATIRE |
+|         ^ ^  |
+|  JEW=SEMITE  |
+|         ^^   |
+|   KEY=ISLE   |
+|    ^         |
+| KISMET=FATE  |
+|           ^  |
+| LAMPREY=EEL  |
+|    ^         |
+|   HAMBURG    |
+|       ^      |
+| STIFF-NECKED |
+|    ^^        |
+|MY HAND IS OUT|
+|     ^      ^ |
+|   FIRMNESS   |
+|     ^    ^   |
+|   FARMYARD   |
+|         ^    |
+|   MASTERY    |
+|      ^       |
+| 1100-450=650 |
+|  ^           |
+| 1024/8 = 128 |
+|      ^       |
+| 2*3*2*0 = 0  |
+|       ^      |
+|23 * 23 = 529 |
+|           ^  |
+|60+67+5 = 132 |
+|      ^       |
+|  MELBOURNE   |
+|         ^    |
+|  B O N U S   |
+|              |
+| JULES VERNE  |
+| ^^           |
+| SOUTH AFRICA |
+|  ^^          |
+|   GRANITE    |
+|     ^        |
+|STOUT-HEARTED |
+|          ^^  |
+| DANCING-ROOM |
+|         ^^   |
+|  PHYSICIAN   |
+|       ^      |
+|  DELIRIOUS   |
+|   ^   ^      |
+|   FOG=MIST   |
+|    ^^        |
+| GLIDE=SLIDE  |
+|    ^^        |
+| GRUDGE=SPITE |
+|     ^^       |
+| GULLET=CRAW  |
+|     ^        |
+|  HAWK=KITE   |
+|       ^      |
+| HEROIC=EPIC  |
+|  ^^          |
+|  UNANIMOUS   |
+|        ^^    |
+|   SOLITARY   |
+|        ^^    |
+|  EFFECTIVE   |
+|   ^     ^    |
+|  UNBEARABLE  |
+|   ^      ^   |
+|   STOWAWAY   |
+|       ^  ^   |
+|  SUFFOCATE   |
+|    ^    ^    |
+| PERSECUTION  |
+|    ^   ^     |
+|  ALIENABLE   |
+|      ^^      |
+| EXPECTATION  |
+|     ^^       |
+|EAT ONE'S FILL|
+|  ^       ^   |
+| CONSIGNMENT  |
+|   ^    ^     |
+|65 - 45 + 5=25|
+|             ^|
+|44 * 40 = 1760|
+|            ^ |
+|  COMPULSORY  |
+|    ^  ^      |
+|50 * 51 = 2550|
+|          ^   |
+|55 * 55 = 3025|
+|           ^  |
+| 100-23-38=39 |
+|      ^       |
+|20 * (8-5)= 60|
+|      ^       |
+|21 * 19 = 399 |
+|           ^  |
+| SCRATCH OUT  |
+|   ^^         |
+|PRONUNCIATING |
+|      ^    ^  |
+| UTILIZATION  |
+|    ^^        |
+|   MOVEMENT   |
+|       ^^     |
+|   FAREWELL   |
+|     ^^       |
+|FORGE TOGETHER|
+| ^^           |
+|WEDDING-DRESS |
+|        ^  ^  |
+|    ZXVTR     |
+|       ^      |
+|  MODERATELY  |
+|       ^^     |
+|  FLINTSTONE  |
+|     ^^       |
+|TALK NONSENCE |
+|         ^^   |
+| INSURRECTION |
+|      ^^      |
+|  ABSORPTION  |
+|      ^^      |
+|  UNDOUBTED   |
+|        ^^    |
+|   ILL=EVIL   |
+|       ^      |
+|   LAY=PUT    |
+|       ^      |
+| LITURGY=RITE |
+|   ^^         |
+|  MAST=SPAR   |
+|    ^^        |
+| MERELY=ONLY  |
+|    ^^        |
+| INTOLERABLE  |
+|      ^^      |
+| NARRATE=TELL |
+|     ^^       |
+|  NEAT=TIDY   |
+|       ^^     |
+|  888=925-37  |
+|   ^  ^       |
+|   OLD=AGED   |
+|         ^^   |
+| PARADE=MARCH |
+|   ^^         |
+| PASTEL=TINT  |
+|    ^^        |
+| PINK=DAMASK  |
+|        ^     |
+| POWER=FORCE  |
+|    ^^        |
+|  PYTHON=BOA  |
+|   ^^         |
+|  QUICK=FAST  |
+|    ^^        |
+|  QUIET=CALM  |
+|        ^  ^  |
+|17 * 18 = 306 |
+|           ^  |
+|3*3*4*4=12*12 |
+|         ^    |
+|  72/12 = 6   |
+|      ^       |
+|  COMPLAINT   |
+|    ^     ^   |
+|    HUMBUG    |
+|       ^      |
+|FEUDAL SERVICE|
+|   ^        ^ |
+
+free ff 30 40 ef ff

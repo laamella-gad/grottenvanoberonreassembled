@@ -1,3 +1,9 @@
+; the language's texts (src/nl, src/de or src/en, chosen by the Makefile)
+		.include "text.asm"
+; what some variables held when the version was saved (kept, so that each
+; build is identical to its original)
+		.include "saved.asm"
+
 ; CINT after the VIC: screen editor variables, clear screen
 ; called by: reset_system
 kernal_init_editor = $e51b
@@ -211,8 +217,60 @@ start_copy_store:
 		bne start_copy_loop
 		inc start_copy_loop + 2
 		inc start_copy_store + 2
-		dex 
+		dex
 		bne start_copy_loop
+.if language == "en"
+; The English version writes the colour copy out as 1000 lda/sta pairs, then
+; rts, over the map image (copied already); show_screen jumps to it. Faster
+; than show_screen's loop.
+colour_copy_write:
+		lda #$ad	; lda abs
+		jsr colour_copy_put
+		lda colour_copy_low
+		jsr colour_copy_put
+		lda colour_copy_source
+		jsr colour_copy_put
+		lda #$8d	; sta abs
+		jsr colour_copy_put
+		lda colour_copy_low
+		jsr colour_copy_put
+		lda colour_copy_dest
+		jsr colour_copy_put
+		inc colour_copy_low
+		bne colour_copy_count_down
+		inc colour_copy_source
+		inc colour_copy_dest
+colour_copy_count_down:
+		lda colour_copy_count
+		bne +
+		dec colour_copy_count + $1
++		dec colour_copy_count
+		lda colour_copy_count
+		ora colour_copy_count + $1
+		bne colour_copy_write
+		lda #$60	; rts
+		jsr colour_copy_put
+		jmp start_tables
+
+; stores a byte of the colour copy
+colour_copy_put:
+		sta map_image	; operand counted up
+		inc colour_copy_put + $1
+		bne +
+		inc colour_copy_put + $2
++		rts
+
+colour_copy_source:
+		.byte	>colour_buffer
+colour_copy_dest:
+		.byte	>color_ram
+colour_copy_count:
+		.word	1000
+colour_copy_low:
+		.byte	$00
+start_tables:
+colour_copy = map_image
+.endif
 		ldy #$13
 start_copy_tables:
 		lda scroll_copy_start_init, y
@@ -272,9 +330,9 @@ title:
 		sta nmi_vector + $1
 		cli 
 		jsr clear_screen_black
-		lda #$11
+		lda #<title_text
 		sta print_text + 1
-		lda #$11
+		lda #>title_text
 		sta print_text + 2
 		jsr print_text
 		jmp title_wait_key
@@ -373,13 +431,7 @@ title_colour_index:		.byte	$00
 
 ; title text, PETSCII: clear, upper/lower case off, colours, F-keys menu
 title_text:
-		.text	$13, $8e, $08, $11, $11, $11, $11, $11, $90, $12, "    DE GROTTEN VAN OBE"
-		.text	"RON", $0d, $11, $11, $12, "    F1: EENVOUDIGE PUZZEL"
-		.text	"S", $0d, $12, $11, "    F3: NORMALE PUZZELS", $0d, $12, $11, "  "
-		.text	"  F5: PITTIGE PUZZELS", $0d, $12, $11, "    F7: "
-		.text	"MOEILIJKE PUZZELS", $0d, $12, $11, $11, "    (C) COP"
-		.text	"YRIGHT 1985 RADARSOFT", $0d, $12, $11, "    DOOR"
-		.null	" C.KRAMER FEBRUARI 1985"
+		#text_title
 
 ; ---------------------------------------------------------------- end of game: won
 ; "proficiat": the end text and a random beeping tune until a key is pressed
@@ -387,9 +439,9 @@ title_text:
 game_won:
 		jsr reset_system
 		jsr clear_screen_black
-		lda #$79
+		lda #<won_text
 		sta print_text + 1
-		lda #$12
+		lda #>won_text
 		sta print_text + 2
 		jsr print_text
 		lda #$32
@@ -454,16 +506,7 @@ clear_screen_black_loop:
 		rts 
 
 won_text:
-		.text	$13, $8e, $08, $11, $11, $11, $12, $11, $90, "   PROFICIAT MET DEZE G"
-		.text	"RANDIOZE", $0d, $12, $11, "   PRESTATIE: HET IS "
-		.text	"U GELUKT OM", $0d, $12, $11, "   DE MENSHEID VEE"
-		.text	"L EXTRA KENNIS", $0d, $12, $11, "   TE VERSCHAFF"
-		.text	"EN.", $0d, $12, $11, " DOOR DIT PUZZELAVONTUUR O"
-		.text	"P TE LOSSEN", $0d, $12, $11, " HEEFT U BEWEZEN O"
-		.text	"VER VEEL INZICHT,", $0d, $12, $11, " GEHEUGEN, I"
-		.text	"NTELLIGENTIE EN", $0d, $12, $11, " DOORZETTINGSV"
-		.text	"ERMOGEN TE BESCHIKKEN !", $0d, $12, $11, "      "
-		.null	" C.KRAMER 18-2-1985"
+		#text_won
 
 ; Copied to $fd30 (RAM under the KERNAL) at the start and cleared here, read by
 ; scroll_shift_screen: per scroll direction the start index and the low byte
@@ -548,7 +591,7 @@ puzzle_cursor_moved_left:
 ; read by: puzzle_wrap
 ; written by: start_difficulty
 puzzle_bank:
-		.word	$1d1c
+		.word	puzzles_test
 
 ; written by: puzzle_next
 ; modified by: puzzle_next_check
@@ -703,8 +746,8 @@ puzzle_next_check:
 puzzle_solved:
 		jsr status_sprites_clear
 		lda #$00
-		ldx #$b8
-		ldy #$19
+		ldx #<message_solved
+		ldy #>message_solved
 		jsr show_message
 		jsr sound_solved
 		lda #$ff
@@ -800,14 +843,14 @@ fuel_tank:
 ; jumped to by: fuel_tank
 fuel_tank_fill:
 		lda #$03
-		ldx #$02
-		ldy #$24
+		ldx #<tank_counter
+		ldy #>tank_counter
 		jsr counter_increment
 		lda #$ff
 		sta glyph_reverse
 		lda #$03
-		ldx #$e0
-		ldy #$16
+		ldx #<status_fuel
+		ldy #>status_fuel
 		jsr counter_increment
 		lda status_fuel
 		cmp #$31
@@ -977,127 +1020,43 @@ glyph_reverse:		.byte	$00
 ; fuel, time, damage, then the current message (54 characters, damage first).
 ; read by: status_next_glyph
 status_line:
-		.text	" BRANDSTOF:"
-; read by: fuel_tank_fill
-; written by: fuel_tank_full_loop, new_game_reset
-status_fuel:
-		.text	"0000"
-status_time_label:
-		.text	" TIJD:"
-; written by: update_status
-status_hours:
-		.text	"01"
-status_colon_1:		.text	":"
-; written by: update_status
-status_minutes:
-		.text	"00"
-status_colon_2:		.text	":"
-; written by: update_status
-status_seconds:
-		.text	"00"
-status_damage_label:
-		.text	" SCHADE:"
-; written by: damage_repair, show_message_copy
-status_message:
-		.text	"00 % -   GEKRAAKT  IN  1985  DOO"
-		.text	"R  ABC        -       "
+		#text_status
+status_line_end:
+		.cerror status_line_end - status_message != 54, "status_message must be 54 characters"
+		.cerror status_line_end - status_line > 255, "the status line is too long"
 
 ; pixel column (7-0) of the status scroller and its character index (0-$5a)
 ; written by: intro_frame, status_scroll, show_message
 ; modified by: intro_frame, status_scroll
 status_pixel:
-		.byte	$06
+		.byte	saved_status_pixel
 ; read by: status_scroll
 ; written by: new_game_reset, show_default_message, show_message
 ; modified by: status_scroll
-status_index:		.byte	$01
+status_index:		.byte	saved_status_index
 
 ; The messages, 54 characters each, copied to status_message by show_message.
 ; The first is the normal status: the damage in two digits (counted here) and
 ; the crack's credits.
 ; read by: damage_repair
 ; written by: new_game_reset
-damage:
-		.text	"00"
-message_default:
-		.text	" % -   GEKRAAKT  IN  1985  DOOR "
-		.text	" ABC        -       "
-; never shown: the fuel warning
-message_fuel_low:
-		.text	" MACHINEKAMER MELDT: ", $22, "DE BRANDST"
-		.text	"OF RAAKT OP !", $22, "        "
-message_damage_top:
-		.text	" BOORDCOMPUTER MELDT: ", $22, "SCHADE AA"
-		.text	"N BOVENKANT", $22, "          "
-message_damage_bottom:
-		.text	" ", $22, "LICHTE SCHADE AAN ONDERKANT", $22, " A"
-		.text	"LDUS BOORDCOMPUTER   "
-message_damage_right:
-		.text	" BOORDCOMPUTER: ", $22, "AANZIENLIJKE SC"
-		.text	"HADE RECHTERKANT", $22, "     "
-message_damage_left:
-		.text	" ", $22, "OPPERVLAKKIGE SCHADE LINKERKAN"
-		.text	"T", $22, " ZEGT BOORDCOMPUTER "
-message_damage_all:
-		.text	" ", $22, "ALGEHELE ZWARE BESCHADIGINGEN", $22
-		.text	" MELDT BOORDCOMPUTER  "
-message_switch:
-		.text	" SCHAKELAAR OMGEZET MET AFSTANDS"
-		.text	"BEDIENING             "
-message_door_open:
-		.text	" DEUR TIJDELIJK GEOPEND DOOR RAD"
-		.text	"IOVERBINDING          "
-message_puzzle:
-		.text	" BESTURING COMPUTER INGESCHAKELD"
-		.text	"                      "
-message_fuel_tank:
-		.text	" VERBINDING MET TANK AANGEBRACHT"
-		.text	"                      "
-message_radar:
-		.text	" RADARSCHERM GEACTIVEERD: POSITI"
-		.text	"E AANGEGEVEN         "
-message_solved:
-		.text	" DE JUISTE CODE IS INGEVOERD EN "
-		.text	"DE DOORGANG IS VRIJ   "
-message_out_of_fuel:
-		.text	" BRANDSTOF OP: EINDE VAN SPEL !!"
-		.text	"                      "
-message_destroyed:
-		.text	" 100 % SCHADE: EINDE VAN SPEL !!"
-		.text	"                      "
+		#text_messages
+		.cerror message_fuel_low - damage < 54, "message_default must be at least 52 characters"
+		.cerror fuel_full_text - message_destroyed != 54, "message_destroyed must be 54 characters"
 ; shown in the puzzle display when the fuel is 1000 or more
 ; read by: fuel_tank_full_loop
 fuel_full_text:
-		.text	"VOL!"
+		#text_fuel_full
+		.cerror * - fuel_full_text != 4, "fuel_full_text must be 4 characters"
 ; the introduction, scrolled through the puzzle display until fire is pressed
 ; read by: intro_next_char
 intro_text:
-		.text	"WELKOM BIJ: ", $22, "DE GROTTEN VAN OBER"
-		.text	"ON", $22, "!  HET IS MOMENTEEL HET JAAR "
-		.text	"2107 EN MET MODERNE RUIMTESCHEPE"
-		.text	"N WORDT HET ZONNESTELSEL VERKEND"
-		.text	". OP OBERON, DE BUITENSTE MAAN V"
-		.text	"AN DE PLANEET URANUS WERD EEN GI"
-		.text	"GANTISCH GROTTENSTELSEL ONTDEKT."
-		.text	" UIT ONDERZOEKINGEN BLEEK DAT HE"
-		.text	"T WAS AANGELEGD DOOR EEN REEDS L"
-		.text	"ANG GELEDEN UITGESTORVEN BESCHAV"
-		.text	"ING. IN DE GROTTEN WERD ALLE KEN"
-		.text	"NIS VAN DE BESCHAVING BEWAARD. O"
-		.text	"M DEZE KENNIS VERBORGEN TE HOUDE"
-		.text	"N VOOR EVENTUELE VIJANDEN, WERD "
-		.text	"HET GROTTENSTELSEL VOORZIEN VAN "
-		.text	"INGEWIKKELDE VRAGEN DIE MEN MOES"
-		.text	"T OPLOSSEN OM BIJ DE KENNIS TE K"
-		.text	"OMEN. HET IS UW TAAK OM TE PROBE"
-		.text	"REN DE KENNIS EN WIJSHEID VAN DE"
-		.text	"ZE VERLOREN CULTUUR OP TE SPOREN"
-		.null	": VEEL SUCCES !!!       "
+		#text_intro
 
 ; read by: intro_frame, main_loop
 ; written by: intro_frame, main_loop
 last_frame:
-		.byte	$08
+		.byte	saved_last_frame
 ; damage bits seen ($c781 bits 2-5) and 1 when its message is shown
 ; read by: update_damage_message
 ; written by: update_damage_message, show_default_message
@@ -1108,13 +1067,14 @@ damage_message_shown:		.byte	$00
 ; written by: intro_copy_glyph, status_copy_glyph
 ; modified by: intro_shift_loop, status_shift_loop
 glyph_buffer:
-		.byte	$00, $8d, $39, $e0, $4c, $86, $98, $ad, $00, $f0, $29, $10, $98, $03, $4c, $98
-		.byte	$7b, $a9, $f0, $8d
+		.byte	saved_glyph_buffer
+		.cerror	* - glyph_buffer != 20
 ; the player's answer, 14 screen codes
 ; read by: puzzle_letter_previous, puzzle_letter_next, puzzle_draw_cursor, puzzle_draw_changed, puzzle_check_loop
 ; written by: puzzle_letter_previous_set, puzzle_letter_next_set, puzzle_show_hidden
 answer:
-		.byte	$20, $31, $2b, $32, $2b, $33, $2b, $34, $2b, $b2, $3d, $31, $32, $20
+		.byte	saved_answer
+		.cerror	* - answer != 14
 ; a test bank of puzzles, puzzle_bank's value before a difficulty is chosen
 puzzles_test:
 		.byte	$20, $31, $2b, $32, $2b, $33, $2b, $34, $2b, $b2, $3d, $31, $32, $20, $20, $32
@@ -1188,9 +1148,9 @@ intro_shown:
 
 ; jumped to by: new_game_reset
 intro:
-		lda #$5e
+		lda #<intro_text
 		sta intro_next_char + 1
-		lda #$1a
+		lda #>intro_text
 		sta intro_next_char + 2
 		lda #$01
 		sta intro_shown
@@ -1216,9 +1176,9 @@ intro_frame:
 intro_next_char:
 		lda intro_text	; operand set by intro, intro_next_char, intro_glyph
 		bne intro_glyph
-		lda #$5e
+		lda #<intro_text
 		sta intro_next_char + 1
-		lda #$1a
+		lda #>intro_text
 		sta intro_next_char + 2
 		jmp intro_next_char
 
@@ -1382,8 +1342,8 @@ damage_repair:
 		bne probe
 		lda #$04
 		sta repair_delay + $1
-		ldx #$32
-		ldy #$17
+		ldx #<damage
+		ldy #>damage
 		lda #$01
 		jsr counter_decrement
 		lda damage
@@ -1591,19 +1551,19 @@ probe_goal:
 ; read by: sound_effect_step
 ; written by: puzzle_draw_changed, guardian_start, fuel_tank_fill, radar_blink, sound_effect_step, probe_read_char, switch_on, sound_solved
 sfx_frequency:
-		.word	$1040
+		.word	saved_sfx_frequency
 ; read by: sound_effect_step
 ; written by: guardian_start, fuel_tank_fill, radar_blink, probe_read_char, switch_on, sound_solved
-sfx_step:		.word	$0040
+sfx_step:		.word	saved_sfx_step
 ; read by: sound_effect
 ; written by: puzzle_draw_changed, guardian_start, fuel_tank_fill, radar_blink, switch_set_closed, sound_solved
 ; modified by: sound_effect, sound_effect_step
-sfx_time:		.word	$001f
+sfx_time:		.word	saved_sfx_time
 
 ; written by: update_fuel
 ; modified by: update_fuel
 fuel_timer:
-		.byte	$08
+		.byte	saved_fuel_timer
 ; written by: update_status
 ; modified by: update_status
 damage_timer:		.byte	$0a
@@ -1687,8 +1647,8 @@ update_status:
 		bne update_fuel
 		lda #$02
 		sta damage_timer
-		ldx #$32
-		ldy #$17
+		ldx #<damage
+		ldy #>damage
 		lda #$01
 		jsr counter_increment
 		bcc update_fuel
@@ -1696,8 +1656,8 @@ update_status:
 		sta game_over
 		jsr status_sprites_clear
 		lda #$09
-		ldx #$24
-		ldy #$1a
+		ldx #<message_destroyed
+		ldy #>message_destroyed
 		jsr show_message
 ; jumped to by: update_status
 update_fuel:
@@ -1705,8 +1665,8 @@ update_fuel:
 		bne update_damage_message
 		lda #$1e
 		sta fuel_timer
-		ldx #$e0
-		ldy #$16
+		ldx #<status_fuel
+		ldy #>status_fuel
 		lda #$03
 		jsr counter_decrement
 		bcc update_damage_message
@@ -1714,8 +1674,8 @@ update_fuel:
 		sta game_over
 		jsr status_sprites_clear
 		lda #$09
-		ldx #$ee
-		ldy #$19
+		ldx #<message_out_of_fuel
+		ldy #>message_out_of_fuel
 		jsr show_message
 ; jumped to by: update_fuel
 update_damage_message:
@@ -1726,8 +1686,8 @@ update_damage_message:
 		sta damage_seen
 		cmp #$10
 		bne damage_message_bottom
-		ldx #$9e
-		ldy #$17
+		ldx #<message_damage_top
+		ldy #>message_damage_top
 ; jumped to by: damage_message_bottom, damage_message_right, damage_message_left, damage_message_all
 show_damage_message:
 		lda #$02
@@ -1741,30 +1701,30 @@ show_damage_message:
 damage_message_bottom:
 		cmp #$20
 		bne damage_message_right
-		ldx #$d4
-		ldy #$17
+		ldx #<message_damage_bottom
+		ldy #>message_damage_bottom
 		jmp show_damage_message
 
 ; jumped to by: damage_message_bottom
 damage_message_right:
 		cmp #$08
 		bne damage_message_left
-		ldx #$09
-		ldy #$18
+		ldx #<message_damage_right
+		ldy #>message_damage_right
 		jmp show_damage_message
 
 ; jumped to by: damage_message_right
 damage_message_left:
 		cmp #$04
 		bne damage_message_all
-		ldx #$3f
-		ldy #$18
+		ldx #<message_damage_left
+		ldy #>message_damage_left
 		jmp show_damage_message
 
 ; jumped to by: damage_message_left
 damage_message_all:
-		ldx #$75
-		ldy #$18
+		ldx #<message_damage_all
+		ldy #>message_damage_all
 		jmp show_damage_message
 
 ; jumped to by: update_damage_message, show_damage_message
@@ -1775,8 +1735,8 @@ probe_message:
 		cmp #$ed
 		bne probe_check_door
 		jsr status_sprites_clear
-		ldx #$ab
-		ldy #$18
+		ldx #<message_switch
+		ldy #>message_switch
 		lda #$00
 		jsr show_message
 		jmp status_scroll
@@ -1787,8 +1747,8 @@ probe_check_door:
 		bne status_scroll
 		jsr status_sprites_clear
 		lda #$00
-		ldx #$e1
-		ldy #$18
+		ldx #<message_door_open
+		ldy #>message_door_open
 		jsr show_message
 		ldy #$07
 		lda #$00
@@ -1807,7 +1767,7 @@ status_scroll:
 		sta status_pixel
 		inc status_index
 		lda status_index
-		cmp #$5b
+		cmp #status_line_end - status_line
 		bne status_scroll_char
 		jsr show_default_message
 ; jumped to by: status_scroll
@@ -1817,8 +1777,8 @@ status_scroll_char:
 ; back to the normal status message
 ; called by: new_game_reset, status_scroll
 show_default_message:
-		ldx #$32
-		ldy #$17
+		ldx #<damage
+		ldy #>damage
 		lda #$06
 		jsr show_message
 		lda #$00
@@ -1850,7 +1810,7 @@ status_next_glyph:
 ; written by: status_next_glyph
 ; modified by: status_next_glyph
 status_copy_glyph:
-		lda font + $10, x	; operand set by status_next_glyph
+		lda saved_status_glyph, x	; operand set by status_next_glyph
 		eor #$ff
 		sta glyph_buffer, y
 		dey 
@@ -1931,7 +1891,7 @@ probe_char:
 		.byte	$00
 ; read by: probe_read_char, switch_set_closed
 ; written by: switch_set_closed
-switch_state:		.byte	$01
+switch_state:		.byte	saved_switch_state
 ; 1 when the probe's character was handled
 ; read by: probe_check_touch, probe_message
 ; written by: probe_touch, probe_retract
@@ -1965,7 +1925,7 @@ show_message:
 		sta vic_sprite_colors + $1
 		lda #$00
 		sta status_pixel
-		lda #$25
+		lda #status_message - status_line
 		sta status_index
 		ldx #$35
 ; written by: show_message
@@ -2060,8 +2020,8 @@ counter_decrement_done:
 puzzle_show:
 		jsr status_sprites_clear
 		lda #$00
-		ldx #$17
-		ldy #$19
+		ldx #<message_puzzle
+		ldy #>message_puzzle
 		jsr show_message
 		ldy #$07
 		lda #$ff
@@ -2139,8 +2099,8 @@ puzzle_glyph_store:
 fuel_tank_start:
 		jsr status_sprites_clear
 		lda #$00
-		ldx #$4d
-		ldy #$19
+		ldx #<message_fuel_tank
+		ldy #>message_fuel_tank
 		jsr show_message
 		lda #$30
 		sta tank_counter
@@ -2158,8 +2118,8 @@ tank_counter:
 radar_start:
 		jsr status_sprites_clear
 		lda #$00
-		ldx #$83
-		ldy #$19
+		ldx #<message_radar
+		ldy #>message_radar
 		jsr show_message
 		lda map_position
 		ror 
@@ -2192,68 +2152,312 @@ radar_mask:		.byte	$00
 ; read by: radar_add_column
 bit_masks:
 		.byte	$80, $40, $20, $10, $08, $04, $02, $01
-; leftovers of an earlier memory image
-unused_2441:
-		.byte	$4f, $52, $20, $45, $56, $45, $4e, $54, $55, $45, $4c, $45, $20, $56, $49, $4a
-		.byte	$41, $4e, $44, $45, $4e, $2c, $20, $57, $45, $52, $44, $20, $48, $45, $54, $20
-		.byte	$47, $52, $4f, $54, $54, $45, $4e, $53, $54, $45, $4c, $53, $45, $4c, $20, $56
-		.byte	$4f, $4f, $52, $5a, $49, $45, $4e, $20, $56, $41, $4e, $20, $49, $4e, $47, $45
-		.byte	$57, $49, $4b, $4b, $45, $4c, $44, $45, $20, $56, $52, $41, $47, $45, $4e, $20
-		.byte	$44, $49, $45, $20, $4d, $45, $4e, $20, $4d, $4f, $45, $53, $54, $20, $4f, $50
-		.byte	$4c, $4f, $53, $53, $45, $4e, $20, $4f, $4d, $20, $42, $49, $4a, $20, $44, $45
-		.byte	$20, $4b, $45, $4e, $4e, $49, $53, $20, $54, $45, $20, $4b, $4f, $4d, $45, $4e
-		.byte	$2e, $20, $48, $45, $54, $20, $49, $53, $20, $55, $57, $20, $54, $41, $41, $4b
-		.byte	$20, $4f, $4d, $20, $54, $45, $20, $50, $52, $4f, $42, $45, $52, $45, $4e, $20
-		.byte	$44, $45, $20, $4b, $45, $4e, $4e, $49, $53, $20, $45, $4e, $20, $57, $49, $4a
-		.byte	$53, $48, $45, $49, $44, $20, $56, $41, $4e, $20, $44, $45, $5a, $45, $20, $56
-		.byte	$45, $52, $4c, $4f, $52, $45, $4e, $20, $43, $55, $4c, $54, $55, $55, $52, $20
-		.byte	$4f, $50, $20, $54, $45, $20, $53, $50, $4f, $52, $45, $4e, $3a, $20, $56, $45
-		.byte	$45, $4c, $20, $53, $55, $43, $43, $45, $53, $20, $21, $21, $21, $20, $20, $20
-		.byte	$20, $20, $20, $20, $00, $06, $00, $00, $00, $78, $cc, $cc, $cc, $cc, $78, $00
-		.byte	$3d, $f8, $32, $20, $cc, $32, $20, $cc, $35, $20, $f8, $b8, $20, $31, $31, $20
-		.byte	$31, $34, $20, $31, $30, $32, $20, $58, $20, $b5, $20, $31, $2b, $32, $2b, $33
-		.byte	$2b, $34, $2b, $b2, $3d, $31, $32, $20, $20, $32, $20, $20, $35, $20, $20, $b8
-		.byte	$20, $31, $31, $20, $31, $34, $20, $31, $30, $32, $20, $58, $20, $b5, $20, $3d
-		.byte	$20, $35, $31, $30, $31, $4b, $57, $41, $52, $54, $4a, $45, $3d, $30, $2c, $b2
-		.byte	$b5, $00, $7d, $aa, $fc, $ff, $fb, $ff, $ff, $a8, $ed, $ea, $7d, $bd, $00, $aa
-		.byte	$00, $e8, $00, $a8, $00, $a8, $00, $a8, $00, $a8, $a8, $a8, $28, $aa, $28, $ac
-		.byte	$fd, $aa, $a8, $a8, $fd, $f7, $55, $6d, $ff, $bd, $20, $a8, $e8, $e8, $aa, $aa
-		.byte	$40, $ea, $00, $a8, $40, $a8, $00, $aa, $00, $fd, $55, $ea, $40, $44, $a8, $ef
-		.byte	$0a, $e8, $aa, $a8, $7d, $fb, $d0, $ea, $fd, $aa, $6a, $6a, $e8, $a8, $02, $ca
-		.byte	$ea, $a8, $52, $77, $00, $52, $e8, $a8, $68, $e8, $00, $ac, $6d, $aa, $82, $ff
-		.byte	$fd, $ee, $fd, $fd, $41, $eb, $68, $fd, $00, $a8, $7d, $aa, $f8, $aa, $e9, $00
-		.byte	$ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00
-		.byte	$ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00
-		.byte	$ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00
-		.byte	$ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $01
-		.byte	$ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00
-		.byte	$ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00
-		.byte	$ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00
-		.byte	$ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $ff
-		.byte	$00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff
-		.byte	$00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff
-		.byte	$00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff
-		.byte	$00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $fe
-		.byte	$00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff
-		.byte	$00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff
-		.byte	$00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff
-		.byte	$00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $00
-		.byte	$ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00
-		.byte	$ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00
-		.byte	$ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00
-		.byte	$ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $01
-		.byte	$ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00
-		.byte	$ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00
-		.byte	$ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00
-		.byte	$ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $ff
-		.byte	$00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff
-		.byte	$00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff
-		.byte	$00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff
-		.byte	$00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff
-		.byte	$00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff
-		.byte	$00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff
-		.byte	$00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff
-		.byte	$00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00
+.if language == "en"
+; the English version has the barrier animation here, after the game
+		#barrier_code
+.endif
+; leftovers of an earlier memory image: the language's leftovers_1.bin, cut
+; or padded to fit
+leftovers_1:
+		.binary	"leftovers_1.bin", 0, $2800 - *
+		.fill	$2800 - *, 0
+		.cerror	* != $2800, "the code and texts don't fit below the character set"
+
+; the barrier animation and its variables: at the end of the engine, or (the
+; English version) after the game
+barrier_code .segment
+; every other frame: flame animation (sprite 4) and the barrier animation
+; jumped to by: ship_explode_done, frame_destroyed_sound, frame_joystick_done
+animate:
+		lda frame_counter
+		and #$01
+		bne animate_barrier
+		jmp frame_done
+
+; jumped to by: animate
+animate_barrier:
+		lda sprite_pointers + $4
+		eor #$04
+		sta sprite_pointers + $4
+		sta screen_2_sprite_4
+		sei 
+		lda barrier_closing
+		bne barrier_close
+		jmp barrier_open
+
+; jumped to by: animate_barrier
+barrier_close:
+		ldx barrier_left
+		ldy barrier_right
+		lda #$ff
+		sta charset, x
+		sta charset + $80, x
+		sta charset + $40, y
+		sta charset + $c0, y
+		lda #$00
+		sta charset + $200, x
+		sta charset + $280, x
+		sta charset + $240, y
+		sta charset + $2c0, y
+		ldy barrier_mask_index
+		ldx barrier_right_char
+		lda barrier_right_masks, y
+		sta charset + $100, x
+		sta charset + $101, x
+		sta charset + $102, x
+		sta charset + $103, x
+		sta charset + $104, x
+		sta charset + $105, x
+		sta charset + $106, x
+		sta charset + $107, x
+		sta charset + $180, x
+		sta charset + $181, x
+		sta charset + $182, x
+		sta charset + $183, x
+		sta charset + $184, x
+		sta charset + $185, x
+		sta charset + $186, x
+		sta charset + $187, x
+		lda barrier_left_masks, y
+		ldx barrier_left_char
+		eor #$ff
+		sta charset + $340, x
+		sta charset + $341, x
+		sta charset + $342, x
+		sta charset + $343, x
+		sta charset + $344, x
+		sta charset + $345, x
+		sta charset + $346, x
+		sta charset + $347, x
+		sta charset + $3c0, x
+		sta charset + $3c1, x
+		sta charset + $3c2, x
+		sta charset + $3c3, x
+		sta charset + $3c4, x
+		sta charset + $3c5, x
+		sta charset + $3c6, x
+		sta charset + $3c7, x
+		lda barrier_left_masks, y
+		sta charset + $140, x
+		sta charset + $141, x
+		sta charset + $142, x
+		sta charset + $143, x
+		sta charset + $144, x
+		sta charset + $145, x
+		sta charset + $146, x
+		sta charset + $147, x
+		sta charset + $1c0, x
+		sta charset + $1c1, x
+		sta charset + $1c2, x
+		sta charset + $1c3, x
+		sta charset + $1c4, x
+		sta charset + $1c5, x
+		sta charset + $1c6, x
+		sta charset + $1c7, x
+		lda barrier_right_masks, y
+		ldx barrier_right_char
+		eor #$ff
+		sta charset + $300, x
+		sta charset + $301, x
+		sta charset + $302, x
+		sta charset + $303, x
+		sta charset + $304, x
+		sta charset + $305, x
+		sta charset + $306, x
+		sta charset + $307, x
+		sta charset + $380, x
+		sta charset + $381, x
+		sta charset + $382, x
+		sta charset + $383, x
+		sta charset + $384, x
+		sta charset + $385, x
+		sta charset + $386, x
+		sta charset + $387, x
+		lda barrier_right
+		bne barrier_close_next
+		lda #$00
+		sta barrier_closing
+		jmp frame_done
+
+; jumped to by: barrier_close
+barrier_close_next:
+		inc barrier_left
+		dec barrier_right
+		dec barrier_mask_index
+		bpl barrier_close_done
+		lda #$07
+		sta barrier_mask_index
+		clc 
+		lda barrier_left_char
+		adc #$08
+		and #$38
+		sta barrier_left_char
+		sec 
+		lda barrier_right_char
+		sbc #$08
+		and #$38
+		sta barrier_right_char
+; jumped to by: barrier_close_next
+barrier_close_done:
+		jmp frame_done
+
+; jumped to by: barrier_open
+barrier_open_next:
+		lda barrier_left
+		bne barrier_open_step
+		lda #$01
+		sta barrier_closing
+		jmp frame_done
+
+; jumped to by: barrier_open_next
+barrier_open_step:
+		inc barrier_right
+		dec barrier_left
+		inc barrier_mask_index
+		lda barrier_mask_index
+		cmp #$08
+		bne barrier_open_done
+		lda #$00
+		sta barrier_mask_index
+		sec 
+		lda barrier_left_char
+		sbc #$08
+		and #$38
+		sta barrier_left_char
+		clc 
+		lda barrier_right_char
+		adc #$08
+		and #$38
+		sta barrier_right_char
+; jumped to by: barrier_open_step
+barrier_open_done:
+		jmp frame_done
+
+; jumped to by: animate_barrier
+barrier_open:
+		ldx barrier_left
+		ldy barrier_right
+		lda #$00
+		sta charset, y
+		sta charset + $80, x
+		sta charset + $40, x
+		sta charset + $c0, y
+		lda #$ff
+		sta charset + $200, y
+		sta charset + $280, x
+		sta charset + $240, x
+		sta charset + $2c0, y
+		ldy barrier_mask_index
+		ldx barrier_right_char
+		lda barrier_right_masks_open, y
+		sta charset + $140, x
+		sta charset + $141, x
+		sta charset + $142, x
+		sta charset + $143, x
+		sta charset + $144, x
+		sta charset + $145, x
+		sta charset + $146, x
+		sta charset + $147, x
+		sta charset + $100, x
+		sta charset + $101, x
+		sta charset + $102, x
+		sta charset + $103, x
+		sta charset + $104, x
+		sta charset + $105, x
+		sta charset + $106, x
+		sta charset + $107, x
+		lda barrier_left_masks_open, y
+		ldx barrier_left_char
+		eor #$ff
+		sta charset + $380, x
+		sta charset + $381, x
+		sta charset + $382, x
+		sta charset + $383, x
+		sta charset + $384, x
+		sta charset + $385, x
+		sta charset + $386, x
+		sta charset + $387, x
+		sta charset + $3c0, x
+		sta charset + $3c1, x
+		sta charset + $3c2, x
+		sta charset + $3c3, x
+		sta charset + $3c4, x
+		sta charset + $3c5, x
+		sta charset + $3c6, x
+		sta charset + $3c7, x
+		lda barrier_left_masks_open, y
+		sta charset + $1c0, x
+		sta charset + $1c1, x
+		sta charset + $1c2, x
+		sta charset + $1c3, x
+		sta charset + $1c4, x
+		sta charset + $1c5, x
+		sta charset + $1c6, x
+		sta charset + $1c7, x
+		sta charset + $180, x
+		sta charset + $181, x
+		sta charset + $182, x
+		sta charset + $183, x
+		sta charset + $184, x
+		sta charset + $185, x
+		sta charset + $186, x
+		sta charset + $187, x
+		lda barrier_right_masks_open, y
+		ldx barrier_right_char
+		eor #$ff
+		sta charset + $340, x
+		sta charset + $341, x
+		sta charset + $342, x
+		sta charset + $343, x
+		sta charset + $344, x
+		sta charset + $345, x
+		sta charset + $346, x
+		sta charset + $347, x
+		sta charset + $300, x
+		sta charset + $301, x
+		sta charset + $302, x
+		sta charset + $303, x
+		sta charset + $304, x
+		sta charset + $305, x
+		sta charset + $306, x
+		sta charset + $307, x
+		jmp barrier_open_next
+
+; read by: barrier_close
+barrier_left_masks:
+		.byte	$00, $01, $03, $07, $0f, $1f, $3f, $7f, $ff
+; read by: barrier_open
+barrier_left_masks_open:
+		.byte	$01, $03, $07, $0f, $1f, $3f, $7f, $ff
+; read by: barrier_close
+barrier_right_masks:
+		.byte	$00, $80, $c0, $e0, $f0, $f8, $fc, $fe
+; read by: barrier_open
+barrier_right_masks_open:
+		.byte	$80, $c0, $e0, $f0, $f8, $fc, $fe, $ff
+; read by: barrier_close, barrier_open_next, barrier_open
+; written by: engine_init_barrier
+; modified by: barrier_close_next, barrier_open_step
+barrier_left:		.byte	$00
+; read by: barrier_close, barrier_open
+; written by: engine_init_barrier
+; modified by: barrier_close_next, barrier_open_step
+barrier_right:		.byte	$3f
+; read by: barrier_close, barrier_close_next, barrier_open_step, barrier_open
+; written by: engine_init_barrier, barrier_close_next, barrier_open_step
+barrier_left_char:		.byte	$00
+; read by: barrier_close, barrier_close_next, barrier_open_step, barrier_open
+; written by: engine_init_barrier, barrier_close_next, barrier_open_step
+barrier_right_char:		.byte	$38
+; 1 while the barrier closes
+; read by: animate_barrier
+; written by: engine_init, engine_init_barrier, barrier_close, barrier_open_next
+barrier_closing:		.byte	$00
+; read by: barrier_close, barrier_open_step, barrier_open
+; written by: engine_init_barrier, barrier_close_next, barrier_open_step
+; modified by: barrier_close_next, barrier_open_step
+barrier_mask_index:		.byte	$07
+.endsegment
 
 ; ---------------------------------------------------------------- character set
 ; $2800-$2bff, chars $00-$7f: barrier characters, set up and animated at run time
@@ -2732,9 +2936,12 @@ show_screen:
 		lda vic_memory_setup
 		eor #$30
 		sta vic_memory_setup
+.if language == "en"
+		jmp colour_copy
+.else
 		ldy #$00
 show_screen_colours_1:
-		lda unused_cb7f + $80, y
+		lda colour_buffer - 1, y
 		sta $d7ff, y
 		lda colour_buffer + $ff, y
 		sta color_ram + $ff, y
@@ -2748,6 +2955,7 @@ show_screen_colours_2:
 		iny 
 		bne show_screen_colours_2
 		rts 
+.endif
 
 ; copies the screen (or the colour buffer) shifted by one character in the
 ; scroll direction, in 4 parts of 250 bytes; the loop's index direction and
@@ -2782,6 +2990,138 @@ scroll_shift_screen:
 		sta scroll_shift_step
 		lda scroll_end_index, x
 		sta scroll_shift_compare + 1
+.if language == "en"
+; the English version: the copy loop is unrolled to 4 copies (the 4 parts),
+; set up for up or down by scroll_shift_up / scroll_shift_down
+		lda scroll_carry_opcode, x
+		beq +
+		jmp scroll_shift_down
++		jmp scroll_shift_up
+
+scroll_shift_part:
+		ldy #$fa	; operand set by scroll_shift_screen
+scroll_shift_loop:
+		lda $ffff, y	; operand set by scroll_shift_screen
+scroll_shift_store:
+		sta $ffff, y	; operand set by scroll_shift_screen
+scroll_shift_loop_2:
+		lda $ffff, y	; operand set by scroll_shift_up, scroll_shift_down
+scroll_shift_store_2:
+		sta $ffff, y	; operand set by scroll_shift_up, scroll_shift_down
+scroll_shift_loop_3:
+		lda $ffff, y	; operand set by scroll_shift_up, scroll_shift_down
+scroll_shift_store_3:
+		sta $ffff, y	; operand set by scroll_shift_up, scroll_shift_down
+scroll_shift_loop_4:
+		lda $ffff, y	; operand set by scroll_shift_up, scroll_shift_down
+scroll_shift_store_4:
+		sta $ffff, y	; operand set by scroll_shift_up, scroll_shift_down
+scroll_shift_step:
+		dey 	; set by scroll_shift_screen
+scroll_shift_compare:
+		cpy #$ff	; operand set by scroll_shift_screen
+		bne scroll_shift_loop
+		rts 
+
+; parts 2-4 start 250 bytes after each other
+scroll_shift_up:
+		ldx scroll_shift_loop + 2
+		clc 
+		lda scroll_shift_loop + 1
+		adc #$fa
+		sta scroll_shift_loop_2 + 1
+		bcc +
+		inx 
+		clc 
++		stx scroll_shift_loop_2 + 2
+		lda scroll_shift_loop_2 + 1
+		adc #$fa
+		sta scroll_shift_loop_3 + 1
+		bcc +
+		inx 
+		clc 
++		stx scroll_shift_loop_3 + 2
+		lda scroll_shift_loop_3 + 1
+		adc #$fa
+		sta scroll_shift_loop_4 + 1
+		bcc +
+		inx 
+		clc 
++		stx scroll_shift_loop_4 + 2
+		ldx scroll_shift_store + 2
+		lda scroll_shift_store + 1
+		adc #$fa
+		sta scroll_shift_store_2 + 1
+		bcc +
+		inx 
+		clc 
++		stx scroll_shift_store_2 + 2
+		lda scroll_shift_store_2 + 1
+		adc #$fa
+		sta scroll_shift_store_3 + 1
+		bcc +
+		inx 
+		clc 
++		stx scroll_shift_store_3 + 2
+		lda scroll_shift_store_3 + 1
+		adc #$fa
+		sta scroll_shift_store_4 + 1
+		bcc +
+		inx 
+		clc 
++		stx scroll_shift_store_4 + 2
+		jmp scroll_shift_part
+
+; parts 2-4 start 250 bytes before each other
+scroll_shift_down:
+		sec 
+		ldx scroll_shift_loop + 2
+		lda scroll_shift_loop + 1
+		sbc #$fa
+		sta scroll_shift_loop_2 + 1
+		bcs +
+		dex 
+		sec 
++		stx scroll_shift_loop_2 + 2
+		lda scroll_shift_loop_2 + 1
+		sbc #$fa
+		sta scroll_shift_loop_3 + 1
+		bcs +
+		dex 
+		sec 
++		stx scroll_shift_loop_3 + 2
+		lda scroll_shift_loop_3 + 1
+		sbc #$fa
+		sta scroll_shift_loop_4 + 1
+		bcs +
+		dex 
+		sec 
++		stx scroll_shift_loop_4 + 2
+		ldx scroll_shift_store + 2
+		lda scroll_shift_store + 1
+		sbc #$fa
+		sta scroll_shift_store_2 + 1
+		bcs +
+		sec 
+		dex 
++		stx scroll_shift_store_2 + 2
+		lda scroll_shift_store_2 + 1
+		sbc #$fa
+		sta scroll_shift_store_3 + 1
+		bcs +
+		dex 
+		sec 
++		stx scroll_shift_store_3 + 2
+		lda scroll_shift_store_3 + 1
+		sbc #$fa
+		sta scroll_shift_store_4 + 1
+		bcs +
+		dex 
+		sec 
++		stx scroll_shift_store_4 + 2
+		jmp scroll_shift_part
+
+.else
 		lda scroll_carry_opcode, x
 		sta scroll_shift_carry
 		ldx #$04
@@ -2850,6 +3190,7 @@ scroll_shift_down_next:
 		dex 
 		bne scroll_shift_part
 		rts 
+.endif
 
 ; by direction (joystick bits): the index into the tables below
 ; read by: scroll_shift_screen
@@ -2873,7 +3214,11 @@ scroll_end_index:
 		.byte	$fa, $ff, $fa, $01, $fa, $ff, $ff, $01, $fa, $ff
 ; read by: scroll_shift_screen
 scroll_carry_opcode:
+.if language == "en"
+		.byte	$00, $38, $00, $01, $00, $38, $38, $01, $00, $38	; up: 0
+.else
 		.byte	$18, $38, $18, $01, $18, $38, $38, $01, $18, $38
+.endif
 
 ; jumped to by: scroll_phase_7
 scroll_latch_direction:
@@ -2884,8 +3229,15 @@ scroll_latch_direction:
 
 ; jumped to by: scroll_phase_3
 scroll_shift_colours:
-		lda #$cc
+.if language == "en"
+; the English version shifts colour RAM into the buffer
+		lda #>color_ram
 		sta copy_source_high
+		lda #>colour_buffer
+.else
+		lda #>colour_buffer
+		sta copy_source_high
+.endif
 		sta copy_dest_high
 		jsr scroll_shift_screen
 		jmp scroll_phase_done
@@ -3353,12 +3705,12 @@ bottom_row_offset:
 ; then a new game
 ; jumped to by: engine_start
 engine_init:
-		lda #$8a
+		lda #<frame_handler
 		sei 
 		sta scroll_phase_done + 1
 		ldx #$fb
 		txs 
-		lda #$c7
+		lda #>frame_handler
 		sta scroll_phase_done + 2
 		lda #$00
 		sta barrier_closing
@@ -3694,376 +4046,21 @@ frame_engine_down_check:
 		dec engine_noise_rate
 		jmp frame_set_direction
 
-; every other frame: flame animation (sprite 4) and the barrier animation
-; jumped to by: ship_explode_done, frame_destroyed_sound, frame_joystick_done
-animate:
-		lda frame_counter
-		and #$01
-		bne animate_barrier
-		jmp frame_done
-
-; jumped to by: animate
-animate_barrier:
-		lda sprite_pointers + $4
-		eor #$04
-		sta sprite_pointers + $4
-		sta screen_2_sprite_4
-		sei 
-		lda barrier_closing
-		bne barrier_close
-		jmp barrier_open
-
-; jumped to by: animate_barrier
-barrier_close:
-		ldx barrier_left
-		ldy barrier_right
-		lda #$ff
-		sta charset, x
-		sta charset + $80, x
-		sta charset + $40, y
-		sta charset + $c0, y
-		lda #$00
-		sta charset + $200, x
-		sta charset + $280, x
-		sta charset + $240, y
-		sta charset + $2c0, y
-		ldy barrier_mask_index
-		ldx barrier_right_char
-		lda barrier_right_masks, y
-		sta charset + $100, x
-		sta charset + $101, x
-		sta charset + $102, x
-		sta charset + $103, x
-		sta charset + $104, x
-		sta charset + $105, x
-		sta charset + $106, x
-		sta charset + $107, x
-		sta charset + $180, x
-		sta charset + $181, x
-		sta charset + $182, x
-		sta charset + $183, x
-		sta charset + $184, x
-		sta charset + $185, x
-		sta charset + $186, x
-		sta charset + $187, x
-		lda barrier_left_masks, y
-		ldx barrier_left_char
-		eor #$ff
-		sta charset + $340, x
-		sta charset + $341, x
-		sta charset + $342, x
-		sta charset + $343, x
-		sta charset + $344, x
-		sta charset + $345, x
-		sta charset + $346, x
-		sta charset + $347, x
-		sta charset + $3c0, x
-		sta charset + $3c1, x
-		sta charset + $3c2, x
-		sta charset + $3c3, x
-		sta charset + $3c4, x
-		sta charset + $3c5, x
-		sta charset + $3c6, x
-		sta charset + $3c7, x
-		lda barrier_left_masks, y
-		sta charset + $140, x
-		sta charset + $141, x
-		sta charset + $142, x
-		sta charset + $143, x
-		sta charset + $144, x
-		sta charset + $145, x
-		sta charset + $146, x
-		sta charset + $147, x
-		sta charset + $1c0, x
-		sta charset + $1c1, x
-		sta charset + $1c2, x
-		sta charset + $1c3, x
-		sta charset + $1c4, x
-		sta charset + $1c5, x
-		sta charset + $1c6, x
-		sta charset + $1c7, x
-		lda barrier_right_masks, y
-		ldx barrier_right_char
-		eor #$ff
-		sta charset + $300, x
-		sta charset + $301, x
-		sta charset + $302, x
-		sta charset + $303, x
-		sta charset + $304, x
-		sta charset + $305, x
-		sta charset + $306, x
-		sta charset + $307, x
-		sta charset + $380, x
-		sta charset + $381, x
-		sta charset + $382, x
-		sta charset + $383, x
-		sta charset + $384, x
-		sta charset + $385, x
-		sta charset + $386, x
-		sta charset + $387, x
-		lda barrier_right
-		bne barrier_close_next
-		lda #$00
-		sta barrier_closing
-		jmp frame_done
-
-; jumped to by: barrier_close
-barrier_close_next:
-		inc barrier_left
-		dec barrier_right
-		dec barrier_mask_index
-		bpl barrier_close_done
-		lda #$07
-		sta barrier_mask_index
-		clc 
-		lda barrier_left_char
-		adc #$08
-		and #$38
-		sta barrier_left_char
-		sec 
-		lda barrier_right_char
-		sbc #$08
-		and #$38
-		sta barrier_right_char
-; jumped to by: barrier_close_next
-barrier_close_done:
-		jmp frame_done
-
-; jumped to by: barrier_open
-barrier_open_next:
-		lda barrier_left
-		bne barrier_open_step
-		lda #$01
-		sta barrier_closing
-		jmp frame_done
-
-; jumped to by: barrier_open_next
-barrier_open_step:
-		inc barrier_right
-		dec barrier_left
-		inc barrier_mask_index
-		lda barrier_mask_index
-		cmp #$08
-		bne barrier_open_done
-		lda #$00
-		sta barrier_mask_index
-		sec 
-		lda barrier_left_char
-		sbc #$08
-		and #$38
-		sta barrier_left_char
-		clc 
-		lda barrier_right_char
-		adc #$08
-		and #$38
-		sta barrier_right_char
-; jumped to by: barrier_open_step
-barrier_open_done:
-		jmp frame_done
-
-; jumped to by: animate_barrier
-barrier_open:
-		ldx barrier_left
-		ldy barrier_right
-		lda #$00
-		sta charset, y
-		sta charset + $80, x
-		sta charset + $40, x
-		sta charset + $c0, y
-		lda #$ff
-		sta charset + $200, y
-		sta charset + $280, x
-		sta charset + $240, x
-		sta charset + $2c0, y
-		ldy barrier_mask_index
-		ldx barrier_right_char
-		lda barrier_right_masks_open, y
-		sta charset + $140, x
-		sta charset + $141, x
-		sta charset + $142, x
-		sta charset + $143, x
-		sta charset + $144, x
-		sta charset + $145, x
-		sta charset + $146, x
-		sta charset + $147, x
-		sta charset + $100, x
-		sta charset + $101, x
-		sta charset + $102, x
-		sta charset + $103, x
-		sta charset + $104, x
-		sta charset + $105, x
-		sta charset + $106, x
-		sta charset + $107, x
-		lda barrier_left_masks_open, y
-		ldx barrier_left_char
-		eor #$ff
-		sta charset + $380, x
-		sta charset + $381, x
-		sta charset + $382, x
-		sta charset + $383, x
-		sta charset + $384, x
-		sta charset + $385, x
-		sta charset + $386, x
-		sta charset + $387, x
-		sta charset + $3c0, x
-		sta charset + $3c1, x
-		sta charset + $3c2, x
-		sta charset + $3c3, x
-		sta charset + $3c4, x
-		sta charset + $3c5, x
-		sta charset + $3c6, x
-		sta charset + $3c7, x
-		lda barrier_left_masks_open, y
-		sta charset + $1c0, x
-		sta charset + $1c1, x
-		sta charset + $1c2, x
-		sta charset + $1c3, x
-		sta charset + $1c4, x
-		sta charset + $1c5, x
-		sta charset + $1c6, x
-		sta charset + $1c7, x
-		sta charset + $180, x
-		sta charset + $181, x
-		sta charset + $182, x
-		sta charset + $183, x
-		sta charset + $184, x
-		sta charset + $185, x
-		sta charset + $186, x
-		sta charset + $187, x
-		lda barrier_right_masks_open, y
-		ldx barrier_right_char
-		eor #$ff
-		sta charset + $340, x
-		sta charset + $341, x
-		sta charset + $342, x
-		sta charset + $343, x
-		sta charset + $344, x
-		sta charset + $345, x
-		sta charset + $346, x
-		sta charset + $347, x
-		sta charset + $300, x
-		sta charset + $301, x
-		sta charset + $302, x
-		sta charset + $303, x
-		sta charset + $304, x
-		sta charset + $305, x
-		sta charset + $306, x
-		sta charset + $307, x
-		jmp barrier_open_next
-
-; read by: barrier_close
-barrier_left_masks:
-		.byte	$00, $01, $03, $07, $0f, $1f, $3f, $7f, $ff
-; read by: barrier_open
-barrier_left_masks_open:
-		.byte	$01, $03, $07, $0f, $1f, $3f, $7f, $ff
-; read by: barrier_close
-barrier_right_masks:
-		.byte	$00, $80, $c0, $e0, $f0, $f8, $fc, $fe
-; read by: barrier_open
-barrier_right_masks_open:
-		.byte	$80, $c0, $e0, $f0, $f8, $fc, $fe, $ff
-; read by: barrier_close, barrier_open_next, barrier_open
-; written by: engine_init_barrier
-; modified by: barrier_close_next, barrier_open_step
-barrier_left:		.byte	$00
-; read by: barrier_close, barrier_open
-; written by: engine_init_barrier
-; modified by: barrier_close_next, barrier_open_step
-barrier_right:		.byte	$3f
-; read by: barrier_close, barrier_close_next, barrier_open_step, barrier_open
-; written by: engine_init_barrier, barrier_close_next, barrier_open_step
-barrier_left_char:		.byte	$00
-; read by: barrier_close, barrier_close_next, barrier_open_step, barrier_open
-; written by: engine_init_barrier, barrier_close_next, barrier_open_step
-barrier_right_char:		.byte	$38
-; 1 while the barrier closes
-; read by: animate_barrier
-; written by: engine_init, engine_init_barrier, barrier_close, barrier_open_next
-barrier_closing:		.byte	$00
-; read by: barrier_close, barrier_open_step, barrier_open
-; written by: engine_init_barrier, barrier_close_next, barrier_open_step
-; modified by: barrier_close_next, barrier_open_step
-barrier_mask_index:		.byte	$07
-; read by: show_screen_colours_1
-unused_cb7f:
-		.byte	$ff, $00, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff
-		.byte	$00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff
-		.byte	$00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff
-		.byte	$00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff
-		.byte	$00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff
-		.byte	$00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff
-		.byte	$00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff
-		.byte	$00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff, $00, $ff
-		.byte	$00
+.if language != "en"
+		#barrier_code
+.endif
+; leftovers of an earlier memory image: the language's leftovers_2.bin, cut
+; or padded to fit
+leftovers_2:
+		.binary	"leftovers_2.bin", 0, $cc00 - *
+		.fill	$cc00 - *, 0
+		.cerror	* != $cc00, "the engine doesn't fit below the colour buffer"
 ; the colour buffer: drawn with the hidden screen, copied to the colour RAM
-; when the screens swap
+; when the screens swap. Its contents in the file are what was on the screen
+; when the game was saved (the language's colour_buffer.bin).
 ; read by: show_screen_colours_1, show_screen_colours_2
 colour_buffer:
-		.byte	$e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7
-		.byte	$e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7
-		.byte	$e2, $e7, $e2, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7
-		.byte	$e7, $e7, $e7, $e7, $e7, $e7, $e2, $e2, $e2, $e2, $e2, $e2, $e2, $e7, $e7, $e7
-		.byte	$e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7
-		.byte	$e8, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e8, $e2, $e8, $e2, $e8
-		.byte	$e8, $e8, $e2, $e8, $e2, $e2, $e8, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7
-		.byte	$e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e8, $e8, $e8
-		.byte	$e2, $e2, $e2, $e2, $e2, $e2, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e2, $e2, $e2
-		.byte	$e2, $e2, $e8, $e8, $ed, $ed, $e7, $e7, $e7, $e7, $e7, $e7, $e7, $e2, $e2, $e8
-		.byte	$e7, $e7, $e7, $e7, $e7, $e7, $e7, $e2, $e2, $e2, $e8, $e8, $e8, $e8, $e8, $e8
-		.byte	$e8, $e8, $e8, $e8, $e8, $e2, $e2, $e2, $e8, $e8, $e2, $e2, $e2, $e8, $e8, $e2
-		.byte	$e7, $e7, $e7, $ed, $e2, $e2, $e2, $e2, $e8, $e7, $e7, $e7, $e7, $e7, $e7, $e2
-		.byte	$e8, $e8, $e8, $ef, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8
-		.byte	$e8, $e8, $e8, $ed, $e2, $e2, $e2, $e2, $e2, $e2, $e2, $e2, $e2, $e8, $e8, $e8
-		.byte	$e7, $e7, $e7, $e8, $e8, $e2, $e2, $e8, $e8, $e8, $e8, $ef, $e8, $e8, $e8, $e8
-		.byte	$6d, $1d, $6d, $ed, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $ed, $e8, $e8, $e8, $e8
-		.byte	$e8, $ed, $ed, $ed, $e8, $e8, $e8, $e8, $e2, $e2, $e2, $e2, $e2, $e2, $e8, $e8
-		.byte	$e8, $e8, $e8, $e8, $e1, $e1, $e1, $61, $16, $16, $1d, $6d, $ed, $ed, $ed, $e8
-		.byte	$e8, $e8, $e8, $ed, $e8, $e8, $ed, $ed, $ed, $e8, $e8, $e8, $e8, $e8, $e8, $e8
-		.byte	$e2, $e2, $e2, $e8, $e2, $e8, $e8, $e8, $e8, $e8, $e8, $e1, $d1, $61, $6d, $6d
-		.byte	$6d, $6d, $6d, $6d, $6d, $16, $dd, $dd, $e8, $e8, $e8, $e8, $ed, $ed, $ed, $e8
-		.byte	$e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8
-		.byte	$e8, $e8, $e8, $e1, $d1, $16, $1d, $1d, $1d, $1d, $1d, $1d, $1d, $1d, $d6, $dd
-		.byte	$e8, $e8, $e8, $e8, $e8, $e9, $98, $98, $98, $e8, $e8, $e8, $e8, $98, $98, $e8
-		.byte	$e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $ed, $ed, $ed, $ed
-		.byte	$ed, $ed, $ed, $ed, $ed, $ed, $ed, $e8, $e8, $e9, $e9, $89, $e9, $98, $98, $98
-		.byte	$98, $98, $98, $e9, $98, $98, $98, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8
-		.byte	$e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $ed, $ed, $76, $36, $63, $63, $63, $67
-		.byte	$89, $98, $98, $98, $e8, $e8, $e8, $e8, $e8, $98, $98, $98, $e8, $e8, $e8, $e8
-		.byte	$e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e6
-		.byte	$36, $e6, $36, $36, $63, $63, $93, $36, $89, $98, $e8, $98, $98, $98, $98, $98
-		.byte	$98, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $ec
-		.byte	$e8, $e8, $e6, $e6, $e6, $e6, $e6, $36, $36, $e6, $36, $36, $63, $63, $63, $68
-		.byte	$e8, $e9, $98, $e8, $98, $98, $e9, $98, $98, $98, $e8, $e8, $e8, $e8, $e8, $e8
-		.byte	$e8, $e8, $e8, $e8, $e8, $e6, $e6, $e6, $e6, $e6, $e6, $e6, $36, $36, $36, $63
-		.byte	$36, $36, $36, $36, $36, $36, $e8, $98, $e9, $98, $98, $98, $e8, $e8, $e8, $e8
-		.byte	$e8, $e8, $98, $98, $98, $e8, $e8, $e8, $e8, $e8, $36, $36, $36, $e6, $e8, $e8
-		.byte	$e6, $e8, $e8, $e8, $e6, $36, $93, $36, $36, $36, $36, $36, $e8, $e8, $98, $98
-		.byte	$98, $e8, $e8, $e8, $98, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e9, $98, $98
-		.byte	$36, $e3, $e8, $e8, $e8, $36, $e3, $36, $36, $39, $36, $36, $e6, $96, $93, $96
-		.byte	$69, $98, $36, $86, $98, $98, $e9, $e8, $e8, $e8, $e8, $e8, $e8, $98, $e8, $e8
-		.byte	$e8, $e8, $e9, $98, $98, $98, $e8, $e8, $e3, $e3, $e6, $e6, $63, $63, $e3, $36
-		.byte	$36, $39, $36, $e3, $e3, $36, $96, $38, $86, $98, $98, $e9, $e8, $e8, $98, $e8
-		.byte	$e8, $e8, $e8, $e8, $e8, $98, $98, $e8, $98, $98, $98, $e8, $e8, $e8, $e8, $e8
-		.byte	$36, $36, $e9, $e9, $e9, $36, $63, $e3, $e8, $36, $e6, $e8, $e6, $36, $e6, $e6
-		.byte	$96, $e8, $e8, $e8, $e8, $e8, $98, $e8, $e8, $e8, $e8, $e8, $e8, $98, $98, $98
-		.byte	$e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $36, $e9, $98, $98, $98, $36, $e8, $e3
-		.byte	$e8, $96, $e9, $36, $36, $36, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $98, $e8
-		.byte	$e8, $e8, $e8, $98, $98, $e9, $e8, $98, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $e8
-		.byte	$36, $98, $98, $e9, $e8, $96, $e8, $e3, $e3, $36, $98, $36, $e3, $96, $e8, $e8
-		.byte	$e8, $e8, $e8, $e8, $e8, $e9, $e8, $e8, $98, $98, $98, $e8, $e8, $e8, $e8, $e8
-		.byte	$98, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $36, $e8, $e8, $e8, $e8, $96, $e8, $63
-		.byte	$e3, $63, $e6, $e8, $e8, $96, $e8, $e8, $e8, $e8, $e8, $e8, $e8, $98, $98, $98
-		.byte	$e9, $e9, $e9, $e9, $e9, $e9, $e9, $e8, $e8, $98, $e8, $e8, $e8, $e8, $e8, $e8
-		.byte	$36, $96, $e9, $98, $98, $39, $36, $36, $e3, $36, $96, $96, $96, $e6, $e8, $e8
-		.byte	$e8, $e8, $98, $98, $98, $98, $e8, $e9, $e9, $e9, $e9, $e9, $e9, $e9, $e9, $e8
-		.byte	$e8, $e8, $98, $e8, $e8, $e8, $e8, $e8, $36, $36, $39, $83, $86, $86, $86, $e3
-		.byte	$93, $e6, $e8, $e8, $e8, $e8, $e8, $e9, $98, $98, $e8, $e8, $e8, $e9, $e9, $e9
-		.byte	$e9, $e9, $e9, $e9, $e9, $e9, $e9, $e9, $e9, $e9, $e9, $98, $e8, $e8, $e8, $e8
-		.byte	$36, $86, $e6, $e6, $e6, $e6, $96, $96, $e6, $e8, $e8, $e8, $e8, $98, $98, $98
-		.byte	$e8, $e8, $e8, $e8, $e8, $e9, $e9, $e9, $e9, $e9, $e8, $e9, $e9, $e9, $e9, $e9
-		.byte	$e9, $e9, $e9, $e9, $98, $e8, $e8, $e8, $ea, $ea, $ea, $ea, $ea, $ea, $ea, $ea
-		.byte	$ea, $ea, $ea, $ea, $ea, $ea, $ea, $ea, $ea, $ea, $ea, $ea, $ea, $ea, $ea, $ea
+		.binary	"colour_buffer.bin"
 
 .virtual $d000
 ; x and y of sprites 0-7

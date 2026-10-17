@@ -1,0 +1,440 @@
+# 14 characters a puzzle, ^ marks a hidden one; see tools/puzzles.py
+
+|  2 4 16 256  |
+|      ^^      |
+| 4 16 64 256  |
+|      ^^      |
+|  A E I O U   |
+|      ^       |
+|A D G J M P S |
+|      ^       |
+|3 5 7 11 13 17|
+|      ^^      |
+|  171 = $AB   |
+|         ^    |
+|  FE = EISEN  |
+|       ^   ^  |
+| NACL = SALZ  |
+|        ^     |
+|  B O N U S   |
+|              |
+| 50+12% = 56  |
+|    ^^        |
+| Y = YPSILON  |
+|      ^    ^  |
+|  B O N U S   |
+|              |
+|    SATURN    |
+|     ^   ^    |
+|EBEN = GERADE |
+|^ ^           |
+|1 2 4 7 11 16 |
+|        ^^    |
+|KIRSCH(FRUCHT)|
+|  ^  ^        |
+|APFEL (FRUCHT)|
+| ^  ^         |
+| WOLF (TIER)  |
+|   ^          |
+| CADIZ (ORT)  |
+| ^            |
+| ADAM (NAME)  |
+| ^  ^         |
+| BISON (TIER) |
+|  ^ ^         |
+|BIENE (INSEKT)|
+|^ ^           |
+|RUBIN (STEIN) |
+| ^  ^         |
+| ROSE (BLUME) |
+|  ^ ^         |
+|SCHMIED(BERUF)|
+|   ^^         |
+| WIRT (BERUF) |
+| ^            |
+|WESPE (INSEKT)|
+| ^  ^         |
+|ACHAT (STEIN) |
+|^   ^         |
+|SIRIUS (STERN)|
+|   ^^         |
+|81 100 121 144|
+|       ^^     |
+|  CHR$(147)   |
+|    ^         |
+| FROH=MUNTER  |
+|   ^          |
+|NOVUM=NEUHEIT |
+|       ^  ^   |
+|  NUTTE=HURE  |
+|         ^    |
+|    ASIMOV    |
+|         ^    |
+|   #$%&'()    |
+|      ^       |
+|   ZXCVBNM    |
+|       ^      |
+| 6*X+7=31 X=4 |
+|            ^ |
+| IKTUS=SCHLAG |
+|           ^  |
+|LATENT=RUHEND |
+| ^            |
+|MANGO(FRUCHT) |
+|    ^         |
+|WIESEL (TIER) |
+|   ^^         |
+|    NOREBO    |
+|    ^         |
+|   A1 B2 E5   |
+|          ^   |
+|  9 63 45 18  |
+|       ^      |
+|   5! = 120   |
+|         ^    |
+|  12 APOSTEL  |
+|   ^          |
+| WEHE=SCHMERZ |
+|  ^ ^         |
+|  LIED=ARIE   |
+|       ^      |
+| HAFT=ARREST  |
+|  ^           |
+|  LA LE LES   |
+|         ^    |
+|   BEATLES    |
+|       ^      |
+|   ZEITRAUM   |
+|      ^   ^   |
+|1930=HALB ACHT|
+|  ^           |
+|  JAMES BOND  |
+|        ^^    |
+|  456+78=534  |
+|  ^       ^^  |
+|  XVII = 17   |
+|   ^          |
+|MAX UND MORITZ|
+| ^       ^    |
+|SCHELFE-SCHALE|
+|           ^ ^|
+| JULES VERNE  |
+|         ^^   |
+|  3 9 27 81   |
+|  ^           |
+|  3.1415927   |
+|     ^^       |
+| EISHAUS=IGLU |
+|            ^ |
+| ADAM UND EVA |
+| ^    ^       |
+|PIRAYA (FISCH)|
+|  ^           |
+|ZEITMASS=TEMPO|
+|           ^ ^|
+|  REIN - PUR  |
+|          ^   |
+|   2.71828    |
+|     ^        |
+|X*X=1369 X=37 |
+|            ^ |
+|DATTEL(FRUCHT)|
+|  ^^          |
+|TRAUBE(FRUCHT)|
+|^ ^           |
+| VORHER=DAVOR |
+|  ^  ^        |
+|DESHALB=DARUM |
+|    ^ ^       |
+| GENUIN=ECHT  |
+|    ^^        |
+|LAESTIG=GENANT|
+|         ^    |
+|  GEST=HEFE   |
+|   ^          |
+| HINWEIS=TIP  |
+|          ^   |
+|  HETZ=SPASS  |
+|   ^          |
+| GEFAESS=KRUG |
+|           ^  |
+|  B O N U S   |
+|              |
+|ABGABE=STEUER |
+|^    ^        |
+|STEUER=LENKRAD|
+|        ^   ^ |
+| A+4=2*A A=4  |
+|           ^  |
+|PATE UND PATIN|
+| ^        ^ ^ |
+|STICKIG=DUMPF |
+|         ^    |
+|  HUND=TOELE  |
+|   ^          |
+|  JAHWE=GOTT  |
+|         ^ ^  |
+|   BEN HUR    |
+|       ^      |
+|  ROBIN HOOD  |
+|  ^           |
+|   JE SEIT    |
+|    ^         |
+|LOCKER=SCHLAFF|
+| ^  ^         |
+|NIESELN=REGNEN|
+|         ^    |
+|1QAZ 2WSX 3EDC|
+|       ^      |
+|  PAPA=VATER  |
+|        ^ ^   |
+|1! 2" 3# 4$ 5%|
+|          ^   |
+|   21436587   |
+|       ^      |
+|DREHPUNKT=POL |
+|           ^  |
+| POET=DICHTER |
+|       ^   ^  |
+|KISSEN=POLSTER|
+| ^            |
+| IMKER(BERUF) |
+|   ^ ^        |
+| LAKAI(BERUF) |
+|  ^  ^        |
+| SPION(BERUF) |
+| ^  ^         |
+|TABAK(PFLANZE)|
+| ^ ^          |
+| 789AB A+4=14 |
+|            ^ |
+|   REISBREI   |
+|    ^    ^    |
+|   DENNOCH    |
+|    ^         |
+|    EKZEM     |
+|    ^         |
+|    PYJAMA    |
+|        ^     |
+|   NASHORN    |
+|    ^         |
+|   BENEHMEN   |
+|    ^ ^       |
+|GESTANK=QUALM |
+|        ^     |
+| PROSA+POESIE |
+|   ^          |
+|  ATEM=PUSTE  |
+|     ^        |
+| PULVER=PUDER |
+|         ^    |
+|DICK=PUMMELIG |
+| ^^           |
+| PSYCHE=SEELE |
+|   ^          |
+|STAUCHE=MUFFE |
+|         ^    |
+|  TERRA=ERDE  |
+|   ^  ^       |
+|  B O N U S   |
+|              |
+| THEMA=STOFF  |
+|         ^    |
+|  TIER=BIEST  |
+|   ^^         |
+|CERCLE=EMPFANG|
+|       ^     ^|
+| KLO TOILETTE |
+|   ^          |
+|    AD HOC    |
+|        ^     |
+|  FASS=TONNE  |
+|   ^          |
+|TOLLE=BUESCHEL|
+|            ^ |
+| FARBE=TINTE  |
+|  ^  ^        |
+|  B O N U S   |
+|              |
+|PAROLE=LOSUNG |
+|        ^ ^   |
+|SANDWURM=PIER |
+| ^   ^        |
+| KLUG=CLEVER  |
+|   ^          |
+|SIGNAL=ZEICHEN|
+| ^  ^         |
+| PINNE=STIFT  |
+|         ^    |
+| ? B O N U S  |
+|              |
+|  MILDE=ZART  |
+|         ^    |
+|REISSEN=ZERREN|
+|         ^  ^ |
+| RAUM=KABINE  |
+|      ^    ^  |
+|   ORT=KAFF   |
+|   ^          |
+|U BAHN= METRO |
+|         ^^   |
+|  FRIEDE=PAX  |
+|          ^   |
+| PATENT=NETT  |
+|         ^ ^  |
+|REAL=SACHLICH |
+| ^            |
+|KRATZEN=RITZEN|
+|  ^  ^        |
+|BAND=STREIFEN |
+| ^            |
+|BUERDE=BALLAST|
+|    ^         |
+| FLACH=PLATT  |
+|         ^    |
+|  WEIT=FERN   |
+|     ^        |
+|PLAESIER=SPASS|
+|          ^   |
+|MUECKE(INSEKT)|
+|^             |
+|FLIEGE(INSEKT)|
+| ^  ^         |
+|PLAFOND=DECKE |
+|      ^       |
+|LINSE(FRUCHT) |
+| ^            |
+|LOBEN=PREISEN |
+|           ^  |
+| LIMBUS=SAUM  |
+|     ^        |
+| AUFZUG=LIFT  |
+|         ^    |
+|  LICHT=HELL  |
+|         ^    |
+| HEIDE=LEHDE  |
+|        ^     |
+| STILL=LEISE  |
+|   ^          |
+|GEWEHR=MUSKETE|
+| ^  ^         |
+|  LAVA=MAGMA  |
+|        ^     |
+|NISSIG=FILZIG |
+| ^            |
+|PULPOES=MARKIG|
+|         ^    |
+|TRUTHENNE=PUTE|
+|           ^  |
+|RUDIMENT=REST |
+|          ^   |
+|SCHLECHT=BOESE|
+|         ^    |
+|SKIZZE=ENTWURF|
+|   ^^         |
+| REIHE=SKALA  |
+|         ^ ^  |
+|PROBLEM=SORGE |
+|  ^  ^        |
+|  SPINT=FETT  |
+|    ^         |
+| REDE=SPEECH  |
+|  ^           |
+|  ENG=KNAPP   |
+|        ^     |
+| ZANGE=KLUPPE |
+| ^            |
+| GEHILFE=MAAT |
+|          ^^  |
+|LUGEN=SPAEHEN |
+| ^            |
+|KNAGGE=PFLOCK |
+|          ^   |
+|UNIFORM=KLUFT |
+|          ^   |
+| FEGER=BESEN  |
+|  ^           |
+| KANTIG=ECKIG |
+|        ^ ^   |
+|LINEAL=KANTEL |
+|   ^^         |
+|  NOMEN=NAME  |
+|         ^    |
+|ORIGINAL=ECHT |
+|         ^  ^ |
+|EIFOERMIG=OVAL|
+|          ^ ^ |
+| PAAR=EINIGE  |
+| ^            |
+| PADDEL=RUDER |
+|         ^ ^  |
+|PRAEMIE=PREIS |
+|^             |
+| TATZE=PFOTE  |
+|         ^ ^  |
+|  ZWEIG=REIS  |
+|  ^           |
+|SCHOFEL=GEIZIG|
+|          ^ ^ |
+|SCHOEN=HUEBSCH|
+|       ^  ^   |
+| NARR=SCHOTE  |
+|         ^    |
+|GRUPPE=SEKTION|
+|  ^           |
+|SERAIL=PALAST |
+|          ^ ^ |
+|  RAND=SUELL  |
+|   ^          |
+|TAUSCH=CHANGE |
+|^             |
+| LIED=CHANSON |
+|    ^         |
+|  CANON=TAL   |
+|         ^    |
+|  B O N U S   |
+|              |
+|FENSTER=RAHMEN|
+|         ^  ^ |
+|MAMMUT (TIER) |
+|^   ^         |
+| BIENE=HUMMEL |
+|        ^     |
+|GASTHAUS=HOTEL|
+|         ^^   |
+|AUFTRAG=MANDAT|
+|         ^    |
+| GLEICH=EGAL  |
+|        ^     |
+|  JUNGE=BUB   |
+|   ^  ^       |
+| DUFT=BUKETT  |
+|        ^     |
+|BUKETT=STRAUSS|
+|         ^^   |
+|WUERDE=CHARGE |
+|           ^  |
+|BUERGE=GARANT |
+|    ^         |
+| SENSE=HIPPE  |
+|        ^     |
+|OPUS=KUNSTWERK|
+|  ^           |
+|AUSHANG=PLAKAT|
+|          ^ ^ |
+|   DAR=DORT   |
+|    ^         |
+|VORMALS=EHEDEM|
+|^             |
+| SALBAND=EGGE |
+|          ^^  |
+|HOCKER=SCHEMEL|
+| ^            |
+|KEPPELN=KEIFEN|
+|           ^  |
+|RENNWESEN=TURF|
+|           ^  |
+|MAHNUNG=URGENZ|
+|        ^     |
+
+free ff 00 00 ff 00 ff 00 ff 00 ff ff 00 ff 00 ff 00 ff 00

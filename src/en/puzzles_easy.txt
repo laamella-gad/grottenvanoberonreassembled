@@ -1,0 +1,442 @@
+# 14 characters a puzzle, ^ marks a hidden one; see tools/puzzles.py
+
+|    2+2=4     |
+|      ^       |
+|    5-2=3     |
+|      ^       |
+|   1+2+2=5    |
+|     ^        |
+|HE IS WALKING |
+|            ^ |
+|   COMPUTER   |
+|       ^      |
+|1 2 3 4 5 6 7 |
+|        ^     |
+|  2 4 6 8 10  |
+|        ^     |
+|    PENCIL    |
+|       ^      |
+| 17=SEVENTEEN |
+|      ^       |
+|    MEMORY    |
+|         ^    |
+|  5 + 7 = 12  |
+|      ^       |
+|  RADARSOFT   |
+|        ^     |
+|YEAR=12 MONTHS|
+|      ^       |
+|  DOZEN = 12  |
+|           ^  |
+|   8+17=25    |
+|      ^       |
+|  BEAUTIFUL   |
+|     ^        |
+|  6 - 3 = 3   |
+|      ^       |
+|   TOGETHER   |
+|        ^     |
+|    COFFEE    |
+|        ^     |
+|5 + 5 + 5 =15 |
+|           ^  |
+|    AUTUMN    |
+|         ^    |
+| GRANDFATHER  |
+|  ^           |
+| ABCDEFGHIJK  |
+|       ^      |
+|7 TIMES 9 = 63|
+|             ^|
+|QUARTER=15MIN |
+|         ^    |
+| FOR INSTANCE |
+|         ^    |
+|7 DAYS= 1 WEEK|
+|^             |
+|1 DAY=24 HOURS|
+|       ^      |
+|1 HOUR=60 MIN |
+|       ^      |
+|   IN LOVE    |
+|         ^    |
+| 1+2+3+4+5=15 |
+|            ^ |
+|   ELEPHANT   |
+|       ^      |
+|   PRACTICE   |
+|          ^   |
+|  25 +15 =40  |
+|           ^  |
+|    OBERON    |
+|        ^     |
+| BY C KRAMER  |
+|          ^   |
+|1+1+1+1+1+1=6 |
+|            ^ |
+|  SECRETARY   |
+|        ^     |
+|  DIFFERENCE  |
+|          ^   |
+| WELL DONE !  |
+|    ^         |
+|   BIOLOGY    |
+|       ^      |
+|1+2+3+3+2+1=12|
+|            ^ |
+| EXPLORATION  |
+|        ^     |
+|  COMMODORE   |
+|       ^      |
+|   JOYSTICK   |
+|         ^    |
+|  TELEVISION  |
+|        ^     |
+| 23 = 10 + 13 |
+|            ^ |
+|  1/4 = 25 %  |
+|         ^    |
+|  ADVENTURE   |
+|        ^     |
+|  GENTLEMAN   |
+|        ^     |
+|   TEN = 10   |
+|          ^   |
+|  CUP OF TEA  |
+|           ^  |
+|   AMUSING    |
+|      ^       |
+|CAT AND MOUSE |
+|  ^           |
+| 34 = 17 +17  |
+|          ^   |
+|    FIGURE    |
+|        ^     |
+| DONALD DUCK  |
+|      ^       |
+| MICKEY MOUSE |
+|        ^     |
+|   NEW YORK   |
+|          ^   |
+|   ABRAHAM    |
+|       ^      |
+| 24 + 12 =36  |
+|      ^       |
+|HONEST FELLOW |
+|          ^   |
+| THE BEATLES  |
+|           ^  |
+|   DISTANCE   |
+|         ^    |
+|   TUESDAY    |
+|       ^      |
+|   THURSDAY   |
+|      ^       |
+|   SATURDAY   |
+|      ^       |
+|  PRESIDENT   |
+|          ^   |
+|5 TIMES 5 = 25|
+|        ^     |
+| 80 = 50 + 30 |
+|           ^  |
+|    FLOWER    |
+|         ^    |
+|   BLOCKADE   |
+|       ^      |
+|INTERNATIONAL |
+|         ^    |
+|  1/5 = 20 %  |
+|        ^     |
+|56 = 7 TIMES 8|
+|             ^|
+|  WARM BATH   |
+|         ^    |
+|   IVANHOE    |
+|         ^    |
+|   PLEASANT   |
+|      ^       |
+| 34 + 11 =45  |
+|  ^           |
+| KING ARTHUR  |
+|          ^   |
+|   TEATIME    |
+|         ^    |
+|  BREAKFAST   |
+|       ^      |
+|MILK AND SUGAR|
+|           ^  |
+|  B O N U S   |
+|              |
+|10 * 34 = 340 |
+|     ^        |
+|   THOUSAND   |
+|       ^      |
+|   PIDGEON    |
+|     ^        |
+|   NORTHSEA   |
+|      ^       |
+|GREAT BRITTAIN|
+|          ^   |
+|    PLANET    |
+|        ^     |
+|  ICE CREAM   |
+|         ^    |
+|5 + 9 + 6 = 20|
+|        ^     |
+|  ATTENDANCE  |
+|         ^    |
+|8 - 6 + 4 = 6 |
+|            ^ |
+|   CRIMINAL   |
+|          ^   |
+|  COPYRIGHT   |
+|    ^         |
+|  PETER PAN   |
+|        ^     |
+|  REDEMPTION  |
+|      ^       |
+|  BUTTERFLY   |
+|     ^        |
+| REFRIGERATOR |
+|        ^     |
+|3 TIMES 3 = 9 |
+|            ^ |
+|  INTRODUCE   |
+|        ^     |
+|  INDIVIDUAL  |
+|         ^    |
+|   INDUSTRY   |
+|        ^     |
+|  ASSISTANT   |
+|       ^      |
+|   PASSION    |
+|         ^    |
+|   RELIGION   |
+|        ^     |
+| 99 = 100 - 1 |
+|            ^ |
+|    FRANCE    |
+|         ^    |
+| DISPENSATION |
+|    ^         |
+| EXPLANATION  |
+|     ^        |
+|  REPUTATION  |
+|      ^       |
+|  10 8 6 4 2  |
+|         ^    |
+|TIRED TO DEATH|
+|         ^    |
+|  JOURNALIST  |
+|  ^           |
+| THE OLYMPICS |
+|       ^      |
+|KING AND QUEEN|
+|           ^  |
+|   POSTMAN    |
+|         ^    |
+|4 TIMES 5 = 20|
+|        ^     |
+|  1/2 = 50 %  |
+|        ^     |
+|IT IS RAINING |
+|            ^ |
+| TO BURN DOWN |
+|           ^  |
+|   ADVISER    |
+|         ^    |
+|  CONTRACTOR  |
+|          ^   |
+|TO EARN MONEY |
+|      ^       |
+| TO EMBEZZLE  |
+|           ^  |
+|  AMSTERDAM   |
+|        ^     |
+|   BATHROOM   |
+|        ^     |
+|   DISCOUNT   |
+|          ^   |
+|  AGREEMENT   |
+|        ^     |
+|   UPRIGHT    |
+|        ^     |
+|10 TIMES 2 =20|
+|         ^    |
+|6 + 6 + 6 = 18|
+|    ^         |
+| 90 + 14 =104 |
+|      ^       |
+|11111111111111|
+|      ^       |
+|2 1 2 1 2 1 2 |
+|        ^     |
+|   RESOLUTE   |
+|         ^    |
+|   COMPASS    |
+|         ^    |
+| COACH-HOUSE  |
+|          ^   |
+|  BROKEN LEG  |
+|         ^    |
+|   HEADACHE   |
+|     ^        |
+|  EXTREMELY   |
+|      ^       |
+| STAY-AT-HOME |
+|           ^  |
+|  HUNGARIAN   |
+|      ^       |
+|  HURRICANE   |
+|    ^         |
+|   ALPHABET   |
+|    ^         |
+|   ALLERGY    |
+|    ^         |
+|2 TIMES 7 =14 |
+|^             |
+|100 - 40 = 60 |
+|           ^  |
+|  IN PUBLIC   |
+|          ^   |
+|  EVERYTHING  |
+|     ^        |
+|  WASHINGTON  |
+|       ^      |
+|2 + 2 + 2 = 6 |
+|        ^     |
+|   WESTERN    |
+|        ^     |
+|12 DOZEN=GROSS|
+|         ^    |
+|  FOUNDATION  |
+|    ^         |
+|    SMART     |
+|      ^       |
+|  CONFESSION  |
+|       ^      |
+|   CONTENTS   |
+|     ^        |
+| FABRICATION  |
+|        ^     |
+|   FACULTY    |
+|      ^       |
+|    FAMILY    |
+|     ^        |
+|   SKELETON   |
+|     ^        |
+| RESPECTABLE  |
+|     ^        |
+|6 TIMES 6 = 36|
+|        ^     |
+| 1/10 = 10 %  |
+|        ^     |
+|3 TIMES 13 =39|
+|         ^    |
+|    NOBODY    |
+|     ^        |
+|   ABILITY    |
+|     ^        |
+|MOUNT EVEREST |
+|        ^     |
+|   PRESENT    |
+|         ^    |
+|    ORPHAN    |
+|        ^     |
+|  RESISTANCE  |
+|     ^        |
+|   WEATHER    |
+|      ^       |
+| ORANGE JUICE |
+|          ^   |
+|   SARDINIA   |
+|      ^       |
+|  COLLECTION  |
+|       ^      |
+|12312312312312|
+|      ^       |
+| 23 + 7 = 30  |
+|      ^       |
+|TOASTING-FORK |
+|      ^       |
+|  COMMISSION  |
+|    ^         |
+|   SENATOR    |
+|    ^         |
+|    SQUARE    |
+|         ^    |
+|5 + 6 + 7 = 18|
+|        ^     |
+|   VAGABOND   |
+|         ^    |
+|  INDOLENCE   |
+|       ^      |
+| INTERMEDIATE |
+|         ^    |
+|KNIGHT TEMPLAR|
+|          ^   |
+|   OPPONENT   |
+|        ^     |
+|7 TIMES 7 = 49|
+|            ^ |
+|  OVERSPILL   |
+|        ^     |
+|  STUPIDNESS  |
+|          ^   |
+| 13 + 31 = 44 |
+|      ^       |
+| DISTURBANCE  |
+|        ^     |
+|   POSITIVE   |
+|    ^         |
+|  B O N U S   |
+|              |
+|   SNOWBALL   |
+|      ^       |
+| A QUEER FISH |
+|       ^      |
+| 24 + 42 = 66 |
+|       ^      |
+|  MOUSTACHE   |
+|       ^      |
+|200 - 10 = 190|
+|       ^      |
+|TOPOGRAPHICAL |
+|        ^     |
+| SANTA CLAUS  |
+|     ^        |
+|30+30+30 = 90 |
+|           ^  |
+| YOUR MAJESTY |
+|        ^     |
+| TRANSPARENT  |
+|         ^    |
+|  AN OLD LIE  |
+|       ^      |
+|33= 11 TIMES 3|
+|             ^|
+|RONALD REAGAN |
+|^             |
+|  CHARACTER   |
+|        ^     |
+| INDIGESTION  |
+|           ^  |
+|    RARITY    |
+|       ^      |
+|  IMMIGRANT   |
+|        ^     |
+|   OFFICIAL   |
+|      ^       |
+|12345677654321|
+|          ^   |
+| GLAZED FROST |
+|           ^  |
+|   PENALTY    |
+|       ^      |
+|   HORRIBLE   |
+|        ^     |
+|3 TIMES 4 = 12|
+|        ^     |
+
+free c9 20 c8 20 8a

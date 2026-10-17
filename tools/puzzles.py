@@ -21,7 +21,9 @@ file converts back to the same bytes.
 A bank holds at most 219 puzzles. The game picks the next puzzle by skipping 1
 to 8 of them and starts again at the first after the last, so any number works.
 Characters are screen codes $01-$3f: A-Z, digits, space and !"#$%&'()*+,-./:;<=>?
-plus [ ] £ ↑ ←. '@' (screen code 0) can't be used: it ends the bank.
+plus [ ] £ ↑ ←. '@' (screen code 0) can't start a puzzle: it ends the bank.
+Later in a puzzle the game reads it as the end too and shows the first puzzle's
+character in that place instead (the English F3 bank's QWERTYUIOP@ does).
 """
 import sys
 
@@ -42,7 +44,7 @@ def export(bin_path, txt_path):
     while data[pos]:
         puzzle = data[pos:pos + LENGTH]
         if 0 in puzzle:
-            sys.exit(f'puzzles: puzzle at ${pos:03x} holds a 0 byte')
+            print(f'puzzles: puzzle at ${pos:03x} holds an @: the game shows the first puzzle\'s character there')
         if any(c & 0x40 for c in puzzle):
             sys.exit(f'puzzles: puzzle at ${pos:03x} holds a screen code past $3f')
         lines.append('|' + ''.join(CHARS[c & 0x3f] for c in puzzle) + '|')
@@ -72,7 +74,7 @@ def import_(txt_path, bin_path):
     data = bytearray()
     for (number, text), (marks_number, marks) in zip(rows[::2], rows[1::2]):
         for column, (char, mark) in enumerate(zip(text, marks)):
-            if char not in CHARS[1:]:
+            if char not in CHARS[column == 0:]:
                 sys.exit(f'{txt_path}:{number}: no screen code for {char!r}')
             if mark not in ' ^':
                 sys.exit(f'{txt_path}:{marks_number}: only ^ or a space under a character')

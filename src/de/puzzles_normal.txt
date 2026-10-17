@@ -1,0 +1,442 @@
+# 14 characters a puzzle, ^ marks a hidden one; see tools/puzzles.py
+
+|   ZWEIMAL    |
+|    ^         |
+|  ZWEIKAMPF   |
+|  ^           |
+|   TAUCHBOT   |
+|    ^     ^   |
+| 9 * 11 = 99  |
+|     ^        |
+| VOLLSCHLANK  |
+|   ^      ^   |
+|  VERKNAPPEN  |
+|    ^      ^  |
+|TRANSPORTIEREN|
+|   ^        ^ |
+|  SCHMUTZIG   |
+|        ^     |
+|  1/4 = 25 %  |
+|    ^         |
+|  1/5 = 20 %  |
+|         ^    |
+|  SCHNAUZEN   |
+|   ^     ^    |
+| SCHARFSINNIG |
+|  ^    ^      |
+|   1 4 9 16   |
+|          ^   |
+| NOTENUMLAUF  |
+|   ^          |
+|MACHTLOSIGKEIT|
+|         ^   ^|
+|  ANLAUFZEIT  |
+|       ^  ^   |
+|   ANBRATEN   |
+|     ^        |
+|   ABSEITS    |
+|     ^        |
+|  EMAILLIERT  |
+|    ^     ^   |
+| DEFRAUDATION |
+|   ^      ^   |
+|  HIMMLISCH   |
+|  ^           |
+|   BRECHUNG   |
+|   ^     ^    |
+| 23 + 49 = 72 |
+|           ^^ |
+| STRICKNADEL  |
+|  ^       ^   |
+| REIHENFOLGE  |
+|   ^     ^    |
+|  BELAGERUNG  |
+|    ^         |
+|Q W E R T Y U |
+|          ^   |
+|A S D F G H J |
+|          ^   |
+|Z X C V B N M |
+|        ^     |
+|  B O N U S   |
+|              |
+| WUTENBRANNT  |
+|   ^      ^   |
+|  SEINERZEIT  |
+|   ^          |
+|ZEUGE JEHOVAS |
+|^  ^          |
+| GIEBELSTEIN  |
+|    ^     ^   |
+|    EGOIST    |
+|     ^        |
+| DEMONTIERUNG |
+|     ^   ^    |
+|  BAUMRINDE   |
+|      ^       |
+|   WICKELN    |
+|      ^       |
+|12 * 12 = 144 |
+|           ^  |
+| WIDERSACHER  |
+|     ^^       |
+| 65 - 47 = 18 |
+|      ^       |
+| WIDERSTREIT  |
+|   ^     ^    |
+|    VORHIN    |
+|      ^       |
+|  AAS=LUDER   |
+|      ^  ^    |
+| ABC=ALPHABET |
+|      ^    ^  |
+| ABFLUG=START |
+|        ^^    |
+| ABGUNST=NEID |
+|         ^    |
+| 121/11 = 11  |
+|  ^           |
+| 87 - 29 = 58 |
+|      ^^      |
+|  VORKAMMER   |
+|  ^           |
+|  2*2*2 = 8   |
+|          ^   |
+|  TURNHALLE   |
+|  ^   ^       |
+|  TURMSPITZE  |
+|    ^    ^    |
+|   KOTBLECH   |
+|   ^   ^      |
+|100 + 121 =221|
+|             ^|
+|  GEMSE=GANS  |
+|        ^     |
+| GAST=TOURIST |
+| ^            |
+| GEWICHT=LAST |
+|         ^    |
+|  KLEINVIEH   |
+|   ^          |
+| HUNDEARBEIT  |
+|    ^         |
+|   HOCHZEIT   |
+|     ^   ^    |
+|   FESTTAG    |
+|   ^          |
+| ENTSPRECHEND |
+|  ^     ^     |
+|  3*3*3 = 27  |
+|           ^  |
+|DUELL-GEFECHT |
+|      ^       |
+| GEBOT=ORDER  |
+|   ^          |
+|   DRUCKSEN   |
+|     ^        |
+|   BRILLANT   |
+|         ^    |
+|  BIENENKORB  |
+|        ^     |
+|  BIERLOKAL   |
+|  ^           |
+|AUSHILFSKRAFT |
+|   ^          |
+|    BIKINI    |
+|      ^       |
+|  AUSFOLGUNG  |
+|     ^   ^    |
+|    JAPAN     |
+|       ^      |
+|   KAUFMANN   |
+|   ^          |
+| BAUCHREDNER  |
+| ^   ^        |
+|BAUCHSCHMERZEN|
+|^ ^           |
+|   LANDHAUS   |
+|       ^      |
+|  4*4*2 = 32  |
+|      ^       |
+|  9 7 5 3 1   |
+|      ^       |
+|  1/10 = 0.1  |
+|           ^  |
+|ABSURD=GROTESK|
+|       ^^     |
+|  ADLER=AAR   |
+|        ^     |
+| ACHTEN=EHREN |
+|          ^   |
+|ADAMS FRAU=EVA|
+|           ^^ |
+|  IDEE=PLAN   |
+|        ^     |
+|  AROMA=DUFT  |
+|        ^  ^  |
+|   56/7 = 8   |
+|   ^          |
+|   45/5 = 9   |
+|   ^          |
+|  ADER=AORTA  |
+|         ^^   |
+|ATELIER=STUDIO|
+| ^ ^          |
+|23+54+78 = 155|
+|    ^         |
+| ALSO=DEMNACH |
+|      ^       |
+| EFFEKT=ZIEL  |
+|        ^     |
+|  DURCHFALL   |
+|    ^         |
+|  MARKENHEFT  |
+|        ^     |
+|   MARQUIS    |
+|      ^       |
+|   KINDISCH   |
+|       ^      |
+|  IRRGARTEN   |
+|     ^  ^     |
+| ITALIENISCH  |
+|  ^    ^      |
+|   ISRAELIT   |
+|        ^ ^   |
+| 21 * 6 = 126 |
+|      ^       |
+| 22 * 6 = 132 |
+|           ^  |
+| 31 - 18 = 13 |
+|       ^      |
+|112 + 223 =335|
+|             ^|
+|  B O N U S   |
+|              |
+| BEO (VOGEL)  |
+| ^            |
+| UHU (VOGEL)  |
+|  ^           |
+| FALK (VOGEL) |
+|   ^^         |
+| GANS (VOGEL) |
+| ^            |
+| HAHN (VOGEL) |
+|   ^          |
+| PFAU (VOGEL) |
+| ^            |
+|   TIP=RAT    |
+|       ^      |
+| GONG=TAMTAM  |
+|      ^  ^    |
+|  ROSS=PFERD  |
+|        ^     |
+|  FLUR=BODEN  |
+|       ^      |
+|  IRREMACHEN  |
+|      ^       |
+|   HUNDSWUT   |
+|       ^      |
+|    EMPORE    |
+|      ^       |
+|    DEHNEN    |
+|      ^       |
+|    DEKOR     |
+|        ^     |
+|   BELGRAD    |
+|       ^      |
+|   AUSLOSEN   |
+|     ^        |
+| CITY=ZENTRUM |
+|         ^    |
+|  BREIT=WEIT  |
+|   ^          |
+|  BILD=FOTO   |
+|  ^           |
+| ABZUGSKANAL  |
+|      ^       |
+|ARZT=MEDIZINER|
+|  ^^          |
+|AUSFUHR=EXPORT|
+|         ^^   |
+|  WAHRNEHMEN  |
+|  ^           |
+|6 * 7 = 48 - 6|
+|    ^         |
+| BEREIT=PARAT |
+|        ^ ^   |
+|   ABLISTEN   |
+|     ^        |
+|  ABLEUGNUNG  |
+|    ^         |
+|    ABGAS     |
+|       ^      |
+|  ABDUNKELN   |
+|    ^         |
+|  1/50 = 2%   |
+|    ^         |
+|   ABBLASEN   |
+|        ^     |
+|AUSLESE=ELITE |
+|   ^          |
+| IRAK (STAAT) |
+|  ^           |
+|CHINA (STAAT) |
+| ^            |
+|  BANAL=FADE  |
+|    ^         |
+|9*9 + 4*4 =97 |
+|           ^  |
+|  EXPANSIBEL  |
+|    ^         |
+| ARGLOS=NAIV  |
+|        ^     |
+| ANGST=BANGE  |
+|       ^  ^   |
+|   ABGEHEND   |
+|     ^        |
+|  ABMACHUNG   |
+|    ^         |
+| AMEISE=MIERE |
+|  ^           |
+|BERGGEIST=GNOM|
+|          ^   |
+| IMMER-STETS  |
+| ^   ^        |
+|  ABDANKUNG   |
+|    ^    ^    |
+|ANGELEGENHEIT |
+|  ^      ^    |
+| ANMUT=CHARME |
+|       ^^     |
+| ABNAHME=KAUF |
+|         ^    |
+| SPION=AGENT  |
+|        ^  ^  |
+|13 * 12 = 156 |
+|      ^       |
+| DREIST=KESS  |
+| ^   ^        |
+|ERDGEIST=TROLL|
+|         ^^   |
+|  FEHDE=ZANK  |
+|        ^     |
+|ERDGAS=METHAN |
+|       ^  ^   |
+| SELTEN - RAR |
+|           ^  |
+|  FILM=KINO   |
+|  ^           |
+|  FANG=BEUTE  |
+|       ^ ^    |
+|   FEE=ELFE   |
+|   ^          |
+| FEGER=BESEN  |
+|       ^      |
+| FASER=FIBER  |
+| ^ ^          |
+|  FELD=ACKER  |
+|    ^         |
+| NAVY=MARINE  |
+|      ^  ^    |
+| FERSE=HACKEN |
+|       ^ ^    |
+|  GASSE=WEG   |
+|  ^^          |
+|  GEGEN=ANTI  |
+|        ^  ^  |
+|GEHEIM=SEKRET |
+|       ^      |
+| 14 * 6 = 84  |
+|  ^           |
+|  GENRE=ART   |
+|        ^     |
+|SCHLUTTE-JACKE|
+|    ^         |
+|ERSATZ=RESERVE|
+|  ^  ^        |
+| ESSENZ=WESEN |
+|        ^     |
+|  FALL=STURZ  |
+|       ^^     |
+|FLIEGER=PILOT |
+|         ^^   |
+|  OFFICE=AMT  |
+|    ^ ^       |
+|  ODIN=WODAN  |
+|        ^^    |
+|231 - 87 = 144|
+|      ^       |
+| POET=DICHTER |
+| ^ ^          |
+|  ABSTUFUNG   |
+|   ^   ^      |
+|   ANDERSWO   |
+|       ^ ^    |
+|  AUFSETZER   |
+|     ^   ^    |
+|ERDE (PLANET) |
+| ^            |
+|MARS (PLANET) |
+|^             |
+|PLUTO (PLANET)|
+|^^            |
+|VENUS (PLANET)|
+|  ^           |
+|  PLATZ=ORT   |
+|  ^ ^         |
+| 2 * 78 = 156 |
+|           ^^ |
+|  POMP=PRUNK  |
+|  ^           |
+|  B O N U S   |
+|              |
+|PROFIL=UMRISS |
+|        ^     |
+|PUSTEN=BLASEN |
+|^             |
+|PROLOG=VORREDE|
+|^^            |
+|   PUR=REIN   |
+|       ^      |
+|34 + 67 = 101 |
+|           ^  |
+| QUAST=PINSEL |
+|       ^      |
+|   REH=BOCK   |
+|       ^      |
+| RENNEN=EILEN |
+|        ^  ^  |
+|SIGNAL=ZEICHEN|
+|^  ^          |
+|  4*4*4 = 64  |
+|          ^   |
+| POLE (SLAWE) |
+| ^            |
+|RUSSE (SLAWE) |
+|^             |
+|SKELETT=GEBEIN|
+|        ^     |
+| STABIL=FEST  |
+|  ^           |
+| STARR=STEIF  |
+|  ^           |
+|  RITZE=FUGE  |
+|        ^     |
+| 1/20 = 0.05  |
+|   ^          |
+|RISIKO=WAGNIS |
+|       ^   ^  |
+| FAHNE=SYMBOL |
+|  ^^          |
+|ULKIG=KOMISCH |
+|      ^^      |
+| UNSTET=LABIL |
+|   ^          |
+|81/9 = 5 + 2*2|
+|   ^          |
+|TIERGARTEN=ZOO|
+|           ^  |
+|  WALL=DAMM   |
+|       ^      |
+
+free ff 00 00 ff ff

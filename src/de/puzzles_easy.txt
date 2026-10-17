@@ -1,0 +1,442 @@
+# 14 characters a puzzle, ^ marks a hidden one; see tools/puzzles.py
+
+|  2 + 2 = 4   |
+|      ^       |
+|1 + 2 + 3 = 6 |
+|        ^     |
+|  5 - 2 = 3   |
+|      ^       |
+|  MASKENBALL  |
+|        ^     |
+|  MARKTLAGE   |
+|    ^         |
+| LEICHTSINNIG |
+|         ^    |
+|   LEISTUNG   |
+|       ^      |
+|   MACHTLOS   |
+|        ^     |
+|    KRITIK    |
+|     ^        |
+|   KRABBELN   |
+|         ^    |
+| KINDERWAGEN  |
+|    ^         |
+|  JUSTAMENT   |
+|       ^      |
+|  INSGEHEIM   |
+|    ^         |
+|  HUNDEHAUS   |
+|    ^         |
+|  2 * 5 = 10  |
+|      ^       |
+|  HUMORVOLL   |
+|       ^      |
+|    HUMMEN    |
+|       ^      |
+| 23= 13 + 10  |
+|     ^        |
+|  HUNDESCHAU  |
+|       ^      |
+|  HINDERUNG   |
+|       ^      |
+|   HERBERGE   |
+|        ^     |
+|  4 * 5 = 20  |
+|      ^       |
+|  HERDENTIER  |
+|     ^        |
+| HEREINFEGEN  |
+|      ^       |
+| 21 + 3 = 24  |
+|      ^       |
+| LUECKENHATT  |
+|      ^       |
+|  HAUPTSTADT  |
+|         ^    |
+|  7 * 3 = 21  |
+|          ^   |
+|   HABEDANK   |
+|     ^        |
+|  2 * 9 = 18  |
+|      ^       |
+|   HAFTUNG    |
+|     ^        |
+|  HAUPTMANN   |
+|     ^        |
+|    OBERON    |
+|       ^      |
+|  COMMODORE   |
+|  ^           |
+|  HAUSARREST  |
+|     ^        |
+|  KANINCHEN   |
+|    ^         |
+|  8 = 11 - 3  |
+|       ^      |
+|    KANZEL    |
+|        ^     |
+|   KLAGLOS    |
+|      ^       |
+|   KENNZAHL   |
+|      ^       |
+|  KREUZIGEN   |
+|        ^     |
+|  KOPFKISSEN  |
+|    ^         |
+|  KORBSTUHL   |
+|     ^        |
+|  MINDERZAHL  |
+|       ^      |
+| MITTERNACHT  |
+|       ^      |
+| MOTORROLLER  |
+|   ^          |
+|  3 * 5 = 15  |
+|          ^   |
+| 21 = 6*3 +3  |
+|  ^           |
+|   MUMMELN    |
+|    ^         |
+|   MUNDFAUL   |
+|      ^       |
+|   OBERHEMD   |
+|      ^       |
+|   PICHELN    |
+|       ^      |
+|   PLATZEN    |
+|      ^       |
+|RESPECTSPERSON|
+|       ^      |
+|  REZEPTION   |
+|    ^         |
+|  4 * 6 = 24  |
+|      ^       |
+|  B O N U S   |
+|              |
+|  RUTSCHBAHN  |
+|    ^         |
+|  SACHKENNER  |
+|  ^           |
+|  SACHWALTER  |
+|        ^     |
+|    SAFTIG    |
+|         ^    |
+| 100 - 93 = 7 |
+|        ^     |
+|  SACKGASSE   |
+|      ^       |
+| SCHLEIFSTEIN |
+|        ^     |
+|  SIEBZIGER   |
+|   ^          |
+|   SILBERIG   |
+|     ^        |
+|  ROSENKOHL   |
+|      ^       |
+|SCHLECHTMACHEN|
+|   ^          |
+|SCHEUERLAPPEN |
+|    ^         |
+| SCHEUERFRAU  |
+|         ^    |
+| RINDERBRATEN |
+|  ^           |
+| 23 + 8 = 31  |
+| ^            |
+|  SIEGESZUG   |
+|  ^           |
+|  SILHOUETTE  |
+|    ^         |
+|  UMGEKEHRT   |
+|  ^           |
+| 2 * 45 = 90  |
+|     ^        |
+|  OBERLEHRER  |
+|  ^           |
+|  1/4 = 0.25  |
+|          ^   |
+| SINNVERWANDT |
+|          ^   |
+|   MUTIEREN   |
+|    ^         |
+| STRECKEBEIN  |
+|  ^           |
+|   STRAFLOS   |
+|       ^      |
+|  EINMAUERN   |
+|       ^      |
+|   EINMALIG   |
+|     ^        |
+|   GEWAECHS   |
+|    ^         |
+| DREINFAHREND |
+|      ^       |
+|  DICKLEIBIG  |
+|      ^       |
+|  CHRONISCH   |
+|        ^     |
+|  DACHBODEN   |
+|    ^         |
+|  BUMMELZUG   |
+|     ^        |
+| BIENENSTOCK  |
+|    ^         |
+|  3 * 8 = 24  |
+|      ^       |
+|  BEINBRUCH   |
+|  ^           |
+|  AUTOUNFALL  |
+|    ^         |
+|  AUSMACHEN   |
+|   ^          |
+|   45/9 = 5   |
+|          ^   |
+| ANSCHREIBEN  |
+|   ^          |
+|   ANKUNFT    |
+|        ^     |
+|  ANHAFTUNG   |
+|      ^       |
+| 34 + 11 = 45 |
+|      ^       |
+|   ANBLICK    |
+|        ^     |
+| AMATEURSPIEL |
+|       ^      |
+|   ANBETUNG   |
+|         ^    |
+| 25 - 9 = 16  |
+|           ^  |
+|A B C D E F G |
+|        ^     |
+|1 2 3 4 5 6 7 |
+|        ^     |
+|2 4 6 8 10 12 |
+|      ^       |
+| 1 3 5 7 9 11 |
+|       ^      |
+| A C E G I K  |
+|         ^    |
+|5 10 15 20 25 |
+|        ^     |
+|   AUFWAND    |
+|       ^      |
+|   AUGENLID   |
+|     ^        |
+| AUSNAHMEFALL |
+|         ^    |
+|  BRUNSTZEIT  |
+|      ^       |
+| BUCHHANDLUNG |
+|      ^       |
+| CHRISTUSBILD |
+|     ^        |
+|  DADRUNTEN   |
+|        ^     |
+|  DANKBESUCH  |
+|     ^        |
+| DEGRADIERUNG |
+|      ^       |
+|   DENKART    |
+|      ^       |
+|  DEICHBRUCH  |
+|        ^     |
+| DIENSTANZUG  |
+|    ^         |
+|  WASSER=H2O  |
+|          ^   |
+|VERANTWORTUNG |
+|      ^       |
+| VAKZINIEREN  |
+|      ^       |
+| VERABREDUNG  |
+|        ^     |
+|  VERFRESSEN  |
+|     ^        |
+|  VERIRRUNG   |
+|       ^      |
+|   VIADUKT    |
+|        ^     |
+|   VIERECK    |
+|     ^        |
+|   KAUTION    |
+|        ^     |
+| VORDERGLIED  |
+|    ^         |
+|   VERSCHUB   |
+|   ^          |
+|VERFINSTERUNG |
+|   ^          |
+|TRAUBENZUCKER |
+|^             |
+| 23 + 76 = 99 |
+|      ^       |
+|  TRAUMBILD   |
+|      ^       |
+|  TIEFPUNKT   |
+|     ^        |
+|  TRIUMPHAL   |
+|   ^          |
+| TRUNKENHEIT  |
+|     ^        |
+| 43 = 87 - 44 |
+|      ^       |
+|  EINSENKUNG  |
+|        ^     |
+|  DACHGOSSE   |
+|  ^           |
+| BORSTENVIEH  |
+| ^            |
+|   BEACHTEN   |
+|    ^         |
+|  BEACHTLICH  |
+|       ^      |
+|  AUFSCHLAG   |
+|    ^         |
+| 22 - 14 = 8  |
+|  ^           |
+|   AUFSEHER   |
+|        ^     |
+| AUSNAHMSLOS  |
+|    ^         |
+| AUSPUFFROHR  |
+|    ^         |
+|  AUGENMERK   |
+|    ^         |
+| MANDELKUCHEN |
+|    ^         |
+|   MALKUNST   |
+|      ^       |
+|    MAUER     |
+|        ^     |
+| MEISTERLICH  |
+|     ^        |
+| MINDESTALTER |
+|       ^      |
+| MUMMELGREIS  |
+|       ^      |
+|  NARRENHAUS  |
+|       ^      |
+|  MASSENMORD  |
+|    ^         |
+|  NEBENFRAGE  |
+|          ^   |
+|   NUTZUNG    |
+|      ^       |
+| POLIZEIHUND  |
+|     ^        |
+|  PORZELLAN   |
+|    ^         |
+| PREISNIEDRIG |
+|      ^       |
+| PREISSENKUNG |
+|        ^     |
+|  SITTENLOS   |
+|        ^     |
+|   SPANIEN    |
+|        ^     |
+|  SPAZIEREN   |
+|     ^        |
+| STRAFURTEIL  |
+|     ^        |
+|   TROMPETE   |
+|     ^        |
+|    TUGEND    |
+|     ^        |
+|  8 * 6 = 48  |
+|          ^   |
+|  TURNERISCH  |
+|   ^          |
+|    ORKAN     |
+|       ^      |
+| 22 + 4 = 26  |
+|           ^  |
+|  B O N U S   |
+|              |
+|1 4 9 25 36 49|
+|          ^   |
+|43 45 47 49 51|
+|         ^    |
+|  TOTENBAHRE  |
+|    ^         |
+|  THEOLOGIE   |
+|      ^       |
+| UNTERHALTUNG |
+|      ^       |
+|  UNGEBILDET  |
+|  ^           |
+|VERDIENSTLICH |
+|   ^          |
+| 3 + 56 = 59  |
+|     ^        |
+|  VERFLUCHT   |
+|   ^          |
+|  VERFECHTER  |
+|     ^        |
+|  VERGLEICH   |
+|      ^       |
+|  VERWANDELN  |
+|     ^        |
+|UNTEREINANDER |
+|    ^         |
+| TRATSCHMAUL  |
+|    ^         |
+|   SORGSAM    |
+|     ^        |
+| 4 * 12 = 48  |
+|          ^   |
+| SORGENSCHWER |
+|   ^          |
+|  SELBSTKLUG  |
+|     ^        |
+|  RUHEPAUSE   |
+|      ^       |
+| 54 + 12 = 66 |
+|      ^       |
+|  RAUSCHELIG  |
+|          ^   |
+| REALISIEREN  |
+|      ^       |
+|   PIMPELIG   |
+|     ^        |
+|11 + 3 = 12+ 2|
+|     ^        |
+|   KEHLKOPF   |
+|      ^       |
+|HINDURCHGEHEN |
+|     ^        |
+|   HAUSHALT   |
+|       ^      |
+|  ABZEHRUNG   |
+|        ^     |
+|    ABSAGE    |
+|      ^       |
+|  ABZWEIGUNG  |
+|    ^         |
+| 34 - 12 = 22 |
+| ^            |
+|7 + 6 + 3 = 16|
+|        ^     |
+| 10 * 3 = 30  |
+|          ^   |
+|  BRUSTKORB   |
+|    ^         |
+|   DEUTBAR    |
+|      ^       |
+|   EIDOTTER   |
+|        ^     |
+|  LAGERRAUM   |
+|      ^       |
+| KOSTSPIELIG  |
+|         ^    |
+|   INSOFERN   |
+|    ^         |
+|  RUECKLICHT  |
+|        ^     |
+|    HERAN     |
+|        ^     |
+|   GESTEIN    |
+|      ^       |
+
+free ff 48 81 fe ef

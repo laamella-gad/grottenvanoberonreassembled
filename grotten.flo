@@ -392,7 +392,7 @@ $2437 byte radar_offset
 $2438 byte radar_mask
 $2439-$2441 byte bit_masks
 ; leftovers of an earlier memory image
-$2441-$2800 byte unused_2441
+$2441-$2800 byte leftovers_1
 
 ; ---------------------------------------------------------------- character set
 ; $2800-$2bff, chars $00-$7f: barrier characters, set up and animated at run time
@@ -664,7 +664,7 @@ $cb7c byte barrier_right_char
 ; 1 while the barrier closes
 $cb7d byte barrier_closing
 $cb7e byte barrier_mask_index
-$cb7f-$cc00 byte unused_cb7f
+$cb7f-$cc00 byte leftovers_2
 ; the colour buffer: drawn with the hidden screen, copied to the colour RAM
 ; when the screens swap
 $cc00-$d000 byte colour_buffer

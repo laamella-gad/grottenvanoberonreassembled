@@ -1,0 +1,442 @@
+# 14 characters a puzzle, ^ marks a hidden one; see tools/puzzles.py
+
+|  2 4 16 256  |
+|      ^^      |
+|45 * 56 = 2520|
+|            ^ |
+| 34 * 21 =714 |
+|           ^  |
+|X*X=1369 X=37 |
+|            ^ |
+|81 100 121 144|
+|        ^     |
+| 422-289=133  |
+|      ^       |
+|33 * 33 =1089 |
+|           ^  |
+|  OBSTINACY   |
+|     ^^       |
+|   CUPBOARD   |
+|       ^^^    |
+|  BATTLEMENT  |
+|      ^^  ^   |
+|  COMMANDER   |
+|   ^^         |
+| AT ONE TIME  |
+|     ^     ^  |
+| INDISCRETION |
+|        ^^    |
+|  CARDBOARD   |
+|   ^     ^    |
+| RECOGNIZABLE |
+|    ^^     ^  |
+|   CERAMICS   |
+|     ^   ^    |
+| 111+435= 546 |
+|     ^^^      |
+| 211+546=757  |
+|  ^    ^ ^    |
+|  3.1415927   |
+|     ^^       |
+|   5! = 120   |
+|         ^    |
+| FALCON CREST |
+|         ^^^  |
+|  JAMES BOND  |
+|    ^^^       |
+|  VI+VI=XII   |
+|        ^     |
+|  WORK=LABOR  |
+|  ^ ^         |
+|  YON=THERE   |
+|      ^ ^     |
+|   AMBNCOD    |
+|        ^     |
+| WICKED=EVIL  |
+| ^ ^          |
+|  WHIRL=SPIN  |
+|    ^^        |
+|   WINE=VIN   |
+|   ^ ^        |
+| 408/12 = 34  |
+|      ^       |
+|  8! = 40320  |
+|        ^     |
+|13 17 19 23 29|
+|          ^   |
+|  WONT=HABIT  |
+|       ^  ^   |
+|  WRATH=IRE   |
+|   ^^         |
+|  STOP=HALT   |
+|  ^  ^        |
+| TURN=ROTATE  |
+| ^^           |
+| SPARE=EXTRA  |
+| ^   ^        |
+| WILD=SAVAGE  |
+|      ^   ^   |
+|   WIN=GAIN   |
+|       ^  ^   |
+|  INTIMATION  |
+|    ^ ^       |
+| VIPER=ADDER  |
+|       ^^     |
+|UMPIRE=REFEREE|
+|^ ^           |
+| AC GI FH KM  |
+|          ^   |
+|   WILE=ART   |
+|    ^^        |
+|A1 B2 E5 D4 C3|
+|       ^      |
+|  B O N U S   |
+|              |
+|   WEIR=DAM   |
+|   ^ ^        |
+|  WALK=STEP   |
+|  ^ ^         |
+| VISAGE=FACE  |
+|     ^  ^     |
+|  WATCH=SEE   |
+|        ^^    |
+|  ZSE4 VGY7   |
+|        ^     |
+|  TRAP=SNARE  |
+|       ^ ^    |
+|  B O N U S   |
+|              |
+| 10*3*2=62-2  |
+|           ^  |
+|  CHARACTER   |
+|  ^     ^     |
+| TRADE=METIER |
+|       ^ ^    |
+|  TAG=LABEL   |
+|        ^^    |
+|  TOGS=DUDS   |
+|       ^      |
+| A<B B<C C>A  |
+|          ^   |
+|MOTIVE=REASON |
+|       ^   ^  |
+| INSET=PANEL  |
+|       ^^     |
+|  PLANT=SOW   |
+|  ^  ^        |
+| LATERAL=SIDE |
+|       ^ ^    |
+|  PEAT=TURF   |
+|       ^ ^    |
+|  886*7=6202  |
+|   ^          |
+| STRAIN=EXERT |
+|        ^^    |
+|POSTURE=STANCE|
+|        ^  ^  |
+|  SPOIL=ROT   |
+|      ^ ^     |
+|   COMMONLY   |
+|   ^     ^    |
+| INCONVENIENT |
+|   ^     ^    |
+|PUBLIC LIBRARY|
+|       ^  ^   |
+| SOOTHE=LULL  |
+|    ^^        |
+|  3812/4=953  |
+|   ^          |
+|  COMPULSORY  |
+|  ^      ^    |
+|  MONITRESS   |
+|       ^ ^    |
+| LENS-SHAPED  |
+|      ^^      |
+|SCHOOLMISTRESS|
+|      ^^      |
+|  LIBERALIST  |
+|  ^      ^    |
+|  IN A BLAZE  |
+|       ^   ^  |
+| HE IS A LIAR |
+|     ^    ^   |
+|   LEMONADE   |
+|   ^    ^     |
+|  CORPULENT   |
+|  ^           |
+| TO THE LEFT  |
+|  ^     ^     |
+| KNOCK LOOSE  |
+| ^^           |
+|  LAZY-BONES  |
+|       ^  ^   |
+| FOOLISHNESS  |
+| ^  ^         |
+|ASK FOR A LIFT|
+|          ^  ^|
+|  VEGETABLE   |
+|    ^   ^     |
+| SPIRIT AWAY  |
+| ^    ^       |
+|  MOLE-HILL   |
+|       ^ ^    |
+|   FLATTERY   |
+|      ^^      |
+|   MORALIZE   |
+|     ^^       |
+|  MYSTERIOUS  |
+|  ^    ^      |
+| NERVOUSNESS  |
+| ^     ^      |
+|  EMERGENCY   |
+|  ^   ^       |
+|  OCCASIONAL  |
+|  ^^          |
+|29 * 32 = 928 |
+|     ^        |
+| 6*4*8*3=576  |
+|     ^        |
+| 223-98=120+5 |
+|     ^^       |
+|  SPIN ROUND  |
+|       ^ ^    |
+|NEIGHBOURHOOD |
+|^^      ^     |
+| UNRECLAIMED  |
+| ^ ^          |
+|3*3*3*3*5=405 |
+|      ^       |
+| INACCESSIBLE |
+|  ^^          |
+| INEQUITABLE  |
+|    ^^        |
+| RESIGNATION  |
+| ^ ^          |
+|  DISSEMBLE   |
+|  ^  ^        |
+|   UNHEATED   |
+|    ^^        |
+| HALLOW=BLESS |
+|     ^  ^     |
+| XXY3E=XXY3E  |
+|    ^  ^      |
+|  SELL=VEND   |
+|  ^^          |
+|THITHER=THERE |
+|        ^^    |
+| FILCH=STEAL  |
+|       ^^     |
+|  HAG=CRONE   |
+|  ^ ^         |
+|UNACCOMPLISHED|
+|      ^^      |
+|  UNPREPARED  |
+|    ^^        |
+| 753+439=1192 |
+|  ^    ^      |
+|  SPICE=MACE  |
+|         ^ ^  |
+|  B O N U S   |
+|              |
+| 962-134=828  |
+|       ^ ^    |
+| PUPPET=DOLL  |
+| ^ ^          |
+|  UPROAR=DIN  |
+|    ^^        |
+| LICHEN=MOSS  |
+| ^^           |
+|  NEAR TO=BY  |
+|  ^ ^         |
+|  457*3=1371  |
+|      ^  ^    |
+| WORD BY WORD |
+|         ^ ^  |
+|  MJU7 VFR4   |
+|    ^         |
+|  DIG=DELVE   |
+|      ^^      |
+|  LIKE=SAME   |
+|  ^ ^         |
+|INFLAMMABILITY|
+|  ^^          |
+| UNEXHAUSTED  |
+|  ^  ^        |
+| 1050=759+291 |
+|   ^    ^     |
+|  POUR=RAIN   |
+|       ^^     |
+|  TRIAL=TEST  |
+|   ^^         |
+| QUAKE=SHAKE  |
+|    ^     ^   |
+|  WED=MARRY   |
+|  ^ ^         |
+|  PAD=TABLET  |
+|      ^^      |
+|ISOLATE=ENISLE|
+|         ^^   |
+| SATAN=DEVIL  |
+|       ^ ^    |
+|  LUNA=MOON   |
+|         ^^   |
+|  B O N U S   |
+|              |
+| SUET=TALLOW  |
+|      ^ ^     |
+| CLING=STICK  |
+|       ^^     |
+| AT ODDS=OUT  |
+|    ^^        |
+|  2368/64=37  |
+|     ^ ^      |
+| SPEAR=LANCE  |
+| ^^           |
+|  TAVERN=INN  |
+|          ^^  |
+| QETUO ADGJL  |
+| ^            |
+|    ABDGKP    |
+|         ^    |
+| REST=REPOSE  |
+| ^^           |
+|  WASH=LAVE   |
+|  ^^          |
+|  UNKIND=ILL  |
+|      ^^      |
+| UNCTION=BALM |
+|      ^^      |
+| TRAIL=TRACK  |
+|         ^^   |
+|   VASE=URN   |
+|     ^^       |
+|STROLL=WONDER |
+|          ^^  |
+|23 * 18 = 414 |
+|      ^       |
+|  POME=APPLE  |
+|       ^^     |
+| 76 * 7 = 532 |
+|  ^           |
+|  B O N U S   |
+|              |
+|567 - 389 =178|
+|            ^ |
+|  TEST=TRIAL  |
+|       ^   ^  |
+|54 * 13 = 702 |
+|           ^  |
+| 78 * 6 = 468 |
+|  ^           |
+|345 + 232 =577|
+| ^    ^      ^|
+|23% + 54%=77% |
+|          ^^  |
+| WILDCAT=LYNX |
+|         ^^   |
+| TABARD=CAPE  |
+|    ^^        |
+| WAKEN=AROUSE |
+|       ^^     |
+| ORIENT=EAST  |
+|        ^^    |
+| DISMAL=DREAR |
+|         ^^   |
+|  APATHETIC   |
+|   ^^         |
+|  CREMATION   |
+|   ^^         |
+| PRESERVATION |
+|      ^^      |
+|  ADMIRABLY   |
+|   ^^         |
+| ONE HUNDRED  |
+|     ^^       |
+|  OCCUPATION  |
+|  ^^          |
+| SUBORDINATE  |
+|  ^^          |
+|  COMPROMISE  |
+|     ^^       |
+| MONSTROSITY  |
+|     ^  ^     |
+|  INDURATION  |
+|   ^^         |
+|  PERPETUATE  |
+|        ^^    |
+| DIRTY FELLOW |
+|       ^^     |
+| HE SAT TIGHT |
+|        ^^    |
+| AT TOP SPEED |
+|        ^^    |
+|  TIDAL WAVE  |
+|        ^^    |
+| COMMENTATOR  |
+|   ^^         |
+| GRASP FIRMLY |
+| ^^           |
+| STATISTICAL  |
+|      ^^      |
+|  SUSPENSION  |
+|    ^^        |
+|  TREMENDOUS  |
+|  ^  ^        |
+|  SHABBINESS  |
+|       ^^     |
+|   MONETARY   |
+|       ^^     |
+|  ENTHUSIASM  |
+|    ^^        |
+|   SURVEYOR   |
+|     ^^       |
+|  ELSEWHERE   |
+|   ^^         |
+| PARTNERSHIP  |
+| ^^           |
+|   BAPTISM    |
+|     ^        |
+|  DOG-TIRED   |
+|       ^^     |
+|  IMMEDIATE   |
+|   ^    ^     |
+| 4*5*6*7=840  |
+|          ^   |
+|1/1000 = 0.1% |
+|           ^  |
+|1/2000 = 0.05%|
+|            ^ |
+| 789+546=1335 |
+|          ^   |
+| 65 * 7 = 455 |
+|          ^   |
+|  4*X=36 X=9  |
+|           ^  |
+| 55/11 = 10/2 |
+|    ^^        |
+| 22/4 = 5.50  |
+|           ^  |
+|  B O N U S   |
+|              |
+| COUPLE=PAIR  |
+|        ^^    |
+| DEADLY=FATAL |
+|        ^^    |
+|  B O N U S   |
+|              |
+|  HERO=IDOL   |
+|        ^^    |
+|  EMOTIONAL   |
+|   ^     ^    |
+|DONKEY-DRIVER |
+|       ^^     |
+|   FABULOUS   |
+|      ^       |
+| CONSUMPTION  |
+|  ^     ^     |
+|BECOME BEDSORE|
+|         ^^   |
+|  MANAGEMENT  |
+|    ^^        |
+
+free ff 30 40 ff ff

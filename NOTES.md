@@ -8,32 +8,51 @@ tanks, find the way out before the fuel runs out or the damage reaches 100 %.
 
 | File | What |
 | --- | --- |
-| `GROTTEN.T64` | the original tape image (one file, "OBERON", the "ABC" crack) |
-| `original/oberon_packed.prg` | that file, $0801-$b2cf, packed |
+| `GROTTEN.T64` | the Dutch tape image (one file, "OBERON", the "ABC" crack) |
+| `GROTTENO.T64` | the German version, "GROTTEN V.OBERON" (and a picture file) |
+| `CAVESOFO.T64` | the English version, "CAVES OF OBERON+" (and "CAVES OF OB. DOX", the instructions) |
+| `original/oberon_packed.prg` | the Dutch file, $0801-$b2cf, packed |
 | `original/grotten_unpacked.prg` | memory after both depackers, $0801-$cfff, at the jump to $1000 |
 | `grotten.prg` | the same with the crack's leftovers at $0801-$0bff replaced by `10 SYS4096`: the Deflower input and the reference for `make check` |
-| `grotten.flo` | the Deflower annotations: every routine, variable and table |
+| `grotten_de.prg`, `grotten_en.prg` | the German and English games made the same way: memory at the jump to $1000, $0801-$0bff replaced by the same `10 SYS4096` |
+| `grotten.flo` | the Deflower annotations (Dutch version): every routine, variable and table |
 | `out/` | Deflower's output (`make disasm`), not edited by hand |
-| `src/grotten.asm` | the source, a copy of `out/grotten.asm`: edit code and texts here |
-| `src/*.bin` | sprites, charset, map, tiles (copies of Deflower's exports) |
-| `src/puzzles_*.txt` | the four puzzle banks as text |
+| `src/grotten.asm` | the source of all three versions, from `out/grotten.asm`: edit code here |
+| `src/nl/`, `src/de/`, `src/en/` | each language's files, see below |
 | `tools/puzzles.py` | puzzle bank <-> text |
 | `tools/playfield.py` | cave <-> CharPad project, and a picture of the cave |
+| `tools/sprites.py` | sprites <-> SpritePad project |
 
-`src/` was copied from `out/` once. Running Deflower again doesn't touch it;
-copy over by hand only what changed in the annotations, or edits get lost.
+Each language directory holds:
+
+| File | What |
+| --- | --- |
+| `text.asm` | `language = "nl"` (`"de"`, `"en"`) and all texts, as `.segment`s that `grotten.asm` puts in place |
+| `saved.asm` | what some variables held when the version was saved (see below) |
+| `sprites.bin`, `charset.bin`, `map.bin`, `tile_chars.bin`, `tile_colours.bin` | the graphics and the cave |
+| `puzzles_*.txt` | the four puzzle banks as text |
+| `leftovers_1.bin`, `leftovers_2.bin`, `colour_buffer.bin` | what was in memory after the game code, the engine, and in the colour buffer |
+
+`src/grotten.asm` was copied from `out/` once and has since been changed for
+the three languages (texts moved out, `.if language == "en"` blocks). Running
+Deflower again doesn't touch it; copy over by hand only what changed in the
+annotations, or edits get lost.
 
 ## Building
 
 ```
-make            # build/grotten.prg: loads at $0801, RUN starts it
-make check      # byte-identical to grotten.prg while src/ is unchanged
-make release    # grotten_van_oberon.prg, crunched with pucrunch (start $1000)
+make            # build/nl.prg, build/de.prg, build/en.prg: load at $0801, RUN starts them
+make en         # one of them
+make check      # each byte-identical to its original while src/ is unchanged
+make release    # grotten_van_oberon.prg, grotten_von_oberon.prg, caves_of_oberon.prg,
+                # crunched with pucrunch (start $1000)
 make disasm     # Deflower: 0 differ, 0 gaps
 ```
 
-64tass, no illegal opcodes (no `-i` needed). `.binary` files are found in `src/`,
-then in `build/` (the puzzle banks made from the text files).
+64tass, no illegal opcodes (no `-i` needed). The Makefile picks the language
+with the include path: `-I src/<language> -I build/<language>`, so
+`.include "text.asm"` and `.binary "map.bin"` find that language's files, and
+the puzzle banks made from its text files.
 
 The unpacked build fills $0801-$cfff, which the KERNAL loads fine; the crunched
 release is one file that unpacks itself.
@@ -53,20 +72,52 @@ These were run in a small 6502 emulator instead of VICE to get the image at
 $1000. The crack also changed the status line's text (`message_default`:
 "GEKRAAKT IN 1985 DOOR ABC"); nothing else in the game was found changed.
 
+The German and English files are other cracks, unpacked the same way up to the
+game's `jmp $1000`. The German one keeps Radarsoft's credit in the status line.
+The English one unpacks to a second intro at $1000 ("FILTERMEZZO! BY ZYRON"),
+then a trainer menu at $0800 (cursor keys and RETURN); its options poke the
+`jsr counter_increment` of the damage ($20ec) and the `jsr counter_decrement`
+of the fuel ($2112). `grotten_en.prg` is taken with the options off, so those
+are the original `jsr`s.
+
+## The three versions
+
+`src/grotten.asm` builds all three; `make check` compares each with its
+original.
+
+- Dutch and German: the same code. Only the texts, the data and the leftovers
+  differ, and the texts' addresses follow from their lengths (all pointers to
+  them are labels).
+- English: the same game code ($1000 on), but its engine was sped up, in
+  `.if language == "en"` blocks:
+  - `start` writes 1000 `lda $ccxx / sta $d8xx` pairs and an `rts` to $6000,
+    over the map image it just copied (`colour_copy_write`). `show_screen`
+    jumps there instead of running its copy loop.
+  - `scroll_shift_screen`'s loop is unrolled to the 4 parts at once
+    (`scroll_shift_up` / `scroll_shift_down` set up parts 2-4);
+    `scroll_carry_opcode` holds 0 instead of `clc` for up.
+  - `scroll_shift_colours` shifts the colour RAM into the colour buffer
+    instead of the buffer into itself.
+  - The barrier animation (`barrier_code`, the same code) sits after the game
+    code ($23ef) instead of at the end of the engine.
+- What some variables held when the version was saved differs too (the status
+  scroller's position, the sound effect, the switch, ...): `saved.asm` starts
+  them with those values, so each build is identical.
+
 ## Memory map
 
 | Range | What |
 | --- | --- |
 | $0400 / $0800 | the two screens, swapped (`$d018` eor $30) when the scroll wraps; sprite pointers at $07f8 / $0bf8 |
 | $0c00-$0fff | 16 sprites, pointers $30-$3f (`sprites.bin`) |
-| $1000-$2440 | game: title, puzzles, terminals, main loop, status line, texts |
-| $2441-$27ff | leftovers |
+| $1000-$2440 | game: title, puzzles, terminals, main loop, status line, texts (Dutch; the others end elsewhere) |
+| $2441-$27ff | leftovers (English: the barrier animation first) |
 | $2800-$2fff | charset (`charset.bin`), `$d018` = $1a |
 | $3000-$5fff | four puzzle banks of $c00 |
 | $6000-$7fff | the map image, copied to $e000-$ffff (RAM under the KERNAL) at the start |
 | $8000-$9fff | tile characters (`tile_chars.bin`) |
 | $a000-$bfff | tile colours (`tile_colours.bin`) |
-| $c000-$cb7e | the engine: scrolling, drawing, raster IRQ, frame handler, barriers |
+| $c000-$cb7e | the engine: scrolling, drawing, raster IRQ, frame handler, barriers (then leftovers up to $cbff) |
 | $cc00-$cfe7 | colour buffer, copied to $d800 when the screens swap |
 | $fd30-$fd43 | scroll copy tables (copied from $13ad at the start) |
 
@@ -105,33 +156,37 @@ at run time; $ee the doors, $f3 the switch light, $fe/$ff the switch.
 
 ### Texts
 
-In `src/grotten.asm`, as `.text` lines (PETSCII; upper case letters):
+In `src/<language>/text.asm`, as `.text` lines (PETSCII; upper case letters).
+Any length, unless said otherwise: the code points at them by label, and the
+code after them moves along (up to $2800).
 
-- `title_text`, `won_text`: printed with CHROUT, control codes as bytes, end with 0.
-- The status messages (`message_*`) are 54 characters each, read from fixed
-  addresses: keep each the same length, or the next one shifts. The pointers are
-  the `ldx #<…`/`ldy #>…` pairs before `jsr show_message` (immediate numbers in
-  the source, so they don't follow a moved label; change them along).
-  `damage` + `message_default` is the normal status (the crack's credits).
-  `message_fuel_low` is never shown.
-- `intro_text`: the introduction, scrolled through the puzzle display, ends with 0.
-- `fuel_full_text` "VOL!", 4 characters.
+- `text_title`, `text_won`: printed with CHROUT, control codes as bytes, end with 0.
+- `text_status`: the status line; fuel, time and damage digits are written
+  into it by the game, `status_message` (54 characters) holds the message shown.
+- `text_messages`: the status messages. `show_message` copies 54 characters
+  from the start of one, so a shorter message shows the start of the next one
+  after it (the Dutch `message_damage_bottom` and `message_radar` are 53, so
+  the originals do this too). `damage` + `message_default` is the normal status
+  (the credits). `message_fuel_low` is never shown.
+- `text_intro`: the introduction, scrolled through the puzzle display, ends with 0.
+- `text_fuel_full`: "VOL!", exactly 4 characters.
 
 The status line's font is chars $80-$bf (screen codes), so the scrolled text
 can only use screen codes $00-$3f: upper case, digits, punctuation.
 
 ### Puzzles
 
-`src/puzzles_easy.txt` (F1), `_normal` (F3), `_tough` (F5), `_hard` (F7).
-Each puzzle is 14 characters with a `^` line under the characters to guess, up
-to 219 per bank; see `tools/puzzles.py`. `make` converts them.
+`src/<language>/puzzles_easy.txt` (F1), `_normal` (F3), `_tough` (F5), `_hard`
+(F7). Each puzzle is 14 characters with a `^` line under the characters to
+guess, up to 219 per bank; see `tools/puzzles.py`. `make` converts them.
 
 ### Cave, tiles and characters
 
 ```
 tools/playfield.py export     # playfield.ctm + playfield_copies.txt for CharPad
-tools/playfield.py import     # back into src/map.bin, tile_chars.bin, tile_colours.bin, charset.bin
+tools/playfield.py import     # back into src/nl/map.bin, tile_chars.bin, tile_colours.bin, charset.bin
 tools/playfield.py png        # cave.png, the whole cave (8192 x 4096)
+tools/playfield.py en export  # the same for another language (de, en)
 ```
 
 CharPad colours per character but the game per tile cell, so characters in
@@ -143,7 +198,8 @@ position $e432 (`engine_init`): tile row 8, column 50.
 
 ```
 tools/sprites.py export     # sprites.spd, a SpritePad 1.8 project
-tools/sprites.py import     # back into src/sprites.bin
+tools/sprites.py import     # back into src/nl/sprites.bin
+tools/sprites.py de export  # another language (de, en)
 ```
 
 16 sprites from $0c00, pointers $30-$3f: $30-$34 the ship (multicolour, $34
@@ -162,4 +218,10 @@ project, import only takes the pixels.
 - `unused_getin` ($10b4) is never called.
 - `puzzles_test` ($1d1c) is a small puzzle list `puzzle_bank` points to before a
   difficulty is chosen.
-- $2441-$27ff and $cb7f-$cbff hold leftovers of an earlier memory image.
+- $2441-$27ff and $cb7f-$cbff hold leftovers of an earlier memory image
+  (`leftovers_1.bin`, `leftovers_2.bin`; the build pads with zeros if the code
+  grows into them, and stops if it outgrows them).
+- The English F3 bank has a puzzle "QWERTYUIOP@*" with `@` (screen code 0) in
+  it. A 0 makes `puzzle_char` go back to the start of the bank, so the game
+  shows the first puzzle's character in that place. `tools/puzzles.py` takes
+  `@` after a puzzle's first character for that.

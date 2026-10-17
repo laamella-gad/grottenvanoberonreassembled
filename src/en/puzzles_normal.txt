@@ -1,0 +1,442 @@
+# 14 characters a puzzle, ^ marks a hidden one; see tools/puzzles.py
+
+|   CUE=HINT   |
+|       ^      |
+| 23 * 2 = 46  |
+|      ^       |
+|OCTAVE=8 TONES|
+|       ^      |
+|2 4 8 16 32 64|
+|         ^    |
+|   MTWTFSS    |
+|       ^      |
+| JFMAMJJASOND |
+|          ^   |
+| RED=CRIMSON  |
+|         ^    |
+|  CRACK=SNAP  |
+|           ^  |
+|   MAXIMUM    |
+|       ^ ^    |
+| SUPERVISION  |
+|      ^       |
+| 12 * 7 = 84  |
+|      ^       |
+|  SUSPICION   |
+|       ^      |
+|  PASTRYCOOK  |
+|   ^          |
+|A C E G I K M |
+|          ^   |
+|  TO PROMOTE  |
+|        ^     |
+| SUPERFICIAL  |
+|      ^       |
+|21+22+23 = 66 |
+|            ^ |
+|IT IS IN RAGS |
+|      ^   ^   |
+| 670-635 = 35 |
+|  ^           |
+|  BY DEGREES  |
+|         ^^   |
+|   WRATHFUL   |
+|   ^          |
+| QWERTYUIOP@* |
+|       ^      |
+|  ASDFGHJKL   |
+|         ^    |
+|   ZXCVBNM    |
+|         ^    |
+|  ROTUNDITY   |
+|    ^         |
+|12 * 12 = 144 |
+|            ^ |
+|1 4 9 16 25 36|
+|            ^ |
+|  WATER=H20   |
+|         ^    |
+|  DEXTEROUS   |
+|    ^         |
+|  RESTRAINT   |
+|       ^      |
+|   45/9 = 5   |
+|      ^       |
+| 67 - 43 = 24 |
+|       ^      |
+|123+321 = 444 |
+|     ^        |
+|   THRILLER   |
+|   ^          |
+| DELIBERATION |
+|  ^        ^  |
+|   DENMARK    |
+|   ^          |
+| ROME (ITALY) |
+|  ^ ^         |
+|BONN (GERMANY)|
+|^             |
+| LEFT<>RIGHT  |
+| ^        ^   |
+|   72/8 = 9   |
+|          ^   |
+|5 10 15 20 25 |
+|        ^     |
+|1 4 7 10 13 16|
+|    ^         |
+| PHOTOGRAPHER |
+|   ^        ^ |
+|  LEGENDARY   |
+|  ^           |
+|  WELL-BUILT  |
+|     ^     ^  |
+| APPROBATION  |
+|   ^       ^  |
+| MORNING-STAR |
+|          ^   |
+| LEGITIMACEY  |
+|       ^      |
+|   LENGTHEN   |
+|          ^   |
+|  1/20 = 5%   |
+|         ^    |
+|  1/25 = 4 %  |
+|         ^    |
+| 1/100 = 1 %  |
+|         ^    |
+|  1/50 = 2 %  |
+|         ^    |
+|   BICYCLE    |
+|      ^       |
+| TREE-RIPENED |
+|    ^       ^ |
+|  HAZARDOUS   |
+|    ^         |
+| COMPETITION  |
+|   ^      ^   |
+| THE RIVIERA  |
+|       ^      |
+|   SEALSKIN   |
+|        ^     |
+|  24/3 = 2*4  |
+|         ^    |
+|  10/5 = 6/3  |
+|     ^        |
+|   ROMANCE    |
+|      ^       |
+| ROUND DANCE  |
+|   ^       ^  |
+|CIRCULAR TRIP |
+|      ^    ^  |
+|  CONDOLENCE  |
+|       ^      |
+|  34/17 = 2   |
+|          ^   |
+|   VELOCITY   |
+|   ^          |
+| GATE=PORTAL  |
+|      ^  ^    |
+| FIRST=PRIME  |
+|  ^  ^        |
+| PREEN=PLUME  |
+|       ^      |
+| HAPPEN=OCCUR |
+|        ^   ^ |
+|   HINT=TIP   |
+|    ^^        |
+|  33/33 = 1   |
+|      ^       |
+|  GLUT=SATE   |
+|       ^      |
+| ELDER=SENIOR |
+|       ^^     |
+|   81/9 = 9   |
+|          ^   |
+|  CRACK=SNAP  |
+|        ^     |
+|SECRET=COVERT |
+|       ^   ^  |
+|   MUD=MIRE   |
+|        ^     |
+|  MAR=DEFACE  |
+|  ^           |
+| 89 - 56 = 33 |
+|      ^       |
+| 86 - 59 = 27 |
+|       ^      |
+| EMEND = EDIT |
+|         ^ ^  |
+|  ICED=GLACE  |
+|       ^^     |
+| LEAVE = QUIT |
+|           ^^ |
+|  B O N U S   |
+|              |
+| CUPOLA=DOME  |
+|   ^          |
+| 23 - 4 = 19  |
+|      ^       |
+| 56 - 19 = 37 |
+|           ^  |
+|  84/7 = 12   |
+|   ^          |
+| 17 * 3 = 51  |
+|  ^           |
+|   MODERATE   |
+|     ^        |
+|    CROCUS    |
+|         ^    |
+|   MONSOON    |
+|       ^^     |
+|  76*14=1064  |
+|   ^          |
+|    ESCAPE    |
+|      ^       |
+|UNITED STATES |
+|    ^     ^   |
+|   AMERICA    |
+|     ^        |
+|   DFGHJKL    |
+|      ^       |
+|   EVASION    |
+|         ^    |
+|  INTEGRITY   |
+|      ^       |
+|UNCONTRADICTED|
+|     ^      ^ |
+|  UNSINKABLE  |
+|      ^       |
+| AT ANY TIME  |
+|     ^     ^  |
+|   ACCOUNT    |
+|   ^          |
+|34 + 411 = 445|
+|           ^  |
+| MEAL=REPAST  |
+|      ^       |
+|NIMROD=HUNTER |
+|         ^ ^  |
+|NEPHEW=NEPOTE |
+|        ^  ^  |
+| REJECT=SPURN |
+|         ^    |
+|  SORT=KIND   |
+|         ^^   |
+|  WIND=GALE   |
+|  ^  ^        |
+|  CALIFORNIA  |
+|      ^       |
+|   COLUMBUS   |
+|         ^^   |
+|   LEBANON    |
+|       ^      |
+|   PARAGUAY   |
+|        ^     |
+|200 + 123 =323|
+|           ^  |
+| 78 - 45 = 33 |
+|           ^  |
+| 13 =2*4 + 5  |
+|           ^  |
+|    PUPIL     |
+|        ^     |
+|   WITNESS    |
+|        ^     |
+| LURCH=CAREEN |
+|          ^   |
+| LUSTER=GLOSS |
+|          ^   |
+|MANIA=MADNESS |
+|        ^   ^ |
+|  OFFER=BID   |
+|     ^        |
+| ROB=DESPOIL  |
+|       ^  ^   |
+|   TIRE=FAG   |
+|     ^        |
+|  WEED=TARE   |
+|    ^^        |
+|  YET=STILL   |
+|        ^^    |
+|  4489=67*67  |
+|       ^^     |
+|   HYMN=ODE   |
+|     ^^       |
+|  RELAX=EASE  |
+|     ^^       |
+|21 + 321 = 342|
+|      ^       |
+| 67 - 63 = 4  |
+|      ^       |
+| 45 * 4 = 180 |
+|           ^  |
+| 45/9 = 2 + 3 |
+|        ^     |
+| 65 - 46 = 19 |
+|            ^ |
+|200+567 = 767 |
+|      ^       |
+| 1000-400=600 |
+|          ^   |
+|30 * 30 = 900 |
+|     ^        |
+|87 + 453 = 540|
+|      ^       |
+|54/9 = 6 +2 -2|
+|             ^|
+| 110/11 = 10  |
+|   ^          |
+| 250/25 = 10  |
+|     ^        |
+| 23 - 6 = 17  |
+|          ^   |
+| KNOCK LOOSE  |
+|       ^      |
+|   UNSCREW    |
+|    ^         |
+|   LOTTERY    |
+|        ^     |
+|  MOONLIGHT   |
+|   ^     ^    |
+| MANIPULATION |
+|    ^      ^  |
+|    POWER     |
+|       ^      |
+|   HANDSOME   |
+|      ^       |
+|   FALL OUT   |
+|        ^^    |
+|   SEAMLESS   |
+|         ^    |
+|  RESONANCE   |
+|       ^      |
+|  EMERGENCY   |
+|    ^     ^   |
+|  SACRIFICE   |
+|     ^        |
+|  BLOW DOWN   |
+|    ^     ^   |
+|  SHOOT DOWN  |
+|    ^      ^  |
+|  DISFIGURE   |
+|       ^      |
+| FLASH-POINT  |
+|           ^  |
+|   FOOLISH    |
+|    ^         |
+|    STORK     |
+|        ^     |
+| CONTRIBUTION |
+|     ^      ^ |
+|  JUDICIOUS   |
+|   ^      ^   |
+|    CAUSE     |
+|     ^        |
+| PUSH CLOSER  |
+|        ^ ^   |
+|   HAND UP    |
+|        ^     |
+| COMPOSITION  |
+|   ^      ^   |
+| L J H F D B  |
+|       ^      |
+|YEAR=52 WEEKS |
+|      ^       |
+|ROLLING STONES|
+|   ^        ^ |
+| PLACE ON END |
+|   ^       ^  |
+|33 - 22=10 + 1|
+|     ^        |
+|  WAREHOUSE   |
+|    ^     ^   |
+|PARENTAL HOME |
+|      ^  ^    |
+|   ELDERLY    |
+|    ^    ^    |
+|   OVERBUSY   |
+|     ^        |
+|   PERSUADE   |
+|   ^    ^     |
+|  REFLECTION  |
+|   ^   ^      |
+|  FOUNDATION  |
+|    ^    ^    |
+|BLUE TITMOUSE |
+|  ^      ^    |
+|  PLANTATION  |
+|     ^   ^    |
+|    POLISH    |
+|      ^       |
+|  EASY=SOFT   |
+|  ^^          |
+|  HIKE=TRAMP  |
+|          ^^  |
+|12 48 144 432 |
+|       ^      |
+| WRITE=SCRIVE |
+|        ^^    |
+|  ZONE=AREA   |
+|  ^  ^        |
+| GAMBLE=GAME  |
+|     ^^       |
+| HOMAGE=HONOR |
+|        ^^    |
+|  B O N U S   |
+|              |
+|  TAG=LABEL   |
+|      ^       |
+| HALF-WAY=MID |
+| ^^           |
+|  MONKEY=APE  |
+|    ^ ^       |
+|   EGO=SELF   |
+|        ^^    |
+|  YEARN=ACHE  |
+|     ^        |
+|2*2*2*2*2 = 32|
+|            ^ |
+| 43 - 35 = 8  |
+|      ^       |
+| 21 * 5 = 105 |
+|      ^       |
+| 34 * 4 = 136 |
+|           ^  |
+|  2*2*2=2*4   |
+|        ^     |
+|  22=4*5 + 2  |
+|           ^  |
+|  2=65-60-3   |
+|          ^   |
+| 5 * 55 = 275 |
+|           ^  |
+|  3*3*3*3=81  |
+|          ^   |
+|  3*2*3*2=36  |
+|           ^  |
+|222+333=554+1 |
+|          ^   |
+| 30 - 4 -7=19 |
+|  ^           |
+|   POLITICS   |
+|         ^    |
+|    POMPEY    |
+|     ^        |
+|  POSITIVISM  |
+|    ^         |
+|    STAMP     |
+|      ^       |
+|REFINED SUGAR |
+|  ^   ^       |
+|  PEEP-SHOW   |
+|   ^^         |
+|  DETECTIVE   |
+|  ^           |
+|  YACHT=SAIL  |
+|     ^^       |
+|  STING=BITE  |
+|   ^  ^       |
+|  RAT-POISON  |
+|        ^^    |
+
+free fd d2 ff f7 ff
