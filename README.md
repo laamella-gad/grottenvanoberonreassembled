@@ -13,6 +13,9 @@ credits in the status line are still there. All four use the English version's
 faster engine, and the German and English versions get the Dutch version's cave
 wall tile $44, which had a few stray pixels in them.
 
+Each release shows Radarsoft's loading picture in its language before the game
+(the French one redrawn from the English); a key or fire starts the game.
+
 ## Building
 
 Needs 64tass, Python 3, and pucrunch for the release.
@@ -21,8 +24,8 @@ Needs 64tass, Python 3, and pucrunch for the release.
 make            # build/nl.prg, build/de.prg, build/en.prg, build/fr.prg
 make check      # compare the English build with its original (apart from the
                 # fixes in NOTES.md)
-make release    # grotten_van_oberon.prg, grotten_von_oberon.prg, caves_of_oberon.prg,
-                # grottes_d_oberon.prg, crunched
+make release    # release/: grotten_van_oberon.prg, grotten_von_oberon.prg,
+                # caves_of_oberon.prg, grottes_d_oberon.prg, crunched
 ```
 
 ## Editing

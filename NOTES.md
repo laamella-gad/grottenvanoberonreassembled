@@ -9,15 +9,18 @@ tanks, find the way out before the fuel runs out or the damage reaches 100 %.
 | File | What |
 | --- | --- |
 | `GROTTEN.T64` | the Dutch tape image, not in the repository like the other two (one file, "OBERON", the "ABC" crack) |
-| `GROTTENO.T64` | the German version, "GROTTEN V.OBERON" (and a picture file) |
+| `GROTTENO.T64` | the German version, "GROTTEN V.OBERON" (and "PIC", its loading picture) |
 | `CAVESOFO.T64` | the English version, "CAVES OF OBERON+" (and "CAVES OF OB. DOX", the instructions) |
 | `original/oberon_packed.prg` | the Dutch file, $0801-$b2cf, packed |
 | `original/grotten_unpacked.prg` | memory after both depackers, $0801-$cfff, at the jump to $1000 |
-| `grotten.prg` | the same with the crack's leftovers at $0801-$0bff replaced by `10 SYS4096`: the Deflower input and the reference for `make check` |
-| `grotten_de.prg`, `grotten_en.prg` | the German and English games made the same way: memory at the jump to $1000, $0801-$0bff replaced by the same `10 SYS4096` |
-| `grotten.flo` | the Deflower annotations (Dutch version): every routine, variable and table |
-| `out/` | Deflower's output (`make disasm`), not edited by hand |
-| `src/grotten.asm` | the source of all four versions, from `out/grotten.asm`: edit code here |
+| `disasm/grotten.prg` | the same with the crack's leftovers at $0801-$0bff replaced by `10 SYS4096`: the Deflower input |
+| `original/grotten_de.prg`, `original/grotten_en.prg` | the German and English games made the same way: memory at the jump to $1000, $0801-$0bff replaced by the same `10 SYS4096`; `grotten_en.prg` is the reference for `make check` |
+| `original/english_version_bitmap.vsf` | a VICE snapshot of the English version's loading picture, not in the repository |
+| `disasm/grotten.flo` | the Deflower annotations (Dutch version): every routine, variable and table |
+| `release/` | the crunched releases (`make release`), one file per language |
+| `disasm/out/` | Deflower's output (`make disasm`), not edited by hand |
+| `src/grotten.asm` | the source of all four versions, from `disasm/out/grotten.asm`: edit code here |
+| `src/release.asm` | the release image: a build plus its loading picture and the code that shows it |
 | `src/nl/`, `src/de/`, `src/en/`, `src/fr/` | each language's files, see below |
 | `tools/puzzles.py` | puzzle bank <-> text |
 | `tools/playfield.py` | cave <-> CharPad project, and a picture of the cave |
@@ -31,10 +34,11 @@ Each language directory holds:
 | `saved.asm` | what some variables held when the version was saved (see below) |
 | `sprites.bin`, `charset.bin`, `map.bin`, `tile_chars.bin`, `tile_colours.bin` | the graphics and the cave |
 | `puzzles_*.txt` | the four puzzle banks as text |
+| `picture.kla` | the loading picture, a Koala file (any Koala paint program edits it) |
 | `leftovers_1.bin`, `leftovers_2.bin`, `colour_buffer.bin` | what was in memory after the game code, the engine, and in the colour buffer |
 | `fixes.cmp` | (en) the bytes the fixes below change, as `cmp -l` lists them: `make check` allows those differences and no others |
 
-`src/grotten.asm` was copied from `out/` once and has since been changed for
+`src/grotten.asm` was copied from `disasm/out/` once and has since been changed for
 the languages (texts moved out) and the English engine (see below). Running
 Deflower again doesn't touch it; copy over by hand only what changed in the
 annotations, or edits get lost.
@@ -45,10 +49,11 @@ annotations, or edits get lost.
 make            # build/nl.prg, build/de.prg, build/en.prg, build/fr.prg: load at $0801,
                 # RUN starts them
 make en         # one of them
-make check      # build/en.prg byte-identical to grotten_en.prg while src/ is
-                # unchanged, apart from the fixes in src/en/fixes.cmp
-make release    # grotten_van_oberon.prg, grotten_von_oberon.prg, caves_of_oberon.prg,
-                # grottes_d_oberon.prg, crunched with pucrunch (start $1000)
+make check      # build/en.prg byte-identical to original/grotten_en.prg while
+                # src/ is unchanged, apart from the fixes in src/en/fixes.cmp
+make release    # release/: grotten_van_oberon.prg, grotten_von_oberon.prg,
+                # caves_of_oberon.prg, grottes_d_oberon.prg: each build
+                # with its loading picture, crunched with pucrunch
 make disasm     # Deflower: 0 differ, 0 gaps
 ```
 
@@ -63,7 +68,7 @@ byte-identical with their own engine in the commit before the old engine was
 taken out (git history).
 
 The unpacked build fills $0801-$cfff, which the KERNAL loads fine; the crunched
-release is one file that unpacks itself.
+release is one file that unpacks itself and shows the loading picture first.
 
 ## Depack stages (the crack)
 
@@ -85,7 +90,7 @@ game's `jmp $1000`. The German one keeps Radarsoft's credit in the status line.
 The English one unpacks to a second intro at $1000 ("FILTERMEZZO! BY ZYRON"),
 then a trainer menu at $0800 (cursor keys and RETURN); its options poke the
 `jsr counter_increment` of the damage ($20ec) and the `jsr counter_decrement`
-of the fuel ($2112). `grotten_en.prg` is taken with the options off, so those
+of the fuel ($2112). `original/grotten_en.prg` is taken with the options off, so those
 are the original `jsr`s.
 
 ## The versions
@@ -118,6 +123,49 @@ compares the English one with its original.
 - What some variables held when the version was saved differs too (the status
   scroller's position, the sound effect, the switch, ...): `saved.asm` starts
   them with those values, so each build is identical.
+
+## The loading picture
+
+Each original showed Radarsoft's loading picture, a multicolour bitmap of the
+probe ship over the "OBERON" logo, with the title and "C.Kramer" in the
+language. The cracks show it in different ways, and the builds left it out;
+the releases have it again. The pictures are Koala files, `src/<language>/picture.kla`:
+
+- Dutch: from the crack intro (stage 3 above), which shows it until a key:
+  bitmap, screen and colours taken from the unpacked stage. "De Grotten van" /
+  "door C.Kramer".
+- German: the tape's separate "PIC" file, unpacked in the 6502 emulator.
+  "die Grotten von" / "von C.Kramer".
+- English: from a VICE snapshot of the picture on screen
+  (`original/english_version_bitmap.vsf`): bitmap $e000, screen $cc00, the
+  colour RAM from the VIC-II module. "the Caves of" / "by C.Kramer".
+- French: new, the English picture with "les Grottes d'" / "par C.Kramer"
+  drawn in its two fonts (the l, G, r, d and the p made after the letters
+  there).
+
+The four differ only in those text cells (rows 11-13 and 22-24).
+
+`src/release.asm` puts a build ($0801-$cfff, ending exactly at $d000) and the
+picture in one image, in the RAM under the I/O and the KERNAL, so the game
+itself doesn't change:
+
+| Address | What |
+| --- | --- |
+| $d000-$d3e7 | the picture's colours, copied to the colour RAM ($01 switched between $34 and $35 per byte) |
+| $d400-$d7e7 | its screen |
+| $e000-$ff3f | its bitmap |
+| $ff40 | `show_picture` |
+| $fffa | NMI, reset and IRQ vectors (`rti`, `show_picture`, `rti`) |
+
+pucrunch unpacks with all RAM banked in (`-g0x35 -i0`: $01 = $35, interrupts
+off) and jumps to `show_picture` (`-x0xff40`). It sets VIC bank 3, $d018 = $58,
+multicolour bitmap mode, border $0b, then waits for nothing pressed (the RETURN
+of RUN), a key or fire on joystick 2, and its release. The last step, $01 =
+$37 and `jmp $1000`, runs from the tape buffer ($033c): banking the KERNAL in
+from $ff40 would put the ROM under the running code (that crashed: a JAM at
+$6c07). The game sets up the VIC itself and copies its map image over
+$e000-$ffff at the start; $d000-$dfff is the I/O from then on, so nothing of
+the picture stays in use.
 
 ## Memory map
 
@@ -234,6 +282,10 @@ project, import only takes the pixels.
   colour copy stays well ahead of the beam; the old loop only just did, with
   less margin on NTSC (shorter border).
 
+- The releases show the loading picture before the game (see "The loading
+  picture"): the cracks' intros showed it or left it out, the builds don't
+  have it. The French picture is new.
+
 - Tile $44 (a piece of cave wall, used all over the cave): in the German and
   English versions two cells of its row 6 hold characters $31 $30 in colour 0
   instead of spaces in colour $0a, a few stray pixels. They now hold what the
@@ -241,7 +293,7 @@ project, import only takes the pixels.
   $1624/$1625).
 
 When changing a language's build on purpose, write its new differences to
-`fixes.cmp`: `cmp -l build/en.prg grotten_en.prg > src/en/fixes.cmp`.
+`fixes.cmp`: `cmp -l build/en.prg original/grotten_en.prg > src/en/fixes.cmp`.
 
 ## Bugs and leftovers found
 

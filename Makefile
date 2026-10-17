@@ -3,16 +3,18 @@
 #   make          build/nl.prg, build/de.prg, build/en.prg and build/fr.prg
 #                 (load at $0801, RUN starts them)
 #   make nl       one language (also de, en, fr)
-#   make check    build/en.prg is byte-identical to grotten_en.prg as long as
-#                 nothing in src/ was changed, apart from the fixes listed
-#                 (cmp -l) in src/en/fixes.cmp; the Dutch and German builds
+#   make check    build/en.prg is byte-identical to original/grotten_en.prg
+#                 as long as nothing in src/ was changed, apart from the fixes
+#                 listed (cmp -l) in src/en/fixes.cmp; the Dutch and German builds
 #                 have the English engine and so can't match their originals
 #                 any more, the French version is new
-#   make release  the builds crunched into one file each:
-#                 grotten_van_oberon.prg, grotten_von_oberon.prg,
-#                 caves_of_oberon.prg, grottes_d_oberon.prg
+#   make release  the builds with their loading picture, crunched into one
+#                 file each, in release/: grotten_van_oberon.prg,
+#                 grotten_von_oberon.prg, caves_of_oberon.prg,
+#                 grottes_d_oberon.prg
 #   make run      starts the Dutch release in VICE (run-de, run-en, run-fr)
-#   make disasm   runs Deflower on grotten.flo again (writes out/, not src/)
+#   make disasm   runs Deflower on disasm/grotten.flo again (writes
+#                 disasm/out/, not src/)
 #
 # src/grotten.asm is the one source; src/<language>/ holds each language's
 # texts and data, found through the include path.
@@ -47,7 +49,7 @@ build/$(1).prg: src/grotten.asm $(wildcard src/$(1)/*) $(call puzzles,$(1))
 endef
 $(foreach l,$(LANGUAGES),$(eval $(call language,$(l))))
 
-original_en := grotten_en.prg
+original_en := original/grotten_en.prg
 
 # Differences from the original other than these fixes fail the check
 fixes = $(or $(wildcard src/$(1)/fixes.cmp),/dev/null)
@@ -56,35 +58,42 @@ check: $(ORIGINALS:%=build/%.prg)
 	@$(foreach l,$(ORIGINALS),cmp -l build/$(l).prg $(original_$(l)) | diff $(call fixes,$(l)) - \
 		&& echo "build/$(l).prg is identical to $(original_$(l))$(if $(wildcard src/$(l)/fixes.cmp), apart from src/$(l)/fixes.cmp)" &&) true
 
-# Each starts at $1000 once unpacked
-release: grotten_van_oberon.prg grotten_von_oberon.prg caves_of_oberon.prg grottes_d_oberon.prg
+release: release/grotten_van_oberon.prg release/grotten_von_oberon.prg release/caves_of_oberon.prg release/grottes_d_oberon.prg
 
-grotten_van_oberon.prg: build/nl.prg
-	$(PUCRUNCH) -c64 -x0x1000 $< $@
+# The game with its loading picture (src/<language>/picture.kla) behind it,
+# see src/release.asm. pucrunch unpacks it with all RAM banked in, then starts
+# show_picture ($ff40) with $01 = $35 and interrupts off.
+build/%_release.prg: build/%.prg src/release.asm src/%/picture.kla
+	$(TASS) -q -D 'game="$(notdir $<)"' -I build -I src/$* -o $@ src/release.asm
 
-grotten_von_oberon.prg: build/de.prg
-	$(PUCRUNCH) -c64 -x0x1000 $< $@
+crunch = $(PUCRUNCH) -c64 -x0xff40 -g0x35 -i0 $< $@
 
-caves_of_oberon.prg: build/en.prg
-	$(PUCRUNCH) -c64 -x0x1000 $< $@
+release/grotten_van_oberon.prg: build/nl_release.prg
+	$(crunch)
 
-grottes_d_oberon.prg: build/fr.prg
-	$(PUCRUNCH) -c64 -x0x1000 $< $@
+release/grotten_von_oberon.prg: build/de_release.prg
+	$(crunch)
 
-run: grotten_van_oberon.prg
+release/caves_of_oberon.prg: build/en_release.prg
+	$(crunch)
+
+release/grottes_d_oberon.prg: build/fr_release.prg
+	$(crunch)
+
+run: release/grotten_van_oberon.prg
 	$(X64) $<
 
-run-de: grotten_von_oberon.prg
+run-de: release/grotten_von_oberon.prg
 	$(X64) $<
 
-run-en: caves_of_oberon.prg
+run-en: release/caves_of_oberon.prg
 	$(X64) $<
 
-run-fr: grottes_d_oberon.prg
+run-fr: release/grottes_d_oberon.prg
 	$(X64) $<
 
 disasm:
-	$(DEFLOWER) --verify grotten.flo
+	$(DEFLOWER) --verify disasm/grotten.flo
 
 clean:
 	rm -rf build

@@ -9,3 +9,5 @@ cave.png
 sprites.spd
 # the tape images, kept out of the repository
 *.T64
+# the English loading picture, a VICE snapshot (see NOTES.md)
+*.vsf
