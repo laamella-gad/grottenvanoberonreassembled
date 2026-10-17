@@ -438,5 +438,3 @@
 |           ^  |
 |  WALL=DAMM   |
 |       ^      |
-
-free ff 00 00 ff ff

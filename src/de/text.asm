@@ -57,9 +57,6 @@ damage:
 		.text	"00"
 message_default:
 		.text	" % - COPYRIGHT 1985 RADARSOFT VON C.KRAMER -        "
-; never shown: the fuel warning
-message_fuel_low:
-		.text	" MACHINERAUM MELDET: ", $22, "BRENNSTOFF IST FAST VERBRAUCHT", $22, " "
 message_damage_top:
 		.text	" BORDCOMPUTER MELDET: ", $22, "SACHSCHADEN AN OBERSEITE", $22, "      "
 message_damage_bottom:

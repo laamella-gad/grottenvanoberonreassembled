@@ -3,11 +3,6 @@
 #   make          build/nl.prg, build/de.prg, build/en.prg, build/fr.prg and
 #                 build/fi.prg (load at $0801, RUN starts them)
 #   make nl       one language (also de, en, fr, fi)
-#   make check    build/en.prg is byte-identical to original/grotten_en.prg
-#                 as long as nothing in src/ was changed, apart from the fixes
-#                 listed (cmp -l) in src/en/fixes.cmp; the Dutch, German and
-#                 Finnish builds have the English engine and so can't match
-#                 their originals any more, the French version is new
 #   make release  the builds with their loading picture, crunched into one
 #                 file each, in release/: grotten_van_oberon.prg,
 #                 grotten_von_oberon.prg, caves_of_oberon.prg,
@@ -27,10 +22,6 @@ X64 ?= x64sc
 PYTHON ?= python3
 
 LANGUAGES := nl de en fr fi
-# the languages whose build can be compared with an original: the others use
-# the English engine
-ORIGINALS := en
-
 all: $(LANGUAGES)
 
 $(LANGUAGES): %: build/%.prg
@@ -49,15 +40,6 @@ build/$(1).prg: src/grotten.asm $(wildcard src/$(1)/*) $(call puzzles,$(1))
 	$$(TASS) -q -I src/$(1) -I build/$(1) -L build/$(1).lst -o $$@ src/grotten.asm
 endef
 $(foreach l,$(LANGUAGES),$(eval $(call language,$(l))))
-
-original_en := original/grotten_en.prg
-
-# Differences from the original other than these fixes fail the check
-fixes = $(or $(wildcard src/$(1)/fixes.cmp),/dev/null)
-
-check: $(ORIGINALS:%=build/%.prg)
-	@$(foreach l,$(ORIGINALS),cmp -l build/$(l).prg $(original_$(l)) | diff $(call fixes,$(l)) - \
-		&& echo "build/$(l).prg is identical to $(original_$(l))$(if $(wildcard src/$(l)/fixes.cmp), apart from src/$(l)/fixes.cmp)" &&) true
 
 release: release/grotten_van_oberon.prg release/grotten_von_oberon.prg release/caves_of_oberon.prg release/grottes_d_oberon.prg release/oberonin_luolat.prg
 
@@ -105,4 +87,4 @@ disasm:
 clean:
 	rm -rf build
 
-.PHONY: all $(LANGUAGES) check release run run-de run-en run-fr run-fi disasm clean
+.PHONY: all $(LANGUAGES) release run run-de run-en run-fr run-fi disasm clean

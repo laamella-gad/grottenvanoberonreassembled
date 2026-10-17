@@ -438,5 +438,3 @@
 |        ^     |
 |   GESTEIN    |
 |      ^       |
-
-free ff 48 81 fe ef

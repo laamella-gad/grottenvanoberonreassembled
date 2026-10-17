@@ -58,9 +58,6 @@ damage:
 		.text	"00"
 message_default:
 		.text	" % - COPYRIGHT 1985 RADARSOFT PAR C.KRAMER -        "
-; never shown: the fuel warning
-message_fuel_low:
-		.text	" SALLE DES MACHINES: ", $22, "PLUS BEAUCOUP DE CARBURANT", $22, "     "
 message_damage_top:
 		.text	" ORDINATEUR DE BORD: ", $22, "DEGATS AU-DESSUS DU VAISSEAU", $22, "   "
 message_damage_bottom:

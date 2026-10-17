@@ -438,5 +438,3 @@
 |       ^   ^  |
 |   GESTION    |
 |     ^^       |
-
-free ff 30 40 ff ff

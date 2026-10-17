@@ -1,8 +1,9 @@
 # De grotten van Oberon
 
 Radarsoft's 1985 Dutch C64 cave and puzzle game (by C. Kramer), disassembled with
-[Deflower](../deflower) into a source that reassembles byte for byte, with its
-texts, puzzles, cave, tiles and graphics editable. One source builds all four
+[Deflower](../deflower) into a source with its texts, puzzles, cave, tiles and
+graphics editable. It reassembled byte for byte (up to commit 28b04fd); since
+then what the game never used is taken out. One source builds all four
 versions: Dutch, German (*Die Grotten von Oberon*), English (*The Caves of
 Oberon*, whose engine was sped up) and Finnish (*Oberonin luolat*), plus a new
 French one (*Les Grottes d'Oberon*), translated from the English.
@@ -23,8 +24,6 @@ Needs 64tass, Python 3, and pucrunch for the release.
 ```
 make            # build/nl.prg, build/de.prg, build/en.prg, build/fr.prg,
                 # build/fi.prg
-make check      # compare the English build with its original (apart from the
-                # fixes in NOTES.md)
 make release    # release/: grotten_van_oberon.prg, grotten_von_oberon.prg,
                 # caves_of_oberon.prg, grottes_d_oberon.prg,
                 # oberonin_luolat.prg, crunched

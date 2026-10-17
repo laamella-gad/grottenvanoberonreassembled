@@ -1,9 +1,6 @@
-; the language's texts (src/nl, src/de, src/en or src/fr, chosen by the
-; Makefile)
+; the language's texts (src/nl, src/de, src/en, src/fr or src/fi, chosen by
+; the Makefile)
 		.include "text.asm"
-; what some variables held when the version was saved (kept as in the
-; originals)
-		.include "saved.asm"
 
 ; CINT after the VIC: screen editor variables, clear screen
 ; called by: reset_system
@@ -36,7 +33,7 @@ chrout = $ffd2
 ; called by: nmi_restore_game
 stop = $ffe1
 
-; called by: unused_getin, title_wait_key, game_won_loop
+; called by: title_wait_key, game_won_loop
 getin = $ffe4
 
 .virtual $0001
@@ -110,71 +107,8 @@ screen_2 = $0800
 basic_sys:
 		.byte	$0b, $08, $0a, $00, $9e, $34, $30, $39, $36, $00, $00, $00
 ; written by: engine_clear_screens
-screen_2_unused:
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00, $00
-		.byte	$00, $00, $00
+screen_2_rest:
+		.fill	$0c00 - *, 0
 ; VIC: screen 1 at $0400, screen 2 at $0800 (double buffered scrolling), charset $2800.
 ; The sprite pointers on screen 2 are written next to those on screen 1.
 ; written by: engine_init_sprites
@@ -365,9 +299,6 @@ cycle_background:
 		sta background_color
 		rts 
 
-; never called: a GETIN left over
-unused_getin:
-		jsr getin
 ; waits for F1, F3, F5 or F7
 ; jumped to by: title
 title_wait_key:
@@ -590,7 +521,7 @@ puzzle_cursor_moved_left:
 ; read by: puzzle_wrap
 ; written by: start_difficulty
 puzzle_bank:
-		.word	puzzles_test
+		.word	$0000
 
 ; written by: puzzle_next
 ; modified by: puzzle_next_check
@@ -1028,11 +959,11 @@ status_line_end:
 ; written by: intro_frame, status_scroll, show_message
 ; modified by: intro_frame, status_scroll
 status_pixel:
-		.byte	saved_status_pixel
+		.byte	$00
 ; read by: status_scroll
 ; written by: new_game_reset, show_default_message, show_message
 ; modified by: status_scroll
-status_index:		.byte	saved_status_index
+status_index:		.byte	$00
 
 ; The messages, 54 characters each, copied to status_message by show_message.
 ; The first is the normal status: the damage in two digits (counted here) and
@@ -1040,7 +971,7 @@ status_index:		.byte	saved_status_index
 ; read by: damage_repair
 ; written by: new_game_reset
 		#text_messages
-		.cerror message_fuel_low - damage < 54, "message_default must be at least 52 characters"
+		.cerror message_damage_top - damage < 54, "message_default must be at least 52 characters"
 		.cerror fuel_full_text - message_destroyed != 54, "message_destroyed must be 54 characters"
 ; shown in the puzzle display when the fuel is 1000 or more
 ; read by: fuel_tank_full_loop
@@ -1055,7 +986,7 @@ intro_text:
 ; read by: intro_frame, main_loop
 ; written by: intro_frame, main_loop
 last_frame:
-		.byte	saved_last_frame
+		.byte	$00
 ; damage bits seen ($c781 bits 2-5) and 1 when its message is shown
 ; read by: update_damage_message
 ; written by: update_damage_message, show_default_message
@@ -1066,21 +997,12 @@ damage_message_shown:		.byte	$00
 ; written by: intro_copy_glyph, status_copy_glyph
 ; modified by: intro_shift_loop, status_shift_loop
 glyph_buffer:
-		.byte	saved_glyph_buffer
-		.cerror	* - glyph_buffer != 20
+		.fill	20, 0
 ; the player's answer, 14 screen codes
 ; read by: puzzle_letter_previous, puzzle_letter_next, puzzle_draw_cursor, puzzle_draw_changed, puzzle_check_loop
 ; written by: puzzle_letter_previous_set, puzzle_letter_next_set, puzzle_show_hidden
 answer:
-		.byte	saved_answer
-		.cerror	* - answer != 14
-; a test bank of puzzles, puzzle_bank's value before a difficulty is chosen
-puzzles_test:
-		.byte	$20, $31, $2b, $32, $2b, $33, $2b, $34, $2b, $b2, $3d, $31, $32, $20, $20, $32
-		.byte	$20, $20, $35, $20, $20, $b8, $20, $31, $31, $20, $31, $34, $20, $31, $30, $32
-		.byte	$20, $58, $20, $b5, $20, $3d, $20, $35, $31, $30, $31, $4b, $57, $41, $52, $54
-		.byte	$4a, $45, $3d, $30, $2c, $b2, $b5, $00
-
+		.fill	14, 0
 ; ---------------------------------------------------------------- new game
 ; From the engine set up: reset the clock, fuel 1000, damage 0, first puzzle.
 ; The first time the introduction scrolls through the puzzle display.
@@ -1550,19 +1472,19 @@ probe_goal:
 ; read by: sound_effect_step
 ; written by: puzzle_draw_changed, guardian_start, fuel_tank_fill, radar_blink, sound_effect_step, probe_read_char, switch_on, sound_solved
 sfx_frequency:
-		.word	saved_sfx_frequency
+		.word	$0000
 ; read by: sound_effect_step
 ; written by: guardian_start, fuel_tank_fill, radar_blink, probe_read_char, switch_on, sound_solved
-sfx_step:		.word	saved_sfx_step
+sfx_step:		.word	$0000
 ; read by: sound_effect
 ; written by: puzzle_draw_changed, guardian_start, fuel_tank_fill, radar_blink, switch_set_closed, sound_solved
 ; modified by: sound_effect, sound_effect_step
-sfx_time:		.word	saved_sfx_time
+sfx_time:		.word	$0000
 
 ; written by: update_fuel
 ; modified by: update_fuel
 fuel_timer:
-		.byte	saved_fuel_timer
+		.byte	$0a
 ; written by: update_status
 ; modified by: update_status
 damage_timer:		.byte	$0a
@@ -1809,7 +1731,7 @@ status_next_glyph:
 ; written by: status_next_glyph
 ; modified by: status_next_glyph
 status_copy_glyph:
-		lda saved_status_glyph, x	; operand set by status_next_glyph
+		lda $ffff, x	; operand set by status_next_glyph
 		eor #$ff
 		sta glyph_buffer, y
 		dey 
@@ -1890,7 +1812,7 @@ probe_char:
 		.byte	$00
 ; read by: probe_read_char, switch_set_closed
 ; written by: switch_set_closed
-switch_state:		.byte	saved_switch_state
+switch_state:		.byte	$00
 ; 1 when the probe's character was handled
 ; read by: probe_check_touch, probe_message
 ; written by: probe_touch, probe_retract
@@ -2444,10 +2366,7 @@ barrier_closing:		.byte	$00
 ; written by: engine_init_barrier, barrier_close_next, barrier_open_step
 ; modified by: barrier_close_next, barrier_open_step
 barrier_mask_index:		.byte	$07
-; leftovers of an earlier memory image: the language's leftovers_1.bin, cut
-; or padded to fit
-leftovers_1:
-		.binary	"leftovers_1.bin", 0, $2800 - *
+; free up to the character set
 		.fill	$2800 - *, 0
 		.cerror	* != $2800, "the code and texts don't fit below the character set"
 
@@ -2460,8 +2379,6 @@ leftovers_1:
 ; modified by: intro_shift_loop
 charset:
 		.binary	"charset.bin"
-; read by: status_copy_glyph
-font = $2c00
 ; read by: radar_blink
 ; written by: puzzle_display_clear_loop, radar_blink
 ; modified by: intro_shift_loop
@@ -2614,7 +2531,6 @@ background_flash:		.byte	$00
 ; read by: scroll_fine, scroll_fine_up_check, scroll_fine_left_check, scroll_fine_right_check, scroll_phase_5_3_1, scroll_shift_screen, scroll_move_map, scroll_move_map_down, scroll_move_map_left, scroll_move_map_right, scroll_draw_rows, scroll_draw_rows_bottom, scroll_draw_columns, scroll_draw_columns_right
 ; written by: scroll_latch_direction
 scroll_direction:		.byte	$0f
-unused_c084:		.byte	$0f
 ; counts down 8-1 each frame: the scroll phase
 ; read by: intro_frame, main_loop, guardian_right, scroll_fine, scroll_fine_up_check, scroll_fine_left_check, scroll_fine_right_check, scroll_phase_select, animate
 ; written by: scroll_phase_select
@@ -2628,11 +2544,9 @@ swap_screens:		.byte	$00
 ; read by: scroll_shift_screen
 ; written by: scroll_shift_colours, scroll_shift_chars, scroll_shift_chars_2
 copy_source_high:		.byte	$00
-unused_c088:		.byte	$00
 ; read by: scroll_shift_screen
 ; written by: scroll_shift_colours, scroll_shift_chars, scroll_shift_chars_2
 copy_dest_high:		.byte	$00
-unused_c08a:		.byte	$00
 ; the next scroll direction, from the joystick and the collisions
 ; read by: scroll_latch_direction, frame_hit_sides, frame_hit_right
 ; written by: frame_engine_sound, frame_hit, frame_hit_bottom, frame_set_direction_a
@@ -3630,9 +3544,9 @@ engine_clear_screens:
 		sta screen_ram + $200, x
 		sta screen_ram + $300, x
 		sta screen_2, x
-		sta screen_2_unused + $f3, x
-		sta screen_2_unused + $1f3, x
-		sta screen_2_unused + $2f3, x
+		sta screen_2_rest + $f3, x
+		sta screen_2_rest + $1f3, x
+		sta screen_2_rest + $2f3, x
 		dex 
 		bne engine_clear_screens
 		ldx #$18
@@ -3939,18 +3853,14 @@ frame_engine_down_check:
 		dec engine_noise_rate
 		jmp frame_set_direction
 
-; leftovers of an earlier memory image: the language's leftovers_2.bin, cut
-; or padded to fit
-leftovers_2:
-		.binary	"leftovers_2.bin", 0, $cc00 - *
+; free up to the colour buffer
 		.fill	$cc00 - *, 0
 		.cerror	* != $cc00, "the engine doesn't fit below the colour buffer"
 ; the colour buffer: drawn with the hidden screen, copied to the colour RAM
-; when the screens swap. Its contents in the file are what was on the screen
-; when the game was saved (the language's colour_buffer.bin).
+; when the screens swap
 ; read by: show_screen_colours_1, show_screen_colours_2
 colour_buffer:
-		.binary	"colour_buffer.bin"
+		.fill	$d000 - *, 0
 
 .virtual $d000
 ; x and y of sprites 0-7

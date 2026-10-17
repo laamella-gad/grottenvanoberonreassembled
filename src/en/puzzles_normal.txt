@@ -438,5 +438,3 @@
 |   ^  ^       |
 |  RAT-POISON  |
 |        ^^    |
-
-free fd d2 ff f7 ff

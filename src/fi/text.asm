@@ -57,9 +57,6 @@ damage:
 		.text	"00"
 message_default:
 		.text	" % - COPYRIGHT 1985 RADARSOFT TEKIJ[: C.KRAMER -    "
-; never shown: the fuel warning
-message_fuel_low:
-		.text	" KONEHUONE ILMOITTAA: ", $22, "V[H[N POLTTOAINETTA", $22, "           "
 message_damage_top:
 		.text	" ALUKSEN TIETOKONE: ", $22, "ALUKSEN ULKOPUOLINEN VAURIO", $22, "     "
 message_damage_bottom:

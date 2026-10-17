@@ -15,7 +15,7 @@ tanks, find the way out before the fuel runs out or the damage reaches 100 %.
 | `original/oberon_packed.prg` | the Dutch file, $0801-$b2cf, packed |
 | `original/grotten_unpacked.prg` | memory after both depackers, $0801-$cfff, at the jump to $1000 |
 | `disasm/grotten.prg` | the same with the crack's leftovers at $0801-$0bff replaced by `10 SYS4096`: the Deflower input |
-| `original/grotten_de.prg`, `original/grotten_en.prg`, `original/grotten_fi.prg` | the German, English and Finnish games made the same way: memory at the jump to $1000, $0801-$0bff replaced by the same `10 SYS4096`; `grotten_en.prg` is the reference for `make check` |
+| `original/grotten_de.prg`, `original/grotten_en.prg`, `original/grotten_fi.prg` | the German, English and Finnish games made the same way: memory at the jump to $1000, $0801-$0bff replaced by the same `10 SYS4096` |
 | `original/english_version_bitmap.vsf` | a VICE snapshot of the English version's loading picture, not in the repository |
 | `disasm/grotten.flo` | the Deflower annotations (Dutch version): every routine, variable and table |
 | `release/` | the crunched releases (`make release`), one file per language |
@@ -32,12 +32,9 @@ Each language directory holds:
 | File | What |
 | --- | --- |
 | `text.asm` | `language = "nl"` (`"de"`, `"en"`, `"fr"`, `"fi"`) and all texts, as `.segment`s that `grotten.asm` puts in place |
-| `saved.asm` | what some variables held when the version was saved (see below) |
 | `sprites.bin`, `charset.bin`, `map.bin`, `tile_chars.bin`, `tile_colours.bin` | the graphics and the cave |
 | `puzzles_*.txt` | the four puzzle banks as text |
 | `picture.kla` | the loading picture, a Koala file (any Koala paint program edits it) |
-| `leftovers_1.bin`, `leftovers_2.bin`, `colour_buffer.bin` | what was in memory after the game code, the engine, and in the colour buffer |
-| `fixes.cmp` | (en) the bytes the fixes below change, as `cmp -l` lists them: `make check` allows those differences and no others |
 
 `src/grotten.asm` was copied from `disasm/out/` once and has since been changed for
 the languages (texts moved out) and the English engine (see below). Running
@@ -50,8 +47,6 @@ annotations, or edits get lost.
 make            # build/nl.prg, build/de.prg, build/en.prg, build/fr.prg,
                 # build/fi.prg: load at $0801, RUN starts them
 make en         # one of them
-make check      # build/en.prg byte-identical to original/grotten_en.prg while
-                # src/ is unchanged, apart from the fixes in src/en/fixes.cmp
 make release    # release/: grotten_van_oberon.prg, grotten_von_oberon.prg,
                 # caves_of_oberon.prg, grottes_d_oberon.prg,
                 # oberonin_luolat.prg: each build
@@ -64,11 +59,12 @@ with the include path: `-I src/<language> -I build/<language>`, so
 `.include "text.asm"` and `.binary "map.bin"` find that language's files, and
 the puzzle banks made from its text files.
 
-All five builds use the English engine, so only the English build can be
-compared with its original. The Dutch and German builds were last checked
-byte-identical with their own engine in the commit before the old engine was
-taken out (git history); the Finnish one was checked the same way, by adding
-it to that commit's source (b4ae29c).
+The builds no longer match their originals: they share the English engine,
+and what the game never uses was taken out (see "Differences from the
+original"). The source was last checked byte-identical in git history: the
+English build in 28b04fd (`make check`, allowing the tile $44 fix), the Dutch
+and German builds with their own engine in b4ae29c, and the Finnish one by
+adding it to b4ae29c's source.
 
 The unpacked build fills $0801-$cfff, which the KERNAL loads fine; the crunched
 release is one file that unpacks itself and shows the loading picture first.
@@ -104,11 +100,9 @@ resets the C64 (`jmp $fce2`), for the game to be loaded after it.
 
 ## The versions
 
-`src/grotten.asm` builds all five, all with the English engine; `make check`
-compares the English one with its original.
+`src/grotten.asm` builds all five, all with the English engine.
 
-- Dutch and German: the same code. Only the texts, the data and the leftovers
-  differ, and the texts' addresses follow from their lengths (all pointers to
+- Dutch and German: the same code. Only the texts and the data differ, and the texts' addresses follow from their lengths (all pointers to
   them are labels).
 - English: the same game code ($1000 on), but its engine was sped up. The
   source now only has this engine; the Dutch and German originals had:
@@ -127,19 +121,13 @@ compares the English one with its original.
   the texts in the cave tiles (title, subtitle, credits, congratulations,
   the unused "FAUSSE ROUTE!" sign) are translated. No accents: the fonts have
   none. Words in the puzzles are translated, sums and number rows kept, and
-  the keyboard rows (QWERTY..., the C64's own keyboard) too. The leftovers
-  are zeros.
+  the keyboard rows (QWERTY..., the C64's own keyboard) too.
 - Finnish: a translation of the Dutch version (by whom, the tape doesn't say),
   "Oberonin luolat": the Dutch engine and code, with the texts,
   puzzles and cave tile texts in Finnish. Its character set has Ä on `[` and
   Ö on `\` (`text.asm` writes them that way). It was saved from a fresh
-  start, so most of `saved.asm` is zero. The game code after the texts sits
-  $63 bytes lower than the Dutch, as the texts are shorter; the leftovers
-  after it are the Dutch ones. Its `src/fi/` was extracted from the unpacked
-  memory and checked byte-identical with the old engine (see Building).
-- What some variables held when the version was saved differs too (the status
-  scroller's position, the sound effect, the switch, ...): `saved.asm` starts
-  them with those values, so each build is identical.
+  start. Its `src/fi/` was extracted from the unpacked memory and checked
+  byte-identical with the old engine (see Building).
 
 ## The loading picture
 
@@ -193,16 +181,15 @@ the picture stays in use.
 | --- | --- |
 | $0400 / $0800 | the two screens, swapped (`$d018` eor $30) when the scroll wraps; sprite pointers at $07f8 / $0bf8 |
 | $0c00-$0fff | 16 sprites, pointers $30-$3f (`sprites.bin`) |
-| $1000-$2440 | game: title, puzzles, terminals, main loop, status line, texts (Dutch; the others end elsewhere) |
-| $2441-$27ff | leftovers (English, and now every build: the barrier animation first) |
+| $1000-$26dd | game: title, puzzles, terminals, main loop, status line, texts, barrier animation (Dutch; the others end elsewhere), then zeros |
 | $2800-$2fff | charset (`charset.bin`), `$d018` = $1a |
 | $3000-$5fff | four puzzle banks of $c00 |
 | $6000-$7fff | the map image, copied to $e000-$ffff (RAM under the KERNAL) at the start |
 | $8000-$9fff | tile characters (`tile_chars.bin`) |
 | $a000-$bfff | tile colours (`tile_colours.bin`) |
-| $c000-$cb7e | the engine: scrolling, drawing, raster IRQ, frame handler, barriers (then leftovers up to $cbff) |
-| $cc00-$cfe7 | colour buffer, copied to $d800 when the screens swap |
-| $fd30-$fd43 | scroll copy tables (copied from $13ad at the start) |
+| $c000-$c947 | the engine: scrolling, drawing, raster IRQ, frame handler, barriers (then zeros) |
+| $cc00-$cfe7 | colour buffer, copied to $d800 when the screens swap (zeros in the file) |
+| $fd30-$fd43 | scroll copy tables (copied from `scroll_copy_start_init` at the start) |
 
 Sprites: 0/1 the status line scroller (sprite data $0d40/$0d80), 2-5 the ship
 (multicolour), 6 the probe arm, 7 the guardian (expanded).
@@ -250,7 +237,7 @@ code after them moves along (up to $2800).
   from the start of one, so a shorter message shows the start of the next one
   after it (the Dutch `message_damage_bottom` and `message_radar` are 53, so
   the originals do this too). `damage` + `message_default` is the normal status
-  (the credits). `message_fuel_low` is never shown.
+  (the credits).
 - `text_intro`: the introduction, scrolled through the puzzle display, ends with 0.
 - `text_fuel_full`: "VOL!", exactly 4 characters.
 
@@ -296,9 +283,7 @@ project, import only takes the pixels.
 
 - The Dutch, German and Finnish versions use the English version's faster engine (see
   "The versions"): the colour copy written out as `lda`/`sta` pairs, the
-  unrolled screen shift, the barrier animation after the game code. Their
-  `leftovers_1.bin` is cut short by the barrier code, and the space the
-  barrier code left at the end of the engine is padded with zeros. The faster
+  unrolled screen shift, the barrier animation after the game code. The faster
   colour copy stays well ahead of the beam; the old loop only just did, with
   less margin on NTSC (shorter border).
 
@@ -312,21 +297,31 @@ project, import only takes the pixels.
   Dutch version has (`tile_chars.bin` and `tile_colours.bin`, offsets
   $1624/$1625).
 
-When changing a language's build on purpose, write its new differences to
-`fixes.cmp`: `cmp -l build/en.prg original/grotten_en.prg > src/en/fixes.cmp`.
+- What the game never uses is gone, so the code and data after it moved:
+  - `unused_getin`, a `jsr getin` before `title_wait_key` that nothing
+    called;
+  - three engine bytes nothing read ($c084, $c088, $c08a);
+  - `puzzles_test`, a small puzzle list `puzzle_bank` pointed to before a
+    difficulty was chosen (it's always set before it's read);
+  - `message_fuel_low`, a fuel warning in every language ("MACHINEKAMER
+    MELDT: DE BRANDSTOF RAAKT OP") that no code shows;
+  - the leftovers of an earlier memory image after the game code
+    ($2441-$27ff in Dutch) and after the engine ($cb7f-$cbff), the bytes
+    after the puzzles in each puzzle bank, and the colour buffer's contents
+    in the file (the screen when the version was saved): now zeros;
+  - what the variables held when the cracked versions were saved (the
+    status scroller's position, a sound effect still running, the fuel
+    timer, scroller and answer workspaces): now the values of a fresh start,
+    which the German, English and Finnish versions had already.
+- The Dutch version was saved with the switch (char $ed, which toggles chars
+  $fe/$ff) set. It now starts with it off like the other versions
+  (`switch_state` 0, chars $fe/$ff in `charset.bin` as in the others).
 
-## Bugs and leftovers found
+## Bugs found
 
 - `puzzle_wrong`: when the guardian comes from the right, `puzzle_tries`
   isn't counted down, so in that case a wrong answer never moves on to another
   puzzle.
-- `message_fuel_low` ("MACHINEKAMER MELDT: DE BRANDSTOF RAAKT OP") is never shown.
-- `unused_getin` ($10b4) is never called.
-- `puzzles_test` ($1d1c) is a small puzzle list `puzzle_bank` points to before a
-  difficulty is chosen.
-- $2441-$27ff and $cb7f-$cbff hold leftovers of an earlier memory image
-  (`leftovers_1.bin`, `leftovers_2.bin`; the build pads with zeros if the code
-  grows into them, and stops if it outgrows them).
 - The English F3 bank has a puzzle "QWERTYUIOP@*" with `@` (screen code 0) in
   it. A 0 makes `puzzle_char` go back to the start of the bank, so the game
   shows the first puzzle's character in that place. `tools/puzzles.py` takes

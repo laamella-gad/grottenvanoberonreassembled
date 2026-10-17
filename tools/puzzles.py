@@ -14,9 +14,8 @@ under them a '^' for each hidden character:
     |  2 + 2 = 4   |
     |          ^   |
 
-Lines starting with '#' are comments. A 'free' line holds the bytes at the end
-of the bank after the puzzles (leftovers in the original), so that an unchanged
-file converts back to the same bytes.
+Lines starting with '#' are comments. Import fills the rest of the bank with
+zeros; export ignores what's there.
 
 A bank holds at most 219 puzzles. The game picks the next puzzle by skipping 1
 to 8 of them and starts again at the first after the last, so any number works.
@@ -50,20 +49,15 @@ def export(bin_path, txt_path):
         lines.append('|' + ''.join(CHARS[c & 0x3f] for c in puzzle) + '|')
         lines.append('|' + ''.join('^' if c & 0x80 else ' ' for c in puzzle) + '|')
         pos += LENGTH
-    free = data[pos + 1:].lstrip(b'\0')
-    lines += ['', 'free ' + free.hex(' ')]
     open(txt_path, 'w', encoding='utf-8').write('\n'.join(lines) + '\n')
     print(f'{txt_path}: {pos // LENGTH} puzzles')
 
 
 def import_(txt_path, bin_path):
-    rows, free = [], b''
+    rows = []
     for number, line in enumerate(open(txt_path, encoding='utf-8'), 1):
         line = line.rstrip('\n')
         if not line.strip() or line.startswith('#'):
-            continue
-        if line.startswith('free'):
-            free = bytes.fromhex(line[4:])
             continue
         if len(line) != LENGTH + 2 or line[0] != '|' or line[-1] != '|':
             sys.exit(f'{txt_path}:{number}: expected |{LENGTH} characters|')
@@ -83,9 +77,7 @@ def import_(txt_path, bin_path):
     if count == 0 or count > MAX_PUZZLES:
         sys.exit(f'{txt_path}: {count} puzzles, a bank holds 1 to {MAX_PUZZLES}')
     data.append(0)
-    if len(data) + len(free) > BANK_SIZE:
-        free = b''
-    data += bytes(BANK_SIZE - len(data) - len(free)) + free
+    data += bytes(BANK_SIZE - len(data))
     open(bin_path, 'wb').write(data)
     print(f'{bin_path}: {count} puzzles')
 

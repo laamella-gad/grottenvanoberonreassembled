@@ -438,5 +438,3 @@
 |       ^      |
 |FEUDAL SERVICE|
 |   ^        ^ |
-
-free ff 30 40 ef ff
