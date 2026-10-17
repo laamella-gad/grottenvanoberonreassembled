@@ -22,6 +22,7 @@ make release    # grotten_van_oberon.prg, crunched
 - texts: `src/grotten.asm`
 - puzzles: `src/puzzles_*.txt`
 - cave and tiles: `tools/playfield.py export`, edit `playfield.ctm` in CharPad, `tools/playfield.py import`
-- sprites and characters: `src/sprites.bin`, `src/charset.bin`
+- sprites: `tools/sprites.py export`, edit `sprites.spd` in SpritePad, `tools/sprites.py import`
+- characters: `src/charset.bin` (or through the CharPad project)
 
 `NOTES.md` has the memory map, the engine, the rules for each kind of edit and the bugs found.

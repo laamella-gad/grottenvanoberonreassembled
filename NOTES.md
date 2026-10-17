@@ -141,8 +141,17 @@ position $e432 (`engine_init`): tile row 8, column 50.
 
 ### Sprites
 
-`src/sprites.bin`, 16 sprites of 64 bytes from $0c00 (pointer $30): load it in
-SpritePad as raw data. Rows 6-12 of $35/$36 are overwritten by the status scroller.
+```
+tools/sprites.py export     # sprites.spd, a SpritePad 1.8 project
+tools/sprites.py import     # back into src/sprites.bin
+```
+
+16 sprites from $0c00, pointers $30-$3f: $30-$34 the ship (multicolour, $34
+is sprite 4's other frame), $35/$36 the status line (rows 6-12 are the
+scrolled text, drawn at run time), $37/$38 and $39/$3a the probe arm, $3b an
+unused probe frame, $3c-$3f the guardian. The colours and modes are set by the
+code (`sprite_colours_init`, `engine_init_sprites`); export shows them in the
+project, import only takes the pixels.
 
 ## Bugs and leftovers found
 
