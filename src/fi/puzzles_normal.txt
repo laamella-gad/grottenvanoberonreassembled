@@ -1,0 +1,442 @@
+# 14 characters a puzzle, ^ marks a hidden one; see tools/puzzles.py
+
+| 23 + 54 = 77 |
+|       ^      |
+| 23 * 2 = 46  |
+|  ^           |
+| 83 - 17 = 66 |
+|       ^      |
+| 2 4 8 16 32  |
+|     ^        |
+| 37 + 9 = 46  |
+|      ^       |
+| 67 - 21 = 46 |
+|      ^       |
+|1*2*3*4*5=120 |
+|          ^   |
+|  B O N U S   |
+|              |
+|   MAKSIMI    |
+|        ^     |
+|   VALVONTA   |
+|      ^       |
+| 12 * 7 = 84  |
+|          ^   |
+|   EP[ILYS    |
+|      ^       |
+| KONDIITTORI  |
+|         ^    |
+|A C E G I K M |
+|          ^   |
+|   NIMITT[[   |
+|      ^       |
+| PINNALLINEN  |
+|        ^     |
+| 21+22+23=66  |
+|        ^     |
+|  RIEKALEINA  |
+|    ^         |
+|  670-635=35  |
+|   ^          |
+|  ASTEITTAIN  |
+|      ^       |
+|  KIUKKUINEN  |
+|       ^      |
+|  QWERTYUIOP  |
+|   ^          |
+|  ASDFGHJKL   |
+|     ^        |
+|   ZXCVBNM    |
+|     ^        |
+| INHIMILLINEN |
+|  ^           |
+|  VESI = H2O  |
+|          ^   |
+|12 * 12 = 144 |
+|            ^ |
+|1 4 9 25 36 49|
+|          ^   |
+|    K[TEV[    |
+|      ^       |
+|HILLITSEMINEN |
+|      ^       |
+|   45/9 = 5   |
+|    ^         |
+| 67 - 43 = 24 |
+|       ^      |
+| 123+321=444  |
+|      ^       |
+|   J[NN[RI    |
+|        ^     |
+|   HARKINTA   |
+|         ^    |
+|    TANSKA    |
+|        ^     |
+|    ROOMA     |
+|     ^        |
+|     BONN     |
+|        ^     |
+|   BERLIINI   |
+|         ^    |
+|    72/8=9    |
+|         ^    |
+|5 10 15 20 25 |
+|     ^        |
+|1 4 7 10 13 16|
+|    ^         |
+| VALOKUVAAJA  |
+|  ^           |
+|LEGENDAARINEN |
+|  ^           |
+|  123-37=86   |
+|   ^          |
+|  HYV[KSYNT[  |
+|      ^       |
+|  AAMUT[HTI   |
+|     ^        |
+| VALTUUTETTU  |
+|       ^      |
+|   PIDENT[[   |
+|     ^        |
+|  1/25 = 4 %  |
+|    ^         |
+|   2%=1/50    |
+|        ^     |
+|  9 * 6 = 54  |
+|           ^  |
+|  A E O I U   |
+|      ^       |
+|  POLKUPY£R[  |
+|     ^        |
+|   KYPSYNYT   |
+|      ^       |
+|  UHKAROHKEA  |
+|     ^     ^  |
+|   KILPAILU   |
+|        ^     |
+|   RIVIERA    |
+|      ^       |
+| HYLKEENNAHKA |
+|       ^      |
+|   24/3=2*4   |
+|   ^          |
+|   10/5=6/3   |
+|        ^     |
+|   ROMANSSI   |
+|      ^       |
+| PIIRILEIKKI  |
+|     ^    ^   |
+| KIERTOAJELU  |
+|   ^      ^   |
+|  512/4=128   |
+|        ^     |
+| 13 * 4 = 52  |
+|      ^       |
+|   34/17=2    |
+|       ^      |
+|PORTTI=VER[J[ |
+|        ^     |
+|   27*3=81    |
+|         ^    |
+| P£YHISTELL[  |
+|   ^          |
+|1024=2*2*2*128|
+|   ^          |
+|    VIHJE     |
+|      ^       |
+|   33/33=1    |
+|       ^      |
+|  KYLL[INEN   |
+|       ^      |
+|   VANHEMPI   |
+|    ^     ^   |
+|    81/9=9    |
+|       ^      |
+|   35*3=105   |
+|   ^          |
+|  B O N U S   |
+|              |
+|     MUTA     |
+|      ^       |
+|   RUMENTAA   |
+|       ^      |
+| 89 - 56 = 33 |
+|      ^       |
+| 86 - 59 = 27 |
+|       ^      |
+|   MUOKATA    |
+|      ^       |
+|J[INEN=LIUKAS |
+|        ^^    |
+|   17*3=51    |
+|    ^         |
+|    MAUSTE    |
+|       ^      |
+|    KUPOLI    |
+|        ^^    |
+| 23 - 4 = 19  |
+|      ^       |
+| 56 - 19 = 37 |
+|       ^      |
+|   84/12=7    |
+|       ^      |
+| 15 * 5 = 75  |
+|          ^   |
+| MALTILLINEN  |
+|   ^          |
+|    KROKUS    |
+|        ^^    |
+|   MONSUUNI   |
+|       ^^     |
+|  NOITA-AKKA  |
+|   ^^         |
+|    PAETA     |
+|      ^       |
+| YHDYSVALLAT  |
+|  ^    ^      |
+|   AMERIKKA   |
+|        ^^    |
+|  LAS PALMAS  |
+|   ^   ^      |
+|   V[LTT[[    |
+|     ^        |
+|KOSKEMATTOMUUS|
+|    ^    ^    |
+|PERUSTELEMATON|
+| ^    ^       |
+|  UPPOAMATON  |
+|   ^^         |
+|KOSKA TAHANSA |
+|  ^     ^     |
+|  KIRJANPITO  |
+|  ^           |
+|34 + 411 = 445|
+|            ^ |
+| ANNOS=ATERIA |
+|       ^      |
+|  METS[ST[J[  |
+|          ^   |
+|    LANKO     |
+|        ^     |
+|   KIELT[[    |
+|     ^        |
+|     LAJI     |
+|        ^     |
+|    TUULI     |
+|     ^^       |
+|  KALIFORNIA  |
+|      ^       |
+|   KOLUMBUS   |
+|        ^     |
+|   LIBANON    |
+|     ^        |
+|   PARAGUAI   |
+|       ^      |
+|200 + 123 =323|
+|           ^  |
+| 78 - 45 = 33 |
+|           ^  |
+|   13=2*4+5   |
+|          ^   |
+|   OPPILAS    |
+|    ^^        |
+|  TODISTAJA   |
+|    ^         |
+|  HORJAHTAA   |
+|  ^           |
+|     HIMO     |
+|     ^        |
+|   HULLUUS    |
+|    ^         |
+|   TARJOUS    |
+|      ^       |
+| 69 + 13 = 82 |
+|  ^           |
+|   42-21=21   |
+|       ^      |
+|KITKE[=PERATA |
+|           ^  |
+|  YH[=VIEL[   |
+|         ^^   |
+|KASVAA=EDISTY[|
+|        ^     |
+|    HYMNI     |
+|       ^      |
+|  RENTOUTUA   |
+|     ^  ^     |
+|21 + 321 = 342|
+|      ^       |
+| 67 - 63 = 4  |
+|      ^       |
+| 45 * 4 = 180 |
+|           ^  |
+|    36/9=4    |
+|     ^        |
+|   65-46=19   |
+|          ^   |
+| 200+567=767  |
+|       ^      |
+| 1000-400=600 |
+|          ^   |
+|30 * 30 = 900 |
+|     ^        |
+|87 + 453 = 540|
+|      ^       |
+| 59/9= 5+3-2  |
+|         ^    |
+|  110/11=10   |
+|    ^         |
+|  250/25=10   |
+|   ^          |
+|   23-6=17    |
+|        ^     |
+|  IRROITTAA   |
+|   ^^         |
+|   POISTAA    |
+|       ^^     |
+|  ARPAJAISET  |
+|     ^ ^      |
+|   KUUTAMO    |
+|    ^^        |
+|  KEINOTELLA  |
+|        ^^    |
+|    VOIMA     |
+|        ^     |
+|    KOMEA     |
+|     ^        |
+|    LUOPUA    |
+|     ^   ^    |
+|   SAUMATON   |
+|     ^        |
+|  RESONANSSI  |
+|         ^^   |
+|  H[T[TAPAUS  |
+|         ^    |
+|   UHRAUTUA   |
+|     ^        |
+| P[[ST[[ POIS |
+|           ^  |
+|  AMPUA ALAS  |
+|    ^   ^     |
+|    PILATA    |
+|      ^       |
+| 37 + 16 = 53 |
+|           ^  |
+|    TYPER[    |
+|        ^     |
+|   HAIKARA    |
+|     ^        |
+|  LAHJOITUS   |
+|    ^   ^     |
+|   59-23=36   |
+|      ^       |
+|  AIHEUTTAA   |
+|    ^     ^   |
+|  TIIVIST[[   |
+|   ^^         |
+|  K[DET YL£S  |
+|      ^ ^     |
+|  KOOSTUMUS   |
+|   ^^         |
+| L J H F D B  |
+|       ^      |
+|  5+6+7+8=26  |
+|           ^  |
+|ROLLING STONES|
+|   ^        ^ |
+|  LOPPUPISTE  |
+|    ^^        |
+|  33-22=10+1  |
+|      ^       |
+|   VARASTO    |
+|     ^        |
+|LAPSUUDENKOTI |
+|  ^           |
+|   VANHEMPI   |
+|   ^          |
+|  KIIREINEN   |
+|     ^        |
+|  VAKUUTTAA   |
+|    ^         |
+|  HEIJASTUS   |
+|    ^     ^   |
+|   J[RJEST£   |
+|     ^        |
+| SINITIAINEN  |
+|      ^ ^     |
+|   ISTUTUS    |
+|      ^       |
+|  KIILLOTTAA  |
+|       ^      |
+|    PEHMO     |
+|        ^     |
+|  PATIKOIDA   |
+|       ^      |
+|    KARTTA    |
+|       ^      |
+|  KIRJOITTAA  |
+|       ^^     |
+| ALUE=VY£HYKE |
+|         ^^   |
+|  17*11=187   |
+|         ^    |
+|   12+14=26   |
+|    ^         |
+|   PALAPELI   |
+|     ^   ^    |
+|    MERKKI    |
+|     ^        |
+|  PUOLIMATKA  |
+|    ^      ^  |
+|  SIMPANSSI   |
+|        ^     |
+|   EGO=MIN[   |
+|       ^      |
+|  KIPU=S[RKY  |
+|         ^    |
+|2*2*2*2*2 =32 |
+|           ^  |
+|   43-35=8    |
+|       ^      |
+|   21*5=105   |
+|      ^       |
+|   34*4=136   |
+|         ^    |
+|  2*2*2=2*4   |
+|        ^     |
+|   22=4*5+2   |
+|      ^       |
+|  2=65-60-3   |
+|          ^   |
+|   5*55=275   |
+|        ^     |
+|  3*3*3*3=81  |
+|           ^  |
+|  3*2*2*3=36  |
+|    ^         |
+|222+333=554+1 |
+|  ^           |
+|  30-4-7=19   |
+|   ^          |
+|  POLITIIKKA  |
+|   ^          |
+| P[[MINISTERI |
+|     ^        |
+| POSITIVISMI  |
+|   ^          |
+|   LEIMATA    |
+|        ^     |
+|  JALOSTETTU  |
+|      ^       |
+|  TIRKIST[J[  |
+|    ^         |
+|    ETSIV[    |
+|     ^        |
+|  HUVIPURSI   |
+|    ^     ^   |
+|    PISTOS    |
+|        ^     |
+| ROTANMYRKKY  |
+| ^            |
+
+free ff 00 ff 00

@@ -1,0 +1,442 @@
+# 14 characters a puzzle, ^ marks a hidden one; see tools/puzzles.py
+
+|  2 4 16 256  |
+|         ^^   |
+|45 * 56 = 2520|
+|            ^ |
+|34 * 21 = 714 |
+|           ^  |
+|X*X=1369 X=37 |
+|            ^ |
+|81 100 121 144|
+|        ^     |
+| 422-289=133  |
+|      ^       |
+|33 * 33 = 1089|
+|            ^ |
+| J[[R[P[ISYYS |
+|        ^     |
+| ASTIAKAAPPI  |
+|       ^^     |
+| HUMANISTINEN |
+|      ^  ^    |
+|  KOMENTAJA   |
+|   ^      ^   |
+|  B O N U S   |
+|              |
+|VAROMATTOMUUS |
+|      ^^      |
+|   KARTONKI   |
+|        ^     |
+|TUNNISTETTAVA |
+|  ^^          |
+|  KERAMIIKKA  |
+|       ^^     |
+|  11+435=546  |
+|     ^^^      |
+| 211+546=757  |
+|       ^ ^    |
+|  3.1415927   |
+|     ^        |
+| FALCON CREST |
+|         ^^   |
+|  JAMES BOND  |
+|    ^^^       |
+|   HYSTERIA   |
+|    ^    ^    |
+|   TY£VOIMA   |
+|        ^ ^   |
+|   IDIOOTTI   |
+|      ^^      |
+|   PUISEVA    |
+|        ^     |
+|NOIDUTTU=PAHA |
+| ^   ^^       |
+| 12 24 48 96  |
+|    ^         |
+|  ISOTOOPPI   |
+|      ^^  ^   |
+|    VIINI     |
+|       ^      |
+|   TOTTUMUS   |
+|       ^  ^   |
+|  408/12=34   |
+|       ^      |
+|13 17 19 23 29|
+|          ^   |
+|5!=120 6!=720 |
+|           ^  |
+|  RAIVO=VIHA  |
+|  ^  ^        |
+|  PYS[YTT[[   |
+|      ^       |
+|IMPRESSIONISMI|
+|    ^      ^^ |
+|1Q 2W 3E 4R 5T|
+|    ^         |
+|  INFLUENSSA  |
+|      ^  ^    |
+| INSPIRAATIO  |
+|       ^^     |
+| INTIMITEETTI |
+|    ^ ^       |
+|LAAJENNUSHANKE|
+| ^^          ^|
+|X+34=67 X+7=40|
+|          ^   |
+|  INSIN££RI   |
+|    ^^        |
+|  ERODOMMOC   |
+|  ^           |
+|A1 B2 E5 D4 C3|
+|       ^      |
+|  B O N U S   |
+|              |
+|  TFOSRADAR   |
+|      ^       |
+|INTENSIIVINEN |
+| ^            |
+| KATSOA=N[HD[ |
+|     ^^       |
+| 10 PRINT A;  |
+|        ^     |
+|  SUHTAUTUA   |
+|    ^         |
+|  IVALLINEN   |
+|      ^       |
+|    ISRAEL    |
+|     ^        |
+| 10*3*2=62-2  |
+|         ^    |
+|  K[YTT£OPAS  |
+|    ^     ^   |
+| KALABALIIKI  |
+|     ^^       |
+| KAPASITEETTI |
+|        ^^    |
+| KAROSSI=KORI |
+|      ^^      |
+|KARRIEERI=URA |
+|          ^ ^ |
+| MOTIIVI=SYY  |
+| ^^           |
+|  KATASTROFI  |
+|       ^^     |
+| KEEP SMILING |
+|  ^^          |
+|  KIMONO=ASU  |
+|      ^^      |
+|KLAUSTROFOBIA |
+|          ^^  |
+|KOJOOTTI=EL[IN|
+|   ^^         |
+| KOMBINAATIO  |
+|    ^^        |
+|  P[TTEVYYS   |
+|        ^     |
+|   KOMITEA    |
+|        ^     |
+| KOMPLIKAATIO |
+|        ^^    |
+|EP[SOVINNAINEN|
+|   ^^         |
+|  KROMOSOMI   |
+|       ^^     |
+|   TILAVUUS   |
+|        ^     |
+|   VALUUTTA   |
+|        ^^    |
+|  PAKOLLINEN  |
+|  ^           |
+|  VITAMIINI   |
+|      ^  ^    |
+| VISUAALINEN  |
+|       ^^     |
+|VAPAAMIELINEN |
+|  ^^          |
+| VALEHTELIJA  |
+|   ^^         |
+|  B O N U S   |
+|              |
+| VERBAALINEN  |
+|    ^^        |
+|  TUOREMEHU   |
+|   ^^         |
+|   URBAANI    |
+|      ^       |
+|  VASEMMALLE  |
+|    ^         |
+|  IRROITTAA   |
+|   ^^         |
+|  TROOPPINEN  |
+|       ^^     |
+|   TYPERYYS   |
+|      ^^      |
+|   LIFTATA    |
+|      ^^      |
+|   VIHANNES   |
+|       ^^     |
+| HARJOITELLA  |
+|    ^         |
+|   TRADITIO   |
+|    ^         |
+|  IMARRELLA   |
+|   ^^         |
+| MORALISOIDA  |
+|     ^^       |
+| SALAPER[INEN |
+|  ^  ^        |
+| 945-134=811  |
+|     ^^       |
+| TRAMPOLIINI  |
+|     ^^       |
+| SATUNNAINEN  |
+|       ^^     |
+|29 * 32 = 928 |
+|     ^        |
+| 6*4*8*3=576  |
+|     ^        |
+| 223-98=120+5 |
+|     ^^       |
+|  PY£R[HT[[   |
+|     ^        |
+|   NAAPURIT   |
+|      ^       |
+|  TOTAALINEN  |
+|    ^         |
+|3*3*3*3*5=405 |
+|      ^       |
+|  B O N U S   |
+|              |
+| TESTAMENTII  |
+|      ^^      |
+| ALISTUMINEN  |
+|     ^^       |
+|  TERRORISTI  |
+|    ^^        |
+| TEOREETTINEN |
+|    ^^        |
+|  KIRJOITUS   |
+|       ^      |
+|   SYSTEEMI   |
+|    ^         |
+|SYMBOLI=MERKKI|
+|          ^^  |
+|KEINUA=HEILUA |
+|        ^^    |
+|   N[PIST[[   |
+|     ^        |
+|  STRUKTUURI  |
+|      ^       |
+|SAAVUTTAMATON |
+|    ^   ^     |
+|  VALMISTAA   |
+|        ^^    |
+|   STIPENDI   |
+|        ^     |
+|   STERIILI   |
+|    ^     ^   |
+|  K[YNNISTYS  |
+|     ^^       |
+|   SIVIILI    |
+|    ^         |
+| 1+2+3+4+5=15 |
+|            ^ |
+|  B O N U S   |
+|              |
+|  SEMINAARI   |
+|       ^^     |
+|L[HIYMP[RIST£ |
+|     ^        |
+|     UJO      |
+|       ^      |
+|SANASTA SANAAN|
+|      ^    ^^ |
+| SATELLIITTI  |
+|     ^^    ^  |
+| SAFARI=MATKA |
+|         ^^   |
+|   RUTIINI    |
+|    ^         |
+|  TULENARKA   |
+|       ^  ^   |
+| ROMANTTINEN  |
+|      ^^      |
+|  RIISIRUOKA  |
+|      ^       |
+|   LUMISADE   |
+|     ^^       |
+|  KOE=TESTI   |
+|   ^^         |
+| RADIKAALINEN |
+|   ^^         |
+|  B O N U S   |
+|              |
+|  9 7 5 3 1   |
+|    ^         |
+|  PYROMAANI   |
+|       ^^     |
+|  PAHOLAINEN  |
+|    ^         |
+|1021+307=1328 |
+| ^     ^      |
+| KUKKOTAPPELU |
+|   ^^         |
+|   BAKTEERI   |
+|   ^          |
+|  MURROSIK[   |
+|     ^        |
+|   PROSESSI   |
+|      ^       |
+|   LIITT[[    |
+|    ^         |
+|  B O N U S   |
+|              |
+|   MAJATALO   |
+|     ^        |
+|  PROBLEEMA   |
+|     ^        |
+|  POPPAMIES   |
+|    ^^        |
+| POSITIIVINEN |
+|      ^       |
+|  PUHDISTAA   |
+|    ^         |
+|  POLIITIKKO  |
+|     ^^       |
+|  1/45=3/135  |
+|          ^   |
+|   LAASTARI   |
+|    ^^        |
+|  KIEPSAHTAA  |
+|    ^         |
+| J[LLEEN=TAAS |
+|         ^^   |
+|23 * 18 = 414 |
+|      ^       |
+| 76 * 7 = 532 |
+|              |
+| 567-389=178  |
+|          ^   |
+|  TOIMENPIDE  |
+|    ^         |
+| KASVILLISUUS |
+|      ^^      |
+|  PLANEETTA   |
+|      ^^      |
+|  54*13=702   |
+|         ^    |
+| 78 * 6 = 468 |
+|  ^           |
+| 345+232=577  |
+|     ^     ^  |
+| 23%+54%=77%  |
+|         ^^   |
+|  B O N U S   |
+|              |
+|    HELPPO    |
+|       ^^     |
+|HEMPE[=VIEHKE[|
+|  ^           |
+|  HARMONINEN  |
+|  ^           |
+|KOHDATA=TAVATA|
+|  ^^          |
+|  APAATTINEN  |
+|     ^^       |
+| PIPARMINTTU  |
+|   ^^         |
+|    S[IL£[    |
+|       ^      |
+|  IHAILTAVA   |
+|       ^  ^   |
+|  TUHATKUNTA  |
+|     ^^       |
+| MIEHITYSALUE |
+|      ^^      |
+|  VALMISTAA   |
+|     ^        |
+| KOMPROMISSI  |
+|   ^ ^        |
+| HIRVI£M[INEN |
+|       ^      |
+|  B O N U S   |
+|              |
+| 1/3+1/4=7/12 |
+|         ^    |
+| TUHMA POIKA  |
+|  ^           |
+| HY£DYLLINEN  |
+|    ^         |
+| HUIPPUNOPEUS |
+|    ^^        |
+|ETUOIKEUTETTU |
+|   ^^         |
+|  KOMMENTTI   |
+|     ^   ^    |
+|  B O N U S   |
+|              |
+| TILASTOTIEDE |
+|     ^        |
+| EHDONALAINEN |
+|   ^ ^        |
+|   VALTAVA    |
+|        ^^    |
+|ALLEKIRJOITTAA|
+| ^^           |
+|MONETARISTINEN|
+|   ^     ^    |
+|  B O N U S   |
+|              |
+|  LABYRINTTI  |
+|     ^^       |
+|  TOISAALLA   |
+|      ^^      |
+|  KUMPPANUUS  |
+|     ^^       |
+| MAGNEETTINEN |
+|   ^     ^    |
+|SELEKTIIVINEN |
+|  ^           |
+| V[LITT£M[STI |
+|    ^       ^ |
+| 4*5*6*7=840  |
+|          ^   |
+| 1/1000=0.1 % |
+|          ^   |
+|1/2000=0.05 % |
+|  ^           |
+| 789+546=1335 |
+|          ^   |
+|   65*7=455   |
+|        ^     |
+|  4*X=36 X=9  |
+|           ^  |
+|  55/11=10/2  |
+|     ^        |
+|  22/4=5.50   |
+|          ^   |
+|  B O N U S   |
+|              |
+|  AVIOLIITTO  |
+|   ^^         |
+|KUOLEMANVAKAVA|
+| ^^           |
+|  KOHDISTAA   |
+|   ^          |
+| MIELITIETTY  |
+|    ^^        |
+|TUNNEPITOINEN |
+|  ^^          |
+| SURMANAJAJA  |
+|     ^^       |
+| MIELIKUVITUS |
+|    ^^        |
+|  OLETTAMUS   |
+|     ^^       |
+|   VOKAALI    |
+|   ^          |
+| PAKKOMIELLE  |
+|   ^^         |
+
+free ef 00 ff 00

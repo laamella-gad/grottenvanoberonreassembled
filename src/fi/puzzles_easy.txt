@@ -1,0 +1,442 @@
+# 14 characters a puzzle, ^ marks a hidden one; see tools/puzzles.py
+
+|    2+2=4     |
+|      ^       |
+|  5 - 2 = 3   |
+|      ^       |
+|   1+2+2=5    |
+|       ^      |
+| H[N K[VELEE  |
+|          ^   |
+|  TIETOKONE   |
+|      ^       |
+|1 2 3 4 5 6 7 |
+|        ^     |
+|  2 4 6 8 10  |
+|        ^     |
+|     KYN[     |
+|      ^       |
+| 17 = 10 + 7  |
+|           ^  |
+|    MUISTI    |
+|       ^      |
+|  5 + 7 = 12  |
+|      ^       |
+|  RADARSOFT   |
+|       ^      |
+| 11 + 12 = 23 |
+|       ^      |
+|  TUSINA=12   |
+|         ^    |
+| 8 + 17 = 25  |
+| ^            |
+|    KAUNIS    |
+|         ^    |
+|  6 - 3 = 3   |
+|      ^       |
+|   YHDESS[    |
+|    ^         |
+|    KAHVI     |
+|      ^       |
+|5 + 5 + 5 = 15|
+|    ^         |
+|    SYKSY     |
+|       ^      |
+|    ISOIS[    |
+|      ^       |
+| ABCDEFGHIJK  |
+|       ^      |
+|7 KERTAA 9 =63|
+|             ^|
+|VARTTI=15 MIN |
+|        ^     |
+|  ESMERKIKSI  |
+|      ^       |
+| 20 + 23 = 43 |
+|      ^       |
+|P[IV[=24TUNTIA|
+|       ^      |
+|1 TUNTI=60 MIN|
+|        ^     |
+|  RAKASTUNUT  |
+|      ^       |
+|  MANCHESTER  |
+|         ^    |
+|  ELEFANTTI   |
+|     ^        |
+|  HARJOITUS   |
+|   ^          |
+|    OBERON    |
+|        ^     |
+| 25 + 15 = 40 |
+|      ^       |
+| BY C KRAMER  |
+|          ^   |
+|1+1+1+1+1+1=6 |
+|            ^ |
+|   SIHTEERI   |
+|      ^       |
+|  ERILAINEN   |
+|      ^       |
+| HYVIN TEHTY! |
+|         ^    |
+|   BIOLOGIA   |
+|      ^       |
+|1+2+3+3+2+1=12|
+|             ^|
+|    TUTKIA    |
+|       ^      |
+|  COMMODORE   |
+|       ^      |
+|   JOYSTICK   |
+|         ^    |
+|  TELEVISIO   |
+|        ^     |
+| 23 = 10 + 13 |
+|            ^ |
+|   1/4=25%    |
+|     ^        |
+|  SEIKKAILU   |
+|        ^     |
+|  HERRASMIES  |
+|          ^   |
+| KYMMENEN=10  |
+|          ^   |
+|TEEKUPILLINEN |
+|     ^        |
+|    HAUSKA    |
+|        ^     |
+|KISSA JA HIIRI|
+| ^            |
+| 34 = 17 + 17 |
+|  ^           |
+|     KUVA     |
+|        ^     |
+|  AKU ANKKA   |
+|      ^       |
+| MIKKI HIIRI  |
+|        ^     |
+|   NEW YORK   |
+|          ^   |
+|   ABRAHAM    |
+|       ^      |
+| 24 + 12 = 36 |
+|      ^       |
+| REILU KAVERI |
+|          ^   |
+| THE BEATLES  |
+|           ^  |
+|   ET[ISYYS   |
+|        ^     |
+|   TIISTAI    |
+|       ^      |
+|   TORSTAI    |
+|      ^       |
+|   LAUANTAI   |
+|    ^         |
+| PRESIDENTTI  |
+|   ^          |
+|5 KERTAA 5 =25|
+|         ^    |
+| 80 = 50 + 30 |
+|      ^       |
+|    KUKKA     |
+|        ^     |
+|    SULKU     |
+|        ^     |
+|KANSAINV[LINEN|
+|     ^        |
+|  1/5 = 20 %  |
+|    ^         |
+|56=7 KERTAA 8 |
+| ^            |
+| L[MMIN SAUNA |
+|            ^ |
+|  NASSE SET[  |
+|         ^    |
+| MIELLYTT[V[  |
+|          ^   |
+| 34 + 11 = 45 |
+|       ^      |
+|  B O N U S   |
+|              |
+| P[IV[KAHVIT  |
+|         ^    |
+|  AAMIAINEN   |
+|      ^       |
+| 27 - 9 = 18  |
+|      ^       |
+|  LIVERPOOL   |
+|        ^     |
+| LASSE VIREN  |
+|         ^    |
+|    TUHAT     |
+|       ^      |
+|    KYYHKY    |
+|         ^    |
+|  POHJANMERI  |
+|      ^       |
+|ISO-BRITANNIA |
+|        ^     |
+|  PLANEETTA   |
+|      ^       |
+|   J[[TEL£    |
+|        ^     |
+|OSALLISTUMINEN|
+|       ^      |
+|5 + 9 + 6 = 20|
+|    ^         |
+|8 - 6 + 4 = 6 |
+|            ^ |
+|  RIKOLLINEN  |
+|        ^     |
+|  COPYRIGHT   |
+|    ^         |
+|  NUKKUMATTI  |
+|   ^          |
+|TAKAISINMASKU |
+|      ^       |
+|   PERHONEN   |
+|       ^      |
+|  J[[KAAPPI   |
+|     ^        |
+|3 KERTAA 3 = 9|
+|         ^    |
+|   ESITELL[   |
+|       ^      |
+|    YKSIL£    |
+|        ^     |
+|  TEOLLISUUS  |
+|       ^      |
+|  APULAINEN   |
+|        ^     |
+|   INTOHIMO   |
+|        ^     |
+|   USKONTO    |
+|       ^      |
+| 99 = 100 - 1 |
+|  ^           |
+|    RANSKA    |
+|        ^     |
+|   KORVAUS    |
+|        ^     |
+|   SELITYS    |
+|         ^    |
+|    MAINE     |
+|      ^       |
+|  10 8 6 4 2  |
+|     ^        |
+| 23 + 56 = 79 |
+|           ^  |
+|  TOIMITTAJA  |
+|        ^     |
+|OLYMPIALAISET |
+|    ^         |
+|  198-11=187  |
+|       ^      |
+|  POSTIMIES   |
+|      ^       |
+|4 KERTAA 5 =20|
+|         ^    |
+|  1/2 = 50 %  |
+|        ^     |
+|    SATAA     |
+|       ^      |
+|PALAA POROIKSI|
+|       ^      |
+| NEUVONANTAJA |
+|      ^       |
+|  B O N U S   |
+|              |
+|ANSAITA RAHAA |
+|         ^    |
+|   KAVALTAA   |
+|        ^     |
+|  AMSTERDAM   |
+|        ^     |
+|  KYLPYHUONE  |
+|         ^    |
+|   V[HENNYS   |
+|          ^   |
+|   SOPIMUS    |
+|       ^      |
+|   YL£SP[IN   |
+|     ^        |
+|12 KERTAA 7=84|
+| ^            |
+|   6+6+6=18   |
+|          ^   |
+|90 + 14 = 104 |
+|     ^        |
+|11111111111111|
+|     ^        |
+|2 1 2 1 2 1 2 |
+|    ^         |
+|    TER[V[    |
+|     ^        |
+|   KOMPASSI   |
+|        ^     |
+|  AUTOTALLI   |
+|   ^          |
+| LUUNMURTUMA  |
+|    ^         |
+|  P[[NS[RKY   |
+|         ^    |
+|   ERITT[IN   |
+|         ^    |
+|  KOTI-ILTA   |
+|        ^     |
+| UNKARILAINEN |
+|      ^       |
+|  HURRIKAANI  |
+|           ^  |
+|   AAKKOSET   |
+|       ^      |
+|   ALLERGIA   |
+|        ^     |
+|4 KERTAA 7 =28|
+|^             |
+|100 - 60 = 40 |
+|      ^       |
+|JULKISUUDESSA |
+|      ^       |
+|    KAIKKI    |
+|      ^       |
+|  WASHINGTON  |
+|       ^      |
+|   L[NTINEN   |
+|        ^     |
+|  101+7=108   |
+|      ^       |
+|    TUSINA    |
+|        ^     |
+|   J[RJEST£   |
+|       ^      |
+|    FIKSU     |
+|       ^      |
+|  TUNNUSTUS   |
+|         ^    |
+|   SIS[LT£    |
+|        ^     |
+|   VALMISTE   |
+|         ^    |
+|  TIEDEKUNTA  |
+|         ^    |
+|    PERHE     |
+|        ^     |
+|   LUURANKO   |
+|         ^    |
+| 56 = 51 + 5  |
+|       ^      |
+|6 KERTAA 6 =36|
+|            ^ |
+| 1/10 = 10 %  |
+|        ^     |
+|3 KERTAA 13=39|
+|         ^    |
+|  EI KUKAAN   |
+|          ^   |
+|     KYKY     |
+|        ^     |
+|MOUNT EVEREST |
+|        ^     |
+|    LAHJA     |
+|     ^        |
+|     ORPO     |
+|        ^     |
+|  VASTUSTUS   |
+|        ^     |
+|   S[[TILA    |
+|       ^      |
+|  TUOREMEHU   |
+|    ^         |
+|   SARDINIA   |
+|      ^       |
+|   KOKOELMA   |
+|         ^    |
+| 123123123123 |
+|     ^        |
+| 23 + 7 = 30  |
+|  ^           |
+| GRILLIVARRAS |
+|        ^     |
+|   KOMITEA    |
+|        ^     |
+|  SENAATTORI  |
+|         ^    |
+|    NELI£     |
+|       ^      |
+|   5+6+7=18   |
+|   ^          |
+|   LAISKUUS   |
+|          ^   |
+|   KULKURI    |
+|    ^         |
+|  V[LITT[J[   |
+|       ^      |
+| RITARI [SS[  |
+|  ^           |
+|  VASTUSTAJA  |
+|          ^   |
+|7 KERTAA 7 =49|
+|            ^ |
+|   YLIJ[[M[   |
+|     ^        |
+|   TYMHYYS    |
+|        ^     |
+|   13+31=44   |
+|   ^          |
+|    H[IRI£    |
+|        ^     |
+| POSITIIVINEN |
+|         ^    |
+|  PORMESTARI  |
+|         ^    |
+|  LUMIPALLO   |
+|       ^      |
+|  OUTO LINTU  |
+|          ^   |
+| 24 + 42 = 66 |
+|      ^       |
+|   VIIKSET    |
+|         ^    |
+|  200-10=190  |
+|  ^           |
+|  TOPOGRAFIA  |
+|        ^     |
+|  JOULUPUKKI  |
+|    ^         |
+| 30+30+30=90  |
+|          ^   |
+| 45 + 35 = 80 |
+|      ^       |
+|  L[PIN[KYV[  |
+|     ^        |
+| 17 + 16 = 33 |
+|       ^      |
+|33=11 KERTAA 3|
+|    ^         |
+|RONALD REAGAN |
+|         ^    |
+|    MERKKI    |
+|         ^    |
+| RUUANSULATUS |
+|       ^      |
+| HARVINAISUUS |
+|  ^           |
+|MAAHANMUUTTAJA|
+|    ^         |
+| VIRANOMAINEN |
+|   ^          |
+|12345677654321|
+|          ^   |
+|K[SKY=M[[R[YS |
+|   ^          |
+|  RANGAISTUS  |
+|     ^        |
+|    KAUHEA    |
+|        ^     |
+|3 KERTAA 4 =12|
+|            ^ |
+
+free ff 00 ff 00

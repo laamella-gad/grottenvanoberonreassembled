@@ -1,0 +1,442 @@
+# 14 characters a puzzle, ^ marks a hidden one; see tools/puzzles.py
+
+|  133+59=192  |
+|       ^      |
+| 12 23 34 45  |
+|    ^         |
+|  B O N U S   |
+|              |
+|  623-74=549  |
+|       ^      |
+|TYPER[=BANAALI|
+|       ^      |
+|3 5 7 11 13 17|
+|    ^         |
+| BLANCO=AVOIN |
+|            ^ |
+|  956/4=239   |
+|         ^    |
+| BOOLI=MALJA  |
+| ^            |
+|   57*9=513   |
+|    ^         |
+|   KYMMENYS   |
+|      ^       |
+|   DIMENSIO   |
+|       ^      |
+|DOLLARI=TAALA |
+|^             |
+| KARHU=KONTIO |
+|           ^  |
+|  147=882/6   |
+|    ^         |
+|   KOPIOIDA   |
+|   ^          |
+| 491+247=738  |
+|  ^^          |
+| ERROR=VIRHE  |
+|        ^  ^  |
+|  TYHJENT[[   |
+|     ^        |
+|  TOSIASIAT   |
+|          ^   |
+|KANSSA=MUKANA |
+|         ^    |
+|  KUVITELMMA  |
+|      ^       |
+|FILMI=ELOKUVA |
+|        ^   ^ |
+| POLTTOPISTE  |
+|       ^      |
+| 159+258=417  |
+|          ^^  |
+|ETT[ EI=ETTEI |
+|           ^^ |
+|   PROSESSI   |
+|      ^       |
+|  168-29=139  |
+|      ^^      |
+|  139*3=417   |
+|   ^^         |
+| FYSIOLOGINEN |
+|  ^           |
+|  PERVERSSI   |
+|       ^      |
+|   VELJEYS    |
+|       ^      |
+|GALLUP=KYSELY |
+|         ^  ^ |
+|  PESSIMISTI  |
+|   ^       ^  |
+|  ESITYSTAPA  |
+|        ^     |
+| GENERAATTORI |
+|      ^^      |
+| GEOMETRINEN  |
+|  ^           |
+| GERMAANINEN  |
+|     ^^       |
+|  MONUMENTTI  |
+|     ^     ^  |
+| MORALIOSOIDA |
+|   ^          |
+|MUSIIKILLINEN |
+|   ^^         |
+|PURKAUTUMIINEN|
+|    ^         |
+|  VENTILOIDA  |
+|    ^         |
+| KOSMEETTINEN |
+|     ^^       |
+| JUHLALLISUUS |
+|   ^          |
+|   YHDISTYS   |
+|     ^        |
+|  TAHDIKKUUS  |
+|     ^        |
+|HYV[LUONTOINEN|
+|  ^           |
+|  HELLUNTAI   |
+|      ^       |
+|   PYRAMIDI   |
+|      ^       |
+| SIHTEERIST£  |
+|     ^^       |
+|  LAITTEISTO  |
+|          ^^  |
+|   PAKKAUS    |
+|     ^^       |
+| ANTAA MENN[  |
+|    ^^        |
+|    HOTKIA    |
+|        ^     |
+|   EL[V[STI   |
+|      ^       |
+|SALAMYHK[INEN |
+|    ^         |
+|  SATTUMALTA  |
+|      ^    ^  |
+|   TUSKINPA   |
+|     ^        |
+| EHDONALAINEN |
+|  ^      ^    |
+| TAIKALAMPPU  |
+|   ^       ^  |
+|    JUORU     |
+|        ^     |
+| 691-248=443  |
+|          ^^  |
+|  HARHAILLA   |
+|        ^^    |
+|   ISOTELLA   |
+|      ^       |
+|    MURTUA    |
+|        ^     |
+| A D G J M P  |
+|         ^    |
+| HERKULLINEN  |
+|    ^   ^     |
+|   KIUSAAJA   |
+|      ^       |
+|   MAJAKKA    |
+|     ^        |
+|  TULEHTUNUT  |
+|       ^  ^   |
+|HERRAN HALTUUN|
+|     ^       ^|
+|  RENTOUTUA   |
+|      ^       |
+|   PAHENNUS   |
+|    ^         |
+|    PAIMEN    |
+|     ^        |
+|  DITTO=SAMA  |
+|         ^ ^  |
+|  KORROOSIO   |
+|      ^^      |
+|    FARAO     |
+|      ^       |
+| VALO=LAMPPU  |
+|         ^^   |
+|   KULJETUS   |
+|     ^        |
+| HIENOSTUNUT  |
+|    ^         |
+|    SMOKKI    |
+|     ^        |
+|P[[ASIALLINEN |
+|   ^          |
+| NURKKA=KULMA |
+|    ^^        |
+|  HERKKUSUU   |
+|        ^^    |
+|  TARRAUTUA   |
+|      ^   ^   |
+|   TEATTERI   |
+|   ^      ^   |
+|    NAPATA    |
+|      ^       |
+|3 4 8 9 13 14 |
+|            ^ |
+|1 8 27 64 125 |
+|            ^ |
+|1 2 4 7 11 16 |
+|         ^    |
+|3 6 9 12 15 18|
+|       ^      |
+| 4 8 12 16 20 |
+|     ^^       |
+|23 32 23 32 23|
+|      ^       |
+| 1/8 = 0.125  |
+|         ^    |
+| 1/25 = 0.04  |
+|   ^          |
+| 1/20 = 0.05  |
+|   ^          |
+|  2 4 16 256  |
+|      ^       |
+| A D G J M P  |
+|         ^    |
+| 234+456=690  |
+|          ^   |
+|12 * 11 = 132 |
+|      ^       |
+|13 * 13 = 169 |
+|           ^  |
+|11 * 11 = 121 |
+|           ^  |
+| 4*4*4*4=256  |
+|           ^  |
+|  5*(3+5)=40  |
+|     ^        |
+|   78*5=390   |
+|   ^          |
+|   43*5=215   |
+|   ^          |
+| 234+532=766  |
+|      ^^      |
+|10 18 27 37 48|
+|          ^   |
+|  B O N U S   |
+|              |
+|  !"#$%&'()   |
+|       ^      |
+|  670/10=67   |
+|    ^ ^       |
+|  B O N U S   |
+|              |
+|KUNTOUTTAMINEN|
+|   ^        ^ |
+| MATKUSTELLA  |
+|   ^       ^  |
+|32 * 11 = 352 |
+|           ^  |
+|21 * 11 = 231 |
+|           ^  |
+|   TUULETIN   |
+|       ^      |
+| TY£STETT[V[  |
+|    ^         |
+|  SENSAATIO   |
+|     ^^       |
+| ILMASTOINTI  |
+|  ^        ^  |
+|   ILLUUSIO   |
+|      ^^      |
+|22 * 22 = 484 |
+|           ^  |
+| 333-144=189  |
+|          ^   |
+| 23 = 48 - 25 |
+|           ^^ |
+|547 + 324 =871|
+|            ^ |
+| 65+65+66=196 |
+|        ^     |
+| H[M[R[=PIME[ |
+|         ^    |
+|   AAVIKKO    |
+|   ^          |
+|  NAURULOKKI  |
+|   ^^         |
+|   KOMEETTA   |
+|    ^         |
+|   SORA[[NI   |
+|      ^       |
+|  SATIIRINEN  |
+|      ^ ^     |
+| JUUTALAINEN  |
+| ^        ^   |
+| SAARIVALTIO  |
+|  ^^          |
+|KISMET=KOHTALO|
+|         ^    |
+|  NAHKIAINEN  |
+|      ^       |
+|   HAMPURI    |
+|   ^          |
+| 259-103=156  |
+|  ^^          |
+| VALTTIKORTTI |
+|    ^^        |
+|P[[TT[V[ISYYS |
+|          ^   |
+|   TILUKSET   |
+|       ^      |
+|MESTARILLINEN |
+|   ^       ^  |
+| 1100-450=650 |
+|  ^           |
+|  1024/8=128  |
+|       ^      |
+|  2*3*3*0=0   |
+|        ^     |
+|23 * 23 = 529 |
+|           ^  |
+| 60+67+5=132  |
+|       ^      |
+|  MELBOURNE   |
+|         ^    |
+|  B O N U S   |
+|              |
+| JULES VERNE  |
+| ^^           |
+|ETEL[-AFRIKKA |
+| ^^           |
+|  GRANIITTI   |
+|    ^         |
+|KOVASYD[MINEN |
+|    ^         |
+| TANSSIAISET  |
+|    ^^        |
+|   FYYSIKKO   |
+|      ^       |
+|  HOURAILEVA  |
+|   ^       ^  |
+|  SUMU=USVA   |
+|   ^ ^        |
+|LIUKUA=LUISTAA|
+| ^^           |
+| INFORMAATIO  |
+|   ^     ^    |
+|    KURKKU    |
+|      ^       |
+|    LEIJA     |
+|      ^       |
+|SANKARILLINEN |
+|  ^        ^  |
+| MIELLYTT[V[  |
+|    ^^        |
+| YKSIN[ISYYS  |
+|   ^   ^      |
+|   TEHOKAS    |
+|   ^          |
+| KORVAAMATON  |
+|       ^      |
+|SALAMATKUSTAJA|
+|  ^  ^        |
+| TUKEHDUTTAA  |
+|  ^    ^      |
+| VAINOAMINEN  |
+|    ^   ^     |
+|VIERAANNUTTAVA|
+|     ^    ^   |
+|  ODOTUKSET   |
+|   ^      ^   |
+| T[YSIN[INEN  |
+|   ^          |
+| TOIMEKSIANTO |
+|     ^  ^     |
+|65 - 45 +5=25 |
+|            ^ |
+|  44*40=1760  |
+|          ^   |
+|  PAKOLLINEN  |
+|    ^     ^   |
+|  50*51=2550  |
+|        ^     |
+|  55*55=3025  |
+|         ^    |
+| 100-23-38=39 |
+|      ^       |
+| 20*(8-5)=60  |
+|     ^        |
+|  21*19=399   |
+|         ^    |
+| PYYHKI[ POIS |
+|  ^^          |
+|    [[NT[[    |
+|      ^       |
+|  AVUSTUKSET  |
+|   ^          |
+| LIIKKUMINEN  |
+|  ^^          |
+| J[[HYV[ISET  |
+|     ^    ^   |
+|   YHDIST[[   |
+|      ^       |
+|   H[[PUKU    |
+|       ^      |
+|   HELSINKI   |
+|     ^    ^   |
+| MALTILLINEN  |
+|    ^   ^^    |
+|   PIIKIVI    |
+|    ^^        |
+| PUHUA P£TY[  |
+|  ^           |
+| KAPINALLINEN |
+| ^         ^  |
+| IMEYTYMINEN  |
+|  ^        ^  |
+| EP[ILEM[TT[  |
+|     ^        |
+|  PAHOLAINEN  |
+|   ^^         |
+|  B O N U S   |
+|              |
+|   LITURGIA   |
+|      ^   ^   |
+|  SANAHARKKA  |
+|         ^^   |
+|78 + 23 = 101 |
+| ^            |
+|  SIET[M[T£N  |
+|  ^           |
+|   KERTOMUS   |
+|      ^       |
+|    SIISTI    |
+|      ^       |
+|   TOTELLA    |
+|     ^        |
+|  R[HJ[INEN   |
+|  ^           |
+|PARAATIKULKUE |
+|   ^^         |
+| VIVAHDE=S[VY |
+|   ^   ^      |
+|RUUSUNPUNAINEN|
+| ^^           |
+|  VOIMA=TEHO  |
+|        ^^    |
+|  PYTHON=BOA  |
+|         ^    |
+|  B O N U S   |
+|              |
+| RAUHALLINEN  |
+|   ^          |
+|   VALITTAA   |
+|      ^   ^   |
+|   HAMPURI    |
+|   ^          |
+|    L[[NI     |
+|        ^     |
+|  17*18=306   |
+|          ^   |
+|3*3*4*4=12*12 |
+|         ^    |
+|   72/12=6    |
+|      ^       |
+
+free ef 00 ff 00

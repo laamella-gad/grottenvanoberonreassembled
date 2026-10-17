@@ -8,20 +8,21 @@ tanks, find the way out before the fuel runs out or the damage reaches 100 %.
 
 | File | What |
 | --- | --- |
-| `GROTTEN.T64` | the Dutch tape image, not in the repository like the other two (one file, "OBERON", the "ABC" crack) |
+| `GROTTEN.T64` | the Dutch tape image, not in the repository like the others (one file, "OBERON", the "ABC" crack) |
 | `GROTTENO.T64` | the German version, "GROTTEN V.OBERON" (and "PIC", its loading picture) |
 | `CAVESOFO.T64` | the English version, "CAVES OF OBERON+" (and "CAVES OF OB. DOX", the instructions) |
+| `OBERONIN.T64` | the Finnish version, "OBERONIN LUOLAT" (and "OBERONIN L. PIC", its loading picture) |
 | `original/oberon_packed.prg` | the Dutch file, $0801-$b2cf, packed |
 | `original/grotten_unpacked.prg` | memory after both depackers, $0801-$cfff, at the jump to $1000 |
 | `disasm/grotten.prg` | the same with the crack's leftovers at $0801-$0bff replaced by `10 SYS4096`: the Deflower input |
-| `original/grotten_de.prg`, `original/grotten_en.prg` | the German and English games made the same way: memory at the jump to $1000, $0801-$0bff replaced by the same `10 SYS4096`; `grotten_en.prg` is the reference for `make check` |
+| `original/grotten_de.prg`, `original/grotten_en.prg`, `original/grotten_fi.prg` | the German, English and Finnish games made the same way: memory at the jump to $1000, $0801-$0bff replaced by the same `10 SYS4096`; `grotten_en.prg` is the reference for `make check` |
 | `original/english_version_bitmap.vsf` | a VICE snapshot of the English version's loading picture, not in the repository |
 | `disasm/grotten.flo` | the Deflower annotations (Dutch version): every routine, variable and table |
 | `release/` | the crunched releases (`make release`), one file per language |
 | `disasm/out/` | Deflower's output (`make disasm`), not edited by hand |
-| `src/grotten.asm` | the source of all four versions, from `disasm/out/grotten.asm`: edit code here |
+| `src/grotten.asm` | the source of all five versions, from `disasm/out/grotten.asm`: edit code here |
 | `src/release.asm` | the release image: a build plus its loading picture and the code that shows it |
-| `src/nl/`, `src/de/`, `src/en/`, `src/fr/` | each language's files, see below |
+| `src/nl/`, `src/de/`, `src/en/`, `src/fr/`, `src/fi/` | each language's files, see below |
 | `tools/puzzles.py` | puzzle bank <-> text |
 | `tools/playfield.py` | cave <-> CharPad project, and a picture of the cave |
 | `tools/sprites.py` | sprites <-> SpritePad project |
@@ -30,7 +31,7 @@ Each language directory holds:
 
 | File | What |
 | --- | --- |
-| `text.asm` | `language = "nl"` (`"de"`, `"en"`) and all texts, as `.segment`s that `grotten.asm` puts in place |
+| `text.asm` | `language = "nl"` (`"de"`, `"en"`, `"fr"`, `"fi"`) and all texts, as `.segment`s that `grotten.asm` puts in place |
 | `saved.asm` | what some variables held when the version was saved (see below) |
 | `sprites.bin`, `charset.bin`, `map.bin`, `tile_chars.bin`, `tile_colours.bin` | the graphics and the cave |
 | `puzzles_*.txt` | the four puzzle banks as text |
@@ -46,13 +47,14 @@ annotations, or edits get lost.
 ## Building
 
 ```
-make            # build/nl.prg, build/de.prg, build/en.prg, build/fr.prg: load at $0801,
-                # RUN starts them
+make            # build/nl.prg, build/de.prg, build/en.prg, build/fr.prg,
+                # build/fi.prg: load at $0801, RUN starts them
 make en         # one of them
 make check      # build/en.prg byte-identical to original/grotten_en.prg while
                 # src/ is unchanged, apart from the fixes in src/en/fixes.cmp
 make release    # release/: grotten_van_oberon.prg, grotten_von_oberon.prg,
-                # caves_of_oberon.prg, grottes_d_oberon.prg: each build
+                # caves_of_oberon.prg, grottes_d_oberon.prg,
+                # oberonin_luolat.prg: each build
                 # with its loading picture, crunched with pucrunch
 make disasm     # Deflower: 0 differ, 0 gaps
 ```
@@ -62,10 +64,11 @@ with the include path: `-I src/<language> -I build/<language>`, so
 `.include "text.asm"` and `.binary "map.bin"` find that language's files, and
 the puzzle banks made from its text files.
 
-All four builds use the English engine, so only the English build can be
+All five builds use the English engine, so only the English build can be
 compared with its original. The Dutch and German builds were last checked
 byte-identical with their own engine in the commit before the old engine was
-taken out (git history).
+taken out (git history); the Finnish one was checked the same way, by adding
+it to that commit's source (b4ae29c).
 
 The unpacked build fills $0801-$cfff, which the KERNAL loads fine; the crunched
 release is one file that unpacks itself and shows the loading picture first.
@@ -93,9 +96,15 @@ then a trainer menu at $0800 (cursor keys and RETURN); its options poke the
 of the fuel ($2112). `original/grotten_en.prg` is taken with the options off, so those
 are the original `jsr`s.
 
+The Finnish file is a fourth crack: `SYS 2061` copies a depacker to the
+stack page, which unpacks $0801-$cfff and jumps to $1000 straight away, no
+intro or trainer, and the game's own credit stays in the status line. Its
+"PIC" file is packed the same way; it shows the picture until space and then
+resets the C64 (`jmp $fce2`), for the game to be loaded after it.
+
 ## The versions
 
-`src/grotten.asm` builds all four, all with the English engine; `make check`
+`src/grotten.asm` builds all five, all with the English engine; `make check`
 compares the English one with its original.
 
 - Dutch and German: the same code. Only the texts, the data and the leftovers
@@ -120,6 +129,14 @@ compares the English one with its original.
   none. Words in the puzzles are translated, sums and number rows kept, and
   the keyboard rows (QWERTY..., the C64's own keyboard) too. The leftovers
   are zeros.
+- Finnish: a translation of the Dutch version (by whom, the tape doesn't say),
+  "Oberonin luolat": the Dutch engine and code, with the texts,
+  puzzles and cave tile texts in Finnish. Its character set has Ä on `[` and
+  Ö on `\` (`text.asm` writes them that way). It was saved from a fresh
+  start, so most of `saved.asm` is zero. The game code after the texts sits
+  $63 bytes lower than the Dutch, as the texts are shorter; the leftovers
+  after it are the Dutch ones. Its `src/fi/` was extracted from the unpacked
+  memory and checked byte-identical with the old engine (see Building).
 - What some variables held when the version was saved differs too (the status
   scroller's position, the sound effect, the switch, ...): `saved.asm` starts
   them with those values, so each build is identical.
@@ -142,8 +159,11 @@ the releases have it again. The pictures are Koala files, `src/<language>/pictur
 - French: new, the English picture with "les Grottes d'" / "par C.Kramer"
   drawn in its two fonts (the l, G, r, d and the p made after the letters
   there).
+- Finnish: the tape's "OBERONIN L. PIC" file, unpacked in the 6502 emulator
+  (bitmap $6000, screen $5c00, colours $5800, background black). No title
+  above the logo, "©1985" / "tekijä C.Kramer" below it.
 
-The four differ only in those text cells (rows 11-13 and 22-24).
+The first four differ only in those text cells (rows 11-13 and 22-24).
 
 `src/release.asm` puts a build ($0801-$cfff, ending exactly at $d000) and the
 picture in one image, in the RAM under the I/O and the KERNAL, so the game
@@ -274,7 +294,7 @@ project, import only takes the pixels.
 
 ## Differences from the original
 
-- The Dutch and German versions use the English version's faster engine (see
+- The Dutch, German and Finnish versions use the English version's faster engine (see
   "The versions"): the colour copy written out as `lda`/`sta` pairs, the
   unrolled screen shift, the barrier animation after the game code. Their
   `leftovers_1.bin` is cut short by the barrier code, and the space the

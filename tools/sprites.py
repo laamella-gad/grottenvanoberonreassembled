@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Converts the sprites to and from a SpritePad project.
 
-    tools/sprites.py [nl|de|en|fr] export [sprites.spd]   src/<language>/sprites.bin -> SpritePad project
-    tools/sprites.py [nl|de|en|fr] import [sprites.spd]   SpritePad project -> src/<language>/sprites.bin
+    tools/sprites.py [nl|de|en|fr|fi] export [sprites.spd]   src/<language>/sprites.bin -> SpritePad project
+    tools/sprites.py [nl|de|en|fr|fi] import [sprites.spd]   SpritePad project -> src/<language>/sprites.bin
 
 The language is nl when left out. sprites.bin is the 16 sprites at $0c00-$0fff, pointers $30-$3f, 64 bytes
 each. The project is in SpritePad 1.8's format: background, sprite
@@ -46,7 +46,7 @@ ATTRIBUTES = [
     0x09,  # $3f
 ]
 
-LANGUAGES = ('nl', 'de', 'en', 'fr')
+LANGUAGES = ('nl', 'de', 'en', 'fr', 'fi')
 
 # src/<language>/sprites.bin, set from the command line
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
