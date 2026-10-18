@@ -326,13 +326,24 @@ project, import only takes the pixels.
   DOOR ABC"). It has the game's credit again, as in the other versions:
   "COPYRIGHT 1985 RADARSOFT DOOR C.KRAMER" (`status_message` and
   `message_default`), "DOOR" as on the title screen.
+- Every wrong answer at a terminal costs a try, whichever side the guardian
+  comes from (`puzzle_wrong`); after three the terminal gets another puzzle.
+  The original only counted them when it came from the left, so from the right
+  a player could stay stuck on one puzzle.
+- The English F3 bank's "QWERTYUIOP@*" is now "QWERTYUIOP" (`@*` left out,
+  the rest moved one to the right, still guessing the U). The game can't show
+  an `@` in a puzzle: it reads a 0 as the end of the bank, and the font has
+  no `@` (it would be a black square).
 
 ## Bugs found
+
+Both are fixed, see "Differences from the original".
 
 - `puzzle_wrong`: when the guardian comes from the right, `puzzle_tries`
   isn't counted down, so in that case a wrong answer never moves on to another
   puzzle.
-- The English F3 bank has a puzzle "QWERTYUIOP@*" with `@` (screen code 0) in
-  it. A 0 makes `puzzle_char` go back to the start of the bank, so the game
-  shows the first puzzle's character in that place. `tools/puzzles.py` takes
-  `@` after a puzzle's first character for that.
+- The English F3 bank has a puzzle "QWERTYUIOP@*" (the keyboard's top row)
+  with `@` (screen code 0) in it. A 0 makes `puzzle_char` go back to the start
+  of the bank, so the game shows the first puzzle's character in that place.
+  Showing it as `@` doesn't help either: the font's char for screen code 0 is
+  a black square.

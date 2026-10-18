@@ -694,23 +694,23 @@ puzzle_terminal_exit:
 		jmp update_status
 
 ; wrong: unless it is already there, the guardian (sprite 7) comes in from the
-; left or the right, chosen by bit 0 of the map position. Only coming from the
-; left costs a try: from the right puzzle_tries isn't counted down (a bug?).
+; left or the right, chosen by bit 0 of the map position. Each wrong answer
+; costs a try; the original only counted them when it came from the left.
 ; jumped to by: puzzle_check_loop
 puzzle_wrong:
 		lda vic_sprite_enable
 		and #$80
 		bne puzzle_terminal_exit
-		lda map_position
+		dec puzzle_tries
+		bpl +
+		jsr puzzle_next
++		lda map_position
 		and #$01
 		beq guardian_from_right
 		lda #$00
 		sta vic_sprite_x_high_bits
 		sta guardian_left
 		sta vic_sprite_coords + $e
-		dec puzzle_tries
-		bpl guardian_start
-		jsr puzzle_next
 		jmp guardian_start
 
 ; jumped to by: puzzle_wrong

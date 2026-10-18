@@ -22,7 +22,8 @@ to 8 of them and starts again at the first after the last, so any number works.
 Characters are screen codes $01-$3f: A-Z, digits, space and !"#$%&'()*+,-./:;<=>?
 plus [ ] £ ↑ ←. '@' (screen code 0) can't start a puzzle: it ends the bank.
 Later in a puzzle the game reads it as the end too and shows the first puzzle's
-character in that place instead (the English F3 bank's QWERTYUIOP@ does).
+character in that place instead (the original English F3 bank's QWERTYUIOP@*
+did); the font has no @ anyway.
 """
 import sys
 
