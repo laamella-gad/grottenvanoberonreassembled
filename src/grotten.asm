@@ -991,8 +991,6 @@ last_frame:
 ; read by: update_damage_message
 ; written by: update_damage_message, show_default_message
 damage_seen:		.byte	$00
-; written by: show_damage_message, show_default_message
-damage_message_shown:		.byte	$00
 ; a character's glyph while it is shifted into the scroller
 ; written by: intro_copy_glyph, status_copy_glyph
 ; modified by: intro_shift_loop, status_shift_loop
@@ -1010,10 +1008,14 @@ answer:
 new_game:
 		lda #$00
 		sta intro_shown
-		lda #$ff
+		sta switch_state
 		ldy #$07
 new_game_close_door:
+		lda #$ff
 		sta door_char, y
+		sta switch_chars, y
+		lda #$00
+		sta charset + $7f8, y
 		dey 
 		bpl new_game_close_door
 ; jumped to by: intro_loop
@@ -1034,10 +1036,10 @@ new_game_reset:
 		sta cia1_tod_seconds
 		sta cia1_tod_tenths
 		cli 
-		sta vic_background_collision
 		sta collisions
+		lda vic_sprite_collision	; reading clears them
+		lda vic_background_collision
 		jsr status_sprites_clear
-		lda #$00
 		sta status_index
 		lda #$30
 		sta status_fuel + $1
@@ -1056,10 +1058,6 @@ new_game_reset:
 		jsr puzzle_next
 		lda intro_shown
 		beq intro
-		lda #<nmi_restore_game
-		sta nmi_vector
-		lda #>nmi_restore_game
-		sta nmi_vector + $1
 		jmp main_loop
 
 ; read by: new_game_reset
@@ -1267,6 +1265,12 @@ damage_repair:
 		ldy #>damage
 		lda #$01
 		jsr counter_decrement
+		lda show_message_copy + 1	; only when the status line shows the damage
+		cmp #<damage
+		bne probe
+		lda show_message_copy + 2
+		cmp #>damage
+		bne probe
 		lda damage
 		sta status_message
 		lda damage + $1
@@ -1564,7 +1568,7 @@ update_status:
 		tya 
 		ora #$80
 		sta clock_tile_seconds
-		lda cia1_tod_tenths
+		lda cia1_tod_tenths	; reading the hours latched the clock, this releases it
 		lda collisions
 		and #$3c
 		beq update_fuel
@@ -1636,8 +1640,6 @@ show_damage_message:
 		lda #$02
 		jsr show_message
 		jsr status_sprites_clear
-		lda #$01
-		sta damage_message_shown
 		jmp probe_message
 
 ; jumped to by: update_damage_message
@@ -1725,7 +1727,6 @@ show_default_message:
 		lda #$06
 		jsr show_message
 		lda #$00
-		sta damage_message_shown
 		sta status_index
 		sta damage_seen
 		rts 
@@ -1833,7 +1834,7 @@ frame_done:
 probe_char:
 		.byte	$00
 ; read by: probe_read_char, switch_set_closed
-; written by: switch_set_closed
+; written by: new_game, switch_set_closed
 switch_state:		.byte	$00
 ; 1 when the probe's character was handled
 ; read by: probe_check_touch, probe_message
@@ -1871,6 +1872,7 @@ show_message:
 		lda #status_message - status_line
 		sta status_index
 		ldx #$35
+; read by: damage_repair
 ; written by: show_message
 show_message_copy:
 		lda $ffff, x	; operand set by show_message
@@ -2382,7 +2384,7 @@ barrier_left_char:		.byte	$00
 barrier_right_char:		.byte	$38
 ; 1 while the barrier closes
 ; read by: animate_barrier
-; written by: engine_init, engine_init_barrier, barrier_close, barrier_open_next
+; written by: engine_init_barrier, barrier_close, barrier_open_next
 barrier_closing:		.byte	$00
 ; read by: barrier_close, barrier_open_step, barrier_open
 ; written by: engine_init_barrier, barrier_close_next, barrier_open_step
@@ -2397,7 +2399,7 @@ barrier_mask_index:		.byte	$07
 ; $2c00-$2dff, chars $80-$bf: the font (screen code order), also used by the
 ; scrollers; $2e00-$2fff, chars $c0-$ff: cave graphics. Chars $db-$e8 are the
 ; puzzle display, $ee the door, $f3 the switch light, $fe/$ff the switch.
-; written by: switch_set_closed, engine_init_barrier, barrier_close, barrier_open
+; written by: new_game_close_door, switch_set_closed, engine_init_barrier, barrier_close, barrier_open
 ; modified by: intro_shift_loop
 charset:
 		.binary	"charset.bin"
@@ -2409,7 +2411,7 @@ puzzle_display = $2ed8
 door_char = $2f70
 ; written by: puzzle_display_clear_light, puzzle_show_light
 switch_light_char = $2f98
-; written by: switch_set_open
+; written by: new_game_close_door, switch_set_open
 switch_chars = $2ff0
 
 ; ---------------------------------------------------------------- puzzles
@@ -3542,8 +3544,6 @@ engine_init:
 		lda #>frame_handler
 		sta scroll_phase_done + 2
 		lda #$00
-		sta barrier_closing
-		lda #$00
 		sta vic_sprite_x_high_bits
 		sta background_color
 		lda #$0b
@@ -3591,7 +3591,6 @@ engine_clear_sid:
 		sta voice2_sustain_release
 		lda #$11
 		sta voice1_control
-		lda #$05
 		ldx #$07
 engine_init_sprites:
 		lda sprite_coords_init, x
@@ -3732,7 +3731,6 @@ frame_engine_sound:
 
 ; jumped to by: frame_engine_sound
 frame_collisions:
-		stx vic_sprite_collision
 		lda vic_sprite_collision
 		and #$80
 		beq frame_background_collision
@@ -3741,7 +3739,6 @@ frame_collisions:
 
 ; jumped to by: frame_collisions
 frame_background_collision:
-		stx vic_background_collision
 		lda vic_background_collision
 ; jumped to by: frame_collisions
 frame_hit:
@@ -3823,7 +3820,6 @@ frame_joystick:
 		sta sprite_multicolor_2
 		lda #$00
 		sta background_flash
-		lda #$00
 		sta explode_step
 		sta destroyed_timer
 		lda cia1_port_a
@@ -3838,9 +3834,8 @@ frame_joystick:
 		beq frame_engine_down_check
 		lda engine_noise_rate
 		cmp #$0f
-		bcs frame_engine_up
+		bcs frame_set_direction
 		lda engine_pitch
-; jumped to by: frame_joystick
 frame_engine_up:
 		adc #$04
 		sta engine_pitch
@@ -3848,7 +3843,7 @@ frame_engine_up:
 		inc engine_pitch + $1
 		inc engine_noise_rate
 		inc engine_noise_rate
-; jumped to by: frame_engine_up, frame_engine_down_check
+; jumped to by: frame_joystick, frame_engine_up, frame_engine_down_check
 frame_set_direction:
 		tya 
 ; jumped to by: frame_hit_sides, frame_hit_right
@@ -3922,11 +3917,9 @@ vic_sprite_priority:		.byte	?
 vic_sprite_multicolor:		.byte	?
 ; written by: engine_init_sprites
 vic_sprite_double_width:		.byte	?
-; read by: frame_collisions
-; written by: frame_collisions
+; read by: new_game_reset, frame_collisions
 vic_sprite_collision:		.byte	?
-; read by: frame_background_collision
-; written by: new_game_reset, frame_background_collision
+; read by: new_game_reset, frame_background_collision
 vic_background_collision:		.byte	?
 ; written by: clear_screen_black, engine_init
 border_color:		.byte	?

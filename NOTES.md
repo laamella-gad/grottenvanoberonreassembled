@@ -334,10 +334,30 @@ project, import only takes the pixels.
   the rest moved one to the right, still guessing the U). The game can't show
   an `@` in a puzzle: it reads a 0 as the end of the bank, and the font has
   no `@` (it would be a black square).
+- When the damage is repaired (one down every 1024 frames from 10 % up),
+  `damage_repair` puts the new digits in the status line only while it shows
+  the damage. The original always wrote them over the first two characters
+  of `status_message`, so another message could show up as "05OMPUTER
+  CONTROL ...".
+- A new game sets the switch back to off (`switch_state` 0, chars $fe/$ff),
+  in `new_game` with the doors. The original kept it as the last game left
+  it.
+- Small clean-ups that change nothing a player sees:
+  - `damage_message_shown`, written but never read, is gone;
+  - the VIC collision registers ($d01e/$d01f) were written, which does
+    nothing (reading clears them): `frame_collisions` only reads them, and
+    `new_game_reset` reads both to clear what's left from the last game;
+  - `new_game_reset` set the NMI vector twice, `engine_init` cleared
+    `barrier_closing` twice, and a few `lda` loads were overwritten before
+    use;
+  - at top speed (`engine_noise_rate` $10) `frame_joystick` jumped into
+    `frame_engine_up` with the noise rate in A, setting the engine pitch's
+    low byte to $15 each frame (it is about $02 when the top speed is
+    reached); it now leaves the pitch alone.
 
 ## Bugs found
 
-Both are fixed, see "Differences from the original".
+All are fixed, see "Differences from the original".
 
 - `puzzle_wrong`: when the guardian comes from the right, `puzzle_tries`
   isn't counted down, so in that case a wrong answer never moves on to another
@@ -347,3 +367,6 @@ Both are fixed, see "Differences from the original".
   of the bank, so the game shows the first puzzle's character in that place.
   Showing it as `@` doesn't help either: the font's char for screen code 0 is
   a black square.
+- `damage_repair` writes the repaired damage over the first two characters
+  of whatever message is showing.
+- A new game keeps the switch as the last game left it.
