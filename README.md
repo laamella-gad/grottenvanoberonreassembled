@@ -1,7 +1,7 @@
 # De grotten van Oberon - reassembled
 
 Radarsoft's 1985 Dutch C64 cave and puzzle game (by C. Kramer), disassembled with
-[Deflower](../deflower) into a source with its texts, puzzles, cave, tiles and
+[Deflower](https://github.com/laamella-gad/deflower) into a source with its texts, puzzles, cave, tiles and
 graphics editable. It reassembled byte for byte up to commit 28b04fd, before some improvements were made. One source builds all four
 versions: Dutch, German (*Die Grotten von Oberon*), English (*The Caves of
 Oberon*, whose engine was sped up) and Finnish (*Oberonin luolat*), plus a new
