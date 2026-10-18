@@ -18,6 +18,12 @@ Each release shows Radarsoft's loading picture in its language before the game
 
 Do you know of any other translations? Point me to them and I can include them too.
 
+| | |
+|---|---|
+| ![The English loading picture](screenshots/loading.png) | ![Choosing the puzzles](screenshots/title.png) |
+| ![The introduction](screenshots/intro.png) | ![In the caves](screenshots/cave.png) |
+| ![A puzzle at a terminal](screenshots/terminal.png) | |
+
 ## How the cave scrolls
 
 The whole screen scrolls smoothly in eight directions, one pixel a frame, on a
