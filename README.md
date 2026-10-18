@@ -2,20 +2,19 @@
 
 Radarsoft's 1985 Dutch C64 cave and puzzle game (by C. Kramer), disassembled with
 [Deflower](../deflower) into a source with its texts, puzzles, cave, tiles and
-graphics editable. It reassembled byte for byte (up to commit 28b04fd); since
-then what the game never used is taken out. One source builds all four
+graphics editable. It reassembled byte for byte (up to commit 28b04fd); before some improvements were made. One source builds all four
 versions: Dutch, German (*Die Grotten von Oberon*), English (*The Caves of
 Oberon*, whose engine was sped up) and Finnish (*Oberonin luolat*), plus a new
-French one (*Les Grottes d'Oberon*), translated from the English.
+French one (*Les Grottes d'Oberon*), machine translated from the English.
 
 The versions come from cracks (`GROTTEN.T64`, `GROTTENO.T64`, `CAVESOFO.T64`, `OBERONIN.T64`, not included),
 with the cracks' depackers, intros and trainer left out, and the Dutch crack's
 credit in the status line replaced by Radarsoft's again. All five use the English version's
 faster engine, and the German and English versions get the Dutch version's cave
-wall tile $44, which had a few stray pixels in them.
+wall tile $44, which had a few discolored characters in them.
 
 Each release shows Radarsoft's loading picture in its language before the game
-(the French one redrawn from the English); a key or fire starts the game.
+(the French one automatically redrawn from the English); a key or fire starts the game.
 
 ## Building
 
