@@ -82,7 +82,8 @@ release is one file that unpacks itself and shows the loading picture first.
 
 These were run in a small 6502 emulator instead of VICE to get the image at
 $1000. The crack also changed the status line's text (`message_default`:
-"GEKRAAKT IN 1985 DOOR ABC"); nothing else in the game was found changed.
+"GEKRAAKT IN 1985 DOOR ABC", now restored, see "Differences from the
+original"); nothing else in the game was found changed.
 
 The German and English files are other cracks, unpacked the same way up to the
 game's `jmp $1000`. The German one keeps Radarsoft's credit in the status line.
@@ -321,6 +322,10 @@ project, import only takes the pixels.
 - The Dutch version was saved with the switch (char $ed, which toggles chars
   $fe/$ff) set. It now starts with it off like the other versions
   (`switch_state` 0, chars $fe/$ff in `charset.bin` as in the others).
+- The Dutch crack put its own credit in the status line ("GEKRAAKT IN 1985
+  DOOR ABC"). It has the game's credit again, as in the other versions:
+  "COPYRIGHT 1985 RADARSOFT DOOR C.KRAMER" (`status_message` and
+  `message_default`), "DOOR" as on the title screen.
 
 ## Bugs found
 

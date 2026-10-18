@@ -9,8 +9,8 @@ Oberon*, whose engine was sped up) and Finnish (*Oberonin luolat*), plus a new
 French one (*Les Grottes d'Oberon*), translated from the English.
 
 The versions come from cracks (`GROTTEN.T64`, `GROTTENO.T64`, `CAVESOFO.T64`, `OBERONIN.T64`, not included),
-with the cracks' depackers, intros and trainer left out; the Dutch crack's
-credits in the status line are still there. All five use the English version's
+with the cracks' depackers, intros and trainer left out, and the Dutch crack's
+credit in the status line replaced by Radarsoft's again. All five use the English version's
 faster engine, and the German and English versions get the Dutch version's cave
 wall tile $44, which had a few stray pixels in them.
 

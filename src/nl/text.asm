@@ -45,8 +45,8 @@ status_seconds:
 		.text	"00"
 		.text	" SCHADE:"
 status_message:
-		.text	"00 % -   GEKRAAKT  IN  1985  DOO"
-		.text	"R  ABC        -       "
+		.text	"00 % - COPYRIGHT 1985 RADARSOFT "
+		.text	"DOOR C.KRAMER -       "
 		.endsegment
 
 ; The messages. show_message copies 54 characters from the start of one; a
@@ -56,7 +56,7 @@ text_messages .segment
 damage:
 		.text	"00"
 message_default:
-		.text	" % -   GEKRAAKT  IN  1985  DOOR  ABC        -       "
+		.text	" % - COPYRIGHT 1985 RADARSOFT DOOR C.KRAMER -       "
 ; the fuel warning, shown when the fuel counts down to fuel_low_level
 message_fuel_low:
 		.text	" MACHINEKAMER MELDT: ", $22, "DE BRANDSTOF RAAKT OP !", $22, "        "
