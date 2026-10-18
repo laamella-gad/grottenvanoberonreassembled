@@ -24,6 +24,17 @@ Do you know of any other translations? Point me to them and I can include them t
 | ![The introduction](screenshots/intro.png) | ![In the caves](screenshots/cave.png) |
 | ![A puzzle at a terminal](screenshots/terminal.png) | |
 
+## Download
+
+Each version is a single crunched PRG; load it with `LOAD"...",8` and `RUN`,
+or drop it on VICE.
+
+- Nederlands: [grotten_van_oberon.prg](https://github.com/matozoid/grottenvanoberonrecompiled/raw/refs/heads/master/release/grotten_van_oberon.prg)
+- Deutsch: [grotten_von_oberon.prg](https://github.com/matozoid/grottenvanoberonrecompiled/raw/refs/heads/master/release/grotten_von_oberon.prg)
+- English: [caves_of_oberon.prg](https://github.com/matozoid/grottenvanoberonrecompiled/raw/refs/heads/master/release/caves_of_oberon.prg)
+- Français: [grottes_d_oberon.prg](https://github.com/matozoid/grottenvanoberonrecompiled/raw/refs/heads/master/release/grottes_d_oberon.prg) (work in progress, only AI translated now)
+- Suomi: [oberonin_luolat.prg](https://github.com/matozoid/grottenvanoberonrecompiled/raw/refs/heads/master/release/oberonin_luolat.prg)
+
 ## How the cave scrolls
 
 The whole screen scrolls smoothly in eight directions, one pixel a frame, on a
