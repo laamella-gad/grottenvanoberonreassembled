@@ -2557,8 +2557,8 @@ background_flash:		.byte	$00
 scroll_direction:		.byte	$0f
 ; counts down 8-1 each frame: the scroll phase
 ; read by: intro_frame, main_loop, guardian_right, scroll_fine, scroll_fine_up_check, scroll_fine_left_check, scroll_fine_right_check, scroll_phase_select, animate
-; written by: scroll_phase_select
-; modified by: scroll_fine
+; written by: scroll_fine, scroll_phase_select
+; modified by: scroll_fine_step
 frame_counter:		.byte	$08
 ; 1: the fine scroll wrapped, show the other screen
 ; read by: scroll_phase
@@ -2572,7 +2572,7 @@ copy_source_high:		.byte	$00
 ; written by: scroll_shift_colours, scroll_shift_chars, scroll_shift_chars_2
 copy_dest_high:		.byte	$00
 ; the next scroll direction, from the joystick and the collisions
-; read by: scroll_latch_direction, frame_hit_sides, frame_hit_right
+; read by: scroll_fine, scroll_latch_direction, frame_hit_sides, frame_hit_right
 ; written by: frame_engine_sound, frame_hit, frame_hit_bottom, frame_set_direction_a
 next_direction:		.byte	$0f
 ; 1: the guardian moves left
@@ -2661,8 +2661,26 @@ irq_return:
 		rti 
 
 ; the scroll phase: fine scroll y/x, set swap_screens when it wraps
+; Standing still with the joystick pushed, the cycle starts again at phase 7,
+; which latches the direction, instead of waiting up to 8 frames for it (not
+; in the original). Not when phase 7 was the last frame, so the main loop
+; still sees frame_counter change.
 ; jumped to by: raster_irq_split
 scroll_fine:
+		lda scroll_direction
+		cmp #$0f
+		bne scroll_fine_step
+		lda next_direction
+		and #$0f
+		cmp #$0f
+		beq scroll_fine_step
+		lda frame_counter
+		cmp #$07
+		beq scroll_fine_step
+		lda #$08
+		sta frame_counter
+; jumped to by: scroll_fine
+scroll_fine_step:
 		dec frame_counter
 		lda #$00
 		sta swap_screens

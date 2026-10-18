@@ -1,4 +1,4 @@
-# De grotten van Oberon
+# De grotten van Oberon - reassembled
 
 Radarsoft's 1985 Dutch C64 cave and puzzle game (by C. Kramer), disassembled with
 [Deflower](../deflower) into a source with its texts, puzzles, cave, tiles and
@@ -15,6 +15,34 @@ wall tile $44, which had a few discolored characters in them.
 
 Each release shows Radarsoft's loading picture in its language before the game
 (the French one automatically redrawn from the English); a key or fire starts the game.
+
+Do you know of any other translations? Point me to them and I can include them too.
+
+## How the cave scrolls
+
+The whole screen scrolls smoothly in eight directions, one pixel a frame, on a
+1 MHz machine that can't redraw a whole screen in a frame. The engine spreads the
+work over an 8-frame cycle with two screens: one is shown while the other is
+built one character further on.
+
+| Phase | Work |
+|---|---|
+| 7 | take the joystick direction for the whole cycle |
+| 5 | copy the characters, shifted one character, into the hidden screen |
+| 3 | shift the colours into a buffer |
+| 1 | draw the new row at the top or bottom |
+| 0 | draw the new column at the left or right |
+| every frame | fine scroll one pixel |
+
+When the fine scroll wraps, at phase 7, the screens swap and the colour buffer
+is copied to colour RAM ahead of the beam. A whole character of movement is
+always one cycle, so the direction can only change every 8 frames. That is why
+the controls feel a little slow, and why a short push moves the ship 1 or 8
+pixels, never in between: after a stop the fine scroll sits at one edge of a
+character, with 7 pixels to go the way it came and none the other way.
+
+These builds take the joystick right away when the ship stands still, instead
+of waiting for phase 7 (see `NOTES.md`).
 
 ## Building
 

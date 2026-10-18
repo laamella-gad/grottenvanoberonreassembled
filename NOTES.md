@@ -342,6 +342,21 @@ project, import only takes the pixels.
 - A new game sets the switch back to off (`switch_state` 0, chars $fe/$ff),
   in `new_game` with the doors. The original kept it as the last game left
   it.
+- From standstill the joystick is taken within a frame or two. The scroll
+  takes a new direction only at phase 7 of its 8-frame cycle
+  (`scroll_latch_direction`), so the original could wait up to 8 frames
+  (0.16 s), and a short push could get lost. Now, while the ship stands
+  still, `scroll_fine` restarts the cycle at phase 7 as soon as the joystick
+  is pushed; nothing is half-shifted then, so it is the same as pushing just
+  before phase 7. Changing direction while moving still waits for phase 7.
+
+  This only makes the start quick in the direction the ship last moved. A
+  stop leaves the fine scroll at that direction's far edge (`scroll_y` 7
+  after moving down, 0 after moving up), so it has 7 pixels to go before the
+  screen swap at phase 7: 8 pixels a cycle. The opposite way it is already
+  at the edge: it waits about 7 frames while the other screen is prepared,
+  and the swap moves it 1 pixel. So a short push moves the ship 1 or 8
+  pixels, never in between, as in the original.
 - Small clean-ups that change nothing a player sees:
   - `damage_message_shown`, written but never read, is gone;
   - the VIC collision registers ($d01e/$d01f) were written, which does
