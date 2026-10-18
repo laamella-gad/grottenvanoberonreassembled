@@ -57,6 +57,9 @@ damage:
 		.text	"00"
 message_default:
 		.text	" % -   GEKRAAKT  IN  1985  DOOR  ABC        -       "
+; the fuel warning, shown when the fuel counts down to fuel_low_level
+message_fuel_low:
+		.text	" MACHINEKAMER MELDT: ", $22, "DE BRANDSTOF RAAKT OP !", $22, "        "
 message_damage_top:
 		.text	" BOORDCOMPUTER MELDT: ", $22, "SCHADE AAN BOVENKANT", $22, "          "
 message_damage_bottom:

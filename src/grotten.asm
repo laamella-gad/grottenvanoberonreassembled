@@ -971,7 +971,7 @@ status_index:		.byte	$00
 ; read by: damage_repair
 ; written by: new_game_reset
 		#text_messages
-		.cerror message_damage_top - damage < 54, "message_default must be at least 52 characters"
+		.cerror message_fuel_low - damage < 54, "message_default must be at least 52 characters"
 		.cerror fuel_full_text - message_destroyed != 54, "message_destroyed must be 54 characters"
 ; shown in the puzzle display when the fuel is 1000 or more
 ; read by: fuel_tank_full_loop
@@ -1488,6 +1488,10 @@ fuel_timer:
 ; written by: update_status
 ; modified by: update_status
 damage_timer:		.byte	$0a
+; the fuel level at which the warning is shown, 4 digits
+; read by: update_fuel_check_low
+fuel_low_level:
+		.text	"0100"	; about a minute of fuel left
 
 ; a rising tone
 ; called by: puzzle_solved, probe_open_door
@@ -1590,7 +1594,25 @@ update_fuel:
 		ldy #>status_fuel
 		lda #$03
 		jsr counter_decrement
-		bcc update_damage_message
+		bcs update_fuel_empty
+; the fuel warning, each time the fuel counts down to fuel_low_level (not in
+; the original: its message was there, but nothing showed it)
+		ldx #$03
+update_fuel_check_low:
+		lda status_fuel, x
+		cmp fuel_low_level, x
+		bne update_damage_message
+		dex
+		bpl update_fuel_check_low
+		jsr status_sprites_clear
+		lda #$02
+		ldx #<message_fuel_low
+		ldy #>message_fuel_low
+		jsr show_message
+		jmp update_damage_message
+
+; jumped to by: update_fuel
+update_fuel_empty:
 		lda #$01
 		sta game_over
 		jsr status_sprites_clear

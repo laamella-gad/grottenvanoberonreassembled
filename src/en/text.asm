@@ -57,6 +57,9 @@ damage:
 		.text	"00"
 message_default:
 		.text	" % - COPYRIGHT 1985 RADARSOFT BY C.KRAMER -         "
+; the fuel warning, shown when the fuel counts down to fuel_low_level
+message_fuel_low:
+		.text	" MACHINEROOM REPORTS: ", $22, "LOW ON FUEL", $22, "                   "
 message_damage_top:
 		.text	" SHIPBOARD COMPUTER: ", $22, "DAMAGE UPSIDE SPACESHIP", $22, "        "
 message_damage_bottom:

@@ -237,7 +237,8 @@ code after them moves along (up to $2800).
   from the start of one, so a shorter message shows the start of the next one
   after it (the Dutch `message_damage_bottom` and `message_radar` are 53, so
   the originals do this too). `damage` + `message_default` is the normal status
-  (the credits).
+  (the credits). `message_fuel_low` is shown when the fuel counts down to
+  `fuel_low_level` (new, see "Differences from the original").
 - `text_intro`: the introduction, scrolled through the puzzle display, ends with 0.
 - `text_fuel_full`: "VOL!", exactly 4 characters.
 
@@ -303,8 +304,6 @@ project, import only takes the pixels.
   - three engine bytes nothing read ($c084, $c088, $c08a);
   - `puzzles_test`, a small puzzle list `puzzle_bank` pointed to before a
     difficulty was chosen (it's always set before it's read);
-  - `message_fuel_low`, a fuel warning in every language ("MACHINEKAMER
-    MELDT: DE BRANDSTOF RAAKT OP") that no code shows;
   - the leftovers of an earlier memory image after the game code
     ($2441-$27ff in Dutch) and after the engine ($cb7f-$cbff), the bytes
     after the puzzles in each puzzle bank, and the colour buffer's contents
@@ -313,6 +312,12 @@ project, import only takes the pixels.
     status scroller's position, a sound effect still running, the fuel
     timer, scroller and answer workspaces): now the values of a fresh start,
     which the German, English and Finnish versions had already.
+- The fuel warning (`message_fuel_low`, "MACHINEKAMER MELDT: DE BRANDSTOF
+  RAAKT OP" and its translations) was in every version, but no code showed
+  it. `update_fuel` now shows it, in red, each time the fuel counts down to
+  `fuel_low_level`, "0100": about a minute of fuel left, the fuel counting
+  down one every 30 frames (0.6 s). Also after refuelling and running low
+  again.
 - The Dutch version was saved with the switch (char $ed, which toggles chars
   $fe/$ff) set. It now starts with it off like the other versions
   (`switch_state` 0, chars $fe/$ff in `charset.bin` as in the others).
