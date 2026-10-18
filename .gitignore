@@ -11,3 +11,4 @@ sprites.spd
 *.T64
 # the English loading picture, a VICE snapshot (see NOTES.md)
 *.vsf
+.idea
